@@ -34,7 +34,7 @@
 
 .e-resource-column-wrap .e-resource-cells.e-child-node .employee-category,
 .e-resource-column-wrap .e-resource-cells.e-child-node .employee-name {
-    padding: 5px
+    padding: 4px
 }
 
 
@@ -75,6 +75,10 @@
     background-image: url('https://ej2.syncfusion.com/react/demos/src/schedule/images/will-smith.png');
 }
 
+.e-resource-column-wrap .template-wrap .employee-image.williams {
+    background-image: url('https://ej2.syncfusion.com/react/demos/src/schedule/images/robson.png');
+}
+
 
 .e-resource-column-wrap .template-wrap .employee-image.laura {
     background-image: url('https://ej2.syncfusion.com/react/demos/src/schedule/images/laura.png');
@@ -93,6 +97,16 @@
     background-image: url('https://ej2.syncfusion.com/react/demos/src/schedule/images/robson.png');
 }
 
+@keyframes blink-border {
+    0% { border-color: red; }
+    50% { border-color: transparent; } /* Makes the border disappear halfway */
+    100% { border-color: red; }
+}
+
+.e-schedule-table .e-appointment.e-leave {
+    opacity: 0.6; 
+    border: 2px dashed red;
+}
 
 
 .drag-sample-wrapper {

@@ -21,184 +21,74 @@ const employeeData = [
     { name: 'Robson', id: 8, groupId: 3, color: '#00bdae', Designation: 'Hospital Attendant' }
 ];
 
-const rotateEmployees = (employeeList) => {
-    return employeeList.length > 1 ? [...employeeList.slice(1), employeeList[0]] : employeeList;
-};
+const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+
+const getRandomDescription = () => Math.random() < 0.1 ? "On Leave" : "Available";
 
 const generateShiftData = (startDate, numDays) => {
     const shiftData = [];
-    const shiftGroups = [
-        { roleId: 1, groupName: 'Doctors' },
-        { roleId: 2, groupName: 'Nurses' },
-        { roleId: 3, groupName: 'Support Staffs' }
-    ];
-
-    const doctors = employeeData.filter(emp => emp.groupId === 1);
-    let availableDoctors = [doctors[0], doctors[1]];
-    let availableOnCallDoctors = [doctors[2], doctors[3]];
-    let availableNurses = employeeData.filter(emp => emp.groupId === 2);
-    let availableSupportStaffs = employeeData.filter(emp => emp.groupId === 3);
+    const doctors = shuffleArray([...employeeData.filter(emp => emp.groupId === 1)]);
+    const nurses = shuffleArray([...employeeData.filter(emp => emp.groupId === 2)]);
+    const supportStaffs = shuffleArray([...employeeData.filter(emp => emp.groupId === 3)]);
 
     for (let i = 0; i < numDays; i++) {
         const day = new Date(startDate);
         day.setDate(day.getDate() + i);
 
-        shiftGroups.forEach((group) => {
-            let startTime, endTime;
-            const { roleId } = group;
+        let assignedDoctors = shuffleArray([...doctors]);
+        let assignedNurses = shuffleArray([...nurses]);
+        let assignedSupportStaffs = shuffleArray([...supportStaffs]);
 
-            if (roleId === 1) {  // Doctors (Only adding blocked time for them)
-                // **Assign shifts**
-                startTime = new Date(day);
-                startTime.setHours(7, 0, 0);
-                endTime = new Date(day);
-                endTime.setHours(19, 0, 0);
+        let dayDoctor = assignedDoctors[0] || null;
+        let dayOnCallDoctor = assignedDoctors[1] || null;
+        let nightDoctor = assignedDoctors[2] || null;
+        let nightOnCallDoctor = assignedDoctors[3] || null;
+        let availableDoctor = assignedDoctors[4] || null; // Extra available doctor
 
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'Day Shift',
-                    StartTime: startTime,
-                    EndTime: endTime,
-                    RoleId: roleId,
-                    EmployeeId: availableDoctors[0].id
-                });
+        let dayNurse = assignedNurses[0] || null;
+        let nightNurse = assignedNurses[1] || null;
 
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'On-Call Duty',
-                    StartTime: startTime,
-                    EndTime: endTime,
-                    RoleId: roleId,
-                    EmployeeId: availableOnCallDoctors[0].id
-                });
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'Off-Duty',
-                    StartTime: endTime,
-                    EndTime: new Date(endTime.getTime() + 720 * 60000), // 19:00 - 20:00
-                    RoleId: roleId,
-                    EmployeeId: availableDoctors[0].id,
-                    IsBlock: true
-                });
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'Off-Duty',
-                    StartTime: endTime,
-                    EndTime: new Date(endTime.getTime() + 720 * 60000), // 19:00 - 20:00
-                    RoleId: roleId,
-                    EmployeeId: availableOnCallDoctors[0].id,
-                    IsBlock: true
-                });
+        let dayStaff = assignedSupportStaffs[0] || null;
+        let nightStaff = assignedSupportStaffs[1] || null;
 
-                startTime = new Date(day);
-                startTime.setHours(19, 0, 0);
-                endTime = new Date(day);
-                endTime.setDate(day.getDate() + 1);
-                endTime.setHours(7, 0, 0);
+        if (dayDoctor) {
+            shiftData.push({ Id: shiftData.length + 1, Subject: 'Day Shift', Description: getRandomDescription(), StartTime: new Date(day.setHours(7, 0, 0)), EndTime: new Date(day.setHours(19, 0, 0)), RoleId: 1, EmployeeId: dayDoctor.id });
+        }
+        if (dayOnCallDoctor) {
+            shiftData.push({ Id: shiftData.length + 1, Subject: 'On-Call Duty', Description: getRandomDescription(), StartTime: new Date(day.setHours(7, 0, 0)), EndTime: new Date(day.setHours(19, 0, 0)), RoleId: 1, EmployeeId: dayOnCallDoctor.id });
+        }
+        if (nightDoctor) {
+            shiftData.push({ Id: shiftData.length + 1, Subject: 'Night Shift', Description: getRandomDescription(), StartTime: new Date(day.setHours(19, 0, 0)), EndTime: new Date(day.setHours(7, 0, 0) + 86400000), RoleId: 1, EmployeeId: nightDoctor.id });
+        }
+        if (nightOnCallDoctor) {
+            shiftData.push({ Id: shiftData.length + 1, Subject: 'On-Call Duty', Description: getRandomDescription(), StartTime: new Date(day.setHours(19, 0, 0)), EndTime: new Date(day.setHours(7, 0, 0) + 86400000), RoleId: 1, EmployeeId: nightOnCallDoctor.id });
+        }
+        if (availableDoctor) {
+            shiftData.push({ Id: shiftData.length + 1, Subject: 'Available', Description: getRandomDescription(), StartTime: new Date(day.setHours(0, 0, 0)), EndTime: new Date(day.setHours(23, 59, 59)), RoleId: 1, EmployeeId: availableDoctor.id });
+        }
 
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'Night Shift',
-                    StartTime: startTime,
-                    EndTime: endTime,
-                    RoleId: roleId,
-                    EmployeeId: availableDoctors[1].id
-                });
+        if (dayNurse) {
+            shiftData.push({ Id: shiftData.length + 1, Subject: 'Day Shift', Description: getRandomDescription(), StartTime: new Date(day.setHours(7, 0, 0)), EndTime: new Date(day.setHours(19, 0, 0)), RoleId: 2, EmployeeId: dayNurse.id });
+        }
+        if (nightNurse) {
+            shiftData.push({ Id: shiftData.length + 1, Subject: 'Night Shift', Description: getRandomDescription(), StartTime: new Date(day.setHours(19, 0, 0)), EndTime: new Date(day.setHours(7, 0, 0) + 86400000), RoleId: 2, EmployeeId: nightNurse.id });
+        }
 
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'On-Call Duty',
-                    StartTime: startTime,
-                    EndTime: endTime,
-                    RoleId: roleId,
-                    EmployeeId: availableOnCallDoctors[1].id
-                });
-
-                // **Block Off-Duty Time Between Night & Next Day Shift (for availableDoctors[1])**
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'Off-Duty',
-                    StartTime: endTime,
-                    EndTime: new Date(endTime.getTime() + 720 * 60000), // 07:00 - 08:00
-                    RoleId: roleId,
-                    EmployeeId: availableDoctors[1].id,
-                    IsBlock: true
-                });
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'Off-Duty',
-                    StartTime: endTime,
-                    EndTime: new Date(endTime.getTime() + 720 * 60000), // 07:00 - 08:00
-                    RoleId: roleId,
-                    EmployeeId: availableOnCallDoctors[1].id,
-                    IsBlock: true
-                });
-
-                // **Rotate shifts every 14 days**
-                if (i % 14 === 13) {
-                    [availableDoctors, availableOnCallDoctors] = [availableOnCallDoctors, availableDoctors];
-                }
-            } else { 
-                // **No changes for Nurses & Support Staff**
-                startTime = new Date(day);
-                startTime.setHours(7, 0, 0);
-                endTime = new Date(day);
-                endTime.setHours(19, 0, 0);
-
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'Day Shift',
-                    StartTime: startTime,
-                    EndTime: endTime,
-                    RoleId: roleId,
-                    EmployeeId: availableNurses[0].id
-                });
-
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'Day Shift',
-                    StartTime: startTime,
-                    EndTime: endTime,
-                    RoleId: roleId,
-                    EmployeeId: availableSupportStaffs[0].id
-                });
-
-                availableNurses = rotateEmployees(availableNurses);
-                availableSupportStaffs = rotateEmployees(availableSupportStaffs);
-
-                startTime = new Date(day);
-                startTime.setHours(19, 0, 0);
-                endTime = new Date(day);
-                endTime.setDate(day.getDate() + 1);
-                endTime.setHours(7, 0, 0);
-
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'Night Shift',
-                    StartTime: startTime,
-                    EndTime: endTime,
-                    RoleId: roleId,
-                    EmployeeId: availableNurses[0].id
-                });
-
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: 'Night Shift',
-                    StartTime: startTime,
-                    EndTime: endTime,
-                    RoleId: roleId,
-                    EmployeeId: availableSupportStaffs[0].id
-                });
-
-                availableNurses = rotateEmployees(availableNurses);
-                availableSupportStaffs = rotateEmployees(availableSupportStaffs);
-            }
-        });
+        if (dayStaff) {
+            shiftData.push({ Id: shiftData.length + 1, Subject: 'Day Shift', Description: getRandomDescription(), StartTime: new Date(day.setHours(7, 0, 0)), EndTime: new Date(day.setHours(19, 0, 0)), RoleId: 3, EmployeeId: dayStaff.id });
+        }
+        if (nightStaff) {
+            shiftData.push({ Id: shiftData.length + 1, Subject: 'Night Shift', Description: getRandomDescription(), StartTime: new Date(day.setHours(19, 0, 0)), EndTime: new Date(day.setHours(7, 0, 0) + 86400000), RoleId: 3, EmployeeId: nightStaff.id });
+        }
     }
     return shiftData;
 };
 
+
 const workShiftData = generateShiftData(new Date(2025, 1, 17), 14);
+
+
+
 
 
 
@@ -234,6 +124,10 @@ function App() {
             args.element.style.color = '#fff'; // White text
         } else if (args.data.Subject === 'On-Call Duty') {
             args.element.style.backgroundColor = '#7fa900';
+        }
+
+        if (args.data.Description === 'On Leave') {
+            args.element.classList.add('e-leave');
         }
     };
 
@@ -371,6 +265,14 @@ function App() {
         // }
     }
 
+    const resizeStart = (args) => {
+    //    args.interval = 10;
+    }
+
+    const resizeStop = (args) => {
+       // debugger;
+    }
+
     return (<div className='schedule-control-section'>
         <div className='col-lg-12 control-section'>
             <div className='control-wrapper drag-sample-wrapper'>
@@ -393,6 +295,8 @@ function App() {
                         headerIndentTemplate={headerIndentTemplate}
                         resourceHeaderTemplate={resourceHeaderTemplate}
                         renderCell={onRenderCell}
+                        resizeStart={resizeStart}
+                        resizeStop={resizeStop}
                     >
 
                         <ViewsDirective>
@@ -427,7 +331,7 @@ function App() {
                 </div>
                 <div className="treeview-container">
                     <div className="title-container">
-                        <h1 className="title-text">Shifts</h1>
+                        <h1 className="title-text">Available Doctors</h1>
                     </div>
                     <TreeViewComponent ref={treeObj} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
                 </div>
