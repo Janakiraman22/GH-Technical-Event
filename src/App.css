@@ -97,31 +97,84 @@
     background-image: url('https://ej2.syncfusion.com/react/demos/src/schedule/images/robson.png');
 }
 
-@keyframes blink-border {
-    0% { border-color: red; }
-    50% { border-color: transparent; } /* Makes the border disappear halfway */
-    100% { border-color: red; }
-}
 
 .e-schedule-table .e-appointment.e-leave {
-    opacity: 0.6; 
+    /* opacity: 0.6;  */
+    background-color: #d7d6d6 !important;
+    color: black;
+    /* border: 2px dashed red; */
+}
+
+.e-schedule-table .e-appointment.e-half-leave {
+    /* opacity: 0.6;  */
+    background-color: #d7d6d6 !important;
+    color: black;
+    /* border: 2px dashed red; */
+}
+
+.e-schedule-table .e-appointment.e-covers {
+    /* opacity: 0.6;  */
+    background-color: #0098fb !important;
+    color: white;
     /* border: 2px dashed red; */
 }
 
 .e-schedule-table .e-appointment.e-leave .e-icons {
-    display: flex;         /* Enables flexbox */
-    align-items: center;   /* Center vertically */
-    justify-content: center; /* Center horizontally */        /* Ensures it spans the full height */
-    font-size: 20px;       /* Adjust icon size */
-    color: red;
+    display: flex;
+    /* Enables flexbox */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    /* Ensures it spans the full height */
+    font-size: 20px;
+    /* Adjust icon size */
+    color: #fd5452;
 }
+
+.e-schedule-table .e-appointment.e-half-leave .e-icons {
+    display: flex;
+    /* Enables flexbox */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    /* Ensures it spans the full height */
+    font-size: 20px;
+    /* Adjust icon size */
+    color: #FFA500;
+}
+
+.e-schedule-table .e-appointment.e-covers .e-icons {
+    display: flex;
+    /* Enables flexbox */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
+    /* Ensures it spans the full height */
+    font-size: 18px;
+    /* Adjust icon size */
+    color: white;
+}
+
+.e-schedule-table .e-appointment.e-leave .e-icons::before {
+    content: '\e917';
+}
+
+.e-schedule-table .e-appointment.e-half-leave .e-icons::before {
+    content: '\e92f';
+}
+
+.e-schedule-table .e-appointment.e-covers .e-icons::before {
+    content: '\e606';
+}
+
 .e-past-app {
     background-color: rgb(14, 118, 50) !important;
 }
 
-.e-schedule-table .e-appointment.e-leave .e-icons::before {
-    content: '\e92f';
-}
+
 .drag-sample-wrapper {
     display: -ms-flexbox;
     display: flex;
@@ -136,10 +189,31 @@
     padding-bottom: 10px;
 }
 
-.treeview-external-drag #waiting {
-    height: 100%;
-    padding: 0;
+.treeview-external-drag {
+    border: 0.8px solid lightgray;
+    margin-top: 40px;
 }
+
+.treeview-external-drag {
+
+    .e-list-item.e-level-1 .e-fullrow {
+        background-color: #dcdbdb !important;
+
+        .header-role {
+            font-size: 12px;
+            font-weight: bold;
+        }
+    }
+
+    .e-list-item.e-level-1 .e-list-item.e-level-2 .e-fullrow {
+        background-color: #f1f1f1 !important;
+        /* Prevents the style from applying to level-2 */
+    }
+
+
+
+}
+
 
 .treeview-external-drag #waitdetails {
     width: 95%;
@@ -182,46 +256,70 @@
     text-overflow: ellipsis;
 }
 
-.treeview-external-drag .e-list-text, .treeview-external-drag.e-rtl .e-list-text, .e-bigger .treeview-external-drag .e-list-text, .e-bigger .treeview-external-drag.e-rtl .e-list-text {
-    border: 0.5px solid #E1E7EC;
+.treeview-external-drag .e-list-text,
+.treeview-external-drag.e-rtl .e-list-text,
+.e-bigger .treeview-external-drag .e-list-text,
+.e-bigger .treeview-external-drag.e-rtl .e-list-text {
     height: 50px;
     line-height: 15px !important;
     padding: 0 5px;
     width: 220px;
 }
 
-.treeview-external-drag .e-list-parent, .treeview-external-drag.e-rtl .e-list-parent, .e-bigger .treeview-external-drag .e-list-parent, .e-bigger .treeview-external-drag.e-rtl .e-list-parent {
+.treeview-external-drag .e-list-text .header-role {
+    position: absolute;
     height: 100%;
-    padding: 0 2px;
+    top: 18px;
 }
 
-.treeview-external-drag .e-list-item, .e-bigger .treeview-external-drag .e-list-item {
+.treeview-external-drag .e-list-parent,
+.treeview-external-drag.e-rtl .e-list-parent,
+.e-bigger .treeview-external-drag .e-list-parent,
+.e-bigger .treeview-external-drag.e-rtl .e-list-parent {
+    height: 100%;
+}
+
+.treeview-external-drag .e-list-item,
+.e-bigger .treeview-external-drag .e-list-item {
     height: 100%;
     padding: 0 0 5px 0;
 }
 
-.treeview-external-drag .e-fullrow, .e-bigger .treeview-external-drag .e-fullrow {
+.treeview-external-drag .e-fullrow,
+.e-bigger .treeview-external-drag .e-fullrow {
     height: 55px;
 }
 
-.treeview-external-drag .e-list-item.e-hover>.e-fullrow, .treeview-external-drag .e-list-item.e-active>.e-fullrow, .treeview-external-drag .e-list-item.e-active.e-hover>.e-fullrow, .e-bigger .treeview-external-drag .e-list-item.e-hover>.e-fullrow, .e-bigger .treeview-external-drag .e-list-item.e-active>.e-fullrow, .e-bigger .treeview-external-drag .e-list-item.e-active.e-hover>.e-fullrow {
+.treeview-external-drag .e-list-item.e-hover>.e-fullrow,
+.treeview-external-drag .e-list-item.e-active>.e-fullrow,
+.treeview-external-drag .e-list-item.e-active.e-hover>.e-fullrow,
+.e-bigger .treeview-external-drag .e-list-item.e-hover>.e-fullrow,
+.e-bigger .treeview-external-drag .e-list-item.e-active>.e-fullrow,
+.e-bigger .treeview-external-drag .e-list-item.e-active.e-hover>.e-fullrow {
     background-color: transparent;
     border-color: transparent;
     box-shadow: none !important;
 }
+
 .fluent2-highcontrast .treeview-external-drag .e-list-item.e-hover>.e-text-content .e-list-text {
     color: #fff;
 }
-.treeview-external-drag .e-text-content, .e-bigger .treeview-external-drag .e-text-content, .treeview-external-drag.e-rtl .e-text-content, .e-bigger .treeview-external-drag.e-rtl .e-text-content {
+
+.treeview-external-drag .e-text-content,
+.e-bigger .treeview-external-drag .e-text-content,
+.treeview-external-drag.e-rtl .e-text-content,
+.e-bigger .treeview-external-drag.e-rtl .e-text-content {
     padding: 0;
     background-color: inherit;
 }
 
-.e-drag-item.e-treeview.treeview-external-drag, .e-bigger .e-drag-item.e-treeview.treeview-external-drag {
+.e-drag-item.e-treeview.treeview-external-drag,
+.e-bigger .e-drag-item.e-treeview.treeview-external-drag {
     padding: 0 !important;
 }
 
-.e-schedule.schedule-drag-drop .e-timeline-view .e-resource-left-td, .e-schedule.schedule-drag-drop .e-timeline-month-view .e-resource-left-td {
+.e-schedule.schedule-drag-drop .e-timeline-view .e-resource-left-td,
+.e-schedule.schedule-drag-drop .e-timeline-month-view .e-resource-left-td {
     width: 160px;
 }
 
@@ -233,7 +331,8 @@
     padding-right: 30px
 }
 
-.e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-category, .e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-name {
+.e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-category,
+.e-schedule.schedule-drag-drop .e-resource-cells.e-child-node .specialist-name {
     padding: 5px
 }
 
@@ -295,20 +394,25 @@
     .drag-sample-wrapper {
         display: block;
     }
+
     .schedule-container {
         padding-bottom: 10px
     }
-    .treeview-external-drag.e-treeview, .e-bigger .treeview-external-drag.e-treeview {
+
+    .treeview-external-drag.e-treeview,
+    .e-bigger .treeview-external-drag.e-treeview {
         width: 250px;
     }
+
     .e-bigger .treeview-external-drag.e-treeview.e-drag-item {
         position: relative !important;
     }
 }
+
 .e-disble-not-allowed {
-   cursor: unset !important;
+    cursor: unset !important;
 }
 
 .e-drag-item.treeview-external-drag .e-icon-expandable {
-   display: none;
+    display: none;
 }

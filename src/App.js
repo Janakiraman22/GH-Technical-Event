@@ -55,68 +55,147 @@ const generateShiftData = (startDate, numDays) => {
         let dayOnCallDoctor = assignedDoctors[0] || null;
         let nightOnCallDoctor = assignedDoctors[1] || dayOnCallDoctor; // Ensure at least one On-Call doctor per shift
 
-        const getRandomDescription = () => Math.random() < 0.1 ? "On Leave" : "Available";
+        const getRandomDescription = () => {
+            const rand = Math.random();
+            if (rand < 0.1) return "On Leave";         // 10% chance of full leave
+            if (rand < 0.2) return "First Half Leave"; // 10% chance of first half leave
+            if (rand < 0.3) return "Second Half Leave"; // 10% chance of second half leave
+            return "Available"; // 70% chance of being available
+        };
 
-const createShiftWithBreak = (employee, roleId, shiftName, startDay, startHour, endDay, endHour, breakHour) => {
-    const description = getRandomDescription(); // Get "Available" or "On Leave"
+        const createShiftWithBreak = (employee, roleId, shiftName, startDay, startHour, endDay, endHour, breakHour) => {
+            const description = getRandomDescription();
 
-    const part1Start = new Date(startDay);
-    part1Start.setHours(startHour, 0, 0);
+            const part1Start = new Date(startDay);
+            part1Start.setHours(startHour, 0, 0);
 
-    const part2End = new Date(endDay);
-    part2End.setHours(endHour, 0, 0);
+            const part2End = new Date(endDay);
+            part2End.setHours(endHour, 0, 0);
 
-    if (description === "On Leave") {
-        // If the employee is on leave, do not split the shift
-        shiftData.push({
-            Id: shiftData.length + 1,
-            Subject: `${shiftName} (On Leave)`,
-            StartTime: part1Start,
-            EndTime: part2End,
-            RoleId: roleId,
-            EmployeeId: employee.id,
-            Description: "On Leave"
-        });
-    } else {
-        // If the employee is available, split shift into three parts (Before Break, Break, After Break)
-        const breakStart = new Date(endDay);
-        breakStart.setHours(breakHour, 0, 0);
+            const breakStart = new Date(endDay);
+            breakStart.setHours(breakHour, 0, 0);
 
-        const breakEnd = new Date(endDay);
-        breakEnd.setHours(breakHour + 1, 0, 0); // 1-hour break
+            const breakEnd = new Date(endDay);
+            breakEnd.setHours(breakHour + 1, 0, 0); // 1-hour break
 
-        shiftData.push({
-            Id: shiftData.length + 1,
-            Subject: `${shiftName}`,
-            StartTime: part1Start,
-            EndTime: breakStart,
-            RoleId: roleId,
-            EmployeeId: employee.id,
-            Description: "Available"
-        });
+            if (description === "On Leave") {
+                shiftData.push({
+                    Id: shiftData.length + 1,
+                    Subject: `${shiftName} (On Leave)`,
+                    StartTime: part1Start,
+                    EndTime: part2End,
+                    RoleId: roleId,
+                    EmployeeId: employee.id,
+                    Description: "On Leave",
+                    Color: "#FFCDD2" // Light red for full leave
+                });
+            } else if (description === "First Half Leave") {
+                // First half leave event (HLD)
+                shiftData.push({
+                    Id: shiftData.length + 1,
+                    Subject: `Half-Day Leave (${shiftName} - First Half)`,
+                    StartTime: part1Start,
+                    EndTime: breakStart,
+                    RoleId: roleId,
+                    EmployeeId: employee.id,
+                    Description: "Half-Day Leave",
+                    Color: "#FFECB3" // Light yellow for half-day leave
+                });
 
-        shiftData.push({
-            Id: shiftData.length + 1,
-            Subject: `Break (${shiftName})`,
-            StartTime: breakStart,
-            EndTime: breakEnd,
-            RoleId: roleId,
-            EmployeeId: employee.id,
-            Description: "Available",
-            Color: "#B0BEC5" // Soft Gray for professional break color
-        });
+                // Break Event (BRL)
+                shiftData.push({
+                    Id: shiftData.length + 1,
+                    Subject: `Break (${shiftName})`,
+                    StartTime: breakStart,
+                    EndTime: breakEnd,
+                    RoleId: roleId,
+                    EmployeeId: employee.id,
+                    Description: "Break",
+                    Color: "#B0BEC5" // Soft Gray for break time
+                });
 
-        shiftData.push({
-            Id: shiftData.length + 1,
-            Subject: `${shiftName}`,
-            StartTime: breakEnd,
-            EndTime: part2End,
-            RoleId: roleId,
-            EmployeeId: employee.id,
-            Description: "Available"
-        });
-    }
-};
+                // Second half available
+                shiftData.push({
+                    Id: shiftData.length + 1,
+                    Subject: `${shiftName}`,
+                    StartTime: breakEnd,
+                    EndTime: part2End,
+                    RoleId: roleId,
+                    EmployeeId: employee.id,
+                    Description: "Available"
+                });
+            } else if (description === "Second Half Leave") {
+                // First half available
+                shiftData.push({
+                    Id: shiftData.length + 1,
+                    Subject: `${shiftName}`,
+                    StartTime: part1Start,
+                    EndTime: breakStart,
+                    RoleId: roleId,
+                    EmployeeId: employee.id,
+                    Description: "Available"
+                });
+
+                // Break Event (BRL)
+                shiftData.push({
+                    Id: shiftData.length + 1,
+                    Subject: `Break (${shiftName})`,
+                    StartTime: breakStart,
+                    EndTime: breakEnd,
+                    RoleId: roleId,
+                    EmployeeId: employee.id,
+                    Description: "Break",
+                    Color: "#B0BEC5" // Soft Gray for break time
+                });
+
+                // Second half leave event (HLD)
+                shiftData.push({
+                    Id: shiftData.length + 1,
+                    Subject: `Half-Day Leave (${shiftName} - Second Half)`,
+                    StartTime: breakEnd,
+                    EndTime: part2End,
+                    RoleId: roleId,
+                    EmployeeId: employee.id,
+                    Description: "Half-Day Leave",
+                    Color: "#FFECB3" // Light yellow for half-day leave
+                });
+            } else {
+                // Regular Shift - Before Break
+                shiftData.push({
+                    Id: shiftData.length + 1,
+                    Subject: `${shiftName}`,
+                    StartTime: part1Start,
+                    EndTime: breakStart,
+                    RoleId: roleId,
+                    EmployeeId: employee.id,
+                    Description: "Available"
+                });
+
+                // Break Event (BRL)
+                shiftData.push({
+                    Id: shiftData.length + 1,
+                    Subject: `Break (${shiftName})`,
+                    StartTime: breakStart,
+                    EndTime: breakEnd,
+                    RoleId: roleId,
+                    EmployeeId: employee.id,
+                    Description: "Break",
+                    Color: "#B0BEC5" // Soft Gray for break time
+                });
+
+                // Regular Shift - After Break
+                shiftData.push({
+                    Id: shiftData.length + 1,
+                    Subject: `${shiftName}`,
+                    StartTime: breakEnd,
+                    EndTime: part2End,
+                    RoleId: roleId,
+                    EmployeeId: employee.id,
+                    Description: "Available"
+                });
+            }
+        };
+
 
         // **Day Shift (7 AM - 7 PM) → Break at 1 PM - 2 PM**
         dayShiftDoctors.forEach(doctor => createShiftWithBreak(doctor, 1, "Day Shift", day, 7, day, 19, 12));
@@ -170,14 +249,40 @@ const workHours = { start: '00:00', end: '23:59' };
 
 function App() {
     const scheduleObj = useRef(null);
-    const [isTimelineView, setIsTimelineView] = useState(false);
+    const [isTimelineView, setIsTimelineView] = useState(true);
 
     const onEventRendered = (args) => {
         // if (args.data.EndTime < scheduleObj.current.selectedDate && args.data.EndTime.getDate() < new Date().getDate()) {
         //     args.element.classList.add('e-past-app');
         // }
-        // else 
-        if (args.data.Subject === 'Day Shift') {
+        // else
+        if (args.data.Description.includes('covers for')) {
+            args.element.querySelector('.e-subject').innerText = args.data.Description;
+            args.element.classList.add('e-covers');
+
+            let iconElement = document.createElement('span');
+            iconElement.classList.add('e-icons');
+
+            args.element.querySelector('.e-inner-wrap')?.appendChild(iconElement);
+        } else if (args.data.Description === 'On Leave') {
+            // args.data.Subject = 'Not Available(' + args.data.Subject + ')';
+            args.element.querySelector('.e-subject').innerText = args.data.Description;
+            args.element.classList.add('e-leave');
+
+            let iconElement = document.createElement('span');
+            iconElement.classList.add('e-icons');
+
+            args.element.querySelector('.e-inner-wrap')?.appendChild(iconElement);
+        } else if (args.data.Description === "Half-Day Leave") {
+            //args.data.Subject = 'Not Available(' + args.data.Subject + ')';
+            args.element.querySelector('.e-subject').innerText = 'Half-Day Leave';
+            args.element.classList.add('e-half-leave');
+
+            let iconElement = document.createElement('span');
+            iconElement.classList.add('e-icons');
+
+            args.element.querySelector('.e-inner-wrap')?.appendChild(iconElement);
+        } else if (args.data.Subject === 'Day Shift') {
             args.element.style.backgroundColor = '#ADD8E6'; // Light Blue
             args.element.style.color = '#000'; // Black text
         } else if (args.data.Subject === 'Night Shift') {
@@ -193,18 +298,7 @@ function App() {
             args.element.style.backgroundColor = '#abe302';
         }
 
-        
 
-        if (args.data.Description === 'On Leave') {
-            args.data.Subject = 'Not Available(' + args.data.Subject + ')';
-            args.element.querySelector('.e-subject').innerText = 'Leave';
-            args.element.classList.add('e-leave');
-
-            let iconElement = document.createElement('span');
-            iconElement.classList.add('e-icons');
-
-            args.element.querySelector('.e-inner-wrap')?.appendChild(iconElement);
-        }
     };
 
     const headerIndentTemplate = () => {
@@ -238,21 +332,43 @@ function App() {
 
 
     const reserveStaffs = [
+        { Id: 1, Name: "Doctors", HasChild: true, Expanded: true },
+        { Id: 2, PId: 1, Name: "John", Description: 'General Practitioner' },
+        { Id: 3, PId: 1, Name: "Nashil", Description: 'Cardiologist' },
+        { Id: 4, PId: 1, Name: "Salman", Description: 'Neurologist' },
 
+        { Id: 5, Name: "Nurses", HasChild: true, Expanded: true },
+        { Id: 6, PId: 5, Name: "Roy", Description: 'Staff Nurse' },
+        { Id: 7, PId: 5, Name: "Troot", Description: 'Staff Nurse' },
+
+        { Id: 8, Name: "Support Staffs", HasChild: true, Expanded: true },
+        { Id: 9, PId: 8, Name: "Ricky", Description: 'Ward Assistant' },
+        { Id: 10, PId: 8, Name: "Nasheem", Description: 'Ward Assistant' },
+
+        // { Name: 'John', Id: 9, GroupId: 1, Description: 'DOCTORS - General Practitioner' },
+        // { Name: 'Nashil', Id: 10, GroupId: 1, Description: 'DOCTORS - Cardiologist' },
+        // { Name: 'Salman', Id: 11, GroupId: 1, Description: 'DOCTORS - Neurologist' },
     ];
 
     let treeObj = useRef(null);
     let isTreeItemDropped = false;
     let draggedItemId = '';
     const allowDragAndDrops = true;
-    const fields = { dataSource: reserveStaffs, id: 'Id', text: 'Name' };
+    const fields = { dataSource: reserveStaffs, id: 'Id', parentID: 'PId', text: 'Name', hasChildren: 'HasChild', expanded: 'Expanded' };
     const treeTemplate = (props) => {
+        if (props.HasChild) {
+            return (
+                    <div className="header-role">{props.Name}</div>
+              );
+        } else {
         return (<div id="waiting">
             <div id="waitdetails">
+                <div className={"employee-image "} />
                 <div id="waitlist">{props.Name}</div>
-                <div id="waitcategory">{props.Timing}</div>
+                <div id="waitcategory">{props.Description}</div>
             </div>
         </div>);
+        }
     };
     const onItemSelecting = (args) => {
         args.cancel = true;
@@ -280,19 +396,14 @@ function App() {
             let scheduleElement = closest(event.target, '.e-content-wrap');
             if (scheduleElement) {
                 let treeviewData = treeObj.current.fields.dataSource;
-                if (event.target.classList.contains('e-work-cells')) {
+                let target = closest(event.target, '.e-appointment.e-leave');
+                if (target) {
                     const filteredData = treeviewData.filter((item) => item.Id === parseInt(event.draggedNodeData.id, 10));
-                    let cellData = scheduleObj.current.getCellDetails(event.target);
-                    let resourceDetails = scheduleObj.current.getResourcesByIndex(cellData.groupIndex);
-                    let eventData = {
-                        Subject: filteredData[0].Name,
-                        StartTime: cellData.startTime,
-                        EndTime: cellData.endTime,
-                        IsAllDay: cellData.isAllDay,
-                        RoleId: resourceDetails.resourceData.groupId,
-                        EmployeeId: resourceDetails.resourceData.id
-                    };
-                    scheduleObj.current.openEditor(eventData, 'Add', true);
+                    let eventDetails = scheduleObj.current.getEventDetails(target);
+                    let resourceDetails = scheduleObj.current.getResourcesByIndex(eventDetails.EmployeeId);
+                    eventDetails.Description = 'Dr.' + filteredData[0].Name  + ' covers for Dr.' + resourceDetails.resourceData.name;
+                    eventDetails.Subject = eventDetails.Subject.split('(')[0].trim() + ' (Dr.' + filteredData[0].Name + ')';
+                    scheduleObj.current.openEditor(eventDetails, 'EditOccurrence');
                     isTreeItemDropped = true;
                     draggedItemId = event.draggedNodeData.id;
                 }
