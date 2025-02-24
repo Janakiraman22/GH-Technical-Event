@@ -11,11 +11,11 @@
 
 
 .e-parent-node {
-    background-color: #f8f8f8 !important;
+    background-color: #dcdbdb !important;
 }
 
 .e-schedule .e-timeline-view .e-resource-group-cells {
-    background-color: #f8f8f8 !important;
+    background-color: #dcdbdb !important;
 }
 
 
@@ -105,10 +105,23 @@
 
 .e-schedule-table .e-appointment.e-leave {
     opacity: 0.6; 
-    border: 2px dashed red;
+    /* border: 2px dashed red; */
 }
 
+.e-schedule-table .e-appointment.e-leave .e-icons {
+    display: flex;         /* Enables flexbox */
+    align-items: center;   /* Center vertically */
+    justify-content: center; /* Center horizontally */        /* Ensures it spans the full height */
+    font-size: 20px;       /* Adjust icon size */
+    color: red;
+}
+.e-past-app {
+    background-color: rgb(14, 118, 50) !important;
+}
 
+.e-schedule-table .e-appointment.e-leave .e-icons::before {
+    content: '\e92f';
+}
 .drag-sample-wrapper {
     display: -ms-flexbox;
     display: flex;
