@@ -1,10 +1,12 @@
 import './App.css';
 import { useRef, useState, useCallback } from 'react';
-import { ScheduleComponent, TimelineViews, Inject, ResourceDirective, ResourcesDirective, ViewsDirective, ViewDirective, HeaderRowsDirective, HeaderRowDirective, Resize, DragAndDrop, getStartEndHours } from '@syncfusion/ej2-react-schedule';
+import { ScheduleComponent, TimelineViews, TimelineMonth, Inject, ResourceDirective, ResourcesDirective, ViewsDirective, ViewDirective, HeaderRowsDirective, HeaderRowDirective, Resize, DragAndDrop, getStartEndHours } from '@syncfusion/ej2-react-schedule';
 import { extend, closest, remove, addClass } from '@syncfusion/ej2-base';
 import { TreeViewComponent } from '@syncfusion/ej2-react-navigations';
 import { ToolbarComponent, ItemsDirective, ItemDirective, ContextMenuComponent, AppBarComponent } from '@syncfusion/ej2-react-navigations';
 import { ButtonComponent, CheckBoxComponent } from '@syncfusion/ej2-react-buttons';
+
+const currentDate = new Date();
 
 const employeeRole = [
     { role: 'Doctors', id: 1, parentColor: '#cb6bb2' },
@@ -87,7 +89,8 @@ const generateShiftData = (startDate, numDays) => {
                     RoleId: roleId,
                     EmployeeId: employee.id,
                     Description: "On Leave",
-                    Color: "#FFCDD2" // Light red for full leave
+                    Color: "#FFCDD2", // Light red for full leave,
+                    IsReadonly: part2End < currentDate ? true : false
                 });
             } else if (description === "First Half Leave") {
                 // First half leave event (HLD)
@@ -99,7 +102,8 @@ const generateShiftData = (startDate, numDays) => {
                     RoleId: roleId,
                     EmployeeId: employee.id,
                     Description: "Half-Day Leave",
-                    Color: "#FFECB3" // Light yellow for half-day leave
+                    Color: "#FFECB3",
+                    IsReadonly: breakStart < currentDate ? true : false
                 });
 
                 // Break Event (BRL)
@@ -111,7 +115,8 @@ const generateShiftData = (startDate, numDays) => {
                     RoleId: roleId,
                     EmployeeId: employee.id,
                     Description: "Break",
-                    Color: "#B0BEC5" // Soft Gray for break time
+                    Color: "#B0BEC5",
+                    IsReadonly: breakEnd < currentDate ? true : false
                 });
 
                 // Second half available
@@ -122,7 +127,8 @@ const generateShiftData = (startDate, numDays) => {
                     EndTime: part2End,
                     RoleId: roleId,
                     EmployeeId: employee.id,
-                    Description: "Available"
+                    Description: "Available",
+                    IsReadonly: part2End < currentDate ? true : false
                 });
             } else if (description === "Second Half Leave") {
                 // First half available
@@ -133,7 +139,8 @@ const generateShiftData = (startDate, numDays) => {
                     EndTime: breakStart,
                     RoleId: roleId,
                     EmployeeId: employee.id,
-                    Description: "Available"
+                    Description: "Available",
+                    IsReadonly: breakStart < currentDate ? true : false
                 });
 
                 // Break Event (BRL)
@@ -145,7 +152,8 @@ const generateShiftData = (startDate, numDays) => {
                     RoleId: roleId,
                     EmployeeId: employee.id,
                     Description: "Break",
-                    Color: "#B0BEC5" // Soft Gray for break time
+                    Color: "#B0BEC5",
+                    IsReadonly: breakEnd < currentDate ? true : false
                 });
 
                 // Second half leave event (HLD)
@@ -157,7 +165,8 @@ const generateShiftData = (startDate, numDays) => {
                     RoleId: roleId,
                     EmployeeId: employee.id,
                     Description: "Half-Day Leave",
-                    Color: "#FFECB3" // Light yellow for half-day leave
+                    Color: "#FFECB3",
+                    IsReadonly: part2End < currentDate ? true : false
                 });
             } else {
                 // Regular Shift - Before Break
@@ -168,7 +177,8 @@ const generateShiftData = (startDate, numDays) => {
                     EndTime: breakStart,
                     RoleId: roleId,
                     EmployeeId: employee.id,
-                    Description: "Available"
+                    Description: "Available",
+                    IsReadonly: breakStart < currentDate ? true : false
                 });
 
                 // Break Event (BRL)
@@ -180,7 +190,8 @@ const generateShiftData = (startDate, numDays) => {
                     RoleId: roleId,
                     EmployeeId: employee.id,
                     Description: "Break",
-                    Color: "#B0BEC5" // Soft Gray for break time
+                    Color: "#B0BEC5",
+                    IsReadonly: breakEnd < currentDate ? true : false
                 });
 
                 // Regular Shift - After Break
@@ -191,7 +202,8 @@ const generateShiftData = (startDate, numDays) => {
                     EndTime: part2End,
                     RoleId: roleId,
                     EmployeeId: employee.id,
-                    Description: "Available"
+                    Description: "Available",
+                    IsReadonly: part2End < currentDate ? true : false
                 });
             }
         };
@@ -220,13 +232,6 @@ const workShiftData = generateShiftData(new Date(2025, 1, 17), 14);
 
 
 
-
-
-
-
-
-
-
 const group = {
     resources: ['Roles', 'Employees']
 };
@@ -234,7 +239,7 @@ const group = {
 const timeScale = {
     enable: true,
     interval: 720,
-    slotCount: 1,
+    slotCount: 2,
     // majorSlotTemplate: (args) => {
     //     const hour = args.date.getHours();
     //     if (hour === 0) {
@@ -252,11 +257,17 @@ function App() {
     const [isTimelineView, setIsTimelineView] = useState(true);
 
     const onEventRendered = (args) => {
+        // const currentDate = new Date().setHours(0, 0, 0, 0);
+        // if (args.data.EndTime < currentDate) {
+        //     args.data.isrea
+        // }
         // if (args.data.EndTime < scheduleObj.current.selectedDate && args.data.EndTime.getDate() < new Date().getDate()) {
         //     args.element.classList.add('e-past-app');
         // }
         // else
-        if (args.data.Description.includes('covers for')) {
+        if (args.data.Subject.includes('Overtime shift')) {
+            // args.element.classList.add('e-overtime');
+        } else if (args.data.Description.includes('covers for')) {
             args.element.querySelector('.e-subject').innerText = args.data.Description;
             args.element.classList.add('e-covers');
 
@@ -297,9 +308,68 @@ function App() {
         } else if (args.data.Subject === 'Break (On-Call Duty)') {
             args.element.style.backgroundColor = '#abe302';
         }
-
-
     };
+
+
+    const onRenderCell = (args) => {
+        if (args.elementType === 'workCells') {
+            const date = args.date.getDate();
+            //  const hour = date.getHours();
+            if (date < 17) {  // Highlight 12 PM to 3 PM
+                args.element.style.backgroundColor = '#f3f3f3';
+            }
+
+            const day = args.date.getDay();
+            if (day === 0 || day === 5 || day === 6) {
+          //      args.element.style.backgroundColor = '#ffa0a4';
+            }
+
+            const currentDate = new Date().setHours(0, 0, 0, 0);
+            if (args.date < currentDate) {
+                args.element.classList.add('e-past');
+            }
+        }
+    }
+
+    const onActionBegin = (event) => {
+        if (event.requestType === 'eventChange' && isTreeItemDropped) {
+            let treeViewData = treeObj.current.fields.dataSource;
+            const filteredPeople = treeViewData.filter((item) => item.Id !== parseInt(draggedItemId, 10));
+            treeObj.current.fields.dataSource = filteredPeople;
+            let elements = document.querySelectorAll('.e-drag-item.treeview-external-drag');
+            for (let i = 0; i < elements.length; i++) {
+                remove(elements[i]);
+            }
+        }
+    };
+
+    const resizeStart = (args) => {
+        args.interval = 30;
+    }
+    const resizing = (args) => {
+        console.log(args);
+    }
+
+    const resizeStop = (args) => {
+        const eventDetails = scheduleObj.current.getEventDetails(args.element);
+        const updatedEventDetails = args.data;
+        if (eventDetails.EndTime < updatedEventDetails.EndTime) {
+            args.cancel = true;
+            if (eventDetails.Description.toLowerCase().includes('leave')) {
+                return;
+            }
+            let eventData = {
+                Subject: 'Overtime shift (' + eventDetails.Subject + ')',
+                StartTime: eventDetails.EndTime,
+                EndTime: updatedEventDetails.EndTime,
+                IsAllDay: false,
+                Description: "Extra working hours",
+                EmployeeId: eventDetails.EmployeeId,
+                RoleId: eventDetails.RoleId
+              };
+              scheduleObj.current.openEditor(eventData, 'Add', true);
+        }
+    }
 
     const headerIndentTemplate = () => {
         return (<div className='e-resource-text'>
@@ -344,10 +414,6 @@ function App() {
         { Id: 8, Name: "Support Staffs", HasChild: true, Expanded: true },
         { Id: 9, PId: 8, Name: "Ricky", Description: 'Ward Assistant' },
         { Id: 10, PId: 8, Name: "Nasheem", Description: 'Ward Assistant' },
-
-        // { Name: 'John', Id: 9, GroupId: 1, Description: 'DOCTORS - General Practitioner' },
-        // { Name: 'Nashil', Id: 10, GroupId: 1, Description: 'DOCTORS - Cardiologist' },
-        // { Name: 'Salman', Id: 11, GroupId: 1, Description: 'DOCTORS - Neurologist' },
     ];
 
     let treeObj = useRef(null);
@@ -358,16 +424,16 @@ function App() {
     const treeTemplate = (props) => {
         if (props.HasChild) {
             return (
-                    <div className="header-role">{props.Name}</div>
-              );
+                <div className="header-role">{props.Name}</div>
+            );
         } else {
-        return (<div id="waiting">
-            <div id="waitdetails">
-                <div className={"employee-image "} />
-                <div id="waitlist">{props.Name}</div>
-                <div id="waitcategory">{props.Description}</div>
-            </div>
-        </div>);
+            return (<div id="waiting">
+                <div id="waitdetails">
+                    <div className={"employee-image "} />
+                    <div id="waitlist">{props.Name}</div>
+                    <div id="waitcategory">{props.Description}</div>
+                </div>
+            </div>);
         }
     };
     const onItemSelecting = (args) => {
@@ -396,42 +462,30 @@ function App() {
             let scheduleElement = closest(event.target, '.e-content-wrap');
             if (scheduleElement) {
                 let treeviewData = treeObj.current.fields.dataSource;
-                let target = closest(event.target, '.e-appointment.e-leave');
+                let target = closest(event.target, '.e-appointment.e-leave') || closest(event.target, '.e-appointment.e-half-leave');
                 if (target) {
                     const filteredData = treeviewData.filter((item) => item.Id === parseInt(event.draggedNodeData.id, 10));
                     let eventDetails = scheduleObj.current.getEventDetails(target);
-                    let resourceDetails = scheduleObj.current.getResourcesByIndex(eventDetails.EmployeeId);
-                    eventDetails.Description = 'Dr.' + filteredData[0].Name  + ' covers for Dr.' + resourceDetails.resourceData.name;
-                    eventDetails.Subject = eventDetails.Subject.split('(')[0].trim() + ' (Dr.' + filteredData[0].Name + ')';
-                    scheduleObj.current.openEditor(eventDetails, 'EditOccurrence');
-                    isTreeItemDropped = true;
-                    draggedItemId = event.draggedNodeData.id;
+
+                    const category = treeviewData.filter((item) => item.Id === parseInt(filteredData[0].PId, 10));
+                    const role = employeeRole.filter((item) => item.id === parseInt(eventDetails.RoleId, 10));
+                    if (role[0].role === category[0].Name) {
+                        let resourceDetails = scheduleObj.current.getResourcesByIndex(eventDetails.EmployeeId);
+                        eventDetails.Description = 'Dr.' + filteredData[0].Name + ' covers for Dr.' + resourceDetails.resourceData.name;
+                        eventDetails.Subject = eventDetails.Subject.split('(')[0].trim() + ' (Dr.' + filteredData[0].Name + ')';
+                        scheduleObj.current.openEditor(eventDetails, 'EditOccurrence');
+                        isTreeItemDropped = true;
+                        draggedItemId = event.draggedNodeData.id;
+                    }
                 }
             }
         }
         document.body.classList.remove('e-disble-not-allowed');
     };
+
     const onTreeDragStart = () => {
         document.body.classList.add('e-disble-not-allowed');
     };
-
-    const onRenderCell = (args) => {
-        if (args.elementType === 'workCells') {
-            const date = args.date.getDate();
-            //  const hour = date.getHours();
-            if (date < 17) {  // Highlight 12 PM to 3 PM
-                args.element.style.backgroundColor = '#f3f3f3';
-            }
-        }
-    }
-
-    const resizeStart = (args) => {
-        args.interval = 10;
-    }
-
-    const resizeStop = (args) => {
-        debugger;
-    }
 
     const onChange = (args) => {
         setIsTimelineView(args.checked);
@@ -449,7 +503,7 @@ function App() {
                     <span className='text-child'> Is Admin</span>
                 </label>
             </div>
-        );;
+        );
     }, []);
 
     return (<div className='schedule-control-section'>
@@ -482,11 +536,15 @@ function App() {
                         resourceHeaderTemplate={resourceHeaderTemplate}
                         renderCell={onRenderCell}
                         resizeStart={resizeStart}
+                        resizing={resizing}
                         resizeStop={resizeStop}
+                        actionBegin={onActionBegin}
                     >
 
                         <ViewsDirective>
+                            <ViewDirective option='TimelineDay' />
                             <ViewDirective option="TimelineWeek" />
+                            <ViewDirective option='TimelineMonth' />
                         </ViewsDirective>
 
                         <ResourcesDirective>
@@ -512,12 +570,12 @@ function App() {
                             />
                         </ResourcesDirective>
 
-                        <Inject services={[TimelineViews, Resize, DragAndDrop]} />
+                        <Inject services={[TimelineViews, TimelineMonth, Resize, DragAndDrop]} />
                     </ScheduleComponent>
                 </div>
                 <div className="treeview-container">
                     <div className="title-container">
-                        <h1 className="title-text">Available Doctors</h1>
+                        <h1 className="title-text">Available Staffs</h1>
                     </div>
                     <TreeViewComponent ref={treeObj} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
                 </div>

@@ -97,6 +97,11 @@
     background-image: url('https://ej2.syncfusion.com/react/demos/src/schedule/images/robson.png');
 }
 
+.e-schedule-table .e-work-cells.e-past {
+    pointer-events: none;
+    background-color: #ededed;
+}
+
 
 .e-schedule-table .e-appointment.e-leave {
     /* opacity: 0.6;  */
@@ -115,6 +120,13 @@
 .e-schedule-table .e-appointment.e-covers {
     /* opacity: 0.6;  */
     background-color: #0098fb !important;
+    color: white;
+    /* border: 2px dashed red; */
+}
+
+.e-schedule-table .e-appointment.e-overtime {
+    /* opacity: 0.6;  */
+    background-color: red !important;
     color: white;
     /* border: 2px dashed red; */
 }
@@ -209,9 +221,6 @@
         background-color: #f1f1f1 !important;
         /* Prevents the style from applying to level-2 */
     }
-
-
-
 }
 
 
