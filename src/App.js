@@ -2,7 +2,6 @@ import * as React from 'react';
 import './App.css';
 import { useRef, useState } from 'react';
 import { ScheduleComponent, ViewsDirective, ViewDirective, ResourcesDirective, ResourceDirective, TimelineViews, Week, Day, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
-import { CheckBoxComponent, ChangeEventArgs } from '@syncfusion/ej2-react-buttons';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 
 const rooms = [
@@ -207,21 +206,13 @@ events = removeOverlappingEvents(events);
 const App = () => {
     const scheduleObj = useRef(null);
 
-    const [eventsData, setEvents] = useState(events); // Start with initial event data
+    let eventsData = events;
     const [selectedRoom, setSelectedRoom] = useState(null);
-
-
-
-
-
-    const onEventAdded = (args) => {
-        const { StartTime, EndTime, RoomId, Capacity, Subject, Id } = args.data;
-    }
 
     const onActionBegin = (args) => {
         if (args.requestType === "eventCreate") {
             let eventsData = args.data[0];
-            const { StartTime, EndTime, RoomId, Capacity, Subject, Id } = eventsData;
+            const { StartTime, EndTime, RoomId, Capacity } = eventsData;
 
             if (checkRoomAvailability(StartTime, EndTime, RoomId)) {
                 alert('Room is already booked for this time slot.');
@@ -236,26 +227,6 @@ const App = () => {
             }
         }
 
-    }
-
-    const onDataBinding = (args) => {
-        // setEvents(removeOverlappingEvents(eventsData));
-
-
-    }
-
-    const onCreated = (args) => {
-
-    }
-
-    const onChange = (args) => {
-        let value = parseInt((args.event.currentTarget).querySelector('input').getAttribute('value'), 10);
-        let resourceData = rooms.filter((calendar) => calendar.RoomId !== value);
-        if (args.checked) {
-            scheduleObj.current.addResource(resourceData[0], 'Rooms', value - 1);
-        } else {
-            scheduleObj.current.removeResource(value, 'Rooms');
-        }
     }
 
     const onRoomChange = (e) => {
@@ -297,10 +268,7 @@ const App = () => {
                             },
                         }}
                         group={{ resources: ['Rooms'] }}
-                        eventRendered={onEventAdded}
                         actionBegin={onActionBegin}
-                        dataBinding={onDataBinding}
-                        created={onCreated}
                     >
                         <ViewsDirective>
                             <ViewDirective option="Week" />
