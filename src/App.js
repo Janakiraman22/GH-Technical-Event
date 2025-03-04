@@ -1,996 +1,341 @@
+import * as React from 'react';
 import './App.css';
-import { useRef, useState, useCallback } from 'react';
-import { ScheduleComponent, TimelineViews, TimelineMonth, Inject, ResourceDirective, ResourcesDirective, ViewsDirective, ViewDirective, HeaderRowsDirective, HeaderRowDirective, Resize, DragAndDrop, getStartEndHours } from '@syncfusion/ej2-react-schedule';
-import { extend, closest, remove, addClass } from '@syncfusion/ej2-base';
-import { TreeViewComponent } from '@syncfusion/ej2-react-navigations';
-import { ToolbarComponent, ItemsDirective, ItemDirective, ContextMenuComponent, AppBarComponent } from '@syncfusion/ej2-react-navigations';
-import { ButtonComponent, CheckBoxComponent } from '@syncfusion/ej2-react-buttons';
+import { useRef, useState } from 'react';
+import { ScheduleComponent, ViewsDirective, ViewDirective, ResourcesDirective, ResourceDirective, TimelineViews, Week, Day, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
+import { CheckBoxComponent, ChangeEventArgs } from '@syncfusion/ej2-react-buttons';
+import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 
-const currentDate = new Date();
-
-const employeeRole = [
-    { role: 'Doctors', id: 1, parentColor: '#cb6bb2' },
-    { role: 'Nurses', id: 2, parentColor: '#56ca85' },
-    { role: 'Support Staffs', id: 3, parentColor: '#ADD8E6' }
+const rooms = [
+    { RoomId: 1, RoomName: 'Room A', RoomCapacity: 70, RoomColor: '#FF5733' },
+    { RoomId: 2, RoomName: 'Room B', RoomCapacity: 50, RoomColor: '#33FF57' },
+    { RoomId: 3, RoomName: 'Room C', RoomCapacity: 40, RoomColor: '#3380FF' },
+    { RoomId: 4, RoomName: 'Room D', RoomCapacity: 30, RoomColor: '#FFC300' },
 ];
 
-const employeeData = [
-    { name: 'Robert', id: 1, groupId: 1, color: '#ADD8E6', Designation: 'General Practitioner' },
-    { name: 'Nancy', id: 2, groupId: 1, color: '#6A0DAD', Designation: 'Cardiologist' },
-    { name: 'Smith', id: 3, groupId: 1, color: '#7fa900', Designation: 'Neurologist' },
-    { name: 'Williams', id: 4, groupId: 1, color: '#7fa900', Designation: 'General Practitioner' },
-    { name: 'Laura', id: 5, groupId: 2, color: '#ea7a57', Designation: 'Staff Nurse' },
-    { name: 'Margaret', id: 6, groupId: 2, color: '#5978ee', Designation: 'Head Nurse' },
-    { name: 'Alice', id: 7, groupId: 3, color: '#df5286', Designation: 'Ward Assistant' },
-    { name: 'Robson', id: 8, groupId: 3, color: '#00bdae', Designation: 'Hospital Attendant' }
+let events = [
+    // Monday - AI & Machine Learning
+    { Id: 1, Subject: 'Registration & Welcome', StartTime: new Date(2025, 1, 24, 8, 0), EndTime: new Date(2025, 1, 24, 8, 30), RoomId: 1, Capacity: 72 },
+    { Id: 2, Subject: 'AI & Machine Learning Trends', StartTime: new Date(2025, 1, 24, 8, 30), EndTime: new Date(2025, 1, 24, 9, 30), RoomId: 2, Capacity: 27 },
+    { Id: 3, Subject: 'Deep Learning in Healthcare', StartTime: new Date(2025, 1, 24, 9, 30), EndTime: new Date(2025, 1, 24, 10, 30), RoomId: 3, Capacity: 12 },
+    { Id: 4, Subject: 'NLP & Chatbots', StartTime: new Date(2025, 1, 24, 10, 30), EndTime: new Date(2025, 1, 24, 11, 0), RoomId: 4, Capacity: 68 },
+    { Id: 5, Subject: 'Break', StartTime: new Date(2025, 1, 24, 11, 0), EndTime: new Date(2025, 1, 24, 11, 30), RoomId: null, Capacity: 0 },
+    { Id: 6, Subject: 'Ethical AI & Bias', StartTime: new Date(2025, 1, 24, 11, 30), EndTime: new Date(2025, 1, 24, 12, 30), RoomId: 1, Capacity: 61 },
+    { Id: 7, Subject: 'AI in Financial Analysis', StartTime: new Date(2025, 1, 24, 12, 30), EndTime: new Date(2025, 1, 24, 13, 0), RoomId: 2, Capacity: 39 },
+    { Id: 8, Subject: 'Lunch Break', StartTime: new Date(2025, 1, 24, 13, 0), EndTime: new Date(2025, 1, 24, 14, 0), RoomId: null, Capacity: 0 },
+    { Id: 9, Subject: 'AI in Cybersecurity', StartTime: new Date(2025, 1, 24, 14, 0), EndTime: new Date(2025, 1, 24, 15, 0), RoomId: 3, Capacity: 53 },
+    { Id: 10, Subject: 'AI for Business', StartTime: new Date(2025, 1, 24, 15, 0), EndTime: new Date(2025, 1, 24, 16, 0), RoomId: 4, Capacity: 64 },
+    { Id: 11, Subject: 'Break', StartTime: new Date(2025, 1, 24, 16, 0), EndTime: new Date(2025, 1, 24, 16, 30), RoomId: null, Capacity: 0 },
+    { Id: 12, Subject: 'Hands-on Workshop: Computer Vision', StartTime: new Date(2025, 1, 24, 16, 30), EndTime: new Date(2025, 1, 24, 17, 30), RoomId: 1, Capacity: 27 },
+    { Id: 13, Subject: 'Panel Discussion: The Future of AI', StartTime: new Date(2025, 1, 24, 17, 30), EndTime: new Date(2025, 1, 24, 18, 0), RoomId: 2, Capacity: 41 },
+    { Id: 14, Subject: 'AI-Powered Automation', StartTime: new Date(2025, 1, 24, 8, 30), EndTime: new Date(2025, 1, 24, 9, 30), RoomId: 3, Capacity: 35 },
+    { Id: 15, Subject: 'AI in Robotics', StartTime: new Date(2025, 1, 24, 9, 30), EndTime: new Date(2025, 1, 24, 10, 30), RoomId: 4, Capacity: 12 },
+    { Id: 16, Subject: 'Quiz on AI Innovations', StartTime: new Date(2025, 1, 24, 10, 30), EndTime: new Date(2025, 1, 24, 11, 0), RoomId: 1, Capacity: 59 },
+    { Id: 17, Subject: 'Raffle Draw', StartTime: new Date(2025, 1, 24, 12, 30), EndTime: new Date(2025, 1, 24, 13, 0), RoomId: 3, Capacity: 20 },
+    { Id: 18, Subject: 'AI Startup Pitches', StartTime: new Date(2025, 1, 24, 14, 0), EndTime: new Date(2025, 1, 24, 15, 0), RoomId: 2, Capacity: 43 },
+    { Id: 19, Subject: 'Contest: AI Hackathon', StartTime: new Date(2025, 1, 24, 15, 0), EndTime: new Date(2025, 1, 24, 16, 0), RoomId: 3, Capacity: 38 },
+    { Id: 20, Subject: 'Closing Remarks & Awards', StartTime: new Date(2025, 1, 24, 17, 30), EndTime: new Date(2025, 1, 24, 18, 0), RoomId: 4, Capacity: 51 },
+    { Id: 21, Subject: 'Keynote: Future of AI', StartTime: new Date(2025, 1, 24, 8, 0), EndTime: new Date(2025, 1, 24, 8, 30), RoomId: 4, Capacity: 12 },
+    { Id: 22, Subject: 'Blockchain & AI', StartTime: new Date(2025, 1, 24, 9, 30), EndTime: new Date(2025, 1, 24, 10, 30), RoomId: 1, Capacity: 29 },
+    { Id: 23, Subject: 'Quantum Computing', StartTime: new Date(2025, 1, 24, 10, 30), EndTime: new Date(2025, 1, 24, 11, 0), RoomId: 2, Capacity: 62 },
+    { Id: 24, Subject: 'IoT & AI Convergence', StartTime: new Date(2025, 1, 24, 14, 0), EndTime: new Date(2025, 1, 24, 15, 0), RoomId: 1, Capacity: 57 },
+    { Id: 25, Subject: 'AI in Autonomous Vehicles', StartTime: new Date(2025, 1, 24, 16, 30), EndTime: new Date(2025, 1, 24, 17, 30), RoomId: 3, Capacity: 50 },
+
+    // Tuesday - Web & Frontend Technologies
+    { Id: 26, Subject: 'Registration & Welcome', StartTime: new Date(2025, 1, 25, 8, 0), EndTime: new Date(2025, 1, 25, 8, 30), RoomId: 1, Capacity: 42 },
+    { Id: 27, Subject: 'Modern JavaScript Frameworks', StartTime: new Date(2025, 1, 25, 8, 30), EndTime: new Date(2025, 1, 25, 9, 30), RoomId: 2, Capacity: 26 },
+    { Id: 28, Subject: 'React Performance Optimization', StartTime: new Date(2025, 1, 25, 9, 30), EndTime: new Date(2025, 1, 25, 10, 30), RoomId: 3, Capacity: 18 },
+    { Id: 29, Subject: 'State Management in Vue', StartTime: new Date(2025, 1, 25, 10, 30), EndTime: new Date(2025, 1, 25, 11, 0), RoomId: 4, Capacity: 33 },
+    { Id: 30, Subject: 'Break', StartTime: new Date(2025, 1, 25, 11, 0), EndTime: new Date(2025, 1, 25, 11, 30), RoomId: null, Capacity: 0 },
+    { Id: 31, Subject: 'Web Accessibility Best Practices', StartTime: new Date(2025, 1, 25, 11, 30), EndTime: new Date(2025, 1, 25, 12, 30), RoomId: 1, Capacity: 24 },
+    { Id: 32, Subject: 'CSS-in-JS vs Traditional CSS', StartTime: new Date(2025, 1, 25, 12, 30), EndTime: new Date(2025, 1, 25, 13, 0), RoomId: 2, Capacity: 17 },
+    { Id: 33, Subject: 'Lunch Break', StartTime: new Date(2025, 1, 25, 13, 0), EndTime: new Date(2025, 1, 25, 14, 0), RoomId: null, Capacity: 0 },
+    { Id: 34, Subject: 'Progressive Web Apps', StartTime: new Date(2025, 1, 25, 14, 0), EndTime: new Date(2025, 1, 25, 15, 0), RoomId: 3, Capacity: 64 },
+    { Id: 35, Subject: 'GraphQL & REST API Differences', StartTime: new Date(2025, 1, 25, 15, 0), EndTime: new Date(2025, 1, 25, 16, 0), RoomId: 4, Capacity: 28 },
+    { Id: 36, Subject: 'Serverless Architecture in Practice', StartTime: new Date(2025, 1, 25, 16, 0), EndTime: new Date(2025, 1, 25, 17, 0), RoomId: 1, Capacity: 55 },
+    { Id: 37, Subject: 'CSS Grid & Flexbox Mastery', StartTime: new Date(2025, 1, 25, 17, 0), EndTime: new Date(2025, 1, 25, 18, 0), RoomId: 2, Capacity: 45 },
+    { Id: 38, Subject: 'Web Security Best Practices', StartTime: new Date(2025, 1, 25, 8, 0), EndTime: new Date(2025, 1, 25, 9, 0), RoomId: 3, Capacity: 32 },
+    { Id: 39, Subject: 'JavaScript Debugging Techniques', StartTime: new Date(2025, 1, 25, 9, 0), EndTime: new Date(2025, 1, 25, 10, 0), RoomId: 4, Capacity: 50 },
+    { Id: 40, Subject: 'Next.js for Production', StartTime: new Date(2025, 1, 25, 10, 30), EndTime: new Date(2025, 1, 25, 11, 30), RoomId: 1, Capacity: 62 },
+    { Id: 41, Subject: 'Optimizing JavaScript for Performance', StartTime: new Date(2025, 1, 25, 11, 30), EndTime: new Date(2025, 1, 25, 12, 30), RoomId: 2, Capacity: 37 },
+    { Id: 42, Subject: 'Component-Based Architecture with React', StartTime: new Date(2025, 1, 25, 12, 30), EndTime: new Date(2025, 1, 25, 13, 0), RoomId: 3, Capacity: 29 },
+    { Id: 43, Subject: 'Build Real-Time Apps with WebSockets', StartTime: new Date(2025, 1, 25, 14, 0), EndTime: new Date(2025, 1, 25, 15, 0), RoomId: 4, Capacity: 31 },
+    { Id: 44, Subject: 'Tailwind CSS: Utility First Design', StartTime: new Date(2025, 1, 25, 15, 0), EndTime: new Date(2025, 1, 25, 16, 0), RoomId: 1, Capacity: 54 },
+    { Id: 45, Subject: 'Building Multi-Language Websites', StartTime: new Date(2025, 1, 25, 16, 0), EndTime: new Date(2025, 1, 25, 17, 0), RoomId: 2, Capacity: 60 },
+    { Id: 46, Subject: 'Advanced Animations with CSS', StartTime: new Date(2025, 1, 25, 17, 0), EndTime: new Date(2025, 1, 25, 18, 0), RoomId: 3, Capacity: 23 },
+    { Id: 47, Subject: 'Server-Side Rendering with React', StartTime: new Date(2025, 1, 25, 8, 0), EndTime: new Date(2025, 1, 25, 9, 0), RoomId: 4, Capacity: 35 },
+    { Id: 48, Subject: 'Building RESTful APIs with Node.js', StartTime: new Date(2025, 1, 25, 9, 0), EndTime: new Date(2025, 1, 25, 10, 0), RoomId: 1, Capacity: 38 },
+    { Id: 49, Subject: 'Optimizing Web Performance', StartTime: new Date(2025, 1, 25, 10, 0), EndTime: new Date(2025, 1, 25, 11, 0), RoomId: 2, Capacity: 40 },
+    { Id: 50, Subject: 'JavaScript & Web Assembly', StartTime: new Date(2025, 1, 25, 11, 0), EndTime: new Date(2025, 1, 25, 12, 0), RoomId: 3, Capacity: 46 },
+
+    // Wednesday - Cloud & DevOps
+    { Id: 51, Subject: 'Registration & Welcome', StartTime: new Date(2025, 1, 26, 8, 0), EndTime: new Date(2025, 1, 26, 8, 30), RoomId: 1, Capacity: 40 },
+    { Id: 52, Subject: 'Cloud Security Best Practices', StartTime: new Date(2025, 1, 26, 8, 30), EndTime: new Date(2025, 1, 26, 9, 30), RoomId: 2, Capacity: 35 },
+    { Id: 53, Subject: 'CI/CD Pipelines with GitHub Actions', StartTime: new Date(2025, 1, 26, 9, 30), EndTime: new Date(2025, 1, 26, 10, 30), RoomId: 3, Capacity: 45 },
+    { Id: 54, Subject: 'Serverless Computing Explained', StartTime: new Date(2025, 1, 26, 10, 30), EndTime: new Date(2025, 1, 26, 11, 0), RoomId: 4, Capacity: 50 },
+    { Id: 55, Subject: 'Break', StartTime: new Date(2025, 1, 26, 11, 0), EndTime: new Date(2025, 1, 26, 11, 30), RoomId: null, Capacity: 0 },
+    { Id: 56, Subject: 'Introduction to Kubernetes', StartTime: new Date(2025, 1, 26, 11, 30), EndTime: new Date(2025, 1, 26, 12, 30), RoomId: 1, Capacity: 40 },
+    { Id: 57, Subject: 'Terraform for Infrastructure as Code', StartTime: new Date(2025, 1, 26, 12, 30), EndTime: new Date(2025, 1, 26, 13, 0), RoomId: 2, Capacity: 35 },
+    { Id: 58, Subject: 'Lunch Break', StartTime: new Date(2025, 1, 26, 13, 0), EndTime: new Date(2025, 1, 26, 14, 0), RoomId: null, Capacity: 0 },
+    { Id: 59, Subject: 'Hybrid Cloud Strategies', StartTime: new Date(2025, 1, 26, 14, 0), EndTime: new Date(2025, 1, 26, 15, 0), RoomId: 3, Capacity: 45 },
+    { Id: 60, Subject: 'Monitoring & Observability', StartTime: new Date(2025, 1, 26, 15, 0), EndTime: new Date(2025, 1, 26, 16, 0), RoomId: 4, Capacity: 50 },
+    { Id: 61, Subject: 'Break', StartTime: new Date(2025, 1, 26, 16, 0), EndTime: new Date(2025, 1, 26, 16, 30), RoomId: null, Capacity: 0 },
+    { Id: 62, Subject: 'DevOps Culture & Practices', StartTime: new Date(2025, 1, 26, 16, 30), EndTime: new Date(2025, 1, 26, 17, 30), RoomId: 1, Capacity: 40 },
+    { Id: 63, Subject: 'Cloud Cost Optimization', StartTime: new Date(2025, 1, 26, 17, 30), EndTime: new Date(2025, 1, 26, 18, 0), RoomId: 2, Capacity: 35 },
+    { Id: 64, Subject: 'Networking in Cloud Computing', StartTime: new Date(2025, 1, 26, 8, 30), EndTime: new Date(2025, 1, 26, 9, 30), RoomId: 3, Capacity: 45 },
+    { Id: 65, Subject: 'Edge Computing Trends', StartTime: new Date(2025, 1, 26, 9, 30), EndTime: new Date(2025, 1, 26, 10, 30), RoomId: 4, Capacity: 50 },
+    { Id: 66, Subject: 'GitOps in Cloud Environments', StartTime: new Date(2025, 1, 26, 10, 30), EndTime: new Date(2025, 1, 26, 11, 0), RoomId: 1, Capacity: 40 },
+    { Id: 67, Subject: 'Security in DevOps', StartTime: new Date(2025, 1, 26, 11, 30), EndTime: new Date(2025, 1, 26, 12, 30), RoomId: 2, Capacity: 35 },
+    { Id: 68, Subject: 'Automated Testing in DevOps', StartTime: new Date(2025, 1, 26, 12, 30), EndTime: new Date(2025, 1, 26, 13, 0), RoomId: 3, Capacity: 45 },
+    { Id: 69, Subject: 'Lunch Break', StartTime: new Date(2025, 1, 26, 13, 0), EndTime: new Date(2025, 1, 26, 14, 0), RoomId: null, Capacity: 0 },
+    { Id: 70, Subject: 'Serverless & Containerization', StartTime: new Date(2025, 1, 26, 14, 0), EndTime: new Date(2025, 1, 26, 15, 0), RoomId: 4, Capacity: 50 },
+    { Id: 71, Subject: 'AI/ML in Cloud', StartTime: new Date(2025, 1, 26, 15, 0), EndTime: new Date(2025, 1, 26, 16, 0), RoomId: 1, Capacity: 40 },
+    { Id: 72, Subject: 'Break', StartTime: new Date(2025, 1, 26, 16, 0), EndTime: new Date(2025, 1, 26, 16, 30), RoomId: null, Capacity: 0 },
+    { Id: 73, Subject: 'Cloud-Native DevOps', StartTime: new Date(2025, 1, 26, 16, 30), EndTime: new Date(2025, 1, 26, 17, 30), RoomId: 2, Capacity: 35 },
+    { Id: 74, Subject: 'Closing & Raffle Draw', StartTime: new Date(2025, 1, 26, 17, 30), EndTime: new Date(2025, 1, 26, 18, 0), RoomId: 3, Capacity: 45 },
+
+    // Thursday - Cybersecurity
+    { Id: 75, Subject: 'Registration & Welcome', StartTime: new Date(2025, 1, 27, 8, 0), EndTime: new Date(2025, 1, 27, 8, 30), RoomId: 1, Capacity: 40 },
+    { Id: 76, Subject: 'Cyber Threat Intelligence', StartTime: new Date(2025, 1, 27, 8, 30), EndTime: new Date(2025, 1, 27, 9, 30), RoomId: 2, Capacity: 35 },
+    { Id: 77, Subject: 'Ethical Hacking Basics', StartTime: new Date(2025, 1, 27, 9, 30), EndTime: new Date(2025, 1, 27, 10, 30), RoomId: 3, Capacity: 45 },
+    { Id: 78, Subject: 'Zero Trust Security', StartTime: new Date(2025, 1, 27, 10, 30), EndTime: new Date(2025, 1, 27, 11, 0), RoomId: 4, Capacity: 50 },
+    { Id: 79, Subject: 'Break', StartTime: new Date(2025, 1, 27, 11, 0), EndTime: new Date(2025, 1, 27, 11, 30), RoomId: null, Capacity: 0 },
+    { Id: 80, Subject: 'Cloud Security', StartTime: new Date(2025, 1, 27, 11, 30), EndTime: new Date(2025, 1, 27, 12, 30), RoomId: 1, Capacity: 40 },
+    { Id: 81, Subject: 'Penetration Testing', StartTime: new Date(2025, 1, 27, 12, 30), EndTime: new Date(2025, 1, 27, 13, 0), RoomId: 2, Capacity: 35 },
+    { Id: 82, Subject: 'Lunch Break', StartTime: new Date(2025, 1, 27, 13, 0), EndTime: new Date(2025, 1, 27, 14, 0), RoomId: null, Capacity: 0 },
+    { Id: 83, Subject: 'Ransomware Defense', StartTime: new Date(2025, 1, 27, 14, 0), EndTime: new Date(2025, 1, 27, 15, 0), RoomId: 3, Capacity: 45 },
+    { Id: 84, Subject: 'Advanced Threat Detection', StartTime: new Date(2025, 1, 27, 15, 0), EndTime: new Date(2025, 1, 27, 16, 0), RoomId: 4, Capacity: 50 },
+    { Id: 85, Subject: 'Break', StartTime: new Date(2025, 1, 27, 16, 0), EndTime: new Date(2025, 1, 27, 16, 30), RoomId: null, Capacity: 0 },
+    { Id: 86, Subject: 'Security Operations Centers', StartTime: new Date(2025, 1, 27, 16, 30), EndTime: new Date(2025, 1, 27, 17, 30), RoomId: 1, Capacity: 40 },
+    { Id: 87, Subject: 'Threat Hunting Techniques', StartTime: new Date(2025, 1, 27, 17, 30), EndTime: new Date(2025, 1, 27, 18, 0), RoomId: 2, Capacity: 35 },
+    { Id: 88, Subject: 'Closing & Networking', StartTime: new Date(2025, 1, 27, 18, 0), EndTime: new Date(2025, 1, 27, 18, 30), RoomId: 3, Capacity: 45 },
+
+    // Friday - Data Science
+    { Id: 89, Subject: 'Registration & Welcome', StartTime: new Date(2025, 1, 28, 8, 0), EndTime: new Date(2025, 1, 28, 8, 30), RoomId: 1, Capacity: 40 },
+    { Id: 90, Subject: 'Introduction to Data Science', StartTime: new Date(2025, 1, 28, 8, 30), EndTime: new Date(2025, 1, 28, 9, 30), RoomId: 2, Capacity: 35 },
+    { Id: 91, Subject: 'Exploratory Data Analysis', StartTime: new Date(2025, 1, 28, 9, 30), EndTime: new Date(2025, 1, 28, 10, 30), RoomId: 3, Capacity: 45 },
+    { Id: 92, Subject: 'Machine Learning Overview', StartTime: new Date(2025, 1, 28, 10, 30), EndTime: new Date(2025, 1, 28, 11, 0), RoomId: 4, Capacity: 50 },
+    { Id: 93, Subject: 'Break', StartTime: new Date(2025, 1, 28, 11, 0), EndTime: new Date(2025, 1, 28, 11, 30), RoomId: null, Capacity: 0 },
+    { Id: 94, Subject: 'Deep Learning Fundamentals', StartTime: new Date(2025, 1, 28, 11, 30), EndTime: new Date(2025, 1, 28, 12, 30), RoomId: 1, Capacity: 40 },
+    { Id: 95, Subject: 'Natural Language Processing', StartTime: new Date(2025, 1, 28, 12, 30), EndTime: new Date(2025, 1, 28, 13, 0), RoomId: 2, Capacity: 35 },
+    { Id: 96, Subject: 'Lunch Break', StartTime: new Date(2025, 1, 28, 13, 0), EndTime: new Date(2025, 1, 28, 14, 0), RoomId: null, Capacity: 0 },
+    { Id: 97, Subject: 'Data Science in Healthcare', StartTime: new Date(2025, 1, 28, 14, 0), EndTime: new Date(2025, 1, 28, 15, 0), RoomId: 3, Capacity: 45 },
+    { Id: 98, Subject: 'Time Series Forecasting', StartTime: new Date(2025, 1, 28, 15, 0), EndTime: new Date(2025, 1, 28, 16, 0), RoomId: 4, Capacity: 50 },
+    { Id: 99, Subject: 'Break', StartTime: new Date(2025, 1, 28, 16, 0), EndTime: new Date(2025, 1, 28, 16, 30), RoomId: null, Capacity: 0 },
+    { Id: 100, Subject: 'Big Data Analytics', StartTime: new Date(2025, 1, 28, 16, 30), EndTime: new Date(2025, 1, 28, 17, 30), RoomId: 1, Capacity: 40 },
+    { Id: 101, Subject: 'AI in Data Science', StartTime: new Date(2025, 1, 28, 17, 30), EndTime: new Date(2025, 1, 28, 18, 0), RoomId: 2, Capacity: 35 },
+    { Id: 102, Subject: 'Closing Remarks', StartTime: new Date(2025, 1, 28, 18, 0), EndTime: new Date(2025, 1, 28, 18, 30), RoomId: 3, Capacity: 45 },
+
+    // (Next sessions are added till Id: 123)
+    { Id: 103, Subject: 'AI in Healthcare', StartTime: new Date(2025, 1, 29, 8, 0), EndTime: new Date(2025, 1, 29, 8, 30), RoomId: 1, Capacity: 40 },
+    { Id: 104, Subject: 'Data Visualization Best Practices', StartTime: new Date(2025, 1, 29, 8, 30), EndTime: new Date(2025, 1, 29, 9, 30), RoomId: 2, Capacity: 35 },
+    { Id: 105, Subject: 'AI for Predictive Analytics', StartTime: new Date(2025, 1, 29, 9, 30), EndTime: new Date(2025, 1, 29, 10, 30), RoomId: 3, Capacity: 45 },
+    { Id: 106, Subject: 'Ethical AI in Data Science', StartTime: new Date(2025, 1, 29, 10, 30), EndTime: new Date(2025, 1, 29, 11, 0), RoomId: 4, Capacity: 50 },
+    { Id: 107, Subject: 'Break', StartTime: new Date(2025, 1, 29, 11, 0), EndTime: new Date(2025, 1, 29, 11, 30), RoomId: null, Capacity: 0 },
+    { Id: 108, Subject: 'AI Ethics & Regulation', StartTime: new Date(2025, 1, 29, 11, 30), EndTime: new Date(2025, 1, 29, 12, 30), RoomId: 1, Capacity: 40 },
+    { Id: 109, Subject: 'Reinforcement Learning', StartTime: new Date(2025, 1, 29, 12, 30), EndTime: new Date(2025, 1, 29, 13, 0), RoomId: 2, Capacity: 35 },
+    { Id: 110, Subject: 'Lunch Break', StartTime: new Date(2025, 1, 29, 13, 0), EndTime: new Date(2025, 1, 29, 14, 0), RoomId: null, Capacity: 0 },
+    { Id: 111, Subject: 'Neural Networks Explained', StartTime: new Date(2025, 1, 29, 14, 0), EndTime: new Date(2025, 1, 29, 15, 0), RoomId: 3, Capacity: 45 },
+    { Id: 112, Subject: 'Generative Adversarial Networks', StartTime: new Date(2025, 1, 29, 15, 0), EndTime: new Date(2025, 1, 29, 16, 0), RoomId: 4, Capacity: 50 },
+    { Id: 113, Subject: 'Break', StartTime: new Date(2025, 1, 29, 16, 0), EndTime: new Date(2025, 1, 29, 16, 30), RoomId: null, Capacity: 0 },
+    { Id: 114, Subject: 'Model Deployment & Scalability', StartTime: new Date(2025, 1, 29, 16, 30), EndTime: new Date(2025, 1, 29, 17, 30), RoomId: 1, Capacity: 40 },
+    { Id: 115, Subject: 'AI in Business Intelligence', StartTime: new Date(2025, 1, 29, 17, 30), EndTime: new Date(2025, 1, 29, 18, 0), RoomId: 2, Capacity: 35 },
+    { Id: 116, Subject: 'Closing Remarks', StartTime: new Date(2025, 1, 29, 18, 0), EndTime: new Date(2025, 1, 29, 18, 30), RoomId: 3, Capacity: 45 },
+    { Id: 117, Subject: 'AI for Climate Change', StartTime: new Date(2025, 1, 30, 8, 0), EndTime: new Date(2025, 1, 30, 8, 30), RoomId: 1, Capacity: 40 },
+    { Id: 118, Subject: 'Automated Machine Learning', StartTime: new Date(2025, 1, 30, 8, 30), EndTime: new Date(2025, 1, 30, 9, 30), RoomId: 2, Capacity: 35 },
+    { Id: 119, Subject: 'Data Science for Social Good', StartTime: new Date(2025, 1, 30, 9, 30), EndTime: new Date(2025, 1, 30, 10, 30), RoomId: 3, Capacity: 45 },
+    { Id: 120, Subject: 'Big Data Infrastructure', StartTime: new Date(2025, 1, 30, 10, 30), EndTime: new Date(2025, 1, 30, 11, 0), RoomId: 4, Capacity: 50 },
+    { Id: 121, Subject: 'Break', StartTime: new Date(2025, 1, 30, 11, 0), EndTime: new Date(2025, 1, 30, 11, 30), RoomId: null, Capacity: 0 },
+    { Id: 122, Subject: 'AI in Financial Services', StartTime: new Date(2025, 1, 30, 11, 30), EndTime: new Date(2025, 1, 30, 12, 30), RoomId: 1, Capacity: 40 },
+    { Id: 123, Subject: 'Wrap-up & Networking', StartTime: new Date(2025, 1, 30, 12, 30), EndTime: new Date(2025, 1, 30, 13, 0), RoomId: 2, Capacity: 35 }
 ];
 
-const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+function isOverlapping(event1, event2) {
+    return event1.RoomId === event2.RoomId &&
+        ((event1.StartTime >= event2.StartTime && event1.StartTime < event2.EndTime) ||
+            (event1.EndTime > event2.StartTime && event1.EndTime <= event2.EndTime) ||
+            (event1.StartTime <= event2.StartTime && event1.EndTime >= event2.EndTime));
+}
 
-// const getRandomDescription = () => Math.random() < 0.1 ? "On Leave" : "Available";
+// Function to remove overlapping events from the events collection
+function removeOverlappingEvents(events) {
+    let filteredEvents = [];
+    let toRemoveIndexes = new Set(); // To track events that should be removed
 
-const generateShiftData = (startDate, numDays) => {
-    const shiftData = [];
-    const doctors = employeeData.filter(emp => emp.groupId === 1);
-    const nurses = employeeData.filter(emp => emp.groupId === 2);
-    const supportStaffs = employeeData.filter(emp => emp.groupId === 3);
+    // Iterate through each event
+    for (let i = 0; i < events.length; i++) {
+        const currentEvent = events[i];
 
-    // Fixed Shift Employees
-    const dayShiftDoctors = doctors.filter(doc => doc.name === "Robert");
-    const nightShiftDoctors = doctors.filter(doc => doc.name === "Nancy");
-    const remainingDoctors = doctors.filter(doc => !dayShiftDoctors.includes(doc) && !nightShiftDoctors.includes(doc));
-
-    const dayShiftNurses = nurses.filter(nurse => nurse.name === "Laura");
-    const nightShiftNurses = nurses.filter(nurse => nurse.name === "Margaret");
-
-    const dayShiftStaff = supportStaffs.filter(staff => staff.name === "Alice");
-    const nightShiftStaff = supportStaffs.filter(staff => staff.name === "Robson");
-
-    for (let i = 0; i < numDays; i++) {
-        const day = new Date(startDate);
-        day.setDate(day.getDate() + i);
-
-        let prevDay = new Date(day);
-        prevDay.setDate(prevDay.getDate() - 1); // Previous day for night shift
-
-        let assignedDoctors = shuffleArray([...remainingDoctors]);
-        let dayOnCallDoctor = assignedDoctors[0] || null;
-        let nightOnCallDoctor = assignedDoctors[1] || dayOnCallDoctor; // Ensure at least one On-Call doctor per shift
-
-        const getRandomDescription = () => {
-            const rand = Math.random();
-            if (rand < 0.1) return "On Leave";         // 10% chance of full leave
-            if (rand < 0.2) return "First Half Leave"; // 10% chance of first half leave
-            if (rand < 0.3) return "Second Half Leave"; // 10% chance of second half leave
-            return "Available"; // 70% chance of being available
-        };
-
-        const createShiftWithBreak = (employee, roleId, shiftName, startDay, startHour, endDay, endHour, breakHour) => {
-            const description = getRandomDescription();
-
-            const part1Start = new Date(startDay);
-            part1Start.setHours(startHour, 0, 0);
-
-            const part2End = new Date(endDay);
-            part2End.setHours(endHour, 0, 0);
-
-            const breakStart = new Date(endDay);
-            breakStart.setHours(breakHour, 0, 0);
-
-            const breakEnd = new Date(endDay);
-            breakEnd.setHours(breakHour + 1, 0, 0); // 1-hour break
-
-            if (description === "On Leave") {
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: `${shiftName} (On Leave)`,
-                    StartTime: part1Start,
-                    EndTime: part2End,
-                    RoleId: roleId,
-                    EmployeeId: employee.id,
-                    Description: "On Leave",
-                    Color: "#FFCDD2", // Light red for full leave,
-                    IsReadonly: part2End < currentDate ? true : false
-                });
-            } else if (description === "First Half Leave") {
-                // First half leave event (HLD)
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: `Half-Day Leave (${shiftName} - First Half)`,
-                    StartTime: part1Start,
-                    EndTime: breakStart,
-                    RoleId: roleId,
-                    EmployeeId: employee.id,
-                    Description: "Half-Day Leave",
-                    Color: "#FFECB3",
-                    IsReadonly: breakStart < currentDate ? true : false
-                });
-
-                // Break Event (BRL)
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: `Break (${shiftName})`,
-                    StartTime: breakStart,
-                    EndTime: breakEnd,
-                    RoleId: roleId,
-                    EmployeeId: employee.id,
-                    Description: "Break",
-                    Color: "#B0BEC5",
-                    IsReadonly: breakEnd < currentDate ? true : false
-                });
-
-                // Randomly determine if a permission event should occur in the second half
-                const addPermission = Math.random() < 0.2; // 50% chance
-                const addOvertime = Math.random() < 0.2; 
-
-                if (addPermission) {
-                    let permissionStart = new Date(breakEnd);
-                    let permissionEnd;
-                    const permissionDurations = [30, 60, 90]; // Possible durations: 30 min, 1 hour, 1.5 hours
-                    const permissionDuration = permissionDurations[Math.floor(Math.random() * permissionDurations.length)];
-
-                    if (shiftName.includes("Night")) {
-                        // Night shift: second half is from 12 AM - 7 AM (next day)
-
-                        permissionStart.setHours(0 + Math.floor(Math.random() * 6), 0, 0); // Between 12 AM - 6 AM
-                    } else {
-                        // Day shift: second half is from 1 PM - 7 PM (same day)
-                        permissionStart.setHours(13 + Math.floor(Math.random() * 5), 0, 0); // Between 1 PM - 6 PM
-                    }
-
-                    permissionEnd = new Date(permissionStart);
-                    permissionEnd.setMinutes(permissionStart.getMinutes() + permissionDuration);
-
-                    // Ensure permission does not exceed shift end time
-                    if (permissionEnd > part2End) {
-                        permissionEnd = new Date(part2End);
-                    }
-
-                    // Add Permission Event
-                    shiftData.push({
-                        Id: shiftData.length + 1,
-                        Subject: `Permission (${shiftName})`,
-                        StartTime: permissionStart,
-                        EndTime: permissionEnd,
-                        RoleId: roleId,
-                        EmployeeId: employee.id,
-                        Description: "Permission",
-                        Color: "#FFEB3B", // Yellow for permission
-                        IsReadonly: permissionEnd < currentDate ? true : false
-                    });
-
-                    // Ensure available time is properly maintained before and after permission
-                    if (permissionStart > breakEnd) {
-                        shiftData.push({
-                            Id: shiftData.length + 1,
-                            Subject: `${shiftName}`,
-                            StartTime: breakEnd,
-                            EndTime: permissionStart,
-                            RoleId: roleId,
-                            EmployeeId: employee.id,
-                            Description: "Available",
-                            IsReadonly: breakEnd < currentDate ? true : false
-                        });
-                    }
-
-                    if (permissionEnd < part2End) {
-                        shiftData.push({
-                            Id: shiftData.length + 1,
-                            Subject: `${shiftName}`,
-                            StartTime: permissionEnd,
-                            EndTime: part2End,
-                            RoleId: roleId,
-                            EmployeeId: employee.id,
-                            Description: "Available",
-                            IsReadonly: part2End < currentDate ? true : false
-                        });
-                    }
-                } else {
-                    // If no permission, maintain full second half shift
-                    shiftData.push({
-                        Id: shiftData.length + 1,
-                        Subject: `${shiftName}`,
-                        StartTime: breakEnd,
-                        EndTime: part2End,
-                        RoleId: roleId,
-                        EmployeeId: employee.id,
-                        Description: "Available",
-                        IsReadonly: part2End < currentDate ? true : false
-                    });
-                }
-
-                if (addOvertime) {
-
-                    let overtimeStart, overtimeEnd;
-                    const overtimeDurations = [30, 60, 90]; // Possible durations: 30 min, 1 hour, 1.5 hours
-                    const overtimeDuration = overtimeDurations[Math.floor(Math.random() * overtimeDurations.length)];
-
-                    overtimeStart = part2End;
-                    overtimeEnd = new Date(overtimeStart);
-                    overtimeEnd.setMinutes(overtimeStart.getMinutes() + overtimeDuration);
-
-                    shiftData.push({
-                        Id: shiftData.length + 1,
-                        Subject: `Overtime (${shiftName})`,
-                        StartTime: overtimeStart,
-                        EndTime: overtimeEnd,
-                        RoleId: roleId,
-                        EmployeeId: employee.id,
-                        Description: "Overtime",
-                        Color: "#FFEB3B",
-                        IsReadonly: overtimeEnd < currentDate ? true : false
-                    });
-                }
+        // Compare with all subsequent events (i + 1 onward)
+        for (let j = i + 1; j < events.length; j++) {
+            const compareEvent = events[j];
+            if (isOverlapping(currentEvent, compareEvent)) {
+                // If there's an overlap, mark the event at index j for removal
+                toRemoveIndexes.add(j);
             }
-            else if (description === "Second Half Leave") {
-                const addPermission = Math.random() < 0.2; // 50% chance of permission
+        }
 
-                if (addPermission) {
-                    let permissionStartHour;
-                    let permissionMin = 0;
-
-                    if (shiftName.includes("Night")) {
-                        permissionStartHour = 19 + Math.floor(Math.random() * 5); // 7 PM - 11 PM
-                    } else {
-                        // Day shift: 7 AM - 11 AM
-                        permissionStartHour = 7 + Math.floor(Math.random() * 5);
-                    }
-
-                    const permissionDurations = [30, 60, 120]; // Possible durations: 30 min, 1 hour, 2 hours
-                    let permissionDuration = permissionDurations[Math.floor(Math.random() * permissionDurations.length)];
-
-                    const permissionStart = new Date(startDay);
-                    permissionStart.setHours(permissionStartHour, permissionMin, 0);
-
-                    const permissionEnd = new Date(permissionStart);
-                    permissionEnd.setMinutes(permissionStart.getMinutes() + permissionDuration);
-
-                    // Fix: Ensure night shift permission does not exceed 12:00 AM
-                    if (shiftName.includes("Night") && permissionEnd.getDate() !== permissionStart.getDate()) {
-                        permissionEnd.setHours(0, 0, 0); // Set to exactly 12:00 AM
-                    }
-
-                    // Add Permission Event
-                    shiftData.push({
-                        Id: shiftData.length + 1,
-                        Subject: `Permission (${shiftName})`,
-                        StartTime: permissionStart,
-                        EndTime: permissionEnd,
-                        RoleId: roleId,
-                        EmployeeId: employee.id,
-                        Description: "Permission",
-                        Color: "#FFEB3B", // Yellow for permission
-                        IsReadonly: permissionEnd < currentDate
-                    });
-
-                    // Ensure available time is properly maintained after permission
-                    if (permissionStartHour === (shiftName.includes("Night") ? 19 : 7)) {
-                        shiftData.push({
-                            Id: shiftData.length + 1,
-                            Subject: `${shiftName}`,
-                            StartTime: permissionEnd,
-                            EndTime: breakStart,
-                            RoleId: roleId,
-                            EmployeeId: employee.id,
-                            Description: "Available",
-                            IsReadonly: permissionStart < currentDate
-                        });
-                    } else {
-                        shiftData.push({
-                            Id: shiftData.length + 1,
-                            Subject: `${shiftName}`,
-                            StartTime: part1Start,
-                            EndTime: permissionStart,
-                            RoleId: roleId,
-                            EmployeeId: employee.id,
-                            Description: "Available",
-                            IsReadonly: permissionStart < currentDate
-                        });
-
-                        if (permissionEnd < breakStart) {
-                            shiftData.push({
-                                Id: shiftData.length + 1,
-                                Subject: `${shiftName}`,
-                                StartTime: permissionEnd,
-                                EndTime: breakStart,
-                                RoleId: roleId,
-                                EmployeeId: employee.id,
-                                Description: "Available",
-                                IsReadonly: permissionStart < currentDate
-                            });
-                        }
-                    }
-                } else {
-                    // If no permission, maintain full first half shift
-                    shiftData.push({
-                        Id: shiftData.length + 1,
-                        Subject: `${shiftName}`,
-                        StartTime: part1Start,
-                        EndTime: breakStart,
-                        RoleId: roleId,
-                        EmployeeId: employee.id,
-                        Description: "Available",
-                        IsReadonly: part1Start < currentDate
-                    });
-                }
-
-                // Break Event (BRL)
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: `Break (${shiftName})`,
-                    StartTime: breakStart,
-                    EndTime: breakEnd,
-                    RoleId: roleId,
-                    EmployeeId: employee.id,
-                    Description: "Break",
-                    Color: "#B0BEC5",
-                    IsReadonly: breakEnd < currentDate
-                });
-
-                // Second half leave event (HLD)
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: `Half-Day Leave (${shiftName} - Second Half)`,
-                    StartTime: breakEnd,
-                    EndTime: part2End,
-                    RoleId: roleId,
-                    EmployeeId: employee.id,
-                    Description: "Half-Day Leave",
-                    Color: "#FFECB3",
-                    IsReadonly: part2End < currentDate
-                });
-
-            }
-
-            else {
-                const addPermission = Math.random() < 0.2; // 50% chance to add a permission
-                const addOvertime = Math.random() < 0.2; // 50% chance to add a permission
-
-                let addShiftSwap = false;
-                if (part1Start > new Date()) {
-                    addShiftSwap = Math.random() < 0.3;
-                }
-
-                const isFirstHalfPermission = Math.random() < 0.5; // Decide if permission goes in first or second half
-
-                let permissionStart, permissionEnd;
-                const permissionDurations = [30, 60, 90]; // Possible durations: 30 min, 1 hour, 1.5 hours
-                const permissionDuration = permissionDurations[Math.floor(Math.random() * permissionDurations.length)];
-
-                // First Half (Before Break)
-                if (addPermission && isFirstHalfPermission) {
-                    permissionStart = new Date(part1Start);
-
-                    if (shiftName.includes("Night")) {
-                        // Night Shift: Permission between 7 PM - 11 PM
-                        permissionStart.setHours(19 + Math.floor(Math.random() * 4), 0, 0);
-                    } else {
-                        // Day Shift: Permission between 7 AM - 12 PM
-                        permissionStart.setHours(7 + Math.floor(Math.random() * 5), 0, 0);
-                    }
-
-                    permissionEnd = new Date(permissionStart);
-                    permissionEnd.setMinutes(permissionStart.getMinutes() + permissionDuration);
-
-                    // Ensure permission does not exceed break start
-                    if (permissionEnd > breakStart) {
-                        permissionEnd = new Date(breakStart);
-                    }
-
-                    shiftData.push({
-                        Id: shiftData.length + 1,
-                        Subject: `Permission (${shiftName})`,
-                        StartTime: permissionStart,
-                        EndTime: permissionEnd,
-                        RoleId: roleId,
-                        EmployeeId: employee.id,
-                        Description: "Permission",
-                        Color: "#FFEB3B",
-                        IsReadonly: permissionEnd < currentDate ? true : false
-                    });
-
-                    // Available time before and after permission
-                    if (permissionStart > part1Start) {
-                        shiftData.push({
-                            Id: shiftData.length + 1,
-                            Subject: `${shiftName}`,
-                            StartTime: part1Start,
-                            EndTime: permissionStart,
-                            RoleId: roleId,
-                            EmployeeId: employee.id,
-                            Description: "Available",
-                            IsReadonly: part1Start < currentDate ? true : false
-                        });
-                    }
-
-                    if (permissionEnd < breakStart) {
-                        shiftData.push({
-                            Id: shiftData.length + 1,
-                            Subject: `${shiftName}`,
-                            StartTime: permissionEnd,
-                            EndTime: breakStart,
-                            RoleId: roleId,
-                            EmployeeId: employee.id,
-                            Description: "Available",
-                            IsReadonly: breakStart < currentDate ? true : false
-                        });
-                    }
-                } else {
-                    // No permission in the first half
-                    shiftData.push({
-                        Id: shiftData.length + 1,
-                        Subject: `${shiftName}`,
-                        StartTime: part1Start,
-                        EndTime: breakStart,
-                        RoleId: roleId,
-                        EmployeeId: employee.id,
-                        Description: "Available",
-                        IsReadonly: breakStart < currentDate ? true : false
-                    });
-                }
-
-                // Break Event
-                shiftData.push({
-                    Id: shiftData.length + 1,
-                    Subject: `Break (${shiftName})`,
-                    StartTime: breakStart,
-                    EndTime: breakEnd,
-                    RoleId: roleId,
-                    EmployeeId: employee.id,
-                    Description: "Break",
-                    Color: "#B0BEC5",
-                    IsReadonly: breakEnd < currentDate ? true : false
-                });
-
-                // Second Half (After Break)
-                if (addPermission && !isFirstHalfPermission) {
-                    permissionStart = new Date(breakEnd);
-
-                    if (shiftName.includes("Night")) {
-                        // Night Shift: Permission between 12 AM - 6 AM
-                        permissionStart.setHours(0 + Math.floor(Math.random() * 6), 0, 0);
-                    } else {
-                        // Day Shift: Permission between 1 PM - 6 PM
-                        permissionStart.setHours(13 + Math.floor(Math.random() * 5), 0, 0);
-                    }
-
-                    permissionEnd = new Date(permissionStart);
-                    permissionEnd.setMinutes(permissionStart.getMinutes() + permissionDuration);
-
-                    // Ensure permission does not exceed shift end
-                    if (permissionEnd > part2End) {
-                        permissionEnd = new Date(part2End);
-                    }
-
-                    shiftData.push({
-                        Id: shiftData.length + 1,
-                        Subject: `Permission (${shiftName})`,
-                        StartTime: permissionStart,
-                        EndTime: permissionEnd,
-                        RoleId: roleId,
-                        EmployeeId: employee.id,
-                        Description: "Permission",
-                        Color: "#FFEB3B",
-                        IsReadonly: permissionEnd < currentDate ? true : false
-                    });
-
-                    // Available time before and after permission
-                    if (permissionStart > breakEnd) {
-                        shiftData.push({
-                            Id: shiftData.length + 1,
-                            Subject: `${shiftName}`,
-                            StartTime: breakEnd,
-                            EndTime: permissionStart,
-                            RoleId: roleId,
-                            EmployeeId: employee.id,
-                            Description: "Available",
-                            IsReadonly: breakEnd < currentDate ? true : false
-                        });
-                    }
-
-                    if (permissionEnd < part2End) {
-                        shiftData.push({
-                            Id: shiftData.length + 1,
-                            Subject: `${shiftName}`,
-                            StartTime: permissionEnd,
-                            EndTime: part2End,
-                            RoleId: roleId,
-                            EmployeeId: employee.id,
-                            Description: "Available" + (addShiftSwap ? " - Swap" : ""),
-                            IsReadonly: part2End < currentDate ? true : false
-                        });
-                    }
-                } else {
-                    // No permission in the second half
-                    shiftData.push({
-                        Id: shiftData.length + 1,
-                        Subject: `${shiftName}`,
-                        StartTime: breakEnd,
-                        EndTime: part2End,
-                        RoleId: roleId,
-                        EmployeeId: employee.id,
-                        Description: "Available" + (addShiftSwap ? " - Swap" : ""),
-                        IsReadonly: part2End < currentDate ? true : false
-                    });
-                }
-                if (addOvertime) {
-
-                    let overtimeStart, overtimeEnd;
-                    const overtimeDurations = [30, 60, 90]; // Possible durations: 30 min, 1 hour, 1.5 hours
-                    const overtimeDuration = overtimeDurations[Math.floor(Math.random() * overtimeDurations.length)];
-
-                    overtimeStart = part2End;
-                    overtimeEnd = new Date(overtimeStart);
-                    overtimeEnd.setMinutes(overtimeStart.getMinutes() + overtimeDuration);
-
-                    shiftData.push({
-                        Id: shiftData.length + 1,
-                        Subject: `Overtime (${shiftName})`,
-                        StartTime: overtimeStart,
-                        EndTime: overtimeEnd,
-                        RoleId: roleId,
-                        EmployeeId: employee.id,
-                        Description: "Overtime",
-                        Color: "#FFEB3B",
-                        IsReadonly: overtimeEnd < currentDate ? true : false
-                    });
-                }
-            }
-        };
-
-        // **Day Shift (7 AM - 7 PM) → Break at 1 PM - 2 PM**
-        dayShiftDoctors.forEach(doctor => createShiftWithBreak(doctor, 1, "Day Shift", day, 7, day, 19, 12));
-        if (dayOnCallDoctor) createShiftWithBreak(dayOnCallDoctor, 1, "On-Call Duty", day, 7, day, 19, 12);
-
-        // **Night Shift (Previous Day 7 PM - Next Day 7 AM) → Break at 1 AM - 2 AM**
-        nightShiftDoctors.forEach(doctor => createShiftWithBreak(doctor, 1, "Night Shift", prevDay, 19, day, 7, 0));
-        if (nightOnCallDoctor) createShiftWithBreak(nightOnCallDoctor, 1, "On-Call Duty", prevDay, 19, day, 7, 0);
-
-        // **Nurses**
-        dayShiftNurses.forEach(nurse => createShiftWithBreak(nurse, 2, "Day Shift", day, 7, day, 19, 12));
-        nightShiftNurses.forEach(nurse => createShiftWithBreak(nurse, 2, "Night Shift", prevDay, 19, day, 7, 0));
-
-        // **Support Staff**
-        dayShiftStaff.forEach(staff => createShiftWithBreak(staff, 3, "Day Shift", day, 7, day, 19, 12));
-        nightShiftStaff.forEach(staff => createShiftWithBreak(staff, 3, "Night Shift", prevDay, 19, day, 7, 0));
+        // Always add the current event to the filtered list, unless it's in the remove list
+        if (!toRemoveIndexes.has(i) && !checkRoomCapacity(currentEvent.RoomId, currentEvent.Capacity)) {
+            filteredEvents.push(currentEvent);
+        }
     }
-    return shiftData;
-};
 
-const workShiftData = generateShiftData(new Date(2025, 1, 17), 14);
+    return filteredEvents;
+}
 
-
-
-const group = {
-    resources: ['Roles', 'Employees']
-};
-
-const timeScale = {
-    enable: true,
-    interval: 480,
-    slotCount: 4,
-    // majorSlotTemplate: (args) => {
-    //     const hour = args.date.getHours();
-    //     if (hour === 0) {
-    //         return '12 AM- 12 PM';
-    //     } else if (hour == 12) {
-    //         return '12 PM – 12 AM';
-    //     }
-    // }
-};
-
-const workHours = { start: '00:00', end: '23:59' };
-
-function App() {
-    const scheduleObj = useRef(null);
-    const [isTimelineView, setIsTimelineView] = useState(true);
-
-    // Event Template with an Image
-    const eventTemplate = (props) => {
+const checkRoomAvailability = (startTime, endTime, roomId) => {
+    let result = events.some((event) => {
         return (
-            <div className='e-image' style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <img src='https://media-hosting.imagekit.io//32c41ea1dee0410c/Doctors.png?Expires=1835175476&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=PJhwbpzopFWxMxgStc24vzvQpVRGTe4SjyYtusNLknEy-clQM4YoMM35oJyCkoHcjz2wtPgLycq2bv3CXUta9F-Jeq-wDI7iJ8nZ9yZcH8lFbWHSjVvuz1uOOHNxnFEJyr~Nd5W3FX0tRwWDbaqw-Y569OLtwRYtzFplzgZ8og2yOmSa2fRK2qqBTK~EfguKwJgfTU4W5INnFazjiFFvWdiY2EsqjuL0HU4BHKlsDlNB0-p-rkAFmCJI5MEF5YR4DTSiVk2NmROTboHMICRxNfdQvzJkfGYt8UVhi~g~BV7R-zkDDeeSHB2ELSpsOyBJWdLk58rmiMWCqf8sOx5KxA__' alt="event" style={{ width: "20px", height: "20px", borderRadius: "50%" }} />
-                <span>{props.Subject}</span>
-                
-            </div>
+            event.RoomId === roomId &&
+            ((startTime >= event.StartTime && startTime < event.EndTime) ||
+                (endTime > event.StartTime && endTime <= event.EndTime) ||
+                (startTime <= event.StartTime && endTime >= event.EndTime))
         );
-    };
+    });
+    return result;
+};
 
-    function createShiftSwapButton() {
-        const div = document.createElement("div");
-        div.className = "e-shift-swap";
-        div.style.display = "flex";
-        div.style.alignItems = "center";
-        div.style.gap = "8px";
-    
-        // Create Swap Button
-        const button = document.createElement("button");
-        button.innerText = "+";
-        button.className = "e-swap-btn";
-        button.style.padding = "5px 10px";
-        button.style.border = "none";
-        button.style.backgroundColor = "#007bff";
-        button.style.color = "white";
-        button.style.borderRadius = "5px";
-        button.style.cursor = "pointer";
-    
-        // Add Click Event for Swap Functionality
-        button.onclick = function () {
-           requestShiftSwap();
-        };
-    
-        div.appendChild(button);
-        return div;
-    }
-    
-    // Function to Handle Shift Swap Request
-    function requestShiftSwap() {
-        alert('Shift Swap Requested for Employee ID');
-        // Add API call or logic to handle swap request
+
+
+const checkRoomCapacity = (RoomId, Capacity) => {
+    const room = rooms.find((room) => room.RoomId === RoomId);
+    return room && room.RoomCapacity < Capacity;
+}
+
+events = removeOverlappingEvents(events);
+
+const App = () => {
+    const scheduleObj = useRef(null);
+
+    const [eventsData, setEvents] = useState(events); // Start with initial event data
+    const [selectedRoom, setSelectedRoom] = useState(null);
+
+
+
+
+
+    const onEventAdded = (args) => {
+        const { StartTime, EndTime, RoomId, Capacity, Subject, Id } = args.data;
     }
 
-    function createImageElement() {
-        const div = document.createElement("div");
-        div.className = "e-image";
-        div.style.display = "flex";
-        div.style.alignItems = "center";
-        div.style.gap = "8px";
-    
-        const img = document.createElement("img");
-        img.src = "https://media-hosting.imagekit.io//32c41ea1dee0410c/Doctors.png?Expires=1835175476&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=PJhwbpzopFWxMxgStc24vzvQpVRGTe4SjyYtusNLknEy-clQM4YoMM35oJyCkoHcjz2wtPgLycq2bv3CXUta9F-Jeq-wDI7iJ8nZ9yZcH8lFbWHSjVvuz1uOOHNxnFEJyr~Nd5W3FX0tRwWDbaqw-Y569OLtwRYtzFplzgZ8og2yOmSa2fRK2qqBTK~EfguKwJgfTU4W5INnFazjiFFvWdiY2EsqjuL0HU4BHKlsDlNB0-p-rkAFmCJI5MEF5YR4DTSiVk2NmROTboHMICRxNfdQvzJkfGYt8UVhi~g~BV7R-zkDDeeSHB2ELSpsOyBJWdLk58rmiMWCqf8sOx5KxA__";
-        img.alt = "event";
-        img.style.width = "30px";
-        img.style.height = "30px";
-        img.style.borderRadius = "50%";
-    
-        div.appendChild(img);
-        return div;
-    }
+    const onActionBegin = (args) => {
+        if (args.requestType === "eventCreate") {
+            let eventsData = args.data[0];
+            const { StartTime, EndTime, RoomId, Capacity, Subject, Id } = eventsData;
 
-    const onEventRendered = (args) => {
-
-        if (args.data.Description.includes('Swap')) {
-            args.element.appendChild(createShiftSwapButton());
-        }
-        
-        // const currentDate = new Date().setHours(0, 0, 0, 0);
-        // if (args.data.EndTime < currentDate) {
-        //     args.data.isrea
-        // }
-        // if (args.data.EndTime < scheduleObj.current.selectedDate && args.data.EndTime.getDate() < new Date().getDate()) {
-        //     args.element.classList.add('e-past-app');
-        // }
-        // else
-        if (args.data.Subject.includes('Permission')) {
-            args.element.classList.add('e-permission');
-        } else if (args.data.Subject.toLowerCase().includes('overtime')) {
-            args.element.classList.add('e-overtime');
-        } else if (args.data.Description.includes('covers for')) {
-            args.element.querySelector('.e-subject').innerText = args.data.Description;
-            args.element.classList.add('e-covers');
-
-            let iconElement = document.createElement('span');
-            iconElement.classList.add('e-icons');
-
-            args.element.querySelector('.e-inner-wrap')?.appendChild(iconElement);
-        } else if (args.data.Description === 'On Leave') {
-            // args.data.Subject = 'Not Available(' + args.data.Subject + ')';
-            args.element.querySelector('.e-subject').innerText = args.data.Description;
-            args.element.classList.add('e-leave');
-
-            let iconElement = document.createElement('span');
-            iconElement.classList.add('e-icons');
-
-            args.element.querySelector('.e-inner-wrap')?.appendChild(iconElement);
-        } else if (args.data.Description === "Half-Day Leave") {
-            //args.data.Subject = 'Not Available(' + args.data.Subject + ')';
-            args.element.querySelector('.e-subject').innerText = 'Half-Day Leave';
-            args.element.classList.add('e-half-leave');
-
-            let iconElement = document.createElement('span');
-            iconElement.classList.add('e-icons');
-
-            args.element.querySelector('.e-inner-wrap')?.appendChild(iconElement);
-        } else if (args.data.Subject === 'Day Shift') {
-            args.element.style.backgroundColor = '#ADD8E6'; // Light Blue
-            args.element.style.color = '#000'; // Black text
-
-            if (args.data.IsReadonly) {
-                args.element.insertBefore(createImageElement(), args.element.children[0]);
-            } else {
-                args.element.insertBefore(createImageElement(), args.element.children[1]);
-            }
-            
-        } else if (args.data.Subject === 'Night Shift') {
-            args.element.style.backgroundColor = '#6A0DAD';
-            args.element.style.color = '#fff'; // White text
-        } else if (args.data.Subject === 'On-Call Duty') {
-            args.element.style.backgroundColor = '#7fa900';
-        } else if (args.data.Subject === 'Break (Day Shift)') {
-            args.element.style.backgroundColor = '#90caf9';
-        } else if (args.data.Subject === 'Break (Night Shift)') {
-            args.element.style.backgroundColor = '#9711f7';
-        } else if (args.data.Subject === 'Break (On-Call Duty)') {
-            args.element.style.backgroundColor = '#abe302';
-        }
-
-        
-    };
-
-
-    const onRenderCell = (args) => {
-        if (args.elementType === 'workCells') {
-            const date = args.date.getDate();
-            //  const hour = date.getHours();
-            if (date < 17) {  // Highlight 12 PM to 3 PM
-                args.element.style.backgroundColor = '#f3f3f3';
-            }
-
-            const day = args.date.getDay();
-            if (day === 0 || day === 5 || day === 6) {
-                //      args.element.style.backgroundColor = '#ffa0a4';
-            }
-
-            const currentDate = new Date().setHours(0, 0, 0, 0);
-            if (args.date < currentDate) {
-                args.element.classList.add('e-past');
-            }
-        }
-    }
-
-    const onActionBegin = (event) => {
-        if (event.requestType === 'eventChange' && isTreeItemDropped) {
-            let treeViewData = treeObj.current.fields.dataSource;
-            const filteredPeople = treeViewData.filter((item) => item.Id !== parseInt(draggedItemId, 10));
-            treeObj.current.fields.dataSource = filteredPeople;
-            let elements = document.querySelectorAll('.e-drag-item.treeview-external-drag');
-            for (let i = 0; i < elements.length; i++) {
-                remove(elements[i]);
-            }
-        }
-    };
-
-    const resizeStart = (args) => {
-        args.interval = 30;
-    }
-    const resizing = (args) => {
-        console.log(args);
-    }
-
-    const resizeStop = (args) => {
-        const eventDetails = scheduleObj.current.getEventDetails(args.element);
-        const updatedEventDetails = args.data;
-        if (eventDetails.EndTime < updatedEventDetails.EndTime) {
-            args.cancel = true;
-            if (eventDetails.Description.toLowerCase().includes('leave')) {
+            if (checkRoomAvailability(StartTime, EndTime, RoomId)) {
+                alert('Room is already booked for this time slot.');
+                args.cancel = true;
                 return;
             }
-            let eventData = {
-                Subject: 'Overtime shift (' + eventDetails.Subject + ')',
-                StartTime: eventDetails.EndTime,
-                EndTime: updatedEventDetails.EndTime,
-                IsAllDay: false,
-                Description: "Extra working hours",
-                EmployeeId: eventDetails.EmployeeId,
-                RoleId: eventDetails.RoleId
-            };
-            scheduleObj.current.openEditor(eventData, 'Add', true);
+
+            if (checkRoomCapacity(RoomId, Capacity)) {
+                alert('Room cannot accommodate the number of attendees.');
+                args.cancel = true;
+                return;
+            }
         }
+
     }
 
-    const headerIndentTemplate = () => {
-        return (<div className='e-resource-text'>
-            <div className="text">Role/Employee</div></div>);
+    const onDataBinding = (args) => {
+        // setEvents(removeOverlappingEvents(eventsData));
+
+
     }
 
-    const resourceHeaderTemplate = (props) => {
-        if (props.resource.name === 'Employees') {
-            return (<div className="template-wrap">
-                <div className="employee-category">
-                    <div className={"employee-image " + getEmployeeImage(props)} />
-                    <div className="employee-name"> {getEmployeeName(props)}</div>
-                    <div className="employee-designation">{getEmployeeDesignation(props)}</div>
-                </div>
-            </div>);
-        } else {
-            return (<div className="e-resource-text">{props.resourceData.role}</div>);
-        }
-    };
+    const onCreated = (args) => {
 
-    const getEmployeeName = (value) => {
-        return value.resourceData[value.resource.textField];
-    };
-    const getEmployeeImage = (value) => {
-        return getEmployeeName(value).toLowerCase();
-    };
-    const getEmployeeDesignation = (value) => {
-        return value.resourceData.Designation;
-    };
-
-
-    const reserveStaffs = [
-        { Id: 1, Name: "Doctors", HasChild: true, Expanded: true },
-        { Id: 2, PId: 1, Name: "John", Description: 'General Practitioner' },
-        { Id: 3, PId: 1, Name: "Nashil", Description: 'Cardiologist' },
-        { Id: 4, PId: 1, Name: "Salman", Description: 'Neurologist' },
-
-        { Id: 5, Name: "Nurses", HasChild: true, Expanded: true },
-        { Id: 6, PId: 5, Name: "Roy", Description: 'Staff Nurse' },
-        { Id: 7, PId: 5, Name: "Troot", Description: 'Staff Nurse' },
-
-        { Id: 8, Name: "Support Staffs", HasChild: true, Expanded: true },
-        { Id: 9, PId: 8, Name: "Ricky", Description: 'Ward Assistant' },
-        { Id: 10, PId: 8, Name: "Nasheem", Description: 'Ward Assistant' },
-    ];
-
-    let treeObj = useRef(null);
-    let isTreeItemDropped = false;
-    let draggedItemId = '';
-    const allowDragAndDrops = true;
-    const fields = { dataSource: reserveStaffs, id: 'Id', parentID: 'PId', text: 'Name', hasChildren: 'HasChild', expanded: 'Expanded' };
-    const treeTemplate = (props) => {
-        if (props.HasChild) {
-            return (
-                <div className="header-role">{props.Name}</div>
-            );
-        } else {
-            return (<div id="waiting">
-                <div id="waitdetails">
-                    <div className={"employee-image "} />
-                    <div id="waitlist">{props.Name}</div>
-                    <div id="waitcategory">{props.Description}</div>
-                </div>
-            </div>);
-        }
-    };
-    const onItemSelecting = (args) => {
-        args.cancel = true;
-    };
-    const onTreeDrag = (event) => {
-        if (scheduleObj.current.isAdaptive) {
-            let classElement = scheduleObj.current.element.querySelector('.e-device-hover');
-            if (classElement) {
-                classElement.classList.remove('e-device-hover');
-            }
-            if (event.target.classList.contains('e-work-cells')) {
-                addClass([event.target], 'e-device-hover');
-            }
-        }
-    };
-
-    const onTreeDragStop = (event) => {
-        let treeElement = closest(event.target, '.e-treeview');
-        let classElement = scheduleObj.current.element.querySelector('.e-device-hover');
-        if (classElement) {
-            classElement.classList.remove('e-device-hover');
-        }
-        if (!treeElement) {
-            event.cancel = true;
-            let scheduleElement = closest(event.target, '.e-content-wrap');
-            if (scheduleElement) {
-                let treeviewData = treeObj.current.fields.dataSource;
-                let target = closest(event.target, '.e-appointment.e-leave') || closest(event.target, '.e-appointment.e-half-leave');
-                if (target) {
-                    const filteredData = treeviewData.filter((item) => item.Id === parseInt(event.draggedNodeData.id, 10));
-                    let eventDetails = scheduleObj.current.getEventDetails(target);
-
-                    const category = treeviewData.filter((item) => item.Id === parseInt(filteredData[0].PId, 10));
-                    const role = employeeRole.filter((item) => item.id === parseInt(eventDetails.RoleId, 10));
-                    if (role[0].role === category[0].Name) {
-                        let resourceDetails = scheduleObj.current.getResourcesByIndex(eventDetails.EmployeeId);
-                        eventDetails.Description = 'Dr.' + filteredData[0].Name + ' covers for Dr.' + resourceDetails.resourceData.name;
-                        eventDetails.Subject = eventDetails.Subject.split('(')[0].trim() + ' (Dr.' + filteredData[0].Name + ')';
-                        scheduleObj.current.openEditor(eventDetails, 'EditOccurrence');
-                        isTreeItemDropped = true;
-                        draggedItemId = event.draggedNodeData.id;
-                    }
-                }
-            }
-        }
-        document.body.classList.remove('e-disble-not-allowed');
-    };
-
-    const onTreeDragStart = () => {
-        document.body.classList.add('e-disble-not-allowed');
-    };
+    }
 
     const onChange = (args) => {
-        setIsTimelineView(args.checked);
-    };
+        let value = parseInt((args.event.currentTarget).querySelector('input').getAttribute('value'), 10);
+        let resourceData = rooms.filter((calendar) => calendar.RoomId !== value);
+        if (args.checked) {
+            scheduleObj.current.addResource(resourceData[0], 'Rooms', value - 1);
+        } else {
+            scheduleObj.current.removeResource(value, 'Rooms');
+        }
+    }
 
-    const groupTemplate = useCallback(() => {
-        return (
-            <div className='template'>
-                <label className='checkbox-container'>
-                    <CheckBoxComponent
-                        id='admin'
-                        checked={isTimelineView}
-                        change={onChange}
-                    />
-                    <span className='text-child'> Is Admin</span>
-                </label>
-            </div>
-        );
-    }, []);
-    
+    const onRoomChange = (e) => {
+        let value = e.value;
+        setSelectedRoom(value);
+        if (e.previousItem === null) {
+            let resourceData = rooms.filter((calendar) => calendar.RoomId !== value);
+            for (let idx = 0; idx < resourceData.length; idx++) {
+                let resource = resourceData[idx];
+                scheduleObj.current.removeResource(resource.RoomId, 'Rooms');
+            }
+        } else {
+            scheduleObj.current.removeResource(e.previousItemData.RoomId, 'Rooms');
+            let resourceData = rooms.filter((calendar) => calendar.RoomId === value);
+            scheduleObj.current.addResource(resourceData[0], 'Rooms', value - 1);
+        }
+
+    };
 
     return (<div className='schedule-control-section'>
         <div className='col-lg-12 control-section'>
-            <div className='control-wrapper drag-sample-wrapper'>
+            <div className='control-wrapper event-sample-wrapper'>
                 <div className="schedule-container">
-                    <div className="title-container">
-                        <h1 className="title-text">Shift's Details</h1>
-                    </div>
-                    <ToolbarComponent>
-                        <ItemsDirective>
-                            <ItemDirective tooltipText='Grouping' text='Grouping' template={groupTemplate} />
-                        </ItemsDirective>
-                    </ToolbarComponent>
-
                     <ScheduleComponent
                         ref={scheduleObj}
-                        currentView="TimelineWeek"
-                        cssClass='schedule-drag-drop'
-                        height="600px"
-                        width='100%'
-                        readonly={!isTimelineView}
-                        group={group}
-                        eventSettings={{ dataSource: workShiftData, enableMaxHeight: true }}
-                        timeScale={timeScale}
-                        workHours={workHours}
-                        showTimeIndicator={true}
-                        eventRendered={onEventRendered}
-                        headerIndentTemplate={headerIndentTemplate}
-                        resourceHeaderTemplate={resourceHeaderTemplate}
-                        renderCell={onRenderCell}
-                        resizeStart={resizeStart}
-                        resizing={resizing}
-                        resizeStop={resizeStop}
+                        selectedDate={new Date(2025, 1, 25)}
+                        width='100%' height='650px'
+                        startHour="07:00"
+                        endHour="19:00"
+                        eventSettings={{
+                            dataSource: eventsData,
+                            fields: {
+                                subject: { name: 'Subject' },
+                                startTime: { name: 'StartTime' },
+                                endTime: { name: 'EndTime' },
+                                roomId: { name: 'RoomId' },
+                                description: { name: 'Capacity', title: 'Capacity' },
+                                // description: { name: 'Description' },
+                            },
+                        }}
+                        group={{ resources: ['Rooms'] }}
+                        eventRendered={onEventAdded}
                         actionBegin={onActionBegin}
+                        dataBinding={onDataBinding}
+                        created={onCreated}
                     >
-
                         <ViewsDirective>
-                            <ViewDirective option='TimelineDay' />
-                            <ViewDirective option="TimelineWeek" />
-                            <ViewDirective option='TimelineMonth' />
+                            <ViewDirective option="Week" />
+                            <ViewDirective option="Day" />
+                            <ViewDirective option="Agenda" />
                         </ViewsDirective>
-
                         <ResourcesDirective>
                             <ResourceDirective
-                                field="RoleId"
-                                title="Roles"
-                                name="Roles"
-                                dataSource={employeeRole}
-                                textField="role"
-                                idField="id"
-                                colorField="parentColor"
-                            />
-                            <ResourceDirective
-                                field="EmployeeId"
-                                title="Employees"
-                                name="Employees"
-                                dataSource={employeeData}
-                                textField="name"
-                                idField="id"
-                                groupIDField="groupId"
-                                colorField="color"
-                                allowMultiple={false}
+                                field="RoomId"
+                                title="Conference Room"
+                                name="Rooms"
+                                dataSource={rooms}
+                                textField="RoomName"
+                                idField="RoomId"
+                                colorField="RoomColor"
                             />
                         </ResourcesDirective>
-
-                        <Inject services={[TimelineViews, TimelineMonth, Resize, DragAndDrop]} />
+                        <Inject services={[TimelineViews, Agenda, Week, Day]} />
                     </ScheduleComponent>
                 </div>
-                <div className="treeview-container">
+                <div className='e-room-selection'>
                     <div className="title-container">
-                        <h1 className="title-text">Available Staffs</h1>
+                        <h4 className="title-text">Select Room</h4>
                     </div>
-                    <TreeViewComponent ref={treeObj} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
+                    <DropDownListComponent
+                        dataSource={rooms}
+                        fields={{ text: 'RoomName', value: 'RoomId' }}
+                        placeholder="Select Room"
+                        value={selectedRoom}
+                        change={onRoomChange}
+                    />
+
                 </div>
             </div>
         </div>
-    </div>
-    );
-}
-
+    </div>);
+};
 export default App;
