@@ -23,26 +23,27 @@
     width: 15%;
 }
 
-@media (max-width: 500px) {
-    .event-sample-wrapper {
-        display: block;
-    }
-
-    .schedule-container {
-        padding-bottom: 10px;
-        width: 70%;
-    }
-
-    .e-room-selection {
-        width: 30%;
-    }
-
-    .treeview-external-drag.e-treeview,
-    .e-bigger .treeview-external-drag.e-treeview {
-        width: 250px;
-    }
-
-    .e-bigger .treeview-external-drag.e-treeview.e-drag-item {
-        position: relative !important;
-    }
+.e-schedule-table .e-header-row .template-wrap .resource-name {
+    margin-bottom: 3px;
 }
+
+.e-schedule-table .e-header-row .template-wrap .e-icons.e-capacity-icon {
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    margin-right: 4px;
+}
+
+.e-schedule-table .e-header-row .template-wrap .e-icons.e-capacity-icon::before {
+    content: '\e424';
+}
+
+.e-schedule-table .e-header-row .template-wrap .e-capacity {
+    vertical-align: top;
+    padding-top: 2px;
+}
+
+.e-schedule .e-vertical-view .e-header-row .e-resource-cells {
+    padding: 0;
+    text-align: center !important;
+  }

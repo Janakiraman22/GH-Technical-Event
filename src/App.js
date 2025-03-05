@@ -1,8 +1,10 @@
 import * as React from 'react';
 import './App.css';
 import { useRef, useState } from 'react';
-import { ScheduleComponent, ViewsDirective, ViewDirective, ResourcesDirective, ResourceDirective, TimelineViews, Week, Day, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
+import { ScheduleComponent, ViewsDirective, ViewDirective, ResourcesDirective, ResourceDirective,
+     TimelineViews, Week, Day, Agenda, Inject, DragAndDrop, ExcelExport } from '@syncfusion/ej2-react-schedule';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
+import { DialogComponent } from '@syncfusion/ej2-react-popups';
 
 const rooms = [
     { RoomId: 1, RoomName: 'Room A', RoomCapacity: 70, RoomColor: '#FF5733' },
@@ -203,6 +205,13 @@ const checkRoomCapacity = (RoomId, Capacity) => {
 
 events = removeOverlappingEvents(events);
 
+
+
+
+
+
+
+
 const App = () => {
     const scheduleObj = useRef(null);
 
@@ -210,24 +219,44 @@ const App = () => {
     const [selectedRoom, setSelectedRoom] = useState(null);
 
     const onActionBegin = (args) => {
-        if (args.requestType === "eventCreate") {
-            let eventsData = args.data[0];
+        if (args.requestType === "eventCreate" || args.requestType === "eventChange") {
+            let eventsData = args.requestType === "eventCreate" ? args.data[0] : args.data;
             const { StartTime, EndTime, RoomId, Capacity } = eventsData;
 
             if (checkRoomAvailability(StartTime, EndTime, RoomId)) {
-                alert('Room is already booked for this time slot.');
+                dialogInstance.current.content = 'The room is already booked for this time slot. Please select a different room or choose another available time.';
+                setStatus(true);
                 args.cancel = true;
                 return;
             }
 
             if (checkRoomCapacity(RoomId, Capacity)) {
-                alert('Room cannot accommodate the number of attendees.');
+                dialogInstance.current.content = 'The room cannot accommodate the number of attendees. Please select a different room that is suitable for the required capacity.';
+                setStatus(true);
                 args.cancel = true;
                 return;
             }
         }
+        if (args.requestType === 'toolbarItemRendering') {
+            let exportItem = {
+              align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icons e-export-excel',
+              text: 'Excel Export', cssClass: 'e-excel-export', click: onExportClick.bind(this)
+            };
+            args.items.push(exportItem);
+        }
 
     }
+
+    const onExportClick = () => {
+        const exportFields = [
+          { name: 'RoomId', text: 'RoomId' },
+          { name: 'Subject', text: 'Subject' },
+          { name: 'StartTime', text: 'StartTime' },
+          { name: 'EndTime', text: 'EndTime' }
+        ];
+        const exportValues = { fieldsInfo: exportFields };
+        scheduleObj.current.exportToExcel(exportValues);
+      }
 
     const onRoomChange = (e) => {
         let value = e.value;
@@ -244,6 +273,77 @@ const App = () => {
             scheduleObj.current.addResource(resourceData[0], 'Rooms', value - 1);
         }
 
+    };
+
+    const getRoomName = (value) => {
+        return ((value.resourceData) ?
+            value.resourceData[value.resource.textField] :
+            value.resourceName);
+    }
+
+    const getCapacity = (value) => {
+        return 'Capacity - ' + value.resourceData.RoomCapacity;
+    }
+
+    const resourceHeaderTemplate = (props) => {
+        console.log(props);
+        return (<div className="template-wrap">
+            <div className="resource-detail"><div className="resource-name">{getRoomName(props)}</div>
+                <div>
+                    <span className='e-icons e-capacity-icon'></span>
+                    <span className='e-capacity'>{getCapacity(props)}</span>
+                </div>
+                {/* <div className="resource-designation">{getCapacity(props)}</div> */}
+            </div></div>);
+    }
+
+    const onEventRendered = (args) => {
+        console.log(args.data);
+    }
+
+    const onDragStop = (args) => {
+        console.log(args);
+        let eventsData = args.data;
+        const { StartTime, EndTime, RoomId, Capacity } = eventsData;
+
+        if (checkRoomAvailability(StartTime, EndTime, RoomId)) {
+            dialogInstance.current.content = 'The room is already booked for this time slot. Please select a different room or choose another available time.';
+            setStatus(true);
+            args.cancel = true;
+            return;
+        }
+
+        if (checkRoomCapacity(RoomId, Capacity)) {
+            dialogInstance.current.content = 'The room cannot accommodate the number of attendees. Please select a different room that is suitable for the required capacity.';
+            setStatus(true);
+            args.cancel = true;
+            return;
+        }
+    }
+
+
+    let dialogInstance = useRef(null);
+    const [status, setStatus] = useState(false);
+    let animationSettings = { effect: 'None' };
+    let buttons = [
+        {
+            // Click the footer buttons to hide the Dialog
+            click: () => {
+                setStatus(false);
+            },
+            // Accessing button component properties by buttonModel property
+            buttonModel: {
+                //Enables the primary button
+                isPrimary: true,
+                content: 'OK',
+            },
+        },
+    ];
+    const dialogClose = () => {
+        setStatus(false);
+    };
+    const dialogOpen = () => {
+        setStatus(true);
     };
 
     return (<div className='schedule-control-section'>
@@ -269,6 +369,9 @@ const App = () => {
                         }}
                         group={{ resources: ['Rooms'] }}
                         actionBegin={onActionBegin}
+                        resourceHeaderTemplate={resourceHeaderTemplate}
+                        eventRendered={onEventRendered}
+                        dragStop={onDragStop}
                     >
                         <ViewsDirective>
                             <ViewDirective option="Week" />
@@ -284,10 +387,14 @@ const App = () => {
                                 textField="RoomName"
                                 idField="RoomId"
                                 colorField="RoomColor"
+                                capacityField='Capacity'
                             />
                         </ResourcesDirective>
-                        <Inject services={[TimelineViews, Agenda, Week, Day]} />
+                        <Inject services={[TimelineViews, Agenda, Week, Day, DragAndDrop, ExcelExport]} />
                     </ScheduleComponent>
+                </div>
+                <div id="target" className="col-lg-8">
+                    <DialogComponent id="modalDialog" isModal={true} buttons={buttons} header="Notice" width="335px" content="" ref={dialogInstance} target="#target" visible={status} open={dialogOpen} close={dialogClose} animationSettings={animationSettings}></DialogComponent>
                 </div>
                 <div className='e-room-selection'>
                     <div className="title-container">
@@ -300,7 +407,6 @@ const App = () => {
                         value={selectedRoom}
                         change={onRoomChange}
                     />
-
                 </div>
             </div>
         </div>

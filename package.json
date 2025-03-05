@@ -7,6 +7,7 @@
     "@syncfusion/ej2-react-buttons": "^28.2.6",
     "@syncfusion/ej2-react-dropdowns": "^28.2.7",
     "@syncfusion/ej2-react-navigations": "^28.2.6",
+    "@syncfusion/ej2-react-popups": "^28.2.9",
     "@syncfusion/ej2-react-schedule": "^28.2.5",
     "cra-template": "1.2.0",
     "react": "^19.0.0",
