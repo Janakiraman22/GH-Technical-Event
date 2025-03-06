@@ -9,7 +9,7 @@
 @import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
 @import "../node_modules/@syncfusion/ej2-react-schedule/styles/material.css";
 
-.event-sample-wrapper {
+.drag-sample-wrapper {
     display: -ms-flexbox;
     display: flex;
 }
@@ -46,4 +46,291 @@
 .e-schedule .e-vertical-view .e-header-row .e-resource-cells {
     padding: 0;
     text-align: center !important;
+  }
+
+.e-schedule-dialog .e-dlg-content {
+    .time-alert {
+        color: red;
+        font-size: 12px;
+        padding-bottom: 12px;
+        margin-top: -10px;
+    }
+
+    .capacity-alert {
+        color: red;
+        font-size: 12px;
+        padding-bottom: 10px;
+    }
+}
+
+.e-schedule-event-tooltip .template-wrap {
+    font-family: Arial, sans-serif; /* or whatever font you prefer */
+    margin: 5px;
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.e-schedule-event-tooltip .template-wrap .header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Space between header and list */
+    text-align: left;
+}
+
+.e-schedule-event-tooltip .template-wrap .facilities-list {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 14px;
+}
+
+.e-schedule-event-tooltip .template-wrap .facilities-list li {
+    margin-bottom: 8px; /* Space between each item */
+}
+
+
+
+.treeview-external-drag #waiting {
+    height: 100%;
+    padding: 0;
+}
+
+.treeview-external-drag #waitdetails {
+    width: 95%;
+    float: left;
+    height: 100%;
+    padding: 0;
+}
+
+.e-schedule.schedule-drag-drop .e-resource-cells.e-parent-node .template-wrap {
+    padding: 3px 0px;
+}
+
+.title-text {
+    font-size: 18px;
+    margin: 0px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+.e-device-hover {
+    background-color: #e0e0e0 !important;
+}
+
+.e-treeview {
+    border: 1px solid #E1E7EC;
+    padding: 2px;
+}
+
+
+.treeview-external-drag #waitlist {
+    width: 100%;
+    height: 30%;
+    font-weight: bold;
+    font-family: "Segoe UI";
+    font-size: 12px;
+    padding: 5px 0 0 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.treeview-external-drag #waitduration {
+    height: 25%;
+    font-family: "Segoe UI";
+    font-size: 11px;
+    opacity: 0.6;
+    padding-left: 10px;
+    padding-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.treeview-external-drag #waitcapacity {
+    height: 25%;
+    font-family: "Segoe UI";
+    font-size: 11px;
+    opacity: 0.6;
+    padding-left: 10px;
+    padding-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.treeview-external-drag .e-list-text, .treeview-external-drag.e-rtl .e-list-text, .e-bigger .treeview-external-drag .e-list-text, .e-bigger .treeview-external-drag.e-rtl .e-list-text {
+    border: 0.5px solid #E1E7EC;
+    height: 65px;
+    line-height: 15px !important;
+    padding: 0 5px;
+    width: 220px;
+}
+
+.treeview-external-drag .e-list-parent, .treeview-external-drag.e-rtl .e-list-parent, .e-bigger .treeview-external-drag .e-list-parent, .e-bigger .treeview-external-drag.e-rtl .e-list-parent {
+    height: 100%;
+    padding: 0 2px;
+}
+
+.treeview-external-drag .e-list-item, .e-bigger .treeview-external-drag .e-list-item {
+    height: 100%;
+    padding: 0 0 5px 0;
+}
+
+.treeview-external-drag .e-fullrow, .e-bigger .treeview-external-drag .e-fullrow {
+    height: 55px;
+}
+
+.treeview-external-drag .e-list-item.e-hover>.e-fullrow, .treeview-external-drag .e-list-item.e-active>.e-fullrow, .treeview-external-drag .e-list-item.e-active.e-hover>.e-fullrow, .e-bigger .treeview-external-drag .e-list-item.e-hover>.e-fullrow, .e-bigger .treeview-external-drag .e-list-item.e-active>.e-fullrow, .e-bigger .treeview-external-drag .e-list-item.e-active.e-hover>.e-fullrow {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none !important;
+}
+.fluent2-highcontrast .treeview-external-drag .e-list-item.e-hover>.e-text-content .e-list-text {
+    color: #fff;
+}
+.treeview-external-drag .e-text-content, .e-bigger .treeview-external-drag .e-text-content, .treeview-external-drag.e-rtl .e-text-content, .e-bigger .treeview-external-drag.e-rtl .e-text-content {
+    padding: 0;
+    background-color: inherit;
+}
+
+.e-disble-not-allowed {
+    cursor: unset !important;
+}
+
+
+.schedule-drag-drop .quick-info-header {
+    background-color: white;
+    padding: 8px 18px;
+  }
+  
+  .schedule-drag-drop .quick-info-header-content {
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px 5px;
+  }
+  
+  .schedule-drag-drop .quick-info-title {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.48px;
+    height: 22px;
+  }
+  
+  .schedule-drag-drop .duration-text {
+    font-size: 11px;
+    letter-spacing: 0.33px;
+    height: 14px;
+  }
+  
+  .schedule-drag-drop .quick-content-area {
+    margin: 0;
+    padding: 10px;
+    width: auto;
+  }
+  
+  .schedule-drag-drop .event-content {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+  }
+  
+  .schedule-drag-drop .meeting-type-wrap,
+  .schedule-drag-drop .meeting-subject-wrap,
+  .schedule-drag-drop .notes-wrap {
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 0.33px;
+    height: 24px;
+    padding: 5px;
+  }
+  
+  .schedule-drag-drop .event-content div label {
+    display: inline-block;
+    min-width: 45px;
+    color: #666;
+  }
+  
+  .schedule-drag-drop .event-content div span {
+    font-size: 11px;
+    color: #151515;
+    letter-spacing: 0.33px;
+    line-height: 14px;
+    padding-left: 8px;
+  }
+
+
+  .schedule-drag-drop .e-quick-popup-wrapper .e-event-popup .e-popup-footer {
+    display: block;
+  }
+  
+  .schedule-drag-drop .e-quick-popup-wrapper .e-popup-footer button:first-child {
+    margin-right: 5px;
+  }
+  
+  .schedule-drag-drop .e-quick-popup-wrapper .e-cell-popup {
+    min-height: 265px;
+  }
+  
+  .e-bigger .schedule-drag-drop .e-quick-popup-wrapper .e-cell-popup {
+    min-height: 290px;
+  }
+  
+  .quick-info-header {
+    background-color: white;
+    padding: 8px 18px;
+  }
+  
+  .quick-info-header-content {
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px 5px;
+  }
+  
+  .quick-info-title {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.48px;
+    height: 22px;
+  }
+  
+  .duration-text {
+    font-size: 11px;
+    letter-spacing: 0.33px;
+    height: 14px;
+  }
+  
+  .event-content {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+  }
+  
+  .meeting-type-wrap,
+  .meeting-subject-wrap,
+  .notes-wrap {
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 0.33px;
+    height: 24px;
+    padding: 5px;
+  }
+  
+  .event-content div label {
+    display: inline-block;
+    min-width: 45px;
+    color: #666;
+  }
+  
+  .event-content div span {
+    font-size: 11px;
+    color: #151515;
+    letter-spacing: 0.33px;
+    line-height: 14px;
+    padding-left: 8px;
   }
