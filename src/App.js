@@ -20,6 +20,7 @@ const rooms = [
 ];
 
 let events = [
+
     // Room 1 - February 24
     {
         Id: 1,
@@ -997,7 +998,7 @@ let events = [
         Subject: 'Lunch Break',
         StartTime: new Date(2025, 1, 26, 12, 0),
         EndTime: new Date(2025, 1, 26, 13, 0),
-        RoomId: null,
+        RoomId: 3,
         Capacity: 0,
         Speakers: [],
         Description: 'Lunch Break',
@@ -1011,8 +1012,8 @@ let events = [
     {
         Id: 55,
         Subject: 'Deep Learning with TensorFlow',
-        StartTime: new Date(2025, 1, 26, 12, 30),
-        EndTime: new Date(2025, 1, 26, 13, 30),
+        StartTime: new Date(2025, 1, 26, 13, 0),
+        EndTime: new Date(2025, 1, 26, 14, 30),
         RoomId: 3,
         Capacity: 80,
         Speakers: [{ name: 'Victor Bell', title: 'Deep Learning Engineer' }],
@@ -1023,6 +1024,22 @@ let events = [
         EventLevel: 'Advanced',
         EventTags: ['Deep Learning', 'TensorFlow']
     },
+    {
+        Id: 98,
+        Subject: 'Time Series Forecasting',
+        StartTime: new Date(2025, 1, 26, 16, 0),
+        EndTime: new Date(2025, 1, 26, 18, 0),
+        RoomId: 3,
+        Capacity: 50,
+        Speakers: [{ name: 'James Davis', title: 'Time Series Expert' }],
+        Description: 'An introduction to time series forecasting and its application in predictive modeling.',
+        Duration: '1 hour',
+        EventType: 'Workshop',
+        TargetAudience: 'Data Scientists, Analysts',
+        EventLevel: 'Intermediate',
+        EventTags: ['Time Series', 'Forecasting']
+    },
+
 
     // Room 4 - February 26
     {
@@ -2322,6 +2339,7 @@ const App = () => {
     }
 
     const agendaTemplate = (props) => {
+        console.log(props);
         return (
             // <div>
             //     <div className="subject "><strong>{props.Subject}</strong></div>
@@ -2341,24 +2359,26 @@ const App = () => {
                 </div>
 
                 <div className="event-time">
-                        <strong><label>Time Slot</label>: </strong>{getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)}
-                    </div>
+                    <strong><label>Time Slot</label>: </strong>{getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)}
+                </div>
 
                 <div className="event-details">
                     <div className="event-type"><strong><label>Event Type</label>: </strong>{props.EventType}</div>
                     <div className="event-capacity"><strong><label>Audience Size</label>: </strong>{props.Capacity}</div>
                 </div>
 
-                <div className="event-speaker">
-                    <strong><label>Speakers</label>:</strong>
-                    <div className="speaker-details">
-                        <div className="speaker-image"></div>
-                        <div className="speaker-info">
-                            <div><strong>{props.Speakers[0].name}</strong></div>
-                            <div>{props.Speakers[0].title}</div>
+                {props.Speakers && props.Speakers.length > 0 && (
+                    <div className="event-speaker">
+                        <strong><label>Speakers</label>:</strong>
+                        <div className="speaker-details">
+                            <div className="speaker-image"></div>
+                            <div className="speaker-info">
+                                <div><strong>{props.Speakers[0].name}</strong></div>
+                                <div>{props.Speakers[0].title}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
             </div>
         );
     }
