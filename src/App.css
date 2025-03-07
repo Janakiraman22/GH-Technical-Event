@@ -249,8 +249,9 @@
   
   .schedule-drag-drop .event-content div label {
     display: inline-block;
-    min-width: 45px;
+    min-width: 50px;
     color: #666;
+    font-weight: 700;
   }
   
   .schedule-drag-drop .event-content div span {
@@ -334,3 +335,62 @@
     line-height: 14px;
     padding-left: 8px;
   }
+
+
+.agenda-event .event-time,
+.agenda-event .event-details,
+.agenda-event .event-speaker {
+    label {
+        display: inline-block;
+        min-width: 80px;
+    }
+}
+
+.e-agenda-view .event-header {
+    padding: 5px 0 5px 0;
+
+    .event-subject {
+        font-size: 13px;
+    }
+}
+
+.speaker-details {
+    display: flex; /* Use Flexbox to align items horizontally */
+    align-items: center; /* Vertically align the image and text */
+    margin: 5px 0 5px 0; /* Optional spacing between the text and image */
+}
+
+.speaker-image {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    border: 2px solid #808080; 
+    border-radius: 50%; /* Makes the image circular */
+    background-size: cover; /* Ensures the image fits inside the circle */
+    background-position: center; /* Centers the image */
+    margin-right: 10px; /* Add spacing between the image and text */
+    background-image: url('https://ej2.syncfusion.com/react/demos/src/schedule/images/alice.png'); /* Add the URL to the background */
+
+}
+
+.speaker-info {
+    display: flex;
+    flex-direction: column; /* Stack name and title vertically */
+}
+
+.speaker-info strong {
+    font-size: 14px;
+}
+
+.speaker-info span {
+    font-size: 14px;
+    color: #666; /* Optional color for the title */
+}
+
+.agenda-event .event-speaker .e-speaker {
+    background-image: url('https://ej2.syncfusion.com/react/demos/src/schedule/images/alice.png');
+}
+
+.e-agenda-view .e-agenda-item {
+    background-color: #cfd3ff;
+    background-clip: content-box;
+}

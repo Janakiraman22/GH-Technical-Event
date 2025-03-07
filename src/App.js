@@ -7,7 +7,7 @@ import {
 } from '@syncfusion/ej2-react-schedule';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
-import { Internationalization, closest, addClass } from '@syncfusion/ej2-base';
+import { Internationalization, closest, addClass, remove } from '@syncfusion/ej2-base';
 import { Query } from '@syncfusion/ej2-data';
 import { TreeViewComponent } from '@syncfusion/ej2-react-navigations';
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
@@ -30,7 +30,7 @@ let events = [
         Capacity: 72,
         Speakers: [{ name: 'John Doe', title: 'Event Coordinator' }],
         Description: 'Welcome session to introduce the event and speakers.',
-        Duration: '30 minutes',
+        Duration: '1 hour',
         EventType: 'Opening',
         TargetAudience: 'All attendees',
         EventLevel: 'All levels',
@@ -39,8 +39,8 @@ let events = [
     {
         Id: 2,
         Subject: 'Edge Computing and IoT Integration',
-        StartTime: new Date(2025, 1, 24, 9, 0),
-        EndTime: new Date(2025, 1, 24, 10, 0),
+        StartTime: new Date(2025, 1, 24, 9, 30),
+        EndTime: new Date(2025, 1, 24, 10, 30),
         RoomId: 1,
         Capacity: 100,
         Speakers: [{ name: 'Liam Johnson', title: 'Edge Computing Specialist' }],
@@ -53,11 +53,26 @@ let events = [
     },
     {
         Id: 3,
-        Subject: 'Cloud Security Best Practices',
+        Subject: 'Break',
         StartTime: new Date(2025, 1, 24, 10, 30),
-        EndTime: new Date(2025, 1, 24, 11, 30),
+        EndTime: new Date(2025, 1, 24, 11, 0),
         RoomId: 1,
-        Capacity: 120,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Take a break and relax.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break']
+    },
+    {
+        Id: 4,
+        Subject: 'Cloud Security Best Practices',
+        StartTime: new Date(2025, 1, 24, 11, 0),
+        EndTime: new Date(2025, 1, 24, 12, 0),
+        RoomId: 1,
+        Capacity: 90,
         Speakers: [{ name: 'Richard Black', title: 'Cloud Security Consultant' }],
         Description: 'Best practices to ensure security in cloud environments.',
         Duration: '1 hour',
@@ -67,27 +82,59 @@ let events = [
         EventTags: ['Cloud Security']
     },
     {
-        Id: 4,
-        Subject: 'AI and Machine Learning in Healthcare',
+        Id: 5,
+        Subject: 'Lunch Break',
         StartTime: new Date(2025, 1, 24, 12, 0),
         EndTime: new Date(2025, 1, 24, 13, 0),
+        RoomId: 1,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch Break',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Networking', 'Break']
+    },
+    {
+        Id: 6,
+        Subject: 'AI and Machine Learning in Healthcare',
+        StartTime: new Date(2025, 1, 24, 13, 0),
+        EndTime: new Date(2025, 1, 24, 15, 0),
         RoomId: 1,
         Capacity: 100,
         Speakers: [{ name: 'Dr. Jennifer Smith', title: 'AI Healthcare Expert' }],
         Description: 'The role of AI and ML in improving healthcare outcomes.',
-        Duration: '1 hour',
+        Duration: '2 hour',
         EventType: 'Technical Session',
         TargetAudience: 'Healthcare Professionals',
         EventLevel: 'Intermediate',
         EventTags: ['AI', 'Healthcare']
     },
     {
-        Id: 5,
-        Subject: 'Smart Cities and IoT Solutions',
-        StartTime: new Date(2025, 1, 24, 13, 30),
-        EndTime: new Date(2025, 1, 24, 14, 30),
+        Id: 7,
+        Subject: 'Break',
+        StartTime: new Date(2025, 1, 24, 15, 0),
+        EndTime: new Date(2025, 1, 24, 15, 30),
         RoomId: 1,
-        Capacity: 120,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Short break to relax and network.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All Participants',
+        EventLevel: 'All Levels',
+        EventTags: ['Networking', 'Relax']
+    },
+
+
+    {
+        Id: 8,
+        Subject: 'Smart Cities and IoT Solutions',
+        StartTime: new Date(2025, 1, 24, 15, 30),
+        EndTime: new Date(2025, 1, 24, 16, 30),
+        RoomId: 1,
+        Capacity: 80,
         Speakers: [{ name: 'Grace Williams', title: 'IoT Expert' }],
         Description: 'The role of IoT in building and managing smart cities.',
         Duration: '1 hour',
@@ -97,12 +144,12 @@ let events = [
         EventTags: ['IoT', 'Smart Cities']
     },
     {
-        Id: 6,
+        Id: 9,
         Subject: 'AI in Finance: Revolutionizing Banking',
-        StartTime: new Date(2025, 1, 24, 15, 0),
-        EndTime: new Date(2025, 1, 24, 16, 0),
+        StartTime: new Date(2025, 1, 24, 18, 0),
+        EndTime: new Date(2025, 1, 24, 19, 0),
         RoomId: 1,
-        Capacity: 120,
+        Capacity: 70,
         Speakers: [{ name: 'Olivia Brown', title: 'AI in Finance Expert' }],
         Description: 'How AI technologies are transforming the banking industry.',
         Duration: '1 hour',
@@ -111,28 +158,14 @@ let events = [
         EventLevel: 'Intermediate',
         EventTags: ['AI', 'Finance']
     },
-    {
-        Id: 7,
-        Subject: 'Quantum Computing and Cryptography',
-        StartTime: new Date(2025, 1, 24, 16, 30),
-        EndTime: new Date(2025, 1, 24, 17, 30),
-        RoomId: 1,
-        Capacity: 100,
-        Speakers: [{ name: 'Liam Johnson', title: 'Quantum Computing Expert' }],
-        Description: 'The potential of quantum computing in the field of cryptography.',
-        Duration: '1 hour',
-        EventType: 'Technical Session',
-        TargetAudience: 'Cryptography Experts',
-        EventLevel: 'Advanced',
-        EventTags: ['Quantum Computing', 'Cryptography']
-    },
+
 
     // Room 2 - February 24
     {
-        Id: 8,
+        Id: 10,
         Subject: 'Blockchain in Finance',
-        StartTime: new Date(2025, 1, 24, 8, 0),
-        EndTime: new Date(2025, 1, 24, 9, 0),
+        StartTime: new Date(2025, 1, 24, 8, 30),
+        EndTime: new Date(2025, 1, 24, 9, 30),
         RoomId: 2,
         Capacity: 80,
         Speakers: [{ name: 'David Brooks', title: 'Blockchain Consultant' }],
@@ -144,7 +177,7 @@ let events = [
         EventTags: ['Blockchain', 'Finance']
     },
     {
-        Id: 9,
+        Id: 11,
         Subject: 'Artificial Intelligence in Retail',
         StartTime: new Date(2025, 1, 24, 9, 30),
         EndTime: new Date(2025, 1, 24, 10, 30),
@@ -159,7 +192,7 @@ let events = [
         EventTags: ['AI', 'Retail']
     },
     {
-        Id: 10,
+        Id: 12,
         Subject: 'Machine Learning for Business',
         StartTime: new Date(2025, 1, 24, 11, 0),
         EndTime: new Date(2025, 1, 24, 12, 0),
@@ -176,8 +209,8 @@ let events = [
     {
         Id: 11,
         Subject: 'Deep Learning for Computer Vision',
-        StartTime: new Date(2025, 1, 24, 12, 30),
-        EndTime: new Date(2025, 1, 24, 13, 30),
+        StartTime: new Date(2025, 1, 24, 13, 0),
+        EndTime: new Date(2025, 1, 24, 14, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [{ name: 'Daniel White', title: 'AI Researcher' }],
@@ -207,7 +240,7 @@ let events = [
         Id: 13,
         Subject: 'Cybersecurity in the Cloud',
         StartTime: new Date(2025, 1, 24, 15, 30),
-        EndTime: new Date(2025, 1, 24, 16, 30),
+        EndTime: new Date(2025, 1, 24, 17, 0),
         RoomId: 2,
         Capacity: 100,
         Speakers: [{ name: 'Sam Taylor', title: 'Cloud Security Expert' }],
@@ -224,7 +257,7 @@ let events = [
         Id: 14,
         Subject: 'Introduction to Big Data Analytics',
         StartTime: new Date(2025, 1, 24, 8, 0),
-        EndTime: new Date(2025, 1, 24, 9, 0),
+        EndTime: new Date(2025, 1, 24, 8, 45),
         RoomId: 3,
         Capacity: 80,
         Speakers: [{ name: 'Linda Johnson', title: 'Data Scientist' }],
@@ -238,8 +271,8 @@ let events = [
     {
         Id: 15,
         Subject: 'Data Science with Python',
-        StartTime: new Date(2025, 1, 24, 9, 30),
-        EndTime: new Date(2025, 1, 24, 10, 30),
+        StartTime: new Date(2025, 1, 24, 8, 45),
+        EndTime: new Date(2025, 1, 24, 10, 0),
         RoomId: 3,
         Capacity: 80,
         Speakers: [{ name: 'Peter Moore', title: 'Data Scientist' }],
@@ -251,10 +284,25 @@ let events = [
         EventTags: ['Data Science', 'Python']
     },
     {
+        Id: 61,
+        Subject: 'Break',
+        StartTime: new Date(2025, 1, 24, 10, 0),
+        EndTime: new Date(2025, 1, 24, 10, 30),
+        RoomId: 3,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Short break to relax and network.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All Participants',
+        EventLevel: 'All Levels',
+        EventTags: ['Networking', 'Relax']
+    },
+    {
         Id: 16,
         Subject: 'Data Visualization with Tableau',
-        StartTime: new Date(2025, 1, 24, 11, 0),
-        EndTime: new Date(2025, 1, 24, 12, 0),
+        StartTime: new Date(2025, 1, 24, 10, 30),
+        EndTime: new Date(2025, 1, 24, 12, 30),
         RoomId: 3,
         Capacity: 80,
         Speakers: [{ name: 'Nancy Black', title: 'Data Visualization Expert' }],
@@ -266,12 +314,58 @@ let events = [
         EventTags: ['Data Visualization', 'Tableau']
     },
 
+    {
+        Id: 51,
+        Subject: 'Business Intelligence with Power BI',
+        StartTime: new Date(2025, 1, 24, 13, 30),
+        EndTime: new Date(2025, 1, 24, 15, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [{ name: 'John Mark', title: 'Power BI Expert' }],
+        Description: 'Leveraging Power BI for effective business intelligence and analytics.',
+        Duration: '1 hour',
+        EventType: 'Workshop',
+        TargetAudience: 'Business Analysts, IT Professionals',
+        EventLevel: 'Intermediate',
+        EventTags: ['Business Intelligence', 'Power BI']
+    },
+    {
+        Id: 30,
+        Subject: 'Quantum Computing and AI',
+        StartTime: new Date(2025, 1, 24, 16, 30),
+        EndTime: new Date(2025, 1, 24, 17, 30),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [{ name: 'David Adams', title: 'Quantum Computing Expert' }],
+        Description: 'The convergence of quantum computing and artificial intelligence.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'AI Researchers, Quantum Computing Enthusiasts',
+        EventLevel: 'Advanced',
+        EventTags: ['Quantum Computing', 'AI']
+    },
+    {
+        Id: 77,
+        Subject: 'Serverless Computing with AWS Lambda',
+        StartTime: new Date(2025, 1, 24, 18, 15),
+        EndTime: new Date(2025, 1, 24, 19, 0),
+        RoomId: 3,
+        Capacity: 90,
+        Speakers: [{ name: 'Isabella Cooper', title: 'Cloud Architect' }],
+        Description: 'Learn how to build and deploy serverless applications using AWS Lambda.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Developers, Cloud Professionals',
+        EventLevel: 'Advanced',
+        EventTags: ['Serverless', 'AWS Lambda']
+    },
+
     // Room 4 - February 24 (Expanded)
     {
         Id: 17,
         Subject: 'Introduction to Cloud Computing',
         StartTime: new Date(2025, 1, 24, 8, 0),
-        EndTime: new Date(2025, 1, 24, 9, 0),
+        EndTime: new Date(2025, 1, 24, 9, 30),
         RoomId: 4,
         Capacity: 50,
         Speakers: [{ name: 'Sophia White', title: 'Cloud Architect' }],
@@ -285,8 +379,8 @@ let events = [
     {
         Id: 18,
         Subject: 'AI in Healthcare: Applications and Challenges',
-        StartTime: new Date(2025, 1, 24, 9, 30),
-        EndTime: new Date(2025, 1, 24, 10, 30),
+        StartTime: new Date(2025, 1, 24, 10, 15),
+        EndTime: new Date(2025, 1, 24, 11, 15),
         RoomId: 4,
         Capacity: 50,
         Speakers: [{ name: 'Michael Davis', title: 'AI Healthcare Expert' }],
@@ -300,8 +394,8 @@ let events = [
     {
         Id: 19,
         Subject: 'AI-Powered Healthcare Solutions',
-        StartTime: new Date(2025, 1, 24, 11, 0),
-        EndTime: new Date(2025, 1, 24, 12, 0),
+        StartTime: new Date(2025, 1, 24, 13, 0),
+        EndTime: new Date(2025, 1, 24, 15, 0),
         RoomId: 4,
         Capacity: 50,
         Speakers: [{ name: 'Lucy Green', title: 'AI Solutions Expert' }],
@@ -315,8 +409,8 @@ let events = [
     {
         Id: 20,
         Subject: 'Robotics in Healthcare',
-        StartTime: new Date(2025, 1, 24, 13, 30),
-        EndTime: new Date(2025, 1, 24, 14, 30),
+        StartTime: new Date(2025, 1, 24, 16, 0),
+        EndTime: new Date(2025, 1, 24, 17, 0),
         RoomId: 4,
         Capacity: 50,
         Speakers: [{ name: 'James Taylor', title: 'Robotics Expert' }],
@@ -327,13 +421,28 @@ let events = [
         EventLevel: 'Advanced',
         EventTags: ['Robotics', 'Healthcare']
     },
+    {
+        Id: 31,
+        Subject: 'Natural Language Processing (NLP) in AI',
+        StartTime: new Date(2025, 1, 24, 17, 30),
+        EndTime: new Date(2025, 1, 24, 18, 30),
+        RoomId: 4,
+        Capacity: 70,
+        Speakers: [{ name: 'Jessica Lee', title: 'NLP Specialist' }],
+        Description: 'Exploring the role of NLP in artificial intelligence applications.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Developers, AI Researchers',
+        EventLevel: 'Advanced',
+        EventTags: ['NLP', 'AI']
+    },
 
     // Room 1 - February 25
     {
         Id: 21,
         Subject: 'Blockchain for Beginners',
-        StartTime: new Date(2025, 1, 25, 8, 0),
-        EndTime: new Date(2025, 1, 25, 9, 0),
+        StartTime: new Date(2025, 1, 25, 8, 30),
+        EndTime: new Date(2025, 1, 25, 9, 45),
         RoomId: 1,
         Capacity: 72,
         Speakers: [{ name: 'John Williams', title: 'Blockchain Consultant' }],
@@ -347,8 +456,8 @@ let events = [
     {
         Id: 22,
         Subject: 'AI for Business Transformation',
-        StartTime: new Date(2025, 1, 25, 9, 30),
-        EndTime: new Date(2025, 1, 25, 10, 30),
+        StartTime: new Date(2025, 1, 25, 10, 30),
+        EndTime: new Date(2025, 1, 25, 11, 30),
         RoomId: 1,
         Capacity: 100,
         Speakers: [{ name: 'Liam Brown', title: 'AI Business Strategist' }],
@@ -362,10 +471,10 @@ let events = [
     {
         Id: 23,
         Subject: 'Cybersecurity in the Modern World',
-        StartTime: new Date(2025, 1, 25, 11, 0),
-        EndTime: new Date(2025, 1, 25, 12, 0),
+        StartTime: new Date(2025, 1, 25, 12, 30),
+        EndTime: new Date(2025, 1, 25, 13, 0),
         RoomId: 1,
-        Capacity: 120,
+        Capacity: 80,
         Speakers: [{ name: 'Emily White', title: 'Cybersecurity Expert' }],
         Description: 'A session on the latest cybersecurity trends and best practices.',
         Duration: '1 hour',
@@ -377,8 +486,8 @@ let events = [
     {
         Id: 24,
         Subject: 'Data Science for Non-Data Scientists',
-        StartTime: new Date(2025, 1, 25, 12, 30),
-        EndTime: new Date(2025, 1, 25, 13, 30),
+        StartTime: new Date(2025, 1, 25, 14, 0),
+        EndTime: new Date(2025, 1, 25, 15, 0),
         RoomId: 1,
         Capacity: 100,
         Speakers: [{ name: 'Olivia Scott', title: 'Data Science Educator' }],
@@ -407,10 +516,10 @@ let events = [
     {
         Id: 26,
         Subject: 'Digital Transformation in Manufacturing',
-        StartTime: new Date(2025, 1, 25, 15, 30),
-        EndTime: new Date(2025, 1, 25, 16, 30),
+        StartTime: new Date(2025, 1, 25, 15, 0),
+        EndTime: new Date(2025, 1, 25, 16, 45),
         RoomId: 1,
-        Capacity: 120,
+        Capacity: 70,
         Speakers: [{ name: 'George Clark', title: 'Manufacturing Specialist' }],
         Description: 'Exploring the impact of digital transformation in the manufacturing industry.',
         Duration: '1 hour',
@@ -418,6 +527,21 @@ let events = [
         TargetAudience: 'Manufacturers, Engineers',
         EventLevel: 'Intermediate',
         EventTags: ['Digital Transformation', 'Manufacturing']
+    },
+    {
+        Id: 69,
+        Subject: 'Business Intelligence with SQL',
+        StartTime: new Date(2025, 1, 25, 17, 30),
+        EndTime: new Date(2025, 1, 25, 18, 30),
+        RoomId: 1,
+        Capacity: 80,
+        Speakers: [{ name: 'Charles Brooks', title: 'SQL Expert' }],
+        Description: 'Using SQL for powerful business intelligence and reporting.',
+        Duration: '1 hour',
+        EventType: 'Workshop',
+        TargetAudience: 'Business Analysts, IT Professionals',
+        EventLevel: 'Intermediate',
+        EventTags: ['SQL', 'Business Intelligence']
     },
 
     // Room 2 - February 25
@@ -439,8 +563,8 @@ let events = [
     {
         Id: 28,
         Subject: 'AI for Image Recognition',
-        StartTime: new Date(2025, 1, 25, 9, 30),
-        EndTime: new Date(2025, 1, 25, 10, 30),
+        StartTime: new Date(2025, 1, 25, 9, 15),
+        EndTime: new Date(2025, 1, 25, 10, 45),
         RoomId: 2,
         Capacity: 100,
         Speakers: [{ name: 'Michael Taylor', title: 'AI Specialist' }],
@@ -467,10 +591,26 @@ let events = [
         EventTags: ['RPA', 'Automation']
     },
     {
+        Id: 121,
+        Subject: 'Break',
+        StartTime: new Date(2025, 1, 25, 12, 0),
+        EndTime: new Date(2025, 1, 25, 13, 0),
+        RoomId: 2,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Break for attendees.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All Participants',
+        EventLevel: 'All Levels',
+        EventTags: ['Networking', 'Relax']
+    },
+
+    {
         Id: 30,
         Subject: 'Quantum Computing and AI',
-        StartTime: new Date(2025, 1, 25, 12, 30),
-        EndTime: new Date(2025, 1, 25, 13, 30),
+        StartTime: new Date(2025, 1, 25, 13, 0),
+        EndTime: new Date(2025, 1, 25, 14, 15),
         RoomId: 2,
         Capacity: 100,
         Speakers: [{ name: 'David Adams', title: 'Quantum Computing Expert' }],
@@ -484,8 +624,8 @@ let events = [
     {
         Id: 31,
         Subject: 'Natural Language Processing (NLP) in AI',
-        StartTime: new Date(2025, 1, 25, 14, 0),
-        EndTime: new Date(2025, 1, 25, 15, 0),
+        StartTime: new Date(2025, 1, 25, 15, 0),
+        EndTime: new Date(2025, 1, 25, 16, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [{ name: 'Jessica Lee', title: 'NLP Specialist' }],
@@ -496,13 +636,28 @@ let events = [
         EventLevel: 'Advanced',
         EventTags: ['NLP', 'AI']
     },
+    {
+        Id: 61,
+        Subject: 'Smart Cities and IoT',
+        StartTime: new Date(2025, 1, 25, 17, 30),
+        EndTime: new Date(2025, 1, 25, 19, 0),
+        RoomId: 2,
+        Capacity: 90,
+        Speakers: [{ name: 'Sophia Parker', title: 'IoT Expert' }],
+        Description: 'Innovative solutions for smart cities using IoT technologies.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Urban Planners, Engineers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Smart Cities', 'IoT']
+    },
 
     // Room 3 - February 25
     {
         Id: 32,
         Subject: 'Introduction to Python for Data Science',
-        StartTime: new Date(2025, 1, 25, 8, 0),
-        EndTime: new Date(2025, 1, 25, 9, 0),
+        StartTime: new Date(2025, 1, 25, 9, 0),
+        EndTime: new Date(2025, 1, 25, 10, 15),
         RoomId: 3,
         Capacity: 80,
         Speakers: [{ name: 'Rachel Adams', title: 'Data Scientist' }],
@@ -516,8 +671,8 @@ let events = [
     {
         Id: 33,
         Subject: 'Exploring Machine Learning Algorithms',
-        StartTime: new Date(2025, 1, 25, 9, 30),
-        EndTime: new Date(2025, 1, 25, 10, 30),
+        StartTime: new Date(2025, 1, 25, 10, 30),
+        EndTime: new Date(2025, 1, 25, 11, 30),
         RoomId: 3,
         Capacity: 80,
         Speakers: [{ name: 'James Roberts', title: 'Machine Learning Expert' }],
@@ -531,8 +686,8 @@ let events = [
     {
         Id: 34,
         Subject: 'Deep Learning for Image Recognition',
-        StartTime: new Date(2025, 1, 25, 11, 0),
-        EndTime: new Date(2025, 1, 25, 12, 0),
+        StartTime: new Date(2025, 1, 25, 13, 0),
+        EndTime: new Date(2025, 1, 25, 14, 30),
         RoomId: 3,
         Capacity: 80,
         Speakers: [{ name: 'Mary White', title: 'Deep Learning Specialist' }],
@@ -562,7 +717,7 @@ let events = [
         Id: 36,
         Subject: 'Data Science with R Programming',
         StartTime: new Date(2025, 1, 25, 15, 0),
-        EndTime: new Date(2025, 1, 25, 16, 0),
+        EndTime: new Date(2025, 1, 25, 17, 0),
         RoomId: 3,
         Capacity: 80,
         Speakers: [{ name: 'George Martin', title: 'Data Scientist' }],
@@ -572,6 +727,21 @@ let events = [
         TargetAudience: 'Data Analysts, Developers',
         EventLevel: 'Beginner',
         EventTags: ['R', 'Data Science']
+    },
+    {
+        Id: 103,
+        Subject: 'Exploring the Internet of Things (IoT)',
+        StartTime: new Date(2025, 1, 25, 18, 0),
+        EndTime: new Date(2025, 1, 25, 18, 45),
+        RoomId: 3,
+        Capacity: 80,
+        Speakers: [{ name: 'Oliver White', title: 'IoT Expert' }],
+        Description: 'An introduction to IoT and its applications in various industries.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'IoT Enthusiasts, Engineers',
+        EventLevel: 'Intermediate',
+        EventTags: ['IoT', 'Technology']
     },
 
     // Room 4 - February 25
@@ -593,8 +763,8 @@ let events = [
     {
         Id: 38,
         Subject: 'AI in Education: Opportunities and Challenges',
-        StartTime: new Date(2025, 1, 25, 9, 30),
-        EndTime: new Date(2025, 1, 25, 10, 30),
+        StartTime: new Date(2025, 1, 25, 10, 30),
+        EndTime: new Date(2025, 1, 25, 12, 0),
         RoomId: 4,
         Capacity: 50,
         Speakers: [{ name: 'Mark Johnson', title: 'AI in Education Expert' }],
@@ -608,8 +778,8 @@ let events = [
     {
         Id: 39,
         Subject: 'Robotics in Healthcare',
-        StartTime: new Date(2025, 1, 25, 11, 0),
-        EndTime: new Date(2025, 1, 25, 12, 0),
+        StartTime: new Date(2025, 1, 25, 13, 30),
+        EndTime: new Date(2025, 1, 25, 14, 30),
         RoomId: 4,
         Capacity: 50,
         Speakers: [{ name: 'James Taylor', title: 'Robotics Expert' }],
@@ -624,8 +794,8 @@ let events = [
     {
         Id: 40,
         Subject: 'Building Multi-Language Websites',
-        StartTime: new Date(2025, 1, 25, 16, 0),
-        EndTime: new Date(2025, 1, 25, 17, 0),
+        StartTime: new Date(2025, 1, 25, 15, 30),
+        EndTime: new Date(2025, 1, 25, 17, 30),
         RoomId: 4,
         Capacity: 40,
         Speakers: [{ name: 'Daniel Fisher', title: 'Full-Stack Developer' }],
@@ -642,7 +812,7 @@ let events = [
         Id: 41,
         Subject: 'AI in Healthcare',
         StartTime: new Date(2025, 1, 26, 8, 0),
-        EndTime: new Date(2025, 1, 26, 9, 0),
+        EndTime: new Date(2025, 1, 26, 8, 45),
         RoomId: 1,
         Capacity: 72,
         Speakers: [{ name: 'Dr. William Grant', title: 'Healthcare AI Specialist' }],
@@ -656,7 +826,7 @@ let events = [
     {
         Id: 42,
         Subject: 'Robotics Process Automation',
-        StartTime: new Date(2025, 1, 26, 9, 30),
+        StartTime: new Date(2025, 1, 26, 9, 15),
         EndTime: new Date(2025, 1, 26, 10, 30),
         RoomId: 1,
         Capacity: 90,
@@ -672,9 +842,9 @@ let events = [
         Id: 43,
         Subject: 'Data Science for Finance',
         StartTime: new Date(2025, 1, 26, 11, 0),
-        EndTime: new Date(2025, 1, 26, 12, 0),
+        EndTime: new Date(2025, 1, 26, 11, 45),
         RoomId: 1,
-        Capacity: 120,
+        Capacity: 90,
         Speakers: [{ name: 'Daniel Carter', title: 'Financial Analyst' }],
         Description: 'How data science is transforming the financial industry.',
         Duration: '1 hour',
@@ -686,10 +856,10 @@ let events = [
     {
         Id: 44,
         Subject: 'Digital Transformation with AI',
-        StartTime: new Date(2025, 1, 26, 12, 30),
-        EndTime: new Date(2025, 1, 26, 13, 30),
+        StartTime: new Date(2025, 1, 26, 13, 0),
+        EndTime: new Date(2025, 1, 26, 14, 30),
         RoomId: 1,
-        Capacity: 120,
+        Capacity: 100,
         Speakers: [{ name: 'Evelyn Miller', title: 'Digital Transformation Expert' }],
         Description: 'Implementing AI to achieve digital transformation across industries.',
         Duration: '1 hour',
@@ -699,25 +869,10 @@ let events = [
         EventTags: ['AI', 'Digital Transformation']
     },
     {
-        Id: 45,
-        Subject: 'AI for Marketing',
-        StartTime: new Date(2025, 1, 26, 14, 0),
-        EndTime: new Date(2025, 1, 26, 15, 0),
-        RoomId: 1,
-        Capacity: 100,
-        Speakers: [{ name: 'Olivia Green', title: 'Marketing Strategist' }],
-        Description: 'How AI is revolutionizing the marketing landscape.',
-        Duration: '1 hour',
-        EventType: 'Business Session',
-        TargetAudience: 'Marketers, Business Owners',
-        EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Marketing']
-    },
-    {
         Id: 46,
         Subject: 'Blockchain for Enterprise',
-        StartTime: new Date(2025, 1, 26, 15, 30),
-        EndTime: new Date(2025, 1, 26, 16, 30),
+        StartTime: new Date(2025, 1, 26, 18, 0),
+        EndTime: new Date(2025, 1, 26, 18, 30),
         RoomId: 1,
         Capacity: 100,
         Speakers: [{ name: 'Liam Davis', title: 'Blockchain Architect' }],
@@ -733,8 +888,8 @@ let events = [
     {
         Id: 47,
         Subject: 'Data Science with Python',
-        StartTime: new Date(2025, 1, 26, 8, 0),
-        EndTime: new Date(2025, 1, 26, 9, 0),
+        StartTime: new Date(2025, 1, 26, 9, 0),
+        EndTime: new Date(2025, 1, 26, 10, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [{ name: 'Mark Robinson', title: 'Data Scientist' }],
@@ -748,8 +903,8 @@ let events = [
     {
         Id: 48,
         Subject: 'Introduction to Cloud Computing',
-        StartTime: new Date(2025, 1, 26, 9, 30),
-        EndTime: new Date(2025, 1, 26, 10, 30),
+        StartTime: new Date(2025, 1, 26, 10, 45),
+        EndTime: new Date(2025, 1, 26, 12, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [{ name: 'Sophia Davis', title: 'Cloud Solutions Architect' }],
@@ -761,25 +916,10 @@ let events = [
         EventTags: ['Cloud', 'Computing']
     },
     {
-        Id: 49,
-        Subject: 'Artificial Intelligence and Deep Learning',
-        StartTime: new Date(2025, 1, 26, 11, 0),
-        EndTime: new Date(2025, 1, 26, 12, 0),
-        RoomId: 2,
-        Capacity: 100,
-        Speakers: [{ name: 'Charles Stevens', title: 'AI Specialist' }],
-        Description: 'A deep dive into deep learning applications within AI.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'AI Enthusiasts, Data Scientists',
-        EventLevel: 'Advanced',
-        EventTags: ['AI', 'Deep Learning']
-    },
-    {
         Id: 50,
         Subject: 'Machine Learning for Data Scientists',
-        StartTime: new Date(2025, 1, 26, 12, 30),
-        EndTime: new Date(2025, 1, 26, 13, 30),
+        StartTime: new Date(2025, 1, 26, 13, 30),
+        EndTime: new Date(2025, 1, 26, 14, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [{ name: 'Emily Clarke', title: 'Machine Learning Expert' }],
@@ -793,8 +933,8 @@ let events = [
     {
         Id: 51,
         Subject: 'Business Intelligence with Power BI',
-        StartTime: new Date(2025, 1, 26, 14, 0),
-        EndTime: new Date(2025, 1, 26, 15, 0),
+        StartTime: new Date(2025, 1, 26, 15, 30),
+        EndTime: new Date(2025, 1, 26, 17, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [{ name: 'John Mark', title: 'Power BI Expert' }],
@@ -810,8 +950,8 @@ let events = [
     {
         Id: 52,
         Subject: 'Machine Learning for Developers',
-        StartTime: new Date(2025, 1, 26, 8, 0),
-        EndTime: new Date(2025, 1, 26, 9, 0),
+        StartTime: new Date(2025, 1, 26, 8, 30),
+        EndTime: new Date(2025, 1, 26, 9, 30),
         RoomId: 3,
         Capacity: 80,
         Speakers: [{ name: 'David Johnson', title: 'ML Developer' }],
@@ -825,8 +965,8 @@ let events = [
     {
         Id: 53,
         Subject: 'Introduction to R for Data Science',
-        StartTime: new Date(2025, 1, 26, 9, 30),
-        EndTime: new Date(2025, 1, 26, 10, 30),
+        StartTime: new Date(2025, 1, 26, 10, 0),
+        EndTime: new Date(2025, 1, 26, 11, 0),
         RoomId: 3,
         Capacity: 80,
         Speakers: [{ name: 'Sarah Lee', title: 'Data Scientist' }],
@@ -852,6 +992,22 @@ let events = [
         EventLevel: 'Advanced',
         EventTags: ['Data Visualization', 'Tableau']
     },
+    {
+        Id: 99,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 26, 12, 0),
+        EndTime: new Date(2025, 1, 26, 13, 0),
+        RoomId: null,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch Break',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All Participants',
+        EventLevel: 'All Levels',
+        EventTags: ['Networking', 'Relax']
+    },
+
     {
         Id: 55,
         Subject: 'Deep Learning with TensorFlow',
@@ -1908,14 +2064,14 @@ const App = () => {
             args.items.push(exportItem2);
         }
 
-        if (args.requestType === 'eventChange' && isTreeItemDropped) {
+        if (args.requestType === 'eventCreate' && isTreeItemDropped) {
             let treeViewData = treeObj.current.fields.dataSource;
             const filteredPeople = treeViewData.filter((item) => item.Id !== parseInt(draggedItemId, 10));
             treeObj.current.fields.dataSource = filteredPeople;
-            // let elements = document.querySelectorAll('.e-drag-item.treeview-external-drag');
-            // for (let i = 0; i < elements.length; i++) {
-            //     remove(elements[i]);
-            // }
+            let elements = document.querySelectorAll('.e-drag-item.treeview-external-drag');
+            for (let i = 0; i < elements.length; i++) {
+                remove(elements[i]);
+            }
         }
 
     }
@@ -2121,7 +2277,7 @@ const App = () => {
             let capacity = args.data.Capacity;
             let eventId = null;
             if (args.target) {
-                eventId = scheduleObj.current.getEventDetails(args.target);
+                eventId = scheduleObj.current.getEventDetails(args.target).Id;
             }
             let isRoomAvailable = !checkRoomAvailability(startTime, endTime, eventId, roomId);
             let isCapacityAvailable = !checkRoomCapacity(capacity, roomId);
@@ -2167,13 +2323,42 @@ const App = () => {
 
     const agendaTemplate = (props) => {
         return (
-            <div>
-                <div className="subject "><strong>{props.Subject}</strong></div>
-                <div className="description ">{props.Description}</div>
-                <div className="time"><strong>Time Slot:</strong>{getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)}</div>
-                <div className="type"><strong>Event type:</strong> {props.EventType}</div>
-                <div className="speaker"><strong>Speakers:</strong> {props.Speakers[0].name + '- ' + props.Speakers[0].title}</div>
-                <div className="capacity"><strong>Audience Size:</strong> {props.Capacity}</div>
+            // <div>
+            //     <div className="subject "><strong>{props.Subject}</strong></div>
+            //     <div className="description ">{props.Description}</div>
+            //     <div className="time"><strong>Time Slot:</strong>{getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)}</div>
+            //     <div className="type"><strong>Event type:</strong> {props.EventType}</div>
+            //     <div className="speaker"><strong>Speakers:</strong> {props.Speakers[0].name + '- ' + props.Speakers[0].title}</div>
+            //     <div className="capacity"><strong>Audience Size:</strong> {props.Capacity}</div>
+            // </div>
+
+            <div className="agenda-event">
+                <div className="event-header">
+                    <div className="event-subject">
+                        <strong>{props.Subject}</strong>
+                    </div>
+                    <div className="event-description">{props.Description}</div>
+                </div>
+
+                <div className="event-time">
+                        <strong><label>Time Slot</label>: </strong>{getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)}
+                    </div>
+
+                <div className="event-details">
+                    <div className="event-type"><strong><label>Event Type</label>: </strong>{props.EventType}</div>
+                    <div className="event-capacity"><strong><label>Audience Size</label>: </strong>{props.Capacity}</div>
+                </div>
+
+                <div className="event-speaker">
+                    <strong><label>Speakers</label>:</strong>
+                    <div className="speaker-details">
+                        <div className="speaker-image"></div>
+                        <div className="speaker-info">
+                            <div><strong>{props.Speakers[0].name}</strong></div>
+                            <div>{props.Speakers[0].title}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
@@ -2234,7 +2419,7 @@ const App = () => {
                 let treeviewData = treeObj.current.fields.dataSource;
                 if (event.target.classList.contains('e-work-cells')) {
                     const filteredData = treeviewData.filter((item) => item.Id === parseInt(event.draggedNodeData.id, 10));
-                    const { Capacity, Speakers, Description, Duration, EventType, TargetAudience, EventLevel, EventTags } = filteredData[0];
+                    const { Subject, Capacity, Speakers, Description, Duration, EventType, TargetAudience, EventLevel, EventTags } = filteredData[0];
 
                     let cellData = scheduleObj.current.getCellDetails(event.target);
                     let StartTime = cellData.startTime;
@@ -2269,7 +2454,7 @@ const App = () => {
                     }
 
                     let eventData = {
-                        Subject: 'Registration & Welcome',
+                        Subject: Subject,
                         StartTime: StartTime,
                         EndTime: EndTime,
                         RoomId: roomId,
@@ -2325,7 +2510,22 @@ const App = () => {
     }
 
     const buttonClickActions = (e) => {
-
+        const eventDetails = scheduleObj.current.activeEventData.event;
+        if (e.target.id === 'delete') {
+            let currentAction = 'Delete';
+            if (eventDetails.RecurrenceRule) {
+                currentAction = 'DeleteOccurrence';
+            }
+            scheduleObj.current.deleteEvent(eventDetails, currentAction);
+        }
+        else {
+            let currentAction = 'Save';
+            if (eventDetails.RecurrenceRule) {
+                currentAction = 'EditOccurrence';
+            }
+            scheduleObj.current.openEditor(eventDetails, currentAction, true);
+        }
+        scheduleObj.current.closeQuickInfoPopup();
     };
 
     const headerTemplate = (props) => {
@@ -2350,7 +2550,7 @@ const App = () => {
                                 <span>{props.Description}</span>
                             </div>
                             <div className="meeting-subject-wrap">
-                                <label>Event Type</label>:
+                                <label>Type</label>:
                                 <span>{props.EventType}</span>
                             </div>
                             <div className="notes-wrap">
@@ -2384,6 +2584,7 @@ const App = () => {
                     <ScheduleComponent
                         ref={scheduleObj}
                         cssClass='schedule-drag-drop'
+                        currentView='Day'
                         selectedDate={new Date(2025, 1, 24)}
                         width='100%' height='650px'
                         startHour="07:00"
@@ -2399,8 +2600,8 @@ const App = () => {
 
                     >
                         <ViewsDirective>
-                            <ViewDirective option="Week" />
                             <ViewDirective option="Day" />
+                            <ViewDirective option="Week" />
                             <ViewDirective option="Agenda" eventTemplate={agendaTemplate} />
                         </ViewsDirective>
                         <ResourcesDirective>
