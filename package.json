@@ -6,6 +6,7 @@
     "@syncfusion/ej2-icons": "^28.2.3",
     "@syncfusion/ej2-react-buttons": "^28.2.6",
     "@syncfusion/ej2-react-dropdowns": "^28.2.7",
+    "@syncfusion/ej2-react-inputs": "^28.2.9",
     "@syncfusion/ej2-react-navigations": "^28.2.6",
     "@syncfusion/ej2-react-popups": "^28.2.9",
     "@syncfusion/ej2-react-schedule": "^28.2.5",

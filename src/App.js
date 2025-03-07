@@ -7,10 +7,11 @@ import {
 } from '@syncfusion/ej2-react-schedule';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
-import { Internationalization, closest, addClass, remove } from '@syncfusion/ej2-base';
+import { Internationalization, closest, addClass, remove, isNullOrUndefined } from '@syncfusion/ej2-base';
 import { Query } from '@syncfusion/ej2-data';
 import { TreeViewComponent } from '@syncfusion/ej2-react-navigations';
 import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
+import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
 
 const rooms = [
     { RoomId: 1, RoomName: 'Room A', RoomCapacity: 110, RoomColor: '#FF5733' },
@@ -1045,8 +1046,8 @@ let events = [
     {
         Id: 56,
         Subject: 'Introduction to Cloud Security',
-        StartTime: new Date(2025, 1, 26, 8, 0),
-        EndTime: new Date(2025, 1, 26, 9, 0),
+        StartTime: new Date(2025, 1, 26, 8, 30),
+        EndTime: new Date(2025, 1, 26, 9, 30),
         RoomId: 4,
         Capacity: 50,
         Speakers: [{ name: 'Linda Williams', title: 'Cloud Security Expert' }],
@@ -1061,7 +1062,7 @@ let events = [
         Id: 57,
         Subject: 'AI for Manufacturing',
         StartTime: new Date(2025, 1, 26, 9, 30),
-        EndTime: new Date(2025, 1, 26, 10, 30),
+        EndTime: new Date(2025, 1, 26, 10, 0),
         RoomId: 4,
         Capacity: 50,
         Speakers: [{ name: 'Henry Wilson', title: 'AI Expert' }],
@@ -1073,9 +1074,26 @@ let events = [
         EventTags: ['AI', 'Manufacturing']
     },
     {
+        Id: 93,
+        Subject: 'Break',
+        StartTime: new Date(2025, 1, 26, 10, 0),
+        EndTime: new Date(2025, 1, 26, 10, 30),
+        RoomId: 4,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'A short break for attendees to relax and network.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All Participants',
+        EventLevel: 'All Levels',
+        EventTags: ['Networking', 'Relax']
+    },
+
+
+    {
         Id: 58,
         Subject: 'Blockchain for Beginners',
-        StartTime: new Date(2025, 1, 26, 11, 0),
+        StartTime: new Date(2025, 1, 26, 10, 30),
         EndTime: new Date(2025, 1, 26, 12, 0),
         RoomId: 4,
         Capacity: 50,
@@ -2341,15 +2359,6 @@ const App = () => {
     const agendaTemplate = (props) => {
         console.log(props);
         return (
-            // <div>
-            //     <div className="subject "><strong>{props.Subject}</strong></div>
-            //     <div className="description ">{props.Description}</div>
-            //     <div className="time"><strong>Time Slot:</strong>{getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)}</div>
-            //     <div className="type"><strong>Event type:</strong> {props.EventType}</div>
-            //     <div className="speaker"><strong>Speakers:</strong> {props.Speakers[0].name + '- ' + props.Speakers[0].title}</div>
-            //     <div className="capacity"><strong>Audience Size:</strong> {props.Capacity}</div>
-            // </div>
-
             <div className="agenda-event">
                 <div className="event-header">
                     <div className="event-subject">
@@ -2362,10 +2371,12 @@ const App = () => {
                     <strong><label>Time Slot</label>: </strong>{getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)}
                 </div>
 
+                {props.Subject !== 'Break' && props.Subject !== 'Lunch Break' && (
                 <div className="event-details">
                     <div className="event-type"><strong><label>Event Type</label>: </strong>{props.EventType}</div>
                     <div className="event-capacity"><strong><label>Audience Size</label>: </strong>{props.Capacity}</div>
                 </div>
+                )}
 
                 {props.Speakers && props.Speakers.length > 0 && (
                     <div className="event-speaker">
@@ -2516,11 +2527,17 @@ const App = () => {
     }
 
     const getHeaderStyles = (data) => {
-        if (data.elementType !== 'cell') {
+        if (data.elementType === 'cell') {
+            return { alignItems: 'center', color: '#919191' };
+        }
+        else {
             const resourceData = getResourceData(data);
             return { background: resourceData.RoomColor, color: '#FFFFFF' };
         }
-        return;
+    }
+
+    const getHeaderTitle = (data) => {
+        return (data.elementType === 'cell') ? 'Add Event Details' : data.Subject;
     }
 
     const getHeaderDetails = (data) => {
@@ -2531,7 +2548,22 @@ const App = () => {
 
     const buttonClickActions = (e) => {
         const eventDetails = scheduleObj.current.activeEventData.event;
-        if (e.target.id === 'delete') {
+        const quickPopup = closest(e.target, '.e-quick-popup-wrapper');
+        const getSlotData = () => {
+            const addObj = {};
+            addObj.Id = scheduleObj.current.getEventMaxID();
+            addObj.Subject = isNullOrUndefined(titleObj.current.value) ? 'Add title' : titleObj.current.value;
+            addObj.StartTime = new Date(scheduleObj.current.activeCellsData.startTime);
+            addObj.EndTime = new Date(scheduleObj.current.activeCellsData.endTime);
+            addObj.IsAllDay = scheduleObj.current.activeCellsData.isAllDay;
+            addObj.Description = isNullOrUndefined(capacityObj.current.value) ? 'Add notes' : capacityObj.current.value;
+            addObj.RoomId = 1;
+            return addObj;
+        };
+        if (e.target.id === 'add') {
+            const addObj = getSlotData();
+            scheduleObj.current.addEvent(addObj);
+        } else if (e.target.id === 'delete') {
             let currentAction = 'Delete';
             if (eventDetails.RecurrenceRule) {
                 currentAction = 'DeleteOccurrence';
@@ -2539,7 +2571,9 @@ const App = () => {
             scheduleObj.current.deleteEvent(eventDetails, currentAction);
         }
         else {
-            let currentAction = 'Save';
+            const isCellPopup = quickPopup.firstElementChild.classList.contains('e-cell-popup');
+            const eventDetails = isCellPopup ? getSlotData() : scheduleObj.current.activeEventData.event;
+            let currentAction = isCellPopup ? 'Add' : 'Save';
             if (eventDetails.RecurrenceRule) {
                 currentAction = 'EditOccurrence';
             }
@@ -2552,19 +2586,35 @@ const App = () => {
         return (
             <div className="quick-info-header">
                 <div className="quick-info-header-content" style={getHeaderStyles(props)}>
-                    <div className="quick-info-title">{props.Subject}</div>
-                    <div className="duration-text">{getHeaderDetails(props)}</div>
+                    <div className="quick-info-title">{getHeaderTitle(props)}</div>
+                    {props.elementType !== 'cell' && (
+                        <div className="duration-text">{getHeaderDetails(props)}</div>
+                    )}
                 </div>
             </div>
         );
     }
 
+    let titleObj = useRef(null);
+    let capacityObj = useRef(null);
+
     const contentTemplate = (props) => {
-        if (props.elementType !== 'cell') {
-            return (
-                <div className="quick-info-content">
-                    {
-                        <div className="event-content">
+        return (
+            <div className="quick-info-content">
+                {props.elementType === 'cell' ?
+                    <div className="e-cell-content">
+                        <div className="content-area">
+                            <TextBoxComponent id="title" ref={titleObj} placeholder="Title" />
+                        </div>
+                        {/* <div className="content-area">
+                            <DropDownListComponent id="eventType" ref={eventTypeObj} dataSource={roomData} fields={{ text: "Name", value: "Id" }} placeholder="Choose Type" index={0} popupHeight="200px" />
+                        </div> */}
+                        <div className="content-area">
+                            <TextBoxComponent id="capacity" ref={capacityObj} placeholder="Participants Count" />
+                        </div>
+                    </div>
+                    :
+                    <div className="event-content">
                             <div className="meeting-type-wrap">
                                 <label>Subject</label>:
                                 <span>{props.Description}</span>
@@ -2578,16 +2628,20 @@ const App = () => {
                                 <span>{props.Speakers[0].name} ({props.Speakers[0].title})</span>
                             </div>
                         </div>
-                    }
-                </div>
-            );
-        } return;
+                }
+            </div>
+        );
     }
 
     const footerTemplate = (props) => {
         return (
             <div className="quick-info-footer">
-                {
+                {props.elementType === "cell" ?
+                    <div className="cell-footer">
+                        <ButtonComponent id="more-details" cssClass='e-flat' content="More Details" onClick={buttonClickActions.bind(this)} />
+                        <ButtonComponent id="add" cssClass='e-flat' content="Add" isPrimary={true} onClick={buttonClickActions.bind(this)} />
+                    </div>
+                    :
                     <div className="event-footer">
                         <ButtonComponent id="delete" cssClass='e-flat' content="Delete" onClick={buttonClickActions.bind(this)} />
                         <ButtonComponent id="edit" cssClass='e-flat' content="Edit" isPrimary={true} onClick={buttonClickActions.bind(this)} />
