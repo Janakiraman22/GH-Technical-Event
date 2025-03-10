@@ -3804,7 +3804,7 @@ function removeOverlappingEvents(events) {
         // Always add the current event to the filtered list, unless it's in the remove list
         if (!toRemoveIndexes.has(i) && !checkRoomCapacity(currentEvent.Capacity, currentEvent.RoomId)) {
             filteredEvents.push(currentEvent);
-            if (!eventsName.some((item) => item.name === currentEvent.Title)) {
+            if (currentEvent.Title  && !eventsName.some((item) => item.name === currentEvent.Title)) {
                 eventsName.push({ id: eventsName.length + 1, name: currentEvent.Title });
             }
         }
