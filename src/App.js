@@ -25,272 +25,308 @@ let events = [
     // Room 1 - February 24
     {
         Id: 1,
-        Subject: 'Registration & Welcome',
-        StartTime: new Date(2025, 1, 24, 8, 0),
-        EndTime: new Date(2025, 1, 24, 9, 0),
+        Title: 'AI for Business Automation',
+        Subject: 'The Impact of AI on Business Efficiency',
+        StartTime: new Date(2025, 1, 24, 9, 0),
+        EndTime: new Date(2025, 1, 24, 10, 0),
         RoomId: 1,
-        Capacity: 72,
-        Speakers: [{ name: 'John Doe', title: 'Event Coordinator' }],
-        Description: 'Welcome session to introduce the event and speakers.',
+        Capacity: 110,
+        Speakers: [
+            { 
+                name: 'Liam Johnson', 
+                title: 'AI Specialist', 
+                note: 'Exploring how AI is transforming business processes and increasing efficiency.' 
+            }
+        ],
+        Description: 'Overview of AI and how it’s transforming business operations, enhancing productivity, and driving innovation.',
         Duration: '1 hour',
-        EventType: 'Opening',
-        TargetAudience: 'All attendees',
-        EventLevel: 'All levels',
-        EventTags: ['Welcome']
+        EventType: 'Technical Session',
+        TargetAudience: 'Developers, Engineers, Business Analysts',
+        EventLevel: 'Intermediate',
+        EventTags: ['Artificial Intelligence', 'Business Automation', 'Machine Learning']
     },
     {
         Id: 2,
-        Subject: 'Edge Computing and IoT Integration',
-        StartTime: new Date(2025, 1, 24, 9, 30),
+        Title: 'AI for Business Automation',
+        Subject: 'Short Break for Relaxation',
+        StartTime: new Date(2025, 1, 24, 10, 0),
         EndTime: new Date(2025, 1, 24, 10, 30),
-        RoomId: 1,
-        Capacity: 100,
-        Speakers: [{ name: 'Liam Johnson', title: 'Edge Computing Specialist' }],
-        Description: 'Exploring the integration of edge computing with IoT systems.',
-        Duration: '1 hour',
-        EventType: 'Technical Session',
-        TargetAudience: 'Developers, Engineers',
-        EventLevel: 'Intermediate',
-        EventTags: ['Edge Computing', 'IoT']
-    },
-    {
-        Id: 3,
-        Subject: 'Break',
-        StartTime: new Date(2025, 1, 24, 10, 30),
-        EndTime: new Date(2025, 1, 24, 11, 0),
         RoomId: 1,
         Capacity: 0,
         Speakers: [],
-        Description: 'Take a break and relax.',
+        Description: 'Take a short break to refresh and network with fellow attendees.',
         Duration: '30 minutes',
         EventType: 'Break',
         TargetAudience: 'All attendees',
         EventLevel: 'All levels',
-        EventTags: ['Break']
+        EventTags: ['Networking', 'Relaxation']
+    },
+    {
+        Id: 3,
+        Title: 'AI for Business Automation',
+        Subject: 'AI-Driven Business Intelligence: Improving Decision-Making',
+        StartTime: new Date(2025, 1, 24, 10, 30),
+        EndTime: new Date(2025, 1, 24, 11, 0),
+        RoomId: 1,
+        Capacity: 110,
+        Speakers: [
+            { 
+                name: 'Liam Johnson', 
+                title: 'AI Specialist', 
+                note: 'How AI and machine learning enhance business intelligence tools for smarter decision-making.' 
+            }
+        ],
+        Description: 'How AI and machine learning enhance business intelligence tools to make better, more data-driven decisions.',
+        Duration: '30 minutes',
+        EventType: 'Technical Session',
+        TargetAudience: 'Developers, Engineers, Business Analysts',
+        EventLevel: 'Intermediate',
+        EventTags: ['Artificial Intelligence', 'Business Intelligence', 'Machine Learning']
     },
     {
         Id: 4,
-        Subject: 'Cloud Security Best Practices',
+        Title: 'AI for Business Automation',
+        Subject: 'Implementing AI-Powered Automation in Business',
         StartTime: new Date(2025, 1, 24, 11, 0),
         EndTime: new Date(2025, 1, 24, 12, 0),
         RoomId: 1,
-        Capacity: 90,
-        Speakers: [{ name: 'Richard Black', title: 'Cloud Security Consultant' }],
-        Description: 'Best practices to ensure security in cloud environments.',
+        Capacity: 110,
+        Speakers: [
+            { 
+                name: 'Liam Johnson', 
+                title: 'AI Specialist', 
+                note: 'A deep dive into real-world applications of AI-powered automation in various industries.' 
+            }
+        ],
+        Description: 'Exploring real-world applications of AI-powered automation in various sectors, including customer service, logistics, and marketing.',
         Duration: '1 hour',
-        EventType: 'Security Session',
-        TargetAudience: 'Security Professionals',
-        EventLevel: 'Advanced',
-        EventTags: ['Cloud Security']
+        EventType: 'Technical Session',
+        TargetAudience: 'Developers, Engineers, Business Analysts',
+        EventLevel: 'Intermediate',
+        EventTags: ['Artificial Intelligence', 'Automation', 'Machine Learning']
     },
     {
         Id: 5,
-        Subject: 'Lunch Break',
+        Title: 'AI for Business Automation',
+        Subject: 'Networking and Lunch',
         StartTime: new Date(2025, 1, 24, 12, 0),
         EndTime: new Date(2025, 1, 24, 13, 0),
         RoomId: 1,
         Capacity: 0,
         Speakers: [],
-        Description: 'Lunch Break',
+        Description: 'Enjoy lunch and connect with peers during the break.',
         Duration: '1 hour',
         EventType: 'Break',
         TargetAudience: 'All attendees',
         EventLevel: 'All levels',
-        EventTags: ['Networking', 'Break']
+        EventTags: ['Networking', 'Lunch']
     },
     {
         Id: 6,
-        Subject: 'AI and Machine Learning in Healthcare',
+        Title: 'AI for Business Automation',
+        Subject: 'AI for Customer Engagement and Personalization',
         StartTime: new Date(2025, 1, 24, 13, 0),
         EndTime: new Date(2025, 1, 24, 15, 0),
         RoomId: 1,
-        Capacity: 100,
-        Speakers: [{ name: 'Dr. Jennifer Smith', title: 'AI Healthcare Expert' }],
-        Description: 'The role of AI and ML in improving healthcare outcomes.',
-        Duration: '2 hour',
+        Capacity: 110,
+        Speakers: [
+            { 
+                name: 'Liam Johnson', 
+                title: 'AI Specialist', 
+                note: 'Using AI to create personalized customer experiences through targeted recommendations and services.' 
+            }
+        ],
+        Description: 'Discussing the application of AI in creating personalized customer experiences, such as product recommendations and tailored content.',
+        Duration: '2 hours',
         EventType: 'Technical Session',
-        TargetAudience: 'Healthcare Professionals',
+        TargetAudience: 'Developers, Engineers, Business Analysts',
         EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Healthcare']
+        EventTags: ['Artificial Intelligence', 'Customer Engagement', 'Personalization']
     },
     {
         Id: 7,
-        Subject: 'Break',
+        Title: 'AI for Business Automation',
+        Subject: 'Coffee Break and Networking',
         StartTime: new Date(2025, 1, 24, 15, 0),
         EndTime: new Date(2025, 1, 24, 15, 30),
         RoomId: 1,
         Capacity: 0,
         Speakers: [],
-        Description: 'Short break to relax and network.',
+        Description: 'Enjoy a coffee break and network with your peers.',
         Duration: '30 minutes',
         EventType: 'Break',
-        TargetAudience: 'All Participants',
-        EventLevel: 'All Levels',
-        EventTags: ['Networking', 'Relax']
+        TargetAudience: 'All participants',
+        EventLevel: 'All levels',
+        EventTags: ['Networking', 'Coffee Break']
     },
-
-
     {
         Id: 8,
-        Subject: 'Smart Cities and IoT Solutions',
+        Title: 'AI for Business Automation',
+        Subject: 'Implementing AI-Powered Automation in Business',
         StartTime: new Date(2025, 1, 24, 15, 30),
         EndTime: new Date(2025, 1, 24, 16, 30),
         RoomId: 1,
-        Capacity: 80,
-        Speakers: [{ name: 'Grace Williams', title: 'IoT Expert' }],
-        Description: 'The role of IoT in building and managing smart cities.',
+        Capacity: 110,
+        Speakers: [
+            { 
+                name: 'Liam Johnson', 
+                title: 'AI Specialist', 
+                note: 'A deep dive into real-world applications of AI-powered automation in various industries.' 
+            }
+        ],
+        Description: 'Exploring real-world applications of AI-powered automation in various sectors, including customer service, logistics, and marketing.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Urban Planners, Engineers',
+        TargetAudience: 'Developers, Engineers, Business Analysts',
         EventLevel: 'Intermediate',
-        EventTags: ['IoT', 'Smart Cities']
+        EventTags: ['Artificial Intelligence', 'Automation', 'Machine Learning']
     },
     {
         Id: 9,
-        Subject: 'AI in Finance: Revolutionizing Banking',
-        StartTime: new Date(2025, 1, 24, 18, 0),
-        EndTime: new Date(2025, 1, 24, 19, 0),
+        Title: 'AI for Business Automation',
+        Subject: 'Panel Discussion: The Future of AI in Business Automation',
+        StartTime: new Date(2025, 1, 24, 17, 0),
+        EndTime: new Date(2025, 1, 24, 18, 0),
         RoomId: 1,
-        Capacity: 70,
-        Speakers: [{ name: 'Olivia Brown', title: 'AI in Finance Expert' }],
-        Description: 'How AI technologies are transforming the banking industry.',
+        Capacity: 110,
+        Speakers: [
+            { 
+                name: 'Liam Johnson', 
+                title: 'AI Specialist', 
+                note: 'Industry experts discuss the next big steps for AI technologies in business automation and upcoming trends.' 
+            },
+            { 
+                name: 'Sophia Collins', 
+                title: 'Machine Learning Expert', 
+                note: 'Insights into the future impact of AI on industries such as retail, healthcare, and logistics.'
+            }
+        ],
+        Description: 'Panel discussion featuring industry experts who share their insights into the future of AI in business automation.',
         Duration: '1 hour',
-        EventType: 'Business Session',
-        TargetAudience: 'Finance Professionals',
-        EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Finance']
+        EventType: 'Panel Discussion',
+        TargetAudience: 'Developers, Engineers, Business Analysts, Managers',
+        EventLevel: 'Advanced',
+        EventTags: ['Artificial Intelligence', 'Business Automation', 'Future Trends']
     },
 
 
     // Room 2 - February 24
     {
         Id: 10,
-        Subject: 'Blockchain in Finance',
-        StartTime: new Date(2025, 1, 24, 8, 30),
-        EndTime: new Date(2025, 1, 24, 9, 30),
-        RoomId: 2,
-        Capacity: 80,
-        Speakers: [{ name: 'David Brooks', title: 'Blockchain Consultant' }],
-        Description: 'The use of blockchain to enhance security in financial transactions.',
-        Duration: '1 hour',
-        EventType: 'Technical Session',
-        TargetAudience: 'Finance Professionals',
-        EventLevel: 'Intermediate',
-        EventTags: ['Blockchain', 'Finance']
-    },
-    {
-        Id: 11,
-        Subject: 'Artificial Intelligence in Retail',
+        Title: 'Database Systems and Data Management',
+        Subject: 'Introduction to Relational Databases',
         StartTime: new Date(2025, 1, 24, 9, 30),
         EndTime: new Date(2025, 1, 24, 10, 30),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Eve Green', title: 'AI Retail Specialist' }],
-        Description: 'Leveraging AI to enhance the retail customer experience.',
+        Speakers: [
+            { 
+                name: 'James White', 
+                title: 'Database Expert', 
+                note: 'Understanding the foundations of relational databases and their role in business.' 
+            }
+        ],
+        Description: 'This session will introduce the fundamentals of relational databases and how they’re applied in modern enterprises.',
         Duration: '1 hour',
-        EventType: 'Business Session',
-        TargetAudience: 'Retailers, Business Owners',
-        EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Retail']
-    },
-    {
-        Id: 12,
-        Subject: 'Machine Learning for Business',
-        StartTime: new Date(2025, 1, 24, 11, 0),
-        EndTime: new Date(2025, 1, 24, 12, 0),
-        RoomId: 2,
-        Capacity: 100,
-        Speakers: [{ name: 'Sophia Lee', title: 'Machine Learning Expert' }],
-        Description: 'Practical use cases of machine learning in business operations.',
-        Duration: '1 hour',
-        EventType: 'Business Session',
-        TargetAudience: 'Business Owners, Entrepreneurs',
-        EventLevel: 'Intermediate',
-        EventTags: ['Machine Learning', 'Business']
+        EventType: 'Technical Session',
+        TargetAudience: 'Developers, Database Administrators, Data Analysts',
+        EventLevel: 'Beginner',
+        EventTags: ['Database Management', 'SQL', 'Data Modeling']
     },
     {
         Id: 11,
-        Subject: 'Deep Learning for Computer Vision',
-        StartTime: new Date(2025, 1, 24, 13, 0),
-        EndTime: new Date(2025, 1, 24, 14, 30),
+        Title: 'Database Systems and Data Management',
+        Subject: 'Optimizing SQL Queries for Performance',
+        StartTime: new Date(2025, 1, 24, 11, 0),
+        EndTime: new Date(2025, 1, 24, 11, 30),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Daniel White', title: 'AI Researcher' }],
-        Description: 'Exploring deep learning algorithms used in computer vision.',
-        Duration: '1 hour',
+        Speakers: [
+            { 
+                name: 'James White', 
+                title: 'Database Expert', 
+                note: 'Techniques and strategies for improving the performance of SQL queries in large databases.' 
+            }
+        ],
+        Description: 'In this session, we will dive into SQL query optimization strategies to enhance database performance.',
+        Duration: '30 minutes',
         EventType: 'Technical Session',
-        TargetAudience: 'Developers, AI Researchers',
-        EventLevel: 'Advanced',
-        EventTags: ['Deep Learning', 'Computer Vision']
+        TargetAudience: 'Database Administrators, Developers, Data Engineers',
+        EventLevel: 'Intermediate',
+        EventTags: ['SQL Optimization', 'Performance Tuning', 'Database Administration']
     },
     {
         Id: 12,
-        Subject: 'Robotic Process Automation (RPA)',
-        StartTime: new Date(2025, 1, 24, 14, 0),
-        EndTime: new Date(2025, 1, 24, 15, 0),
+        Title: 'Database Systems and Data Management',
+        Subject: 'Database Security Best Practices',
+        StartTime: new Date(2025, 1, 24, 11, 30),
+        EndTime: new Date(2025, 1, 24, 12, 30),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Maria Clark', title: 'RPA Specialist' }],
-        Description: 'Understanding how RPA can streamline business processes.',
-        Duration: '1 hour',
-        EventType: 'Business Session',
-        TargetAudience: 'Business Analysts',
+        Speakers: [
+            { 
+                name: 'Sophia Green', 
+                title: 'Security Analyst', 
+                note: 'Exploring best practices for securing databases and ensuring the protection of sensitive data.' 
+            }
+        ],
+        Description: 'Learn the best practices for securing databases, including encryption, access control, and backup strategies.',
+        Duration: '1 hour 30 minutes',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, Database Administrators, IT Professionals',
         EventLevel: 'Intermediate',
-        EventTags: ['RPA', 'Business Automation']
+        EventTags: ['Database Security', 'Encryption', 'Data Protection']
     },
     {
         Id: 13,
-        Subject: 'Cybersecurity in the Cloud',
-        StartTime: new Date(2025, 1, 24, 15, 30),
-        EndTime: new Date(2025, 1, 24, 17, 0),
+        Title: 'Database Systems and Data Management',
+        Subject: 'Advanced Database Architectures',
+        StartTime: new Date(2025, 1, 24, 13, 30),
+        EndTime: new Date(2025, 1, 24, 14, 30),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Sam Taylor', title: 'Cloud Security Expert' }],
-        Description: 'Best practices for ensuring security in cloud-based environments.',
+        Speakers: [
+            { 
+                name: 'James White', 
+                title: 'Database Expert', 
+                note: 'Exploring next-generation database architectures, including NoSQL and distributed databases.' 
+            }
+        ],
+        Description: 'A deep dive into the most advanced database architectures and how they are being applied in the modern world.',
         Duration: '1 hour',
-        EventType: 'Security Session',
-        TargetAudience: 'Security Professionals',
+        EventType: 'Technical Session',
+        TargetAudience: 'Database Architects, Developers, Engineers',
         EventLevel: 'Advanced',
-        EventTags: ['Cloud Security']
+        EventTags: ['NoSQL', 'Distributed Databases', 'Database Design']
     },
-
-    // Room 3 - February 24 (Expanded)
     {
         Id: 14,
-        Subject: 'Introduction to Big Data Analytics',
-        StartTime: new Date(2025, 1, 24, 8, 0),
-        EndTime: new Date(2025, 1, 24, 8, 45),
-        RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Linda Johnson', title: 'Data Scientist' }],
-        Description: 'Understanding the basics of big data analytics and its applications.',
+        Title: 'Database Systems and Data Management',
+        Subject: 'Database Troubleshooting and Performance Monitoring',
+        StartTime: new Date(2025, 1, 24, 14, 30),
+        EndTime: new Date(2025, 1, 24, 15, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Green', 
+                title: 'Database Administrator', 
+                note: 'Techniques and tools for troubleshooting database performance issues in a live environment.' 
+            }
+        ],
+        Description: 'Learn to troubleshoot and monitor databases effectively, ensuring seamless database performance.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Analysts, IT Professionals',
-        EventLevel: 'Beginner',
-        EventTags: ['Big Data', 'Analytics']
-    },
-    {
-        Id: 15,
-        Subject: 'Data Science with Python',
-        StartTime: new Date(2025, 1, 24, 8, 45),
-        EndTime: new Date(2025, 1, 24, 10, 0),
-        RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Peter Moore', title: 'Data Scientist' }],
-        Description: 'Hands-on workshop on using Python for data science.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Scientists, Developers',
-        EventLevel: 'Intermediate',
-        EventTags: ['Data Science', 'Python']
+        EventType: 'Technical Session',
+        TargetAudience: 'Database Administrators, System Engineers, IT Support',
+        EventLevel: 'Advanced',
+        EventTags: ['Database Performance', 'Troubleshooting', 'Monitoring']
     },
     {
         Id: 61,
         Subject: 'Break',
-        StartTime: new Date(2025, 1, 24, 10, 0),
-        EndTime: new Date(2025, 1, 24, 10, 30),
-        RoomId: 3,
+        StartTime: new Date(2025, 1, 24, 15, 0),
+        EndTime: new Date(2025, 1, 24, 15, 30),
+        RoomId: 2,
         Capacity: 0,
         Speakers: [],
         Description: 'Short break to relax and network.',
@@ -302,1567 +338,3185 @@ let events = [
     },
     {
         Id: 16,
-        Subject: 'Data Visualization with Tableau',
-        StartTime: new Date(2025, 1, 24, 10, 30),
-        EndTime: new Date(2025, 1, 24, 12, 30),
-        RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Nancy Black', title: 'Data Visualization Expert' }],
-        Description: 'Learn to create beautiful data visualizations using Tableau.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Analysts, Business Intelligence Professionals',
-        EventLevel: 'Intermediate',
-        EventTags: ['Data Visualization', 'Tableau']
-    },
-
-    {
-        Id: 51,
-        Subject: 'Business Intelligence with Power BI',
-        StartTime: new Date(2025, 1, 24, 13, 30),
-        EndTime: new Date(2025, 1, 24, 15, 0),
-        RoomId: 3,
-        Capacity: 100,
-        Speakers: [{ name: 'John Mark', title: 'Power BI Expert' }],
-        Description: 'Leveraging Power BI for effective business intelligence and analytics.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Business Analysts, IT Professionals',
-        EventLevel: 'Intermediate',
-        EventTags: ['Business Intelligence', 'Power BI']
-    },
-    {
-        Id: 30,
-        Subject: 'Quantum Computing and AI',
-        StartTime: new Date(2025, 1, 24, 16, 30),
+        Title: 'Database Systems and Data Management',
+        Subject: 'Panel Discussion: The Future of Databases',
+        StartTime: new Date(2025, 1, 24, 15, 30),
         EndTime: new Date(2025, 1, 24, 17, 30),
-        RoomId: 3,
+        RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'David Adams', title: 'Quantum Computing Expert' }],
-        Description: 'The convergence of quantum computing and artificial intelligence.',
+        Speakers: [
+            { 
+                name: 'James White', 
+                title: 'Database Expert', 
+                note: 'A panel discussion featuring experts in database technology and their visions of the future of databases.' 
+            },
+            { 
+                name: 'Sophia Green', 
+                title: 'Security Analyst', 
+                note: 'Security concerns and the next wave of database technology.' 
+            }
+        ],
+        Description: 'Panel discussion exploring emerging trends, new database technologies, and the future of data management.',
         Duration: '1 hour',
-        EventType: 'Technical Session',
-        TargetAudience: 'AI Researchers, Quantum Computing Enthusiasts',
+        EventType: 'Panel Discussion',
+        TargetAudience: 'Developers, Data Scientists, Database Administrators',
         EventLevel: 'Advanced',
-        EventTags: ['Quantum Computing', 'AI']
-    },
-    {
-        Id: 77,
-        Subject: 'Serverless Computing with AWS Lambda',
-        StartTime: new Date(2025, 1, 24, 18, 15),
-        EndTime: new Date(2025, 1, 24, 19, 0),
-        RoomId: 3,
-        Capacity: 90,
-        Speakers: [{ name: 'Isabella Cooper', title: 'Cloud Architect' }],
-        Description: 'Learn how to build and deploy serverless applications using AWS Lambda.',
-        Duration: '1 hour',
-        EventType: 'Technical Session',
-        TargetAudience: 'Developers, Cloud Professionals',
-        EventLevel: 'Advanced',
-        EventTags: ['Serverless', 'AWS Lambda']
+        EventTags: ['Future of Databases', 'Emerging Trends', 'Panel Discussion']
     },
 
-    // Room 4 - February 24 (Expanded)
+    // Room 3 - February 24 (Expanded)
     {
         Id: 17,
-        Subject: 'Introduction to Cloud Computing',
-        StartTime: new Date(2025, 1, 24, 8, 0),
-        EndTime: new Date(2025, 1, 24, 9, 30),
-        RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Sophia White', title: 'Cloud Architect' }],
-        Description: 'A basic introduction to the principles of cloud computing.',
+        Title: 'Networking Strategies for Tech Professionals',
+        Subject: 'Building a Professional Network in Tech',
+        StartTime: new Date(2025, 1, 24, 9, 0),
+        EndTime: new Date(2025, 1, 24, 11, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ella Roberts', 
+                title: 'Tech Networking Specialist', 
+                note: 'Strategies for building meaningful professional relationships within the technology industry.' 
+            }
+        ],
+        Description: 'This session covers effective strategies for building a professional network in the tech industry.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Beginners, Developers',
+        EventType: 'Technical Session',
+        TargetAudience: 'Tech Professionals, Entrepreneurs, Developers',
         EventLevel: 'Beginner',
-        EventTags: ['Cloud', 'Computing']
+        EventTags: ['Networking', 'Career Development', 'Professional Growth']
     },
     {
         Id: 18,
-        Subject: 'AI in Healthcare: Applications and Challenges',
-        StartTime: new Date(2025, 1, 24, 10, 15),
-        EndTime: new Date(2025, 1, 24, 11, 15),
-        RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Michael Davis', title: 'AI Healthcare Expert' }],
-        Description: 'Exploring the application of AI technologies in the healthcare sector.',
+        Title: 'Networking Strategies for Tech Professionals',
+        Subject: 'Leveraging LinkedIn for Professional Networking',
+        StartTime: new Date(2025, 1, 24, 11, 30),
+        EndTime: new Date(2025, 1, 24, 12, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ella Roberts', 
+                title: 'Tech Networking Specialist', 
+                note: 'Learn how to use LinkedIn to connect with professionals and enhance career opportunities.' 
+            }
+        ],
+        Description: 'A session focused on utilizing LinkedIn to build a strong professional network and increase career opportunities.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Healthcare Professionals',
-        EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Healthcare']
+        TargetAudience: 'Developers, Entrepreneurs, Job Seekers',
+        EventLevel: 'Beginner',
+        EventTags: ['Networking', 'LinkedIn', 'Career Growth']
     },
     {
         Id: 19,
-        Subject: 'AI-Powered Healthcare Solutions',
-        StartTime: new Date(2025, 1, 24, 13, 0),
-        EndTime: new Date(2025, 1, 24, 15, 0),
-        RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Lucy Green', title: 'AI Solutions Expert' }],
-        Description: 'Discussing how AI is transforming healthcare delivery.',
+        Title: 'Networking Strategies for Tech Professionals',
+        Subject: 'Networking at Conferences and Meetups',
+        StartTime: new Date(2025, 1, 24, 13, 30),
+        EndTime: new Date(2025, 1, 24, 14, 30),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ella Roberts', 
+                title: 'Tech Networking Specialist', 
+                note: 'Practical advice on making meaningful connections at conferences and tech meetups.' 
+            }
+        ],
+        Description: 'Tech professionals will learn how to make lasting connections while attending conferences and meetups.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Healthcare Professionals',
+        EventType: 'Technical Session',
+        TargetAudience: 'Developers, Entrepreneurs, Tech Enthusiasts',
         EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Healthcare']
+        EventTags: ['Networking', 'Conferences', 'Tech Meetups']
     },
     {
-        Id: 20,
-        Subject: 'Robotics in Healthcare',
+        Id: 21,
+        Title: 'Networking Strategies for Tech Professionals',
+        Subject: 'Building an Online Presence for Career Growth',
         StartTime: new Date(2025, 1, 24, 16, 0),
-        EndTime: new Date(2025, 1, 24, 17, 0),
-        RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'James Taylor', title: 'Robotics Expert' }],
-        Description: 'Exploring the potential of robotics in healthcare settings.',
+        EndTime: new Date(2025, 1, 24, 17, 15),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ella Roberts', 
+                title: 'Tech Networking Specialist', 
+                note: 'Learn how to build and leverage an online presence to boost your career in the tech industry.' 
+            }
+        ],
+        Description: 'Building an online presence is key to career growth in tech. This session will teach participants how to do it effectively.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Healthcare Professionals',
-        EventLevel: 'Advanced',
-        EventTags: ['Robotics', 'Healthcare']
+        TargetAudience: 'Developers, Entrepreneurs, Job Seekers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Networking', 'Online Presence', 'Career Growth']
+    },
+
+
+    // Room 4 - February 24 (Expanded)
+    {
+        Id: 22,
+        Title: 'Cloud Computing and Architecture',
+        Subject: 'Introduction to Cloud Computing',
+        StartTime: new Date(2025, 1, 24, 9, 0),
+        EndTime: new Date(2025, 1, 24, 10, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'David Miller', 
+                title: 'Cloud Architect', 
+                note: 'Exploring the fundamentals of cloud computing and its impact on business and technology.' 
+            }
+        ],
+        Description: 'This session provides an introduction to cloud computing, its advantages, and the different cloud service models.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Developers, Engineers, IT Architects',
+        EventLevel: 'Beginner',
+        EventTags: ['Cloud Computing', 'Cloud Services', 'Infrastructure as a Service']
     },
     {
-        Id: 31,
-        Subject: 'Natural Language Processing (NLP) in AI',
-        StartTime: new Date(2025, 1, 24, 17, 30),
-        EndTime: new Date(2025, 1, 24, 18, 30),
+        Id: 23,
+        Title: 'Cloud Computing and Architecture',
+        Subject: 'Choosing the Right Cloud Provider for Your Business',
+        StartTime: new Date(2025, 1, 24, 10, 30),
+        EndTime: new Date(2025, 1, 24, 11, 0),
         RoomId: 4,
-        Capacity: 70,
-        Speakers: [{ name: 'Jessica Lee', title: 'NLP Specialist' }],
-        Description: 'Exploring the role of NLP in artificial intelligence applications.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'David Miller', 
+                title: 'Cloud Architect', 
+                note: 'Guidelines for selecting the right cloud provider based on business needs and scalability.' 
+            }
+        ],
+        Description: 'This session will help you evaluate cloud providers and choose the best option for your organization.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Developers, AI Researchers',
+        TargetAudience: 'IT Decision Makers, Developers, Engineers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Cloud Providers', 'Cloud Architecture', 'Scalability']
+    },
+    {
+        Id: 24,
+        Title: 'Cloud Computing and Architecture',
+        Subject: 'Building Scalable Cloud Architectures',
+        StartTime: new Date(2025, 1, 24, 11, 0),
+        EndTime: new Date(2025, 1, 24, 12, 0),
+        RoomId: 4,
+        Capacity: 90,
+        Speakers: [
+            { 
+                name: 'Emily Walker', 
+                title: 'Cloud Solutions Architect', 
+                note: 'Learn how to design and deploy scalable cloud infrastructures for modern applications.' 
+            }
+        ],
+        Description: 'In this session, you will learn best practices for building scalable and resilient cloud architectures.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Architects, Developers, IT Engineers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Cloud Architecture', 'Scalability', 'Cloud Solutions']
+    },
+    {
+        Id: 25,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 24, 12, 0),
+        EndTime: new Date(2025, 1, 24, 13, 0),
+        RoomId: 4,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch Break for attendees to relax and network.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Networking', 'Break']
+    },
+    {
+        Id: 26,
+        Title: 'Cloud Computing and Architecture',
+        Subject: 'Cloud Security Best Practices',
+        StartTime: new Date(2025, 1, 24, 13, 0),
+        EndTime: new Date(2025, 1, 24, 14, 0),
+        RoomId: 4,
+        Capacity: 90,
+        Speakers: [
+            { 
+                name: 'Michael Davis', 
+                title: 'Cloud Security Specialist', 
+                note: 'Learn the best security practices for ensuring the safety of your data in the cloud.' 
+            }
+        ],
+        Description: 'This session covers cloud security strategies, focusing on protecting your data and maintaining compliance.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, IT Professionals, Developers',
         EventLevel: 'Advanced',
-        EventTags: ['NLP', 'AI']
+        EventTags: ['Cloud Security', 'Data Protection', 'Compliance']
+    },
+    {
+        Id: 27,
+        Title: 'Cloud Computing and Architecture',
+        Subject: 'Containerization and Cloud-Native Applications',
+        StartTime: new Date(2025, 1, 24, 14, 30),
+        EndTime: new Date(2025, 1, 24, 15, 30),
+        RoomId: 4,
+        Capacity: 90,
+        Speakers: [
+            { 
+                name: 'Sarah Lee', 
+                title: 'Cloud-Native Expert', 
+                note: 'Exploring how containerization technologies like Docker and Kubernetes are transforming cloud-native applications.' 
+            }
+        ],
+        Description: 'This session will dive into the world of containerization and its application in cloud-native environments.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'DevOps Engineers, Cloud Architects, Developers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Containers', 'Cloud-Native', 'Kubernetes']
+    },
+    {
+        Id: 28,
+        Title: 'Cloud Computing and Architecture',
+        Subject: 'Panel Discussion: The Future of Cloud Computing',
+        StartTime: new Date(2025, 1, 24, 16, 30),
+        EndTime: new Date(2025, 1, 24, 18, 0),
+        RoomId: 4,
+        Capacity: 80,
+        Speakers: [
+            { 
+                name: 'David Miller', 
+                title: 'Cloud Architect', 
+                note: 'Industry leaders discuss the future of cloud computing, new trends, and emerging technologies.' 
+            },
+            { 
+                name: 'Emily Walker', 
+                title: 'Cloud Solutions Architect', 
+                note: 'Insights into the evolving role of cloud computing in the modern tech landscape.' 
+            }
+        ],
+        Description: 'A panel of cloud computing experts will discuss the future of cloud architecture, emerging trends, and upcoming challenges.',
+        Duration: '1 hour',
+        EventType: 'Panel Discussion',
+        TargetAudience: 'Cloud Architects, Developers, IT Managers',
+        EventLevel: 'Advanced',
+        EventTags: ['Cloud Computing', 'Future Trends', 'Emerging Technologies']
     },
 
     // Room 1 - February 25
     {
-        Id: 21,
-        Subject: 'Blockchain for Beginners',
-        StartTime: new Date(2025, 1, 25, 8, 30),
-        EndTime: new Date(2025, 1, 25, 9, 45),
+        Id: 17,
+        Title: 'DevOps and Continuous Integration',
+        Subject: 'Introduction to DevOps Practices',
+        StartTime: new Date(2025, 1, 25, 9, 9, 30),
+        EndTime: new Date(2025, 1, 25, 10, 10, 45),
         RoomId: 1,
-        Capacity: 72,
-        Speakers: [{ name: 'John Williams', title: 'Blockchain Consultant' }],
-        Description: 'An introduction to blockchain technology and its applications.',
+        Capacity: 90,
+        Speakers: [
+            { 
+                name: 'John Carter', 
+                title: 'DevOps Engineer', 
+                note: 'Understanding the key principles of DevOps and how it helps streamline software development processes.' 
+            }
+        ],
+        Description: 'This session introduces the core principles of DevOps, including continuous integration and continuous delivery.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Beginners',
+        EventType: 'Technical Session',
+        TargetAudience: 'Developers, DevOps Engineers, IT Professionals',
         EventLevel: 'Beginner',
-        EventTags: ['Blockchain']
+        EventTags: ['DevOps', 'Continuous Integration', 'Agile Development']
     },
     {
-        Id: 22,
-        Subject: 'AI for Business Transformation',
-        StartTime: new Date(2025, 1, 25, 10, 30),
-        EndTime: new Date(2025, 1, 25, 11, 30),
-        RoomId: 1,
-        Capacity: 100,
-        Speakers: [{ name: 'Liam Brown', title: 'AI Business Strategist' }],
-        Description: 'How AI can help businesses improve processes and increase efficiency.',
-        Duration: '1 hour',
-        EventType: 'Business Session',
-        TargetAudience: 'Business Owners, Entrepreneurs',
-        EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Business']
-    },
-    {
-        Id: 23,
-        Subject: 'Cybersecurity in the Modern World',
-        StartTime: new Date(2025, 1, 25, 12, 30),
-        EndTime: new Date(2025, 1, 25, 13, 0),
+        Id: 18,
+        Title: 'DevOps and Continuous Integration',
+        Subject: 'Automating CI/CD Pipelines with Jenkins',
+        StartTime: new Date(2025, 1, 25, 11, 30),
+        EndTime: new Date(2025, 1, 25, 12, 30),
         RoomId: 1,
         Capacity: 80,
-        Speakers: [{ name: 'Emily White', title: 'Cybersecurity Expert' }],
-        Description: 'A session on the latest cybersecurity trends and best practices.',
+        Speakers: [
+            { 
+                name: 'John Carter', 
+                title: 'DevOps Engineer', 
+                note: 'Learn how to set up automated CI/CD pipelines using Jenkins for streamlined software deployment.' 
+            }
+        ],
+        Description: 'In this session, we’ll walk through the process of setting up and automating CI/CD pipelines using Jenkins.',
         Duration: '1 hour',
-        EventType: 'Security Session',
-        TargetAudience: 'IT Professionals, Security Experts',
-        EventLevel: 'Advanced',
-        EventTags: ['Cybersecurity']
-    },
-    {
-        Id: 24,
-        Subject: 'Data Science for Non-Data Scientists',
-        StartTime: new Date(2025, 1, 25, 14, 0),
-        EndTime: new Date(2025, 1, 25, 15, 0),
-        RoomId: 1,
-        Capacity: 100,
-        Speakers: [{ name: 'Olivia Scott', title: 'Data Science Educator' }],
-        Description: 'A simplified approach to understanding data science and analytics.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Non-technical Professionals',
-        EventLevel: 'Beginner',
-        EventTags: ['Data Science', 'Analytics']
-    },
-    {
-        Id: 25,
-        Subject: 'AI and Machine Learning in Retail',
-        StartTime: new Date(2025, 1, 25, 14, 0),
-        EndTime: new Date(2025, 1, 25, 15, 0),
-        RoomId: 1,
-        Capacity: 120,
-        Speakers: [{ name: 'Sophia Davis', title: 'AI Retail Expert' }],
-        Description: 'Leveraging AI to enhance retail operations and customer experience.',
-        Duration: '1 hour',
-        EventType: 'Business Session',
-        TargetAudience: 'Retailers, Business Leaders',
+        EventType: 'Technical Session',
+        TargetAudience: 'Developers, DevOps Engineers, IT Managers',
         EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Retail']
+        EventTags: ['CI/CD', 'Jenkins', 'Automation']
     },
     {
-        Id: 26,
-        Subject: 'Digital Transformation in Manufacturing',
-        StartTime: new Date(2025, 1, 25, 15, 0),
-        EndTime: new Date(2025, 1, 25, 16, 45),
+        Id: 19,
+        Title: 'DevOps and Continuous Integration',
+        Subject: 'Scaling DevOps in Large Organizations',
+        StartTime: new Date(2025, 1, 25, 14, 30),
+        EndTime: new Date(2025, 1, 25, 16, 30),
         RoomId: 1,
         Capacity: 70,
-        Speakers: [{ name: 'George Clark', title: 'Manufacturing Specialist' }],
-        Description: 'Exploring the impact of digital transformation in the manufacturing industry.',
+        Speakers: [
+            { 
+                name: 'Emily Carter', 
+                title: 'Senior DevOps Engineer', 
+                note: 'Explore strategies for scaling DevOps practices across larger teams and enterprises.' 
+            }
+        ],
+        Description: 'This session will cover strategies to scale DevOps practices in large organizations, ensuring smoother workflows and faster deployment.',
         Duration: '1 hour',
-        EventType: 'Business Session',
-        TargetAudience: 'Manufacturers, Engineers',
-        EventLevel: 'Intermediate',
-        EventTags: ['Digital Transformation', 'Manufacturing']
+        EventType: 'Technical Session',
+        TargetAudience: 'Enterprise DevOps Engineers, IT Managers, Senior Developers',
+        EventLevel: 'Advanced',
+        EventTags: ['Scaling DevOps', 'Enterprise Solutions', 'Agile Development']
     },
     {
-        Id: 69,
-        Subject: 'Business Intelligence with SQL',
-        StartTime: new Date(2025, 1, 25, 17, 30),
-        EndTime: new Date(2025, 1, 25, 18, 30),
+        Id: 21,
+        Title: 'DevOps and Continuous Integration',
+        Subject: 'Advanced Continuous Integration Practices',
+        StartTime: new Date(2025, 1, 25, 17, 0),
+        EndTime: new Date(2025, 1, 25, 17, 30),
         RoomId: 1,
-        Capacity: 80,
-        Speakers: [{ name: 'Charles Brooks', title: 'SQL Expert' }],
-        Description: 'Using SQL for powerful business intelligence and reporting.',
+        Capacity: 90,
+        Speakers: [
+            { 
+                name: 'John Carter', 
+                title: 'DevOps Engineer', 
+                note: 'Advanced techniques in automating CI/CD processes, including blue/green deployments.' 
+            }
+        ],
+        Description: 'This session will focus on advanced CI/CD automation strategies, including advanced Jenkins features, blue/green deployment strategies, and more.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Business Analysts, IT Professionals',
-        EventLevel: 'Intermediate',
-        EventTags: ['SQL', 'Business Intelligence']
+        EventType: 'Technical Session',
+        TargetAudience: 'DevOps Engineers, Senior Developers, IT Managers',
+        EventLevel: 'Advanced',
+        EventTags: ['CI/CD', 'Jenkins', 'Advanced Automation']
     },
 
     // Room 2 - February 25
     {
-        Id: 27,
-        Subject: 'Introduction to Cloud Security',
-        StartTime: new Date(2025, 1, 25, 8, 0),
-        EndTime: new Date(2025, 1, 25, 9, 0),
+        Id: 33,
+        Title: 'Cybersecurity in Modern IT Infrastructure',
+        Subject: 'Introduction to Cybersecurity',
+        StartTime: new Date(2025, 1, 25, 9, 0),
+        EndTime: new Date(2025, 1, 25, 10, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Chris Green', title: 'Cloud Security Expert' }],
-        Description: 'A beginner-friendly introduction to securing cloud environments.',
-        Duration: '1 hour',
-        EventType: 'Security Session',
-        TargetAudience: 'IT Professionals',
-        EventLevel: 'Beginner',
-        EventTags: ['Cloud Security']
-    },
-    {
-        Id: 28,
-        Subject: 'AI for Image Recognition',
-        StartTime: new Date(2025, 1, 25, 9, 15),
-        EndTime: new Date(2025, 1, 25, 10, 45),
-        RoomId: 2,
-        Capacity: 100,
-        Speakers: [{ name: 'Michael Taylor', title: 'AI Specialist' }],
-        Description: 'Exploring AI and its applications in image recognition.',
+        Speakers: [
+            { 
+                name: 'Ethan Walker', 
+                title: 'Cybersecurity Specialist', 
+                note: 'Overview of cybersecurity concepts and its significance in modern IT infrastructure.' 
+            }
+        ],
+        Description: 'Introduction to cybersecurity threats and their impact on modern IT infrastructure.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Developers, AI Researchers',
-        EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Image Recognition']
+        TargetAudience: 'Security Engineers, IT Professionals, Developers',
+        EventLevel: 'Beginner',
+        EventTags: ['Cybersecurity', 'IT Infrastructure', 'Security']
     },
     {
-        Id: 29,
-        Subject: 'Robotic Process Automation in Business',
+        Id: 34,
+        Title: 'Cybersecurity in Modern IT Infrastructure',
+        Subject: 'Network Security and Threats',
+        StartTime: new Date(2025, 1, 25, 10, 0),
+        EndTime: new Date(2025, 1, 25, 11, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ethan Walker', 
+                title: 'Cybersecurity Specialist', 
+                note: 'Exploring the most common network security threats and how to protect your infrastructure.' 
+            }
+        ],
+        Description: 'An in-depth session on network security, common threats, and methods for protecting your infrastructure.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, Security Specialists, IT Professionals',
+        EventLevel: 'Intermediate',
+        EventTags: ['Network Security', 'Threats', 'Infrastructure']
+    },
+    {
+        Id: 35,
+        Title: 'Cybersecurity in Modern IT Infrastructure',
+        Subject: 'Firewalls and Intrusion Detection Systems',
         StartTime: new Date(2025, 1, 25, 11, 0),
         EndTime: new Date(2025, 1, 25, 12, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Jason Clark', title: 'RPA Consultant' }],
-        Description: 'Understanding the benefits of RPA in automating business processes.',
+        Speakers: [
+            { 
+                name: 'Olivia Scott', 
+                title: 'Network Security Expert', 
+                note: 'How to configure and manage firewalls and intrusion detection systems to safeguard your network.' 
+            }
+        ],
+        Description: 'Techniques for configuring firewalls and intrusion detection systems (IDS) to prevent network attacks.',
         Duration: '1 hour',
-        EventType: 'Business Session',
-        TargetAudience: 'Business Owners, Analysts',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Administrators, Security Engineers, System Admins',
         EventLevel: 'Intermediate',
-        EventTags: ['RPA', 'Automation']
+        EventTags: ['Firewall', 'IDS', 'Network Security']
     },
     {
-        Id: 121,
-        Subject: 'Break',
+        Id: 36,
+        Title: 'Cybersecurity in Modern IT Infrastructure',
+        Subject: 'Encryption and Data Protection',
         StartTime: new Date(2025, 1, 25, 12, 0),
         EndTime: new Date(2025, 1, 25, 13, 0),
         RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Olivia Scott', 
+                title: 'Network Security Expert', 
+                note: 'Exploring encryption techniques and how they are used to protect sensitive data.' 
+            }
+        ],
+        Description: 'An overview of encryption protocols and strategies to protect sensitive information across networks.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, IT Professionals, Developers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Encryption', 'Data Protection', 'Security']
+    },
+    {
+        Id: 37,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 25, 13, 0),
+        EndTime: new Date(2025, 1, 25, 14, 0),
+        RoomId: 2,
         Capacity: 0,
         Speakers: [],
-        Description: 'Break for attendees.',
-        Duration: '30 minutes',
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
         EventType: 'Break',
-        TargetAudience: 'All Participants',
-        EventLevel: 'All Levels',
-        EventTags: ['Networking', 'Relax']
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
     },
-
     {
-        Id: 30,
-        Subject: 'Quantum Computing and AI',
-        StartTime: new Date(2025, 1, 25, 13, 0),
-        EndTime: new Date(2025, 1, 25, 14, 15),
+        Id: 38,
+        Title: 'Cybersecurity in Modern IT Infrastructure',
+        Subject: 'Cloud Security Practices',
+        StartTime: new Date(2025, 1, 25, 14, 0),
+        EndTime: new Date(2025, 1, 25, 15, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'David Adams', title: 'Quantum Computing Expert' }],
-        Description: 'The convergence of quantum computing and artificial intelligence.',
+        Speakers: [
+            { 
+                name: 'Ethan Walker', 
+                title: 'Cybersecurity Specialist', 
+                note: 'Best practices for securing cloud environments against cyber threats.' 
+            }
+        ],
+        Description: 'Learn cloud security best practices and how to ensure the security of your data and applications in the cloud.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'AI Researchers, Quantum Computing Enthusiasts',
+        TargetAudience: 'Cloud Engineers, Security Specialists, IT Managers',
         EventLevel: 'Advanced',
-        EventTags: ['Quantum Computing', 'AI']
+        EventTags: ['Cloud Security', 'Cybersecurity', 'Cloud Infrastructure']
     },
     {
-        Id: 31,
-        Subject: 'Natural Language Processing (NLP) in AI',
+        Id: 39,
+        Title: 'Cybersecurity in Modern IT Infrastructure',
+        Subject: 'Incident Response and Recovery',
         StartTime: new Date(2025, 1, 25, 15, 0),
-        EndTime: new Date(2025, 1, 25, 16, 30),
+        EndTime: new Date(2025, 1, 25, 16, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Jessica Lee', title: 'NLP Specialist' }],
-        Description: 'Exploring the role of NLP in artificial intelligence applications.',
+        Speakers: [
+            { 
+                name: 'Olivia Scott', 
+                title: 'Network Security Expert', 
+                note: 'Discussing incident response strategies and recovery techniques in the event of a cyberattack.' 
+            }
+        ],
+        Description: 'Techniques and strategies for responding to cybersecurity incidents and recovering from data breaches and attacks.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Developers, AI Researchers',
+        TargetAudience: 'Security Engineers, Incident Response Teams, IT Managers',
         EventLevel: 'Advanced',
-        EventTags: ['NLP', 'AI']
+        EventTags: ['Incident Response', 'Cybersecurity', 'Recovery']
     },
     {
-        Id: 61,
-        Subject: 'Smart Cities and IoT',
-        StartTime: new Date(2025, 1, 25, 17, 30),
-        EndTime: new Date(2025, 1, 25, 19, 0),
+        Id: 40,
+        Title: 'Cybersecurity in Modern IT Infrastructure',
+        Subject: 'Panel Discussion: The Future of Cybersecurity',
+        StartTime: new Date(2025, 1, 25, 16, 0),
+        EndTime: new Date(2025, 1, 25, 17, 0),
         RoomId: 2,
-        Capacity: 90,
-        Speakers: [{ name: 'Sophia Parker', title: 'IoT Expert' }],
-        Description: 'Innovative solutions for smart cities using IoT technologies.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ethan Walker', 
+                title: 'Cybersecurity Specialist', 
+                note: 'Experts discuss the evolving landscape of cybersecurity and the technologies shaping the future.' 
+            },
+            { 
+                name: 'Olivia Scott', 
+                title: 'Network Security Expert', 
+                note: 'Insights into the future of cybersecurity with new technologies and upcoming challenges.' 
+            }
+        ],
+        Description: 'Industry experts discuss the next steps for cybersecurity as it continues to evolve in the face of new threats and technologies.',
         Duration: '1 hour',
-        EventType: 'Technical Session',
-        TargetAudience: 'Urban Planners, Engineers',
-        EventLevel: 'Intermediate',
-        EventTags: ['Smart Cities', 'IoT']
+        EventType: 'Panel Discussion',
+        TargetAudience: 'Security Engineers, IT Professionals, Managers',
+        EventLevel: 'Advanced',
+        EventTags: ['Cybersecurity', 'Future Trends', 'Panel Discussion']
     },
 
     // Room 3 - February 25
     {
-        Id: 32,
-        Subject: 'Introduction to Python for Data Science',
+        Id: 41,
+        Title: 'Data Science and Machine Learning Fundamentals',
+        Subject: 'Introduction to Data Science',
         StartTime: new Date(2025, 1, 25, 9, 0),
-        EndTime: new Date(2025, 1, 25, 10, 15),
+        EndTime: new Date(2025, 1, 25, 10, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Rachel Adams', title: 'Data Scientist' }],
-        Description: 'Getting started with Python for data analysis and data science.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Beginners, Developers',
-        EventLevel: 'Beginner',
-        EventTags: ['Python', 'Data Science']
-    },
-    {
-        Id: 33,
-        Subject: 'Exploring Machine Learning Algorithms',
-        StartTime: new Date(2025, 1, 25, 10, 30),
-        EndTime: new Date(2025, 1, 25, 11, 30),
-        RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'James Roberts', title: 'Machine Learning Expert' }],
-        Description: 'An overview of popular machine learning algorithms and their use cases.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Scientists, AI Researchers',
-        EventLevel: 'Intermediate',
-        EventTags: ['Machine Learning']
-    },
-    {
-        Id: 34,
-        Subject: 'Deep Learning for Image Recognition',
-        StartTime: new Date(2025, 1, 25, 13, 0),
-        EndTime: new Date(2025, 1, 25, 14, 30),
-        RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Mary White', title: 'Deep Learning Specialist' }],
-        Description: 'Using deep learning techniques for image recognition and classification.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Scientists, AI Researchers',
-        EventLevel: 'Advanced',
-        EventTags: ['Deep Learning', 'Image Recognition']
-    },
-    {
-        Id: 35,
-        Subject: 'Building AI Models with TensorFlow',
-        StartTime: new Date(2025, 1, 25, 13, 30),
-        EndTime: new Date(2025, 1, 25, 14, 30),
-        RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Peter Brown', title: 'AI Specialist' }],
-        Description: 'Hands-on session on building AI models using TensorFlow.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Developers, AI Enthusiasts',
-        EventLevel: 'Intermediate',
-        EventTags: ['TensorFlow', 'AI']
-    },
-    {
-        Id: 36,
-        Subject: 'Data Science with R Programming',
-        StartTime: new Date(2025, 1, 25, 15, 0),
-        EndTime: new Date(2025, 1, 25, 17, 0),
-        RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'George Martin', title: 'Data Scientist' }],
-        Description: 'A comprehensive guide to data analysis using R programming.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Analysts, Developers',
-        EventLevel: 'Beginner',
-        EventTags: ['R', 'Data Science']
-    },
-    {
-        Id: 103,
-        Subject: 'Exploring the Internet of Things (IoT)',
-        StartTime: new Date(2025, 1, 25, 18, 0),
-        EndTime: new Date(2025, 1, 25, 18, 45),
-        RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Oliver White', title: 'IoT Expert' }],
-        Description: 'An introduction to IoT and its applications in various industries.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ava Parker', 
+                title: 'Data Scientist', 
+                note: 'Learn the fundamentals of data science and its role in modern industries.' 
+            }
+        ],
+        Description: 'Introduction to the principles of data science, including data collection, cleaning, and basic analysis techniques.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'IoT Enthusiasts, Engineers',
+        TargetAudience: 'Data Scientists, Analysts, IT Professionals',
+        EventLevel: 'Beginner',
+        EventTags: ['Data Science', 'Big Data', 'Machine Learning']
+    },
+    {
+        Id: 42,
+        Title: 'Data Science and Machine Learning Fundamentals',
+        Subject: 'Exploring Machine Learning Algorithms',
+        StartTime: new Date(2025, 1, 25, 10, 0),
+        EndTime: new Date(2025, 1, 25, 11, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ava Parker', 
+                title: 'Data Scientist', 
+                note: 'A closer look at common machine learning algorithms such as linear regression, classification, and clustering.' 
+            }
+        ],
+        Description: 'A session focused on understanding machine learning algorithms, including their applications and use cases.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Data Scientists, Developers, AI Researchers',
         EventLevel: 'Intermediate',
-        EventTags: ['IoT', 'Technology']
+        EventTags: ['Machine Learning', 'Algorithms', 'Data Science']
+    },
+    {
+        Id: 43,
+        Title: 'Data Science and Machine Learning Fundamentals',
+        Subject: 'Supervised vs Unsupervised Learning',
+        StartTime: new Date(2025, 1, 25, 11, 0),
+        EndTime: new Date(2025, 1, 25, 12, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Liam Brown', 
+                title: 'AI Engineer', 
+                note: 'Deep dive into the differences and applications of supervised and unsupervised machine learning models.' 
+            }
+        ],
+        Description: 'Understanding the fundamental differences between supervised and unsupervised learning and when to use each.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'AI Engineers, Data Scientists, Machine Learning Practitioners',
+        EventLevel: 'Intermediate',
+        EventTags: ['Supervised Learning', 'Unsupervised Learning', 'Machine Learning']
+    },
+    {
+        Id: 44,
+        Title: 'Data Science and Machine Learning Fundamentals',
+        Subject: 'Deep Learning Introduction',
+        StartTime: new Date(2025, 1, 25, 12, 0),
+        EndTime: new Date(2025, 1, 25, 13, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Liam Brown', 
+                title: 'AI Engineer', 
+                note: 'Introduction to deep learning, neural networks, and their applications.' 
+            }
+        ],
+        Description: 'A primer on deep learning techniques, including an overview of neural networks, CNNs, and RNNs.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'AI Engineers, Machine Learning Researchers, Developers',
+        EventLevel: 'Advanced',
+        EventTags: ['Deep Learning', 'Neural Networks', 'AI']
+    },
+    {
+        Id: 45,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 25, 13, 0),
+        EndTime: new Date(2025, 1, 25, 14, 0),
+        RoomId: 3,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 46,
+        Title: 'Data Science and Machine Learning Fundamentals',
+        Subject: 'Evaluating Model Performance',
+        StartTime: new Date(2025, 1, 25, 14, 0),
+        EndTime: new Date(2025, 1, 25, 15, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ava Parker', 
+                title: 'Data Scientist', 
+                note: 'How to evaluate machine learning models and improve performance.' 
+            }
+        ],
+        Description: 'Exploring techniques for evaluating and tuning machine learning models to improve their accuracy.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Data Scientists, Machine Learning Engineers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Model Evaluation', 'Performance', 'Machine Learning']
+    },
+    {
+        Id: 47,
+        Title: 'Data Science and Machine Learning Fundamentals',
+        Subject: 'Ethical Considerations in Data Science',
+        StartTime: new Date(2025, 1, 25, 15, 0),
+        EndTime: new Date(2025, 1, 25, 16, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ava Parker', 
+                title: 'Data Scientist', 
+                note: 'Discussing the ethical challenges and responsibilities when working with data.' 
+            }
+        ],
+        Description: 'A session dedicated to exploring the ethical implications of data science and machine learning applications.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Data Scientists, AI Practitioners, Ethics Professionals',
+        EventLevel: 'Advanced',
+        EventTags: ['Ethics', 'Data Science', 'Machine Learning']
     },
 
     // Room 4 - February 25
     {
-        Id: 37,
-        Subject: 'Cloud Computing for Beginners',
-        StartTime: new Date(2025, 1, 25, 8, 0),
-        EndTime: new Date(2025, 1, 25, 9, 0),
+        Id: 48,
+        Title: 'Blockchain and Cryptocurrency Fundamentals',
+        Subject: 'Introduction to Blockchain Technology',
+        StartTime: new Date(2025, 1, 25, 9, 0),
+        EndTime: new Date(2025, 1, 25, 10, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Sophia Taylor', title: 'Cloud Expert' }],
-        Description: 'An introductory session on cloud computing for beginners.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Henry Clarke', 
+                title: 'Blockchain Expert', 
+                note: 'An introduction to the basics of blockchain technology and how it revolutionizes industries.' 
+            }
+        ],
+        Description: 'Understanding blockchain fundamentals, its architecture, and how it underpins cryptocurrency systems.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Beginners',
+        EventType: 'Technical Session',
+        TargetAudience: 'Developers, Business Professionals, IT Specialists',
         EventLevel: 'Beginner',
-        EventTags: ['Cloud']
+        EventTags: ['Blockchain', 'Cryptocurrency', 'Technology']
     },
     {
-        Id: 38,
-        Subject: 'AI in Education: Opportunities and Challenges',
-        StartTime: new Date(2025, 1, 25, 10, 30),
+        Id: 49,
+        Title: 'Blockchain and Cryptocurrency Fundamentals',
+        Subject: 'Cryptocurrency Basics and Bitcoin Overview',
+        StartTime: new Date(2025, 1, 25, 10, 0),
+        EndTime: new Date(2025, 1, 25, 11, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Mitchell', 
+                title: 'Cryptocurrency Expert', 
+                note: 'A deep dive into Bitcoin and its place in the cryptocurrency ecosystem.' 
+            }
+        ],
+        Description: 'Exploring the fundamentals of cryptocurrencies, with a special focus on Bitcoin, and how it’s used in digital transactions.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Blockchain Enthusiasts, Financial Technologists, Developers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Bitcoin', 'Cryptocurrency', 'Blockchain']
+    },
+    {
+        Id: 50,
+        Title: 'Blockchain and Cryptocurrency Fundamentals',
+        Subject: 'Decentralization and Consensus Algorithms',
+        StartTime: new Date(2025, 1, 25, 11, 0),
         EndTime: new Date(2025, 1, 25, 12, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Mark Johnson', title: 'AI in Education Expert' }],
-        Description: 'Exploring the role of AI in revolutionizing the education sector.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Henry Clarke', 
+                title: 'Blockchain Expert', 
+                note: 'Exploring decentralization and various consensus algorithms like PoW, PoS, and more.' 
+            }
+        ],
+        Description: 'Understanding the importance of decentralization and learning about consensus algorithms used in blockchain networks.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Educators, Tech Enthusiasts',
+        TargetAudience: 'Blockchain Developers, IT Engineers, Researchers',
         EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Education']
+        EventTags: ['Blockchain', 'Consensus Algorithms', 'Decentralization']
     },
     {
-        Id: 39,
-        Subject: 'Robotics in Healthcare',
-        StartTime: new Date(2025, 1, 25, 13, 30),
-        EndTime: new Date(2025, 1, 25, 14, 30),
+        Id: 51,
+        Title: 'Blockchain and Cryptocurrency Fundamentals',
+        Subject: 'Smart Contracts and DApps',
+        StartTime: new Date(2025, 1, 25, 12, 0),
+        EndTime: new Date(2025, 1, 25, 13, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'James Taylor', title: 'Robotics Expert' }],
-        Description: 'Exploring the use of robotics in healthcare settings.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Mitchell', 
+                title: 'Cryptocurrency Expert', 
+                note: 'Exploring smart contracts, decentralized applications (DApps), and how they operate on blockchain platforms.' 
+            }
+        ],
+        Description: 'A session dedicated to smart contracts and decentralized applications (DApps), which are built on blockchain platforms like Ethereum.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Healthcare Professionals',
+        TargetAudience: 'Blockchain Developers, Ethereum Developers, Smart Contract Enthusiasts',
+        EventLevel: 'Intermediate',
+        EventTags: ['Smart Contracts', 'DApps', 'Ethereum']
+    },
+    {
+        Id: 52,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 25, 13, 0),
+        EndTime: new Date(2025, 1, 25, 14, 0),
+        RoomId: 4,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 53,
+        Title: 'Blockchain and Cryptocurrency Fundamentals',
+        Subject: 'Blockchain for Enterprise Applications',
+        StartTime: new Date(2025, 1, 25, 14, 0),
+        EndTime: new Date(2025, 1, 25, 15, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Henry Clarke', 
+                title: 'Blockchain Expert', 
+                note: 'How blockchain can be used for enterprise applications, improving transparency and security in business processes.' 
+            }
+        ],
+        Description: 'A look into enterprise-level blockchain implementations and how companies are using this technology for improved efficiency and security.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Business Analysts, Blockchain Developers, IT Managers',
         EventLevel: 'Advanced',
-        EventTags: ['Robotics', 'Healthcare']
+        EventTags: ['Enterprise Blockchain', 'Business Applications', 'Security']
     },
-
     {
-        Id: 40,
-        Subject: 'Building Multi-Language Websites',
-        StartTime: new Date(2025, 1, 25, 15, 30),
-        EndTime: new Date(2025, 1, 25, 17, 30),
+        Id: 54,
+        Title: 'Blockchain and Cryptocurrency Fundamentals',
+        Subject: 'Future of Blockchain and Cryptocurrency',
+        StartTime: new Date(2025, 1, 25, 15, 0),
+        EndTime: new Date(2025, 1, 25, 16, 0),
         RoomId: 4,
-        Capacity: 40,
-        Speakers: [{ name: 'Daniel Fisher', title: 'Full-Stack Developer' }],
-        Description: 'How to create websites with multiple languages using modern web technologies.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Mitchell', 
+                title: 'Cryptocurrency Expert', 
+                note: 'Discussing the future trends and innovations in blockchain and cryptocurrency technologies.' 
+            }
+        ],
+        Description: 'A forward-looking discussion on the potential future of blockchain and cryptocurrency technologies, their societal impacts, and upcoming trends.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Frontend Developers, Full-Stack Developers',
-        EventLevel: 'Intermediate',
-        EventTags: ['Internationalization', 'Web Development']
+        TargetAudience: 'Crypto Enthusiasts, Blockchain Innovators, IT Professionals',
+        EventLevel: 'Advanced',
+        EventTags: ['Blockchain Future', 'Cryptocurrency Trends', 'Innovation']
+    },
+    {
+        Id: 55,
+        Title: 'Blockchain and Cryptocurrency Fundamentals',
+        Subject: 'Panel Discussion: The Regulatory Landscape of Cryptocurrencies',
+        StartTime: new Date(2025, 1, 25, 16, 0),
+        EndTime: new Date(2025, 1, 25, 17, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Henry Clarke', 
+                title: 'Blockchain Expert', 
+                note: 'An expert panel discusses the regulatory challenges and frameworks for cryptocurrencies and blockchain technologies.' 
+            },
+            { 
+                name: 'Sophia Mitchell', 
+                title: 'Cryptocurrency Expert', 
+                note: 'Insights on how governments and financial institutions are handling the regulation of digital currencies.' 
+            }
+        ],
+        Description: 'Industry leaders discuss the evolving regulatory landscape for cryptocurrencies and blockchain-based technologies.',
+        Duration: '1 hour',
+        EventType: 'Panel Discussion',
+        TargetAudience: 'Regulatory Experts, Developers, Financial Professionals',
+        EventLevel: 'Advanced',
+        EventTags: ['Cryptocurrency Regulation', 'Blockchain', 'Panel Discussion']
     },
 
     // Room 1 - February 26
     {
-        Id: 41,
-        Subject: 'AI in Healthcare',
-        StartTime: new Date(2025, 1, 26, 8, 0),
-        EndTime: new Date(2025, 1, 26, 8, 45),
+        Id: 56,
+        Title: 'Internet of Things (IoT) for Smart Solutions',
+        Subject: 'Introduction to IoT and Its Applications',
+        StartTime: new Date(2025, 1, 26, 9, 0),
+        EndTime: new Date(2025, 1, 26, 10, 0),
         RoomId: 1,
-        Capacity: 72,
-        Speakers: [{ name: 'Dr. William Grant', title: 'Healthcare AI Specialist' }],
-        Description: 'Exploring the potential of AI applications in healthcare.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'James Porter', 
+                title: 'IoT Specialist', 
+                note: 'An introduction to the Internet of Things (IoT) and its real-world applications in smart cities, homes, and industries.' 
+            }
+        ],
+        Description: 'Exploring the concept of IoT, its key technologies, and how it’s being used to develop smart solutions in various industries.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Healthcare Professionals',
-        EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Healthcare']
+        TargetAudience: 'IoT Engineers, Developers, IT Professionals',
+        EventLevel: 'Beginner',
+        EventTags: ['IoT', 'Smart Solutions', 'Technology']
     },
     {
-        Id: 42,
-        Subject: 'Robotics Process Automation',
-        StartTime: new Date(2025, 1, 26, 9, 15),
-        EndTime: new Date(2025, 1, 26, 10, 30),
+        Id: 57,
+        Title: 'Internet of Things (IoT) for Smart Solutions',
+        Subject: 'IoT Architecture and Devices',
+        StartTime: new Date(2025, 1, 26, 10, 0),
+        EndTime: new Date(2025, 1, 26, 11, 0),
         RoomId: 1,
-        Capacity: 90,
-        Speakers: [{ name: 'James Thompson', title: 'RPA Specialist' }],
-        Description: 'A comprehensive session on how RPA can automate business processes.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Emily Rose', 
+                title: 'IoT Engineer', 
+                note: 'Understanding IoT architecture and how IoT devices communicate in a connected environment.' 
+            }
+        ],
+        Description: 'An in-depth look at IoT architecture, communication protocols, and devices that power the Internet of Things.',
         Duration: '1 hour',
-        EventType: 'Business Session',
-        TargetAudience: 'Business Leaders, IT Professionals',
-        EventLevel: 'Advanced',
-        EventTags: ['RPA', 'Automation']
+        EventType: 'Technical Session',
+        TargetAudience: 'IoT Developers, Network Engineers, Solution Architects',
+        EventLevel: 'Intermediate',
+        EventTags: ['IoT Devices', 'Architecture', 'Networking']
     },
     {
-        Id: 43,
-        Subject: 'Data Science for Finance',
+        Id: 58,
+        Title: 'Internet of Things (IoT) for Smart Solutions',
+        Subject: 'Security Challenges in IoT',
         StartTime: new Date(2025, 1, 26, 11, 0),
-        EndTime: new Date(2025, 1, 26, 11, 45),
+        EndTime: new Date(2025, 1, 26, 12, 0),
         RoomId: 1,
-        Capacity: 90,
-        Speakers: [{ name: 'Daniel Carter', title: 'Financial Analyst' }],
-        Description: 'How data science is transforming the financial industry.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'James Porter', 
+                title: 'IoT Security Expert', 
+                note: 'Exploring the security challenges in IoT systems and strategies to secure connected devices.' 
+            }
+        ],
+        Description: 'Addressing the unique security challenges posed by IoT systems and exploring solutions to protect connected devices and networks.',
         Duration: '1 hour',
-        EventType: 'Business Session',
-        TargetAudience: 'Finance Professionals',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, IoT Developers, Network Specialists',
+        EventLevel: 'Advanced',
+        EventTags: ['IoT Security', 'Data Protection', 'Internet of Things']
+    },
+    {
+        Id: 59,
+        Title: 'Internet of Things (IoT) for Smart Solutions',
+        Subject: 'IoT Data Management and Analytics',
+        StartTime: new Date(2025, 1, 26, 12, 0),
+        EndTime: new Date(2025, 1, 26, 13, 0),
+        RoomId: 1,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Emily Rose', 
+                title: 'IoT Engineer', 
+                note: 'Discussing how IoT systems collect, manage, and analyze data for smart decision-making.' 
+            }
+        ],
+        Description: 'Exploring the ways IoT systems generate massive data and how it’s analyzed for smart solutions and business intelligence.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Data Scientists, IoT Developers, Analytics Professionals',
         EventLevel: 'Intermediate',
-        EventTags: ['Data Science', 'Finance']
+        EventTags: ['IoT Data', 'Analytics', 'Big Data']
     },
     {
-        Id: 44,
-        Subject: 'Digital Transformation with AI',
+        Id: 60,
+        Subject: 'Lunch Break',
         StartTime: new Date(2025, 1, 26, 13, 0),
-        EndTime: new Date(2025, 1, 26, 14, 30),
+        EndTime: new Date(2025, 1, 26, 14, 0),
         RoomId: 1,
-        Capacity: 100,
-        Speakers: [{ name: 'Evelyn Miller', title: 'Digital Transformation Expert' }],
-        Description: 'Implementing AI to achieve digital transformation across industries.',
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
         Duration: '1 hour',
-        EventType: 'Technical Session',
-        TargetAudience: 'Executives, IT Leaders',
-        EventLevel: 'Advanced',
-        EventTags: ['AI', 'Digital Transformation']
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
     },
     {
-        Id: 46,
-        Subject: 'Blockchain for Enterprise',
-        StartTime: new Date(2025, 1, 26, 18, 0),
-        EndTime: new Date(2025, 1, 26, 18, 30),
+        Id: 61,
+        Title: 'Internet of Things (IoT) for Smart Solutions',
+        Subject: 'IoT for Smart Cities and Homes',
+        StartTime: new Date(2025, 1, 26, 14, 0),
+        EndTime: new Date(2025, 1, 26, 15, 0),
         RoomId: 1,
         Capacity: 100,
-        Speakers: [{ name: 'Liam Davis', title: 'Blockchain Architect' }],
-        Description: 'Exploring the use of blockchain in enterprise solutions.',
+        Speakers: [
+            { 
+                name: 'James Porter', 
+                title: 'IoT Specialist', 
+                note: 'Exploring how IoT is transforming cities and homes with smart technologies that improve living standards.' 
+            }
+        ],
+        Description: 'A session focused on how IoT technologies are shaping the development of smart cities and homes, improving efficiency and quality of life.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Enterprise Architects, Developers',
+        TargetAudience: 'Smart City Planners, IoT Engineers, Urban Developers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Smart Cities', 'IoT', 'Urban Planning']
+    },
+    {
+        Id: 62,
+        Title: 'Internet of Things (IoT) for Smart Solutions',
+        Subject: 'The Future of IoT',
+        StartTime: new Date(2025, 1, 26, 15, 0),
+        EndTime: new Date(2025, 1, 26, 16, 0),
+        RoomId: 1,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Emily Rose', 
+                title: 'IoT Engineer', 
+                note: 'Looking ahead to the next frontier of IoT innovation and the transformative potential of connected devices.' 
+            }
+        ],
+        Description: 'A discussion on the future of IoT, emerging trends, and how the Internet of Things will continue to shape industries and everyday life.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'IoT Innovators, Tech Enthusiasts, Developers',
         EventLevel: 'Advanced',
-        EventTags: ['Blockchain', 'Enterprise']
+        EventTags: ['Future IoT', 'Technology Trends', 'Innovation']
     },
 
     // Room 2 - February 26
     {
-        Id: 47,
-        Subject: 'Data Science with Python',
+        Id: 63,
+        Title: 'Data Science and Machine Learning',
+        Subject: 'Introduction to Data Science',
         StartTime: new Date(2025, 1, 26, 9, 0),
-        EndTime: new Date(2025, 1, 26, 10, 30),
+        EndTime: new Date(2025, 1, 26, 10, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Mark Robinson', title: 'Data Scientist' }],
-        Description: 'Using Python for data analysis and predictive modeling.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Beginners, Data Enthusiasts',
-        EventLevel: 'Beginner',
-        EventTags: ['Python', 'Data Science']
-    },
-    {
-        Id: 48,
-        Subject: 'Introduction to Cloud Computing',
-        StartTime: new Date(2025, 1, 26, 10, 45),
-        EndTime: new Date(2025, 1, 26, 12, 30),
-        RoomId: 2,
-        Capacity: 100,
-        Speakers: [{ name: 'Sophia Davis', title: 'Cloud Solutions Architect' }],
-        Description: 'Exploring the fundamentals of cloud computing and its services.',
+        Speakers: [
+            { 
+                name: 'Dr. Alice Johnson', 
+                title: 'Data Scientist', 
+                note: 'Introducing the core concepts and tools of data science, including data wrangling, visualization, and analysis.' 
+            }
+        ],
+        Description: 'An introductory session to the world of data science, covering fundamental concepts and tools used in the field.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'IT Professionals, Developers',
+        TargetAudience: 'Data Enthusiasts, Developers, Business Analysts',
         EventLevel: 'Beginner',
-        EventTags: ['Cloud', 'Computing']
+        EventTags: ['Data Science', 'Data Analysis', 'Machine Learning']
     },
     {
-        Id: 50,
-        Subject: 'Machine Learning for Data Scientists',
-        StartTime: new Date(2025, 1, 26, 13, 30),
-        EndTime: new Date(2025, 1, 26, 14, 30),
+        Id: 64,
+        Title: 'Data Science and Machine Learning',
+        Subject: 'Supervised Learning Algorithms',
+        StartTime: new Date(2025, 1, 26, 10, 0),
+        EndTime: new Date(2025, 1, 26, 11, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Emily Clarke', title: 'Machine Learning Expert' }],
-        Description: 'Practical examples and techniques for building machine learning models.',
+        Speakers: [
+            { 
+                name: 'Dr. Alice Johnson', 
+                title: 'Data Scientist', 
+                note: 'A detailed exploration of supervised learning algorithms, including linear regression and decision trees.' 
+            }
+        ],
+        Description: 'An in-depth session on supervised learning algorithms and their applications in machine learning and data analysis.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Scientists, Engineers',
+        EventType: 'Technical Session',
+        TargetAudience: 'Data Scientists, ML Enthusiasts, Developers',
         EventLevel: 'Intermediate',
-        EventTags: ['Machine Learning']
+        EventTags: ['Supervised Learning', 'Algorithms', 'Machine Learning']
     },
     {
-        Id: 51,
-        Subject: 'Business Intelligence with Power BI',
-        StartTime: new Date(2025, 1, 26, 15, 30),
-        EndTime: new Date(2025, 1, 26, 17, 30),
+        Id: 65,
+        Title: 'Data Science and Machine Learning',
+        Subject: 'Unsupervised Learning and Clustering Techniques',
+        StartTime: new Date(2025, 1, 26, 11, 0),
+        EndTime: new Date(2025, 1, 26, 12, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'John Mark', title: 'Power BI Expert' }],
-        Description: 'Leveraging Power BI for effective business intelligence and analytics.',
+        Speakers: [
+            { 
+                name: 'Dr. Alice Johnson', 
+                title: 'Data Scientist', 
+                note: 'Exploring unsupervised learning techniques like clustering and dimensionality reduction.' 
+            }
+        ],
+        Description: 'A session covering unsupervised learning techniques, including K-means clustering and PCA, used to analyze unlabeled data.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Business Analysts, IT Professionals',
+        EventType: 'Technical Session',
+        TargetAudience: 'Machine Learning Enthusiasts, Data Scientists, Analysts',
         EventLevel: 'Intermediate',
-        EventTags: ['Business Intelligence', 'Power BI']
+        EventTags: ['Unsupervised Learning', 'Clustering', 'Machine Learning']
+    },
+    {
+        Id: 66,
+        Title: 'Data Science and Machine Learning',
+        Subject: 'Deep Learning and Neural Networks',
+        StartTime: new Date(2025, 1, 26, 12, 0),
+        EndTime: new Date(2025, 1, 26, 13, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Dr. Alice Johnson', 
+                title: 'Deep Learning Expert', 
+                note: 'Introduction to deep learning techniques and how neural networks are transforming data science.' 
+            }
+        ],
+        Description: 'An introductory session on deep learning, explaining neural networks, CNNs, and their use in various applications.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Deep Learning Enthusiasts, Data Scientists, AI Developers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Deep Learning', 'Neural Networks', 'Machine Learning']
+    },
+    {
+        Id: 67,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 26, 13, 0),
+        EndTime: new Date(2025, 1, 26, 14, 0),
+        RoomId: 2,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 68,
+        Title: 'Data Science and Machine Learning',
+        Subject: 'Model Evaluation and Performance Metrics',
+        StartTime: new Date(2025, 1, 26, 14, 0),
+        EndTime: new Date(2025, 1, 26, 15, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Dr. Alice Johnson', 
+                title: 'Data Scientist', 
+                note: 'Understanding the different model evaluation metrics like accuracy, precision, recall, and F1-score.' 
+            }
+        ],
+        Description: 'A session on the importance of evaluating machine learning models using various performance metrics.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Data Scientists, Machine Learning Engineers',
+        EventLevel: 'Advanced',
+        EventTags: ['Model Evaluation', 'Performance Metrics', 'Machine Learning']
+    },
+    {
+        Id: 69,
+        Title: 'Data Science and Machine Learning',
+        Subject: 'Deploying Machine Learning Models in Production',
+        StartTime: new Date(2025, 1, 26, 15, 0),
+        EndTime: new Date(2025, 1, 26, 16, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Dr. Alice Johnson', 
+                title: 'Machine Learning Engineer', 
+                note: 'Discussing best practices and tools for deploying machine learning models to production environments.' 
+            }
+        ],
+        Description: 'A session focused on the strategies, tools, and challenges of deploying machine learning models into production environments.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'DevOps Engineers, ML Engineers, Data Scientists',
+        EventLevel: 'Advanced',
+        EventTags: ['Deployment', 'Machine Learning', 'Production']
     },
 
     // Room 3 - February 26
     {
-        Id: 52,
-        Subject: 'Machine Learning for Developers',
-        StartTime: new Date(2025, 1, 26, 8, 30),
-        EndTime: new Date(2025, 1, 26, 9, 30),
+        Id: 70,
+        Title: 'Cloud Computing for Scalability',
+        Subject: 'Introduction to Cloud Computing',
+        StartTime: new Date(2025, 1, 26, 9, 0),
+        EndTime: new Date(2025, 1, 26, 10, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'David Johnson', title: 'ML Developer' }],
-        Description: 'A hands-on workshop on building machine learning models.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Daniel Smith', 
+                title: 'Cloud Architect', 
+                note: 'An introduction to cloud computing and its core concepts including IaaS, PaaS, and SaaS.' 
+            }
+        ],
+        Description: 'A session that introduces cloud computing, its different models, and its benefits for businesses and individuals.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Developers, AI Enthusiasts',
-        EventLevel: 'Intermediate',
-        EventTags: ['Machine Learning', 'Development']
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Enthusiasts, IT Professionals, Developers',
+        EventLevel: 'Beginner',
+        EventTags: ['Cloud Computing', 'IaaS', 'PaaS', 'SaaS']
     },
     {
-        Id: 53,
-        Subject: 'Introduction to R for Data Science',
+        Id: 71,
+        Title: 'Cloud Computing for Scalability',
+        Subject: 'Scaling Applications in the Cloud',
         StartTime: new Date(2025, 1, 26, 10, 0),
         EndTime: new Date(2025, 1, 26, 11, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Sarah Lee', title: 'Data Scientist' }],
-        Description: 'Learning R programming for data analysis and visualization.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Daniel Smith', 
+                title: 'Cloud Architect', 
+                note: 'How to scale cloud-based applications and utilize cloud features to handle increasing traffic and demand.' 
+            }
+        ],
+        Description: 'This session covers techniques for scaling applications in the cloud using services like auto-scaling and load balancing.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Enthusiasts, Analysts',
-        EventLevel: 'Beginner',
-        EventTags: ['R', 'Data Science']
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, Developers, IT Professionals',
+        EventLevel: 'Intermediate',
+        EventTags: ['Cloud Scalability', 'Load Balancing', 'Auto-Scaling']
     },
     {
-        Id: 54,
-        Subject: 'Advanced Data Visualization with Tableau',
+        Id: 72,
+        Title: 'Cloud Computing for Scalability',
+        Subject: 'Cloud Security Best Practices',
         StartTime: new Date(2025, 1, 26, 11, 0),
         EndTime: new Date(2025, 1, 26, 12, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Helen Young', title: 'Tableau Expert' }],
-        Description: 'Techniques for creating advanced data visualizations using Tableau.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Emily Davis', 
+                title: 'Cloud Security Expert', 
+                note: 'Discussing security best practices and tools for ensuring data protection in the cloud.' 
+            }
+        ],
+        Description: 'This session focuses on security best practices, tools, and techniques for safeguarding data and applications in the cloud.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Analysts, Business Analysts',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, Cloud Engineers, IT Managers',
         EventLevel: 'Advanced',
-        EventTags: ['Data Visualization', 'Tableau']
+        EventTags: ['Cloud Security', 'Data Protection', 'Encryption']
     },
     {
-        Id: 99,
-        Subject: 'Lunch Break',
+        Id: 73,
+        Title: 'Cloud Computing for Scalability',
+        Subject: 'Cloud Databases and Storage',
         StartTime: new Date(2025, 1, 26, 12, 0),
         EndTime: new Date(2025, 1, 26, 13, 0),
         RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Daniel Smith', 
+                title: 'Cloud Architect', 
+                note: 'Overview of cloud databases and storage services like AWS RDS, Google Cloud SQL, and Azure Blob Storage.' 
+            }
+        ],
+        Description: 'A session focusing on cloud databases and storage solutions that scale according to your data needs and application demands.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, Database Administrators, Developers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Cloud Databases', 'Storage Solutions', 'AWS', 'Google Cloud']
+    },
+    {
+        Id: 74,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 26, 13, 0),
+        EndTime: new Date(2025, 1, 26, 14, 0),
+        RoomId: 3,
         Capacity: 0,
         Speakers: [],
-        Description: 'Lunch Break',
-        Duration: '30 minutes',
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
         EventType: 'Break',
-        TargetAudience: 'All Participants',
-        EventLevel: 'All Levels',
-        EventTags: ['Networking', 'Relax']
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
     },
-
     {
-        Id: 55,
-        Subject: 'Deep Learning with TensorFlow',
-        StartTime: new Date(2025, 1, 26, 13, 0),
-        EndTime: new Date(2025, 1, 26, 14, 30),
+        Id: 75,
+        Title: 'Cloud Computing for Scalability',
+        Subject: 'Multi-cloud and Hybrid Cloud Architectures',
+        StartTime: new Date(2025, 1, 26, 14, 0),
+        EndTime: new Date(2025, 1, 26, 15, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Victor Bell', title: 'Deep Learning Engineer' }],
-        Description: 'An introduction to building deep learning models with TensorFlow.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Emily Davis', 
+                title: 'Cloud Security Expert', 
+                note: 'Understanding multi-cloud and hybrid cloud strategies to optimize performance, flexibility, and costs.' 
+            }
+        ],
+        Description: 'Learn about multi-cloud and hybrid cloud architectures and their benefits in achieving operational flexibility and reliability.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'AI Engineers, Machine Learning Enthusiasts',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, System Architects, IT Managers',
         EventLevel: 'Advanced',
-        EventTags: ['Deep Learning', 'TensorFlow']
+        EventTags: ['Multi-cloud', 'Hybrid Cloud', 'Cloud Architecture']
     },
     {
-        Id: 98,
-        Subject: 'Time Series Forecasting',
-        StartTime: new Date(2025, 1, 26, 16, 0),
-        EndTime: new Date(2025, 1, 26, 18, 0),
+        Id: 76,
+        Title: 'Cloud Computing for Scalability',
+        Subject: 'Serverless Architectures and Functions',
+        StartTime: new Date(2025, 1, 26, 15, 0),
+        EndTime: new Date(2025, 1, 26, 16, 0),
         RoomId: 3,
-        Capacity: 50,
-        Speakers: [{ name: 'James Davis', title: 'Time Series Expert' }],
-        Description: 'An introduction to time series forecasting and its application in predictive modeling.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Daniel Smith', 
+                title: 'Cloud Architect', 
+                note: 'Exploring serverless computing, serverless functions, and how it can simplify scaling applications.' 
+            }
+        ],
+        Description: 'An in-depth look at serverless architectures, including AWS Lambda and Google Cloud Functions, and their scalability benefits.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Scientists, Analysts',
-        EventLevel: 'Intermediate',
-        EventTags: ['Time Series', 'Forecasting']
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Developers, DevOps Engineers, IT Architects',
+        EventLevel: 'Advanced',
+        EventTags: ['Serverless', 'Cloud Functions', 'Scalability']
     },
 
 
     // Room 4 - February 26
     {
-        Id: 56,
-        Subject: 'Introduction to Cloud Security',
-        StartTime: new Date(2025, 1, 26, 8, 30),
-        EndTime: new Date(2025, 1, 26, 9, 30),
-        RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Linda Williams', title: 'Cloud Security Expert' }],
-        Description: 'An overview of cloud security practices and tools.',
-        Duration: '1 hour',
-        EventType: 'Technical Session',
-        TargetAudience: 'IT Professionals',
-        EventLevel: 'Intermediate',
-        EventTags: ['Cloud Security']
-    },
-    {
-        Id: 57,
-        Subject: 'AI for Manufacturing',
-        StartTime: new Date(2025, 1, 26, 9, 30),
+        Id: 77,
+        Title: 'Network Automation and Orchestration',
+        Subject: 'Introduction to Network Automation',
+        StartTime: new Date(2025, 1, 26, 9, 0),
         EndTime: new Date(2025, 1, 26, 10, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Henry Wilson', title: 'AI Expert' }],
-        Description: 'Exploring AI applications in manufacturing and production.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Robert Lee', 
+                title: 'Network Engineer', 
+                note: 'Introducing the fundamentals of network automation and how it optimizes network management.' 
+            }
+        ],
+        Description: 'An introductory session to network automation tools and techniques to automate manual processes and increase efficiency.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Manufacturers, Engineers',
-        EventLevel: 'Advanced',
-        EventTags: ['AI', 'Manufacturing']
+        TargetAudience: 'Network Engineers, IT Administrators, DevOps Professionals',
+        EventLevel: 'Beginner',
+        EventTags: ['Network Automation', 'IT Management', 'Orchestration']
     },
     {
-        Id: 93,
-        Subject: 'Break',
+        Id: 78,
+        Title: 'Network Automation and Orchestration',
+        Subject: 'Automation Tools: Ansible, Puppet, and Chef',
         StartTime: new Date(2025, 1, 26, 10, 0),
-        EndTime: new Date(2025, 1, 26, 10, 30),
+        EndTime: new Date(2025, 1, 26, 11, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Robert Lee', 
+                title: 'Network Automation Specialist', 
+                note: 'Exploring popular automation tools like Ansible, Puppet, and Chef for network orchestration.' 
+            }
+        ],
+        Description: 'A technical session exploring the use of automation tools like Ansible, Puppet, and Chef for configuring and managing network devices.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, DevOps Engineers, Systems Administrators',
+        EventLevel: 'Intermediate',
+        EventTags: ['Ansible', 'Puppet', 'Chef', 'Network Automation']
+    },
+    {
+        Id: 79,
+        Title: 'Network Automation and Orchestration',
+        Subject: 'SDN (Software-Defined Networking) Concepts',
+        StartTime: new Date(2025, 1, 26, 11, 0),
+        EndTime: new Date(2025, 1, 26, 12, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Robert Lee', 
+                title: 'Network Engineer', 
+                note: 'An introduction to SDN, its architecture, and how it changes the way networks are managed and configured.' 
+            }
+        ],
+        Description: 'This session covers Software-Defined Networking (SDN), a new approach to managing network infrastructure through centralized control.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, IT Managers, SDN Enthusiasts',
+        EventLevel: 'Intermediate',
+        EventTags: ['SDN', 'Network Automation', 'Software-Defined']
+    },
+    {
+        Id: 80,
+        Title: 'Network Automation and Orchestration',
+        Subject: 'Network Orchestration Using Kubernetes',
+        StartTime: new Date(2025, 1, 26, 12, 0),
+        EndTime: new Date(2025, 1, 26, 13, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'David Robinson', 
+                title: 'Kubernetes Expert', 
+                note: 'Explaining how Kubernetes can be used for network orchestration in modern network infrastructures.' 
+            }
+        ],
+        Description: 'A session dedicated to using Kubernetes for network orchestration, simplifying network management and increasing scalability.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, Kubernetes Enthusiasts, IT Administrators',
+        EventLevel: 'Intermediate',
+        EventTags: ['Kubernetes', 'Network Orchestration', 'Automation']
+    },
+    {
+        Id: 81,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 26, 13, 0),
+        EndTime: new Date(2025, 1, 26, 14, 0),
         RoomId: 4,
         Capacity: 0,
         Speakers: [],
-        Description: 'A short break for attendees to relax and network.',
-        Duration: '30 minutes',
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
         EventType: 'Break',
-        TargetAudience: 'All Participants',
-        EventLevel: 'All Levels',
-        EventTags: ['Networking', 'Relax']
-    },
-
-
-    {
-        Id: 58,
-        Subject: 'Blockchain for Beginners',
-        StartTime: new Date(2025, 1, 26, 10, 30),
-        EndTime: new Date(2025, 1, 26, 12, 0),
-        RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Rachel Harris', title: 'Blockchain Consultant' }],
-        Description: 'An introductory session on blockchain and its applications.',
-        Duration: '1 hour',
-        EventType: 'Technical Session',
-        TargetAudience: 'Developers, Entrepreneurs',
-        EventLevel: 'Beginner',
-        EventTags: ['Blockchain']
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
     },
     {
-        Id: 59,
-        Subject: 'Building Scalable Apps in the Cloud',
-        StartTime: new Date(2025, 1, 26, 12, 30),
-        EndTime: new Date(2025, 1, 26, 13, 30),
+        Id: 82,
+        Title: 'Network Automation and Orchestration',
+        Subject: 'Automation in Network Security',
+        StartTime: new Date(2025, 1, 26, 14, 0),
+        EndTime: new Date(2025, 1, 26, 15, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Steven Davis', title: 'Cloud Developer' }],
-        Description: 'Techniques for developing scalable cloud applications.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'David Robinson', 
+                title: 'Network Security Expert', 
+                note: 'Focusing on how automation can be used to enhance network security and detect vulnerabilities.' 
+            }
+        ],
+        Description: 'An in-depth look at how network automation can play a significant role in securing networks and improving threat detection.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Developers, Cloud Engineers',
-        EventLevel: 'Intermediate',
-        EventTags: ['Cloud Development']
+        TargetAudience: 'Network Security Engineers, IT Managers, Security Enthusiasts',
+        EventLevel: 'Advanced',
+        EventTags: ['Network Security', 'Automation', 'Threat Detection']
     },
 
     // Room 1 - February 27
     {
-        Id: 60,
-        Subject: 'AI in Manufacturing',
-        StartTime: new Date(2025, 1, 27, 8, 0),
-        EndTime: new Date(2025, 1, 27, 9, 0),
+        Id: 83,
+        Title: 'Advanced Cybersecurity Threats and Mitigations',
+        Subject: 'Introduction to Advanced Cybersecurity Threats',
+        StartTime: new Date(2025, 1, 27, 9, 0),
+        EndTime: new Date(2025, 1, 27, 10, 0),
         RoomId: 1,
-        Capacity: 72,
-        Speakers: [{ name: 'Gregory Moore', title: 'AI Specialist' }],
-        Description: 'Exploring AI-driven processes in manufacturing industries.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Dr. Samuel Harris', 
+                title: 'Cybersecurity Expert', 
+                note: 'Exploring the advanced threats facing modern businesses and organizations in the digital age.' 
+            }
+        ],
+        Description: 'A session that introduces common and emerging cybersecurity threats, including advanced persistent threats (APTs) and ransomware.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Manufacturers, Engineers',
-        EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Manufacturing']
+        TargetAudience: 'Cybersecurity Professionals, IT Managers, Security Analysts',
+        EventLevel: 'Advanced',
+        EventTags: ['Cybersecurity', 'Ransomware', 'Threats']
     },
     {
-        Id: 61,
-        Subject: 'Smart Cities and IoT',
-        StartTime: new Date(2025, 1, 27, 9, 30),
-        EndTime: new Date(2025, 1, 27, 10, 30),
+        Id: 84,
+        Title: 'Advanced Cybersecurity Threats and Mitigations',
+        Subject: 'Phishing Attacks and Social Engineering',
+        StartTime: new Date(2025, 1, 27, 10, 0),
+        EndTime: new Date(2025, 1, 27, 11, 0),
         RoomId: 1,
-        Capacity: 90,
-        Speakers: [{ name: 'Sophia Parker', title: 'IoT Expert' }],
-        Description: 'Innovative solutions for smart cities using IoT technologies.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Dr. Samuel Harris', 
+                title: 'Cybersecurity Expert', 
+                note: 'Understanding phishing attacks, social engineering tactics, and how to mitigate them.' 
+            }
+        ],
+        Description: 'A session focused on phishing, social engineering, and the techniques attackers use to trick employees into revealing sensitive information.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Urban Planners, Engineers',
+        TargetAudience: 'Security Professionals, Employees, IT Managers',
         EventLevel: 'Intermediate',
-        EventTags: ['Smart Cities', 'IoT']
+        EventTags: ['Phishing', 'Social Engineering', 'Cybersecurity']
     },
     {
-        Id: 62,
-        Subject: 'AI and Robotics in Healthcare',
+        Id: 85,
+        Title: 'Advanced Cybersecurity Threats and Mitigations',
+        Subject: 'Malware and Ransomware Attacks',
         StartTime: new Date(2025, 1, 27, 11, 0),
         EndTime: new Date(2025, 1, 27, 12, 0),
         RoomId: 1,
-        Capacity: 120,
-        Speakers: [{ name: 'Dr. Alan Roberts', title: 'Healthcare AI Specialist' }],
-        Description: 'Application of AI and robotics in improving healthcare delivery.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Dr. Samuel Harris', 
+                title: 'Cybersecurity Expert', 
+                note: 'An analysis of various types of malware, ransomware, and how to protect systems from these threats.' 
+            }
+        ],
+        Description: 'This session will explore common types of malware and ransomware, their delivery mechanisms, and best practices for defense.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Healthcare Professionals',
+        TargetAudience: 'Cybersecurity Professionals, IT Support Staff, Business Leaders',
         EventLevel: 'Advanced',
-        EventTags: ['AI', 'Robotics', 'Healthcare']
+        EventTags: ['Malware', 'Ransomware', 'Cybersecurity']
     },
     {
-        Id: 63,
-        Subject: 'Cloud Security Best Practices',
-        StartTime: new Date(2025, 1, 27, 12, 30),
-        EndTime: new Date(2025, 1, 27, 13, 30),
+        Id: 86,
+        Title: 'Advanced Cybersecurity Threats and Mitigations',
+        Subject: 'Network Security and Intrusion Detection',
+        StartTime: new Date(2025, 1, 27, 12, 0),
+        EndTime: new Date(2025, 1, 27, 13, 0),
         RoomId: 1,
-        Capacity: 120,
-        Speakers: [{ name: 'Samuel Williams', title: 'Cloud Security Consultant' }],
-        Description: 'A session on ensuring cloud security using best practices.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sarah Williams', 
+                title: 'Network Security Expert', 
+                note: 'Discussing the importance of intrusion detection systems (IDS) and other network defense mechanisms.' 
+            }
+        ],
+        Description: 'In this session, we’ll examine intrusion detection systems, firewalls, and other tools to detect and prevent unauthorized access.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Cloud Engineers, IT Security Professionals',
-        EventLevel: 'Intermediate',
-        EventTags: ['Cloud Security']
+        TargetAudience: 'Network Administrators, Security Engineers, IT Managers',
+        EventLevel: 'Advanced',
+        EventTags: ['Network Security', 'Intrusion Detection', 'Firewalls']
+    },
+    {
+        Id: 87,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 27, 13, 0),
+        EndTime: new Date(2025, 1, 27, 14, 0),
+        RoomId: 1,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 88,
+        Title: 'Advanced Cybersecurity Threats and Mitigations',
+        Subject: 'Advanced Persistent Threats (APTs)',
+        StartTime: new Date(2025, 1, 27, 14, 0),
+        EndTime: new Date(2025, 1, 27, 15, 0),
+        RoomId: 1,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Dr. Samuel Harris', 
+                title: 'Cybersecurity Expert', 
+                note: 'An advanced session on APTs, focusing on their persistence, methods of attack, and how to combat them.' 
+            }
+        ],
+        Description: 'This session will dive into APTs, how they are carried out by advanced hackers, and strategies for defending against them.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cybersecurity Experts, IT Managers, Network Administrators',
+        EventLevel: 'Advanced',
+        EventTags: ['APT', 'Cybersecurity', 'Advanced Threats']
+    },
+    {
+        Id: 89,
+        Title: 'Advanced Cybersecurity Threats and Mitigations',
+        Subject: 'Incident Response and Forensics',
+        StartTime: new Date(2025, 1, 27, 15, 0),
+        EndTime: new Date(2025, 1, 27, 16, 0),
+        RoomId: 1,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sarah Williams', 
+                title: 'Cybersecurity Forensics Expert', 
+                note: 'Understanding the importance of incident response and how to conduct proper forensics after a cyberattack.' 
+            }
+        ],
+        Description: 'A session on handling security incidents effectively, from detection to response and the forensic analysis needed afterward.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Incident Response Teams, Forensics Experts, Cybersecurity Professionals',
+        EventLevel: 'Advanced',
+        EventTags: ['Incident Response', 'Forensics', 'Cybersecurity']
     },
 
     // Room 2 - February 27
     {
-        Id: 64,
-        Subject: 'Introduction to Artificial Intelligence',
-        StartTime: new Date(2025, 1, 27, 8, 0),
-        EndTime: new Date(2025, 1, 27, 9, 0),
+        Id: 90,
+        Title: 'Blockchain and Cryptocurrency Technologies',
+        Subject: 'Introduction to Blockchain Technology',
+        StartTime: new Date(2025, 1, 27, 9, 0),
+        EndTime: new Date(2025, 1, 27, 10, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Ethan Clarke', title: 'AI Enthusiast' }],
-        Description: 'A beginner’s guide to understanding artificial intelligence.',
+        Speakers: [
+            { 
+                name: 'John Cooper', 
+                title: 'Blockchain Expert', 
+                note: 'An overview of blockchain technology and its potential to transform various industries.' 
+            }
+        ],
+        Description: 'This session introduces the basics of blockchain technology, its components, and its applications in various sectors.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Beginners, AI Enthusiasts',
+        TargetAudience: 'Developers, Business Leaders, Crypto Enthusiasts',
         EventLevel: 'Beginner',
-        EventTags: ['AI', 'Introduction']
+        EventTags: ['Blockchain', 'Cryptocurrency', 'Tech Innovations']
     },
     {
-        Id: 65,
-        Subject: 'Cloud-Native Development with Kubernetes',
-        StartTime: new Date(2025, 1, 27, 9, 30),
-        EndTime: new Date(2025, 1, 27, 10, 30),
+        Id: 91,
+        Title: 'Blockchain and Cryptocurrency Technologies',
+        Subject: 'Smart Contracts and DApps',
+        StartTime: new Date(2025, 1, 27, 10, 0),
+        EndTime: new Date(2025, 1, 27, 11, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Olivia Green', title: 'Cloud Architect' }],
-        Description: 'Building and deploying cloud-native applications using Kubernetes.',
+        Speakers: [
+            { 
+                name: 'John Cooper', 
+                title: 'Blockchain Developer', 
+                note: 'Exploring how smart contracts and decentralized applications (DApps) function on blockchain networks.' 
+            }
+        ],
+        Description: 'An in-depth session on the role of smart contracts and decentralized apps (DApps) in blockchain ecosystems.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Developers, IT Professionals',
-        EventLevel: 'Advanced',
-        EventTags: ['Kubernetes', 'Cloud']
+        TargetAudience: 'Developers, Blockchain Enthusiasts, Entrepreneurs',
+        EventLevel: 'Intermediate',
+        EventTags: ['Smart Contracts', 'DApps', 'Blockchain']
     },
     {
-        Id: 66,
-        Subject: 'Data Science for Business Analytics',
+        Id: 92,
+        Title: 'Blockchain and Cryptocurrency Technologies',
+        Subject: 'Cryptocurrency Mining and Consensus Algorithms',
         StartTime: new Date(2025, 1, 27, 11, 0),
         EndTime: new Date(2025, 1, 27, 12, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Mia Harris', title: 'Data Scientist' }],
-        Description: 'How data science can optimize business decision-making.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Business Analysts, Data Scientists',
-        EventLevel: 'Intermediate',
-        EventTags: ['Data Science', 'Business Analytics']
-    },
-    {
-        Id: 67,
-        Subject: 'Cybersecurity in Cloud Computing',
-        StartTime: new Date(2025, 1, 27, 12, 30),
-        EndTime: new Date(2025, 1, 27, 13, 30),
-        RoomId: 2,
-        Capacity: 100,
-        Speakers: [{ name: 'Henry Davis', title: 'Cybersecurity Specialist' }],
-        Description: 'Ensuring cloud security in today’s highly connected world.',
+        Speakers: [
+            { 
+                name: 'John Cooper', 
+                title: 'Blockchain Developer', 
+                note: 'Understanding how cryptocurrency mining works, and an introduction to consensus algorithms like Proof of Work (PoW) and Proof of Stake (PoS).' 
+            }
+        ],
+        Description: 'A technical session on how mining works in the world of cryptocurrency and how consensus algorithms play a crucial role.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'IT Professionals, Developers',
+        TargetAudience: 'Crypto Enthusiasts, Developers, Miners',
+        EventLevel: 'Intermediate',
+        EventTags: ['Cryptocurrency Mining', 'PoW', 'PoS']
+    },
+    {
+        Id: 93,
+        Title: 'Blockchain and Cryptocurrency Technologies',
+        Subject: 'Blockchain Use Cases Beyond Cryptocurrency',
+        StartTime: new Date(2025, 1, 27, 12, 0),
+        EndTime: new Date(2025, 1, 27, 13, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Lee', 
+                title: 'Blockchain Researcher', 
+                note: 'Exploring how blockchain is applied in supply chains, healthcare, voting systems, and more.' 
+            }
+        ],
+        Description: 'This session explores real-world use cases of blockchain beyond cryptocurrency, such as logistics, health tech, and digital identity.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Blockchain Enthusiasts, Developers, Entrepreneurs',
+        EventLevel: 'Intermediate',
+        EventTags: ['Blockchain Use Cases', 'Tech Innovations', 'Industry Applications']
+    },
+    {
+        Id: 94,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 27, 13, 0),
+        EndTime: new Date(2025, 1, 27, 14, 0),
+        RoomId: 2,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 95,
+        Title: 'Blockchain and Cryptocurrency Technologies',
+        Subject: 'Blockchain Security and Privacy Concerns',
+        StartTime: new Date(2025, 1, 27, 14, 0),
+        EndTime: new Date(2025, 1, 27, 15, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Lee', 
+                title: 'Blockchain Security Expert', 
+                note: 'Understanding security challenges in blockchain and strategies for mitigating privacy and security risks.' 
+            }
+        ],
+        Description: 'A session on security risks in blockchain, with a focus on potential vulnerabilities in blockchain applications and privacy concerns.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, Developers, Blockchain Enthusiasts',
         EventLevel: 'Advanced',
-        EventTags: ['Cybersecurity', 'Cloud Computing']
+        EventTags: ['Blockchain Security', 'Privacy', 'Vulnerabilities']
+    },
+    {
+        Id: 96,
+        Title: 'Blockchain and Cryptocurrency Technologies',
+        Subject: 'Future Trends in Blockchain and Cryptocurrency',
+        StartTime: new Date(2025, 1, 27, 15, 0),
+        EndTime: new Date(2025, 1, 27, 16, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'John Cooper', 
+                title: 'Blockchain Visionary', 
+                note: 'Discussing the future trends in blockchain technology, from scalability improvements to decentralized finance (DeFi).' 
+            }
+        ],
+        Description: 'A discussion on the future direction of blockchain technology, focusing on scalability, DeFi, and innovations to come.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Blockchain Enthusiasts, Developers, Entrepreneurs',
+        EventLevel: 'Advanced',
+        EventTags: ['Blockchain Future', 'DeFi', 'Tech Innovations']
     },
 
     // Room 3 - February 27
     {
-        Id: 68,
-        Subject: 'Introduction to TensorFlow for AI',
-        StartTime: new Date(2025, 1, 27, 8, 0),
-        EndTime: new Date(2025, 1, 27, 9, 0),
+        Id: 97,
+        Title: 'Modern Web Development and Frameworks',
+        Subject: 'Introduction to Web Development with React',
+        StartTime: new Date(2025, 1, 27, 9, 0),
+        EndTime: new Date(2025, 1, 27, 10, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Rachel Stone', title: 'AI Engineer' }],
-        Description: 'Getting started with TensorFlow for building AI models.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Alex Johnson', 
+                title: 'Web Developer', 
+                note: 'An introduction to modern web development using the React framework and its components.' 
+            }
+        ],
+        Description: 'This session will cover the basics of building modern web applications with React, from setting up a project to rendering components.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'AI Enthusiasts, Developers',
+        EventType: 'Technical Session',
+        TargetAudience: 'Web Developers, Frontend Engineers, React Enthusiasts',
         EventLevel: 'Beginner',
-        EventTags: ['TensorFlow', 'AI']
+        EventTags: ['React', 'Web Development', 'Frontend']
     },
     {
-        Id: 69,
-        Subject: 'Business Intelligence with SQL',
-        StartTime: new Date(2025, 1, 27, 9, 30),
-        EndTime: new Date(2025, 1, 27, 10, 30),
+        Id: 98,
+        Title: 'Modern Web Development and Frameworks',
+        Subject: 'Advanced React Techniques',
+        StartTime: new Date(2025, 1, 27, 10, 0),
+        EndTime: new Date(2025, 1, 27, 11, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Charles Brooks', title: 'SQL Expert' }],
-        Description: 'Using SQL for powerful business intelligence and reporting.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Alex Johnson', 
+                title: 'Web Developer', 
+                note: 'A deep dive into advanced React features like hooks, context, and state management.' 
+            }
+        ],
+        Description: 'An in-depth session on advanced React concepts such as hooks, context API, Redux for state management, and performance optimizations.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Business Analysts, IT Professionals',
+        EventType: 'Technical Session',
+        TargetAudience: 'React Developers, Frontend Engineers',
         EventLevel: 'Intermediate',
-        EventTags: ['SQL', 'Business Intelligence']
+        EventTags: ['React', 'State Management', 'JavaScript']
     },
     {
-        Id: 70,
-        Subject: 'Advanced Python for Data Science',
+        Id: 99,
+        Title: 'Modern Web Development and Frameworks',
+        Subject: 'Building Responsive UIs with CSS Grid and Flexbox',
         StartTime: new Date(2025, 1, 27, 11, 0),
         EndTime: new Date(2025, 1, 27, 12, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Linda Turner', title: 'Python Expert' }],
-        Description: 'Advanced Python techniques for data analysis and modeling.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sarah Mitchell', 
+                title: 'UI/UX Designer', 
+                note: 'Mastering modern CSS layout techniques, including Grid and Flexbox for building flexible and responsive web designs.' 
+            }
+        ],
+        Description: 'This session focuses on building modern, responsive user interfaces using CSS Grid and Flexbox to create flexible layouts.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Scientists, Developers',
-        EventLevel: 'Advanced',
-        EventTags: ['Python', 'Data Science']
+        EventType: 'Technical Session',
+        TargetAudience: 'UI/UX Designers, Frontend Developers',
+        EventLevel: 'Intermediate',
+        EventTags: ['CSS', 'Grid', 'Flexbox']
     },
     {
-        Id: 71,
-        Subject: 'Deep Learning for Computer Vision',
-        StartTime: new Date(2025, 1, 27, 12, 30),
-        EndTime: new Date(2025, 1, 27, 13, 30),
+        Id: 100,
+        Title: 'Modern Web Development and Frameworks',
+        Subject: 'Server-Side Rendering with Next.js',
+        StartTime: new Date(2025, 1, 27, 12, 0),
+        EndTime: new Date(2025, 1, 27, 13, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Nathan Bell', title: 'AI Researcher' }],
-        Description: 'Techniques for applying deep learning to computer vision tasks.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'David Lee', 
+                title: 'Full Stack Developer', 
+                note: 'Exploring server-side rendering with Next.js and how it improves performance and SEO for React apps.' 
+            }
+        ],
+        Description: 'Learn about the advantages of server-side rendering with Next.js, and how it can enhance the performance and SEO of React applications.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'AI Enthusiasts, Developers',
+        EventType: 'Technical Session',
+        TargetAudience: 'Full Stack Developers, React Developers, SEO Specialists',
+        EventLevel: 'Intermediate',
+        EventTags: ['Next.js', 'Server-Side Rendering', 'React']
+    },
+    {
+        Id: 101,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 27, 13, 0),
+        EndTime: new Date(2025, 1, 27, 14, 0),
+        RoomId: 3,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 102,
+        Title: 'Modern Web Development and Frameworks',
+        Subject: 'State Management with Redux',
+        StartTime: new Date(2025, 1, 27, 14, 0),
+        EndTime: new Date(2025, 1, 27, 15, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'David Lee', 
+                title: 'Full Stack Developer', 
+                note: 'Understanding how to use Redux for global state management in React applications.' 
+            }
+        ],
+        Description: 'This session dives deep into state management with Redux, helping you build more maintainable React applications.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'React Developers, Full Stack Developers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Redux', 'React', 'State Management']
+    },
+    {
+        Id: 103,
+        Title: 'Modern Web Development and Frameworks',
+        Subject: 'JavaScript Performance Optimization Techniques',
+        StartTime: new Date(2025, 1, 27, 15, 0),
+        EndTime: new Date(2025, 1, 27, 16, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Alex Johnson', 
+                title: 'Web Developer', 
+                note: 'Best practices for optimizing JavaScript performance in large-scale web applications.' 
+            }
+        ],
+        Description: 'This session focuses on performance optimization strategies for JavaScript, including lazy loading, memoization, and efficient rendering techniques.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Frontend Developers, Web Performance Engineers',
         EventLevel: 'Advanced',
-        EventTags: ['Deep Learning', 'Computer Vision']
+        EventTags: ['JavaScript', 'Performance Optimization', 'Web Development']
     },
 
     // Room 4 - February 27
     {
-        Id: 72,
-        Subject: 'IoT for Smart Homes',
-        StartTime: new Date(2025, 1, 27, 8, 0),
-        EndTime: new Date(2025, 1, 27, 9, 0),
+        Id: 104,
+        Title: 'Cloud Infrastructure and Kubernetes',
+        Subject: 'Introduction to Cloud Computing and Services',
+        StartTime: new Date(2025, 1, 27, 9, 0),
+        EndTime: new Date(2025, 1, 27, 10, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Benjamin Harris', title: 'IoT Specialist' }],
-        Description: 'Applications of IoT for automating and optimizing smart homes.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Mark Thompson', 
+                title: 'Cloud Architect', 
+                note: 'Exploring the fundamentals of cloud computing, including IaaS, PaaS, and SaaS models.' 
+            }
+        ],
+        Description: 'This session introduces cloud computing services, their architecture, and how businesses can leverage them to scale their operations.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Smart Home Enthusiasts, Engineers',
-        EventLevel: 'Intermediate',
-        EventTags: ['IoT', 'Smart Homes']
+        TargetAudience: 'Cloud Engineers, IT Professionals, Business Leaders',
+        EventLevel: 'Beginner',
+        EventTags: ['Cloud Computing', 'IaaS', 'PaaS']
     },
     {
-        Id: 73,
-        Subject: 'Ethical Hacking and Penetration Testing',
-        StartTime: new Date(2025, 1, 27, 9, 30),
-        EndTime: new Date(2025, 1, 27, 10, 30),
+        Id: 105,
+        Title: 'Cloud Infrastructure and Kubernetes',
+        Subject: 'Introduction to Kubernetes and Containerization',
+        StartTime: new Date(2025, 1, 27, 10, 0),
+        EndTime: new Date(2025, 1, 27, 11, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Jason White', title: 'Ethical Hacker' }],
-        Description: 'A session on ethical hacking and penetration testing techniques.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Mark Thompson', 
+                title: 'Cloud Architect', 
+                note: 'Understanding Kubernetes, container orchestration, and how it simplifies cloud infrastructure management.' 
+            }
+        ],
+        Description: 'Learn about Kubernetes, containerization, and the role they play in modern cloud infrastructure and application deployment.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Security Professionals',
+        TargetAudience: 'DevOps Engineers, Cloud Architects, Developers',
         EventLevel: 'Intermediate',
-        EventTags: ['Ethical Hacking', 'Penetration Testing']
+        EventTags: ['Kubernetes', 'Containerization', 'DevOps']
     },
     {
-        Id: 74,
-        Subject: 'Quantum Computing for Beginners',
+        Id: 106,
+        Title: 'Cloud Infrastructure and Kubernetes',
+        Subject: 'Automating Deployments with Kubernetes',
         StartTime: new Date(2025, 1, 27, 11, 0),
         EndTime: new Date(2025, 1, 27, 12, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'James Black', title: 'Quantum Computing Expert' }],
-        Description: 'An introduction to the principles of quantum computing.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Tech Enthusiasts, Beginners',
-        EventLevel: 'Beginner',
-        EventTags: ['Quantum Computing']
-    },
-    {
-        Id: 75,
-        Subject: 'Blockchain for Developers',
-        StartTime: new Date(2025, 1, 27, 12, 30),
-        EndTime: new Date(2025, 1, 27, 13, 30),
-        RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Cathy Green', title: 'Blockchain Developer' }],
-        Description: 'Advanced blockchain development techniques and tools.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sarah Nelson', 
+                title: 'DevOps Engineer', 
+                note: 'Exploring how Kubernetes can be used to automate deployment pipelines and scale applications effectively.' 
+            }
+        ],
+        Description: 'This session focuses on using Kubernetes for automating continuous integration and deployment (CI/CD) pipelines.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Blockchain Developers',
+        TargetAudience: 'DevOps Engineers, Cloud Architects',
+        EventLevel: 'Intermediate',
+        EventTags: ['CI/CD', 'Kubernetes', 'Automation']
+    },
+    {
+        Id: 107,
+        Title: 'Cloud Infrastructure and Kubernetes',
+        Subject: 'Scaling Applications in Kubernetes',
+        StartTime: new Date(2025, 1, 27, 12, 0),
+        EndTime: new Date(2025, 1, 27, 13, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sarah Nelson', 
+                title: 'DevOps Engineer', 
+                note: 'Understanding how Kubernetes helps scale containerized applications efficiently across multiple nodes.' 
+            }
+        ],
+        Description: 'In this session, we will cover scaling techniques in Kubernetes and how to maintain high availability for cloud-native applications.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, DevOps Engineers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Scaling', 'Kubernetes', 'Cloud Infrastructure']
+    },
+    {
+        Id: 108,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 27, 13, 0),
+        EndTime: new Date(2025, 1, 27, 14, 0),
+        RoomId: 4,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 109,
+        Title: 'Cloud Infrastructure and Kubernetes',
+        Subject: 'Monitoring and Troubleshooting Kubernetes Applications',
+        StartTime: new Date(2025, 1, 27, 14, 0),
+        EndTime: new Date(2025, 1, 27, 15, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Mark Thompson', 
+                title: 'Cloud Architect', 
+                note: 'Learn about the tools and strategies for monitoring and troubleshooting Kubernetes-based applications.' 
+            }
+        ],
+        Description: 'This session dives deep into monitoring and troubleshooting Kubernetes applications using tools like Prometheus and Grafana.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'DevOps Engineers, Cloud Engineers',
         EventLevel: 'Advanced',
-        EventTags: ['Blockchain', 'Development']
+        EventTags: ['Monitoring', 'Kubernetes', 'Troubleshooting']
+    },
+    {
+        Id: 110,
+        Title: 'Cloud Infrastructure and Kubernetes',
+        Subject: 'Kubernetes Security Best Practices',
+        StartTime: new Date(2025, 1, 27, 15, 0),
+        EndTime: new Date(2025, 1, 27, 16, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sarah Nelson', 
+                title: 'DevOps Engineer', 
+                note: 'Best practices for securing your Kubernetes clusters and managing security risks.' 
+            }
+        ],
+        Description: 'A session on Kubernetes security practices, from securing clusters to managing network policies and container vulnerabilities.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, DevOps Engineers',
+        EventLevel: 'Advanced',
+        EventTags: ['Kubernetes', 'Security', 'Best Practices']
     },
 
     // Room 1 - February 28
     {
-        Id: 76,
-        Subject: 'Data Science and Machine Learning',
-        StartTime: new Date(2025, 1, 28, 8, 0),
-        EndTime: new Date(2025, 1, 28, 9, 0),
+        Id: 111,
+        Title: 'Artificial Intelligence and Data Science',
+        Subject: 'Introduction to Machine Learning Algorithms',
+        StartTime: new Date(2025, 1, 28, 9, 0),
+        EndTime: new Date(2025, 1, 28, 10, 0),
         RoomId: 1,
-        Capacity: 72,
-        Speakers: [{ name: 'Ethan Wells', title: 'Data Scientist' }],
-        Description: 'An introduction to machine learning algorithms and techniques.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Scientists, AI Enthusiasts',
-        EventLevel: 'Intermediate',
-        EventTags: ['Data Science', 'Machine Learning']
-    },
-    {
-        Id: 77,
-        Subject: 'Serverless Computing with AWS Lambda',
-        StartTime: new Date(2025, 1, 28, 9, 30),
-        EndTime: new Date(2025, 1, 28, 10, 30),
-        RoomId: 1,
-        Capacity: 90,
-        Speakers: [{ name: 'Isabella Cooper', title: 'Cloud Architect' }],
-        Description: 'Learn how to build and deploy serverless applications using AWS Lambda.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ethan Williams', 
+                title: 'Data Scientist', 
+                note: 'An overview of essential machine learning algorithms such as linear regression, decision trees, and k-nearest neighbors.' 
+            }
+        ],
+        Description: 'This session introduces core machine learning algorithms, their uses, and how they are applied in real-world problems.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Developers, Cloud Professionals',
-        EventLevel: 'Advanced',
-        EventTags: ['Serverless', 'AWS Lambda']
+        TargetAudience: 'Data Scientists, Machine Learning Enthusiasts',
+        EventLevel: 'Beginner',
+        EventTags: ['Machine Learning', 'Algorithms', 'Data Science']
     },
     {
-        Id: 78,
-        Subject: 'Blockchain and Smart Contracts',
+        Id: 112,
+        Title: 'Artificial Intelligence and Data Science',
+        Subject: 'Deep Learning: Fundamentals and Applications',
+        StartTime: new Date(2025, 1, 28, 10, 0),
+        EndTime: new Date(2025, 1, 28, 11, 0),
+        RoomId: 1,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ethan Williams', 
+                title: 'Data Scientist', 
+                note: 'A look at deep learning, neural networks, and their applications in image recognition and natural language processing.' 
+            }
+        ],
+        Description: 'An introduction to deep learning, its architectures like CNN and RNN, and how they’re transforming industries.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'AI Engineers, Data Scientists',
+        EventLevel: 'Intermediate',
+        EventTags: ['Deep Learning', 'Neural Networks', 'Artificial Intelligence']
+    },
+    {
+        Id: 113,
+        Title: 'Artificial Intelligence and Data Science',
+        Subject: 'Natural Language Processing and Text Analytics',
         StartTime: new Date(2025, 1, 28, 11, 0),
         EndTime: new Date(2025, 1, 28, 12, 0),
         RoomId: 1,
-        Capacity: 120,
-        Speakers: [{ name: 'Oliver Smith', title: 'Blockchain Developer' }],
-        Description: 'Understanding how blockchain and smart contracts are revolutionizing industries.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Clark', 
+                title: 'AI Researcher', 
+                note: 'Exploring how NLP is used to analyze and understand human language, including sentiment analysis and chatbots.' 
+            }
+        ],
+        Description: 'This session covers the basics of NLP, its applications in real-world systems, and how to use NLP for text analytics.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Blockchain Developers, Entrepreneurs',
-        EventLevel: 'Advanced',
-        EventTags: ['Blockchain', 'Smart Contracts']
+        TargetAudience: 'AI Engineers, Data Scientists',
+        EventLevel: 'Intermediate',
+        EventTags: ['Natural Language Processing', 'AI', 'Text Analytics']
     },
     {
-        Id: 79,
-        Subject: 'Introduction to Deep Learning with Keras',
-        StartTime: new Date(2025, 1, 28, 12, 30),
-        EndTime: new Date(2025, 1, 28, 13, 30),
+        Id: 114,
+        Title: 'Artificial Intelligence and Data Science',
+        Subject: 'Computer Vision and Image Processing',
+        StartTime: new Date(2025, 1, 28, 12, 0),
+        EndTime: new Date(2025, 1, 28, 13, 0),
         RoomId: 1,
-        Capacity: 120,
-        Speakers: [{ name: 'Jade Miller', title: 'AI Researcher' }],
-        Description: 'A beginner-friendly session to learn about deep learning using Keras.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Clark', 
+                title: 'AI Researcher', 
+                note: 'A session on image classification, object detection, and advanced techniques in computer vision.' 
+            }
+        ],
+        Description: 'In this session, we’ll dive into computer vision and the methods used to extract useful information from images.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'AI Enthusiasts, Developers',
-        EventLevel: 'Beginner',
-        EventTags: ['Deep Learning', 'Keras']
+        EventType: 'Technical Session',
+        TargetAudience: 'Computer Vision Engineers, AI Enthusiasts',
+        EventLevel: 'Intermediate',
+        EventTags: ['Computer Vision', 'AI', 'Image Processing']
+    },
+    {
+        Id: 115,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 28, 13, 0),
+        EndTime: new Date(2025, 1, 28, 14, 0),
+        RoomId: 1,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 116,
+        Title: 'Artificial Intelligence and Data Science',
+        Subject: 'AI in Healthcare: Opportunities and Challenges',
+        StartTime: new Date(2025, 1, 28, 14, 0),
+        EndTime: new Date(2025, 1, 28, 15, 0),
+        RoomId: 1,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Liam Johnson', 
+                title: 'AI Specialist', 
+                note: 'Exploring how AI technologies are transforming healthcare, from diagnostic tools to personalized treatments.' 
+            }
+        ],
+        Description: 'AI is making a big impact in healthcare, improving diagnosis, treatment, and patient outcomes. This session explores these applications.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'AI Enthusiasts, Healthcare Professionals',
+        EventLevel: 'Intermediate',
+        EventTags: ['AI', 'Healthcare', 'Medical Tech']
+    },
+    {
+        Id: 117,
+        Title: 'Artificial Intelligence and Data Science',
+        Subject: 'AI in Autonomous Vehicles',
+        StartTime: new Date(2025, 1, 28, 15, 0),
+        EndTime: new Date(2025, 1, 28, 16, 0),
+        RoomId: 1,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ethan Williams', 
+                title: 'Data Scientist', 
+                note: 'Exploring the role of AI in autonomous driving, from computer vision to decision-making algorithms.' 
+            }
+        ],
+        Description: 'This session dives into the technologies that power autonomous vehicles, such as computer vision, machine learning, and sensor integration.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'AI Engineers, Automotive Engineers',
+        EventLevel: 'Advanced',
+        EventTags: ['AI', 'Autonomous Vehicles', 'Machine Learning']
     },
 
     // Room 2 - February 28
     {
-        Id: 80,
-        Subject: 'Web Development with React.js',
-        StartTime: new Date(2025, 1, 28, 8, 0),
-        EndTime: new Date(2025, 1, 28, 9, 0),
+        Id: 118,
+        Title: 'Cloud Computing and DevOps',
+        Subject: 'Introduction to Cloud Computing and Services',
+        StartTime: new Date(2025, 1, 28, 9, 0),
+        EndTime: new Date(2025, 1, 28, 10, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Liam Brown', title: 'Frontend Developer' }],
-        Description: 'Building interactive UIs with React.js and Redux.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Web Developers, React Enthusiasts',
-        EventLevel: 'Intermediate',
-        EventTags: ['React.js', 'Frontend Development']
-    },
-    {
-        Id: 81,
-        Subject: 'AI-Powered Chatbots for Business',
-        StartTime: new Date(2025, 1, 28, 9, 30),
-        EndTime: new Date(2025, 1, 28, 10, 30),
-        RoomId: 2,
-        Capacity: 100,
-        Speakers: [{ name: 'Megan Taylor', title: 'AI Specialist' }],
-        Description: 'How to develop and deploy AI-powered chatbots for business applications.',
+        Speakers: [
+            { 
+                name: 'Mark Thompson', 
+                title: 'Cloud Architect', 
+                note: 'Exploring the fundamentals of cloud computing, including IaaS, PaaS, and SaaS models.' 
+            }
+        ],
+        Description: 'This session introduces cloud computing services, their architecture, and how businesses can leverage them to scale their operations.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'Business Owners, Developers',
-        EventLevel: 'Intermediate',
-        EventTags: ['AI', 'Chatbots']
+        TargetAudience: 'Cloud Engineers, IT Professionals, Business Leaders',
+        EventLevel: 'Beginner',
+        EventTags: ['Cloud Computing', 'IaaS', 'PaaS']
     },
     {
-        Id: 82,
-        Subject: 'Server-Side Programming with Node.js',
+        Id: 119,
+        Title: 'Cloud Computing and DevOps',
+        Subject: 'Introduction to Kubernetes and Containerization',
+        StartTime: new Date(2025, 1, 28, 10, 0),
+        EndTime: new Date(2025, 1, 28, 11, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'David Lee', 
+                title: 'DevOps Engineer', 
+                note: 'Understanding Kubernetes, container orchestration, and how it simplifies cloud infrastructure management.' 
+            }
+        ],
+        Description: 'This session introduces Kubernetes and how containerization helps improve scalability and deployment in cloud environments.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'DevOps Engineers, Cloud Architects, Developers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Kubernetes', 'Containerization', 'DevOps']
+    },
+    {
+        Id: 120,
+        Title: 'Cloud Computing and DevOps',
+        Subject: 'CI/CD Pipelines with Jenkins and Kubernetes',
         StartTime: new Date(2025, 1, 28, 11, 0),
         EndTime: new Date(2025, 1, 28, 12, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Ella Jones', title: 'Node.js Developer' }],
-        Description: 'Learn how to build scalable applications with Node.js.',
+        Speakers: [
+            { 
+                name: 'David Lee', 
+                title: 'DevOps Engineer', 
+                note: 'Leveraging Jenkins to automate CI/CD pipelines in Kubernetes environments.' 
+            }
+        ],
+        Description: 'In this session, you’ll learn how Jenkins is used in combination with Kubernetes to automate the CI/CD process.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Backend Developers, JavaScript Enthusiasts',
+        EventType: 'Technical Session',
+        TargetAudience: 'DevOps Engineers, Cloud Engineers',
         EventLevel: 'Intermediate',
-        EventTags: ['Node.js', 'Backend Development']
+        EventTags: ['CI/CD', 'Jenkins', 'Kubernetes']
     },
     {
-        Id: 83,
-        Subject: 'Data Visualization with Tableau',
-        StartTime: new Date(2025, 1, 28, 12, 30),
-        EndTime: new Date(2025, 1, 28, 13, 30),
+        Id: 121,
+        Title: 'Cloud Computing and DevOps',
+        Subject: 'Cloud Infrastructure Automation with Terraform',
+        StartTime: new Date(2025, 1, 28, 12, 0),
+        EndTime: new Date(2025, 1, 28, 13, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Aiden Clark', title: 'Data Analyst' }],
-        Description: 'Transform your data into insightful visualizations with Tableau.',
+        Speakers: [
+            { 
+                name: 'Mark Thompson', 
+                title: 'Cloud Architect', 
+                note: 'Using Terraform to automate cloud infrastructure deployment and management.' 
+            }
+        ],
+        Description: 'Terraform is a powerful tool for cloud automation. This session covers its features, benefits, and best practices.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Analysts, Business Intelligence Professionals',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, DevOps Engineers',
         EventLevel: 'Intermediate',
-        EventTags: ['Tableau', 'Data Visualization']
+        EventTags: ['Terraform', 'Cloud Automation', 'Infrastructure as Code']
+    },
+    {
+        Id: 122,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 28, 13, 0),
+        EndTime: new Date(2025, 1, 28, 14, 0),
+        RoomId: 2,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 123,
+        Title: 'Cloud Computing and DevOps',
+        Subject: 'Serverless Architectures and Their Benefits',
+        StartTime: new Date(2025, 1, 28, 14, 0),
+        EndTime: new Date(2025, 1, 28, 15, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sarah Nelson', 
+                title: 'Cloud Specialist', 
+                note: 'Exploring serverless computing and how it simplifies cloud architectures while reducing costs.' 
+            }
+        ],
+        Description: 'In this session, we explore the benefits of serverless architectures in cloud computing and when to use them.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, Architects',
+        EventLevel: 'Intermediate',
+        EventTags: ['Serverless', 'Cloud Computing', 'DevOps']
+    },
+    {
+        Id: 124,
+        Title: 'Cloud Computing and DevOps',
+        Subject: 'Automating Infrastructure with Ansible',
+        StartTime: new Date(2025, 1, 28, 15, 0),
+        EndTime: new Date(2025, 1, 28, 16, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sarah Nelson', 
+                title: 'Cloud Specialist', 
+                note: 'Ansible for automating cloud infrastructure deployment and configuration management.' 
+            }
+        ],
+        Description: 'This session focuses on how to use Ansible for automating infrastructure tasks and configuration management in the cloud.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, DevOps Engineers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Ansible', 'Cloud Automation', 'Infrastructure Management']
     },
 
     // Room 3 - February 28
     {
-        Id: 84,
-        Subject: 'Building Scalable Microservices with Spring Boot',
-        StartTime: new Date(2025, 1, 28, 8, 0),
-        EndTime: new Date(2025, 1, 28, 9, 0),
+        Id: 125,
+        Title: 'Cloud Infrastructure and Security',
+        Subject: 'Cloud Security Best Practices',
+        StartTime: new Date(2025, 1, 28, 9, 0),
+        EndTime: new Date(2025, 1, 28, 10, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Avery Green', title: 'Java Developer' }],
-        Description: 'Learn to create microservices using Spring Boot.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Backend Developers, Java Enthusiasts',
-        EventLevel: 'Intermediate',
-        EventTags: ['Microservices', 'Spring Boot']
-    },
-    {
-        Id: 85,
-        Subject: 'Exploring Augmented Reality (AR)',
-        StartTime: new Date(2025, 1, 28, 9, 30),
-        EndTime: new Date(2025, 1, 28, 10, 30),
-        RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Max Wilson', title: 'AR Developer' }],
-        Description: 'Discover the potential of augmented reality in tech industries.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Oliver Smith', 
+                title: 'Cloud Security Engineer', 
+                note: 'Security best practices for cloud environments to ensure data protection and compliance.' 
+            }
+        ],
+        Description: 'This session will cover best practices for securing cloud environments, including encryption, access control, and vulnerability management.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'AR Enthusiasts, Developers',
+        TargetAudience: 'Security Engineers, Cloud Engineers',
         EventLevel: 'Intermediate',
-        EventTags: ['AR', 'Technology']
+        EventTags: ['Cloud Security', 'Encryption', 'Compliance']
     },
     {
-        Id: 86,
-        Subject: 'JavaScript for Modern Web Development',
+        Id: 126,
+        Title: 'Cloud Infrastructure and Security',
+        Subject: 'Identity and Access Management in the Cloud',
+        StartTime: new Date(2025, 1, 28, 10, 0),
+        EndTime: new Date(2025, 1, 28, 11, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Oliver Smith', 
+                title: 'Cloud Security Engineer', 
+                note: 'Understanding IAM services in cloud platforms and how to implement them for secure access management.' 
+            }
+        ],
+        Description: 'In this session, we will explore Identity and Access Management services (IAM) in the cloud and how to implement best practices for access control.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, IT Professionals',
+        EventLevel: 'Intermediate',
+        EventTags: ['IAM', 'Cloud Security', 'Access Control']
+    },
+    {
+        Id: 127,
+        Title: 'Cloud Infrastructure and Security',
+        Subject: 'Cloud Vulnerability Scanning and Remediation',
         StartTime: new Date(2025, 1, 28, 11, 0),
         EndTime: new Date(2025, 1, 28, 12, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'James Daniels', title: 'JavaScript Developer' }],
-        Description: 'Modern JavaScript tools for building robust web applications.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Mia Roberts', 
+                title: 'Security Specialist', 
+                note: 'Scanning cloud environments for vulnerabilities and effective remediation strategies to minimize risks.' 
+            }
+        ],
+        Description: 'This session covers tools and techniques for scanning cloud infrastructure for security vulnerabilities and how to remediate them.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Web Developers, JavaScript Enthusiasts',
-        EventLevel: 'Intermediate',
-        EventTags: ['JavaScript', 'Web Development']
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, DevOps Engineers',
+        EventLevel: 'Advanced',
+        EventTags: ['Cloud Security', 'Vulnerability Management', 'Risk Remediation']
     },
     {
-        Id: 87,
-        Subject: 'Deep Learning with PyTorch',
-        StartTime: new Date(2025, 1, 28, 12, 30),
-        EndTime: new Date(2025, 1, 28, 13, 30),
+        Id: 128,
+        Title: 'Cloud Infrastructure and Security',
+        Subject: 'Disaster Recovery and Business Continuity in Cloud',
+        StartTime: new Date(2025, 1, 28, 12, 0),
+        EndTime: new Date(2025, 1, 28, 13, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Sophia Williams', title: 'AI Researcher' }],
-        Description: 'Learn to build deep learning models using PyTorch.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Mia Roberts', 
+                title: 'Security Specialist', 
+                note: 'Designing disaster recovery and business continuity plans to ensure availability of cloud-based services.' 
+            }
+        ],
+        Description: 'This session discusses designing disaster recovery strategies and business continuity plans for cloud environments.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'AI Enthusiasts, Developers',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, Business Continuity Professionals',
+        EventLevel: 'Advanced',
+        EventTags: ['Disaster Recovery', 'Business Continuity', 'Cloud Security']
+    },
+    {
+        Id: 129,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 28, 13, 0),
+        EndTime: new Date(2025, 1, 28, 14, 0),
+        RoomId: 3,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 130,
+        Title: 'Cloud Infrastructure and Security',
+        Subject: 'Cloud Network Security',
+        StartTime: new Date(2025, 1, 28, 14, 0),
+        EndTime: new Date(2025, 1, 28, 15, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Michael Brown', 
+                title: 'Network Security Expert', 
+                note: 'Securing cloud networks with firewalls, load balancers, and virtual private networks (VPNs).' 
+            }
+        ],
+        Description: 'This session covers the importance of securing cloud networks using various techniques such as VPNs, firewalls, and encryption.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, Security Experts',
         EventLevel: 'Intermediate',
-        EventTags: ['Deep Learning', 'PyTorch']
+        EventTags: ['Cloud Network Security', 'Encryption', 'Firewall']
+    },
+    {
+        Id: 131,
+        Title: 'Cloud Infrastructure and Security',
+        Subject: 'Zero Trust Security Model in Cloud Environments',
+        StartTime: new Date(2025, 1, 28, 15, 0),
+        EndTime: new Date(2025, 1, 28, 16, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Michael Brown', 
+                title: 'Network Security Expert', 
+                note: 'Understanding the Zero Trust model and how it helps secure cloud environments against modern threats.' 
+            }
+        ],
+        Description: 'In this session, we will discuss the Zero Trust security model and its importance in securing cloud-based systems.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, Cloud Engineers',
+        EventLevel: 'Advanced',
+        EventTags: ['Zero Trust', 'Cloud Security', 'Network Security']
     },
 
     // Room 4 - February 28
     {
-        Id: 88,
-        Subject: 'Introduction to Kubernetes for DevOps',
-        StartTime: new Date(2025, 1, 28, 8, 0),
-        EndTime: new Date(2025, 1, 28, 9, 0),
+        Id: 132,
+        Title: 'Networking and Cloud Infrastructure',
+        Subject: 'Networking Fundamentals for Cloud Environments',
+        StartTime: new Date(2025, 1, 28, 9, 0),
+        EndTime: new Date(2025, 1, 28, 10, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Lily Evans', title: 'DevOps Engineer' }],
-        Description: 'An introductory workshop on Kubernetes for DevOps practitioners.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'James Wilson', 
+                title: 'Network Engineer', 
+                note: 'Networking concepts and protocols critical to deploying cloud infrastructure.' 
+            }
+        ],
+        Description: 'This session covers the basic networking concepts and protocols used when designing and deploying cloud environments.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'DevOps Professionals',
+        TargetAudience: 'Network Engineers, Cloud Architects',
         EventLevel: 'Beginner',
-        EventTags: ['Kubernetes', 'DevOps']
+        EventTags: ['Networking', 'Cloud', 'Infrastructure']
     },
     {
-        Id: 89,
-        Subject: 'Intro to GraphQL',
-        StartTime: new Date(2025, 1, 28, 9, 30),
-        EndTime: new Date(2025, 1, 28, 10, 30),
+        Id: 133,
+        Title: 'Networking and Cloud Infrastructure',
+        Subject: 'SDN (Software Defined Networking) and Cloud',
+        StartTime: new Date(2025, 1, 28, 10, 0),
+        EndTime: new Date(2025, 1, 28, 11, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Daniel Moore', title: 'Frontend Developer' }],
-        Description: 'Learn how to create APIs with GraphQL.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'James Wilson', 
+                title: 'Network Engineer', 
+                note: 'Exploring how SDN is revolutionizing network management and the deployment of cloud services.' 
+            }
+        ],
+        Description: 'SDN allows more flexibility and control over cloud networks. This session covers its role and impact in cloud computing environments.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Frontend Developers, Backend Developers',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, Cloud Engineers',
         EventLevel: 'Intermediate',
-        EventTags: ['GraphQL', 'API']
+        EventTags: ['SDN', 'Cloud', 'Networking']
     },
     {
-        Id: 90,
-        Subject: 'Introduction to Swift Programming',
+        Id: 134,
+        Title: 'Networking and Cloud Infrastructure',
+        Subject: 'Virtualization and Network Function Virtualization (NFV)',
         StartTime: new Date(2025, 1, 28, 11, 0),
         EndTime: new Date(2025, 1, 28, 12, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Isabelle Scott', title: 'iOS Developer' }],
-        Description: 'Learn the basics of Swift programming for iOS development.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'iOS Developers, Beginners',
-        EventLevel: 'Beginner',
-        EventTags: ['Swift', 'iOS Development']
-    },
-    {
-        Id: 91,
-        Subject: 'DevOps Best Practices',
-        StartTime: new Date(2025, 1, 28, 12, 30),
-        EndTime: new Date(2025, 1, 28, 13, 30),
-        RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Rachel Lee', title: 'DevOps Expert' }],
-        Description: 'Best practices for continuous integration and continuous deployment in DevOps.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Green', 
+                title: 'Cloud Engineer', 
+                note: 'Understanding how virtualization and NFV are used to deploy scalable, flexible, and cost-efficient cloud services.' 
+            }
+        ],
+        Description: 'In this session, we will explore how network function virtualization (NFV) and network virtualization can optimize cloud infrastructure.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'DevOps Engineers',
+        TargetAudience: 'Cloud Engineers, Network Engineers',
         EventLevel: 'Intermediate',
-        EventTags: ['DevOps', 'CI/CD']
+        EventTags: ['Virtualization', 'NFV', 'Cloud Infrastructure']
+    },
+    {
+        Id: 135,
+        Title: 'Networking and Cloud Infrastructure',
+        Subject: 'Cloud Networking Services: AWS, GCP, Azure',
+        StartTime: new Date(2025, 1, 28, 12, 0),
+        EndTime: new Date(2025, 1, 28, 13, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Green', 
+                title: 'Cloud Engineer', 
+                note: 'Exploring networking services provided by AWS, GCP, and Azure and their applications in cloud networking.' 
+            }
+        ],
+        Description: 'This session will compare the networking services provided by major cloud platforms like AWS, Google Cloud, and Azure.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, Network Architects',
+        EventLevel: 'Intermediate',
+        EventTags: ['Cloud Networking', 'AWS', 'Azure', 'GCP']
+    },
+    {
+        Id: 136,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 28, 13, 0),
+        EndTime: new Date(2025, 1, 28, 14, 0),
+        RoomId: 4,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 137,
+        Title: 'Networking and Cloud Infrastructure',
+        Subject: '5G Networks and Cloud Integration',
+        StartTime: new Date(2025, 1, 28, 14, 0),
+        EndTime: new Date(2025, 1, 28, 15, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Noah Taylor', 
+                title: 'Network Architect', 
+                note: 'Exploring the integration of 5G networks with cloud infrastructures for ultra-fast and reliable connectivity.' 
+            }
+        ],
+        Description: 'This session explores how 5G networks can be integrated with cloud infrastructures to enable faster and more reliable communication.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, Cloud Architects',
+        EventLevel: 'Advanced',
+        EventTags: ['5G', 'Cloud Integration', 'Networking']
+    },
+    {
+        Id: 138,
+        Title: 'Networking and Cloud Infrastructure',
+        Subject: 'Cloud Load Balancing and Scaling Networks',
+        StartTime: new Date(2025, 1, 28, 15, 0),
+        EndTime: new Date(2025, 1, 28, 16, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Noah Taylor', 
+                title: 'Network Architect', 
+                note: 'Exploring techniques for load balancing and scaling networks to ensure high availability in the cloud.' 
+            }
+        ],
+        Description: 'This session will teach you how to design and implement cloud load balancing and network scaling strategies.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, Cloud Engineers',
+        EventLevel: 'Advanced',
+        EventTags: ['Cloud Networking', 'Load Balancing', 'Network Scaling']
     },
 
     // Room 1 - March 1
     {
-        Id: 92,
-        Subject: 'Artificial Intelligence in Healthcare',
-        StartTime: new Date(2025, 2, 1, 8, 0),
-        EndTime: new Date(2025, 2, 1, 9, 0),
+        Id: 139,
+        Title: 'Advanced Networking Techniques',
+        Subject: 'BGP (Border Gateway Protocol) Fundamentals',
+        StartTime: new Date(2025, 2, 1, 9, 0),
+        EndTime: new Date(2025, 2, 1, 10, 0),
         RoomId: 1,
-        Capacity: 72,
-        Speakers: [{ name: 'Dr. Emily Clark', title: 'AI Healthcare Specialist' }],
-        Description: 'Exploring AI technologies in the healthcare industry.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'John Carter', 
+                title: 'Network Engineer', 
+                note: 'Understanding the fundamentals and practical applications of BGP in large-scale networks.' 
+            }
+        ],
+        Description: 'This session introduces the basics of Border Gateway Protocol (BGP) and its usage in inter-domain routing.',
         Duration: '1 hour',
-        EventType: 'Keynote',
-        TargetAudience: 'Healthcare Professionals, AI Enthusiasts',
-        EventLevel: 'Advanced',
-        EventTags: ['AI', 'Healthcare']
-    },
-    {
-        Id: 93,
-        Subject: 'Cloud Computing with Google Cloud Platform',
-        StartTime: new Date(2025, 2, 1, 9, 30),
-        EndTime: new Date(2025, 2, 1, 10, 30),
-        RoomId: 1,
-        Capacity: 90,
-        Speakers: [{ name: 'Lucas Gray', title: 'Cloud Engineer' }],
-        Description: 'Learn how to use Google Cloud for building scalable applications.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Cloud Professionals, Developers',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers',
         EventLevel: 'Intermediate',
-        EventTags: ['Google Cloud', 'Cloud Computing']
+        EventTags: ['BGP', 'Networking', 'Routing']
     },
     {
-        Id: 94,
-        Subject: 'Advanced Data Analytics with Python',
+        Id: 140,
+        Title: 'Advanced Networking Techniques',
+        Subject: 'IPv6 Networking in the Cloud Era',
+        StartTime: new Date(2025, 2, 1, 10, 0),
+        EndTime: new Date(2025, 2, 1, 11, 0),
+        RoomId: 1,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'John Carter', 
+                title: 'Network Engineer', 
+                note: 'Exploring the implementation and challenges of IPv6 addressing in cloud environments.' 
+            }
+        ],
+        Description: 'This session explores IPv6 networking fundamentals, benefits, and its role in modern cloud infrastructures.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, Cloud Engineers',
+        EventLevel: 'Intermediate',
+        EventTags: ['IPv6', 'Cloud Networking', 'Networking']
+    },
+    {
+        Id: 141,
+        Title: 'Advanced Networking Techniques',
+        Subject: 'Software-Defined Networking (SDN) Architecture',
         StartTime: new Date(2025, 2, 1, 11, 0),
         EndTime: new Date(2025, 2, 1, 12, 0),
         RoomId: 1,
-        Capacity: 120,
-        Speakers: [{ name: 'Michael Lewis', title: 'Data Scientist' }],
-        Description: 'Learn advanced data analytics techniques using Python.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Green', 
+                title: 'Cloud Engineer', 
+                note: 'In-depth look into SDN architecture and its advantages in cloud networking.' 
+            }
+        ],
+        Description: 'This session covers SDN architecture and how it enhances flexibility and management of cloud-based networks.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Analysts, Data Scientists',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, Cloud Architects',
         EventLevel: 'Advanced',
-        EventTags: ['Python', 'Data Analytics']
+        EventTags: ['SDN', 'Networking', 'Cloud Architecture']
     },
     {
-        Id: 95,
-        Subject: 'Building Scalable Web Applications with Angular',
-        StartTime: new Date(2025, 2, 1, 12, 30),
-        EndTime: new Date(2025, 2, 1, 13, 30),
+        Id: 142,
+        Title: 'Advanced Networking Techniques',
+        Subject: 'VLANs and Network Segmentation for Cloud Security',
+        StartTime: new Date(2025, 2, 1, 12, 0),
+        EndTime: new Date(2025, 2, 1, 13, 0),
         RoomId: 1,
-        Capacity: 120,
-        Speakers: [{ name: 'Zoe Harris', title: 'Frontend Developer' }],
-        Description: 'Create high-performing web applications using Angular.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Michael Brown', 
+                title: 'Network Architect', 
+                note: 'Utilizing VLANs and network segmentation to improve cloud security and performance.' 
+            }
+        ],
+        Description: 'Learn how VLANs can be used to segment networks and enhance security in cloud environments.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Frontend Developers, Web Developers',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, Cloud Security Professionals',
         EventLevel: 'Intermediate',
-        EventTags: ['Angular', 'Web Development']
+        EventTags: ['VLAN', 'Network Security', 'Cloud']
+    },
+    {
+        Id: 143,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 2, 1, 13, 0),
+        EndTime: new Date(2025, 2, 1, 14, 0),
+        RoomId: 1,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 144,
+        Title: 'Advanced Networking Techniques',
+        Subject: 'Network Automation with Ansible and Python',
+        StartTime: new Date(2025, 2, 1, 14, 0),
+        EndTime: new Date(2025, 2, 1, 15, 0),
+        RoomId: 1,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'James Wilson', 
+                title: 'Cloud Network Specialist', 
+                note: 'Automating network configurations and operations using Ansible and Python.' 
+            }
+        ],
+        Description: 'This session discusses how to automate network configuration, monitoring, and management using Ansible and Python.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, Automation Engineers',
+        EventLevel: 'Advanced',
+        EventTags: ['Network Automation', 'Ansible', 'Python']
+    },
+    {
+        Id: 145,
+        Title: 'Advanced Networking Techniques',
+        Subject: 'Network Performance Monitoring in Cloud Environments',
+        StartTime: new Date(2025, 2, 1, 15, 0),
+        EndTime: new Date(2025, 2, 1, 16, 0),
+        RoomId: 1,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sophia Green', 
+                title: 'Cloud Engineer', 
+                note: 'Understanding how to monitor and optimize network performance in cloud-based infrastructures.' 
+            }
+        ],
+        Description: 'This session focuses on the best practices and tools for monitoring network performance in the cloud.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Network Engineers, Cloud Engineers',
+        EventLevel: 'Intermediate',
+        EventTags: ['Network Monitoring', 'Cloud Networking', 'Optimization']
     },
 
     // Room 2 - March 1
     {
-        Id: 96,
-        Subject: 'Introduction to Kubernetes',
-        StartTime: new Date(2025, 2, 1, 8, 0),
-        EndTime: new Date(2025, 2, 1, 9, 0),
+        Id: 146,
+        Title: 'Cloud Infrastructure Optimization',
+        Subject: 'Optimizing Cloud Storage Solutions',
+        StartTime: new Date(2025, 2, 1, 9, 0),
+        EndTime: new Date(2025, 2, 1, 10, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Mason Parker', title: 'DevOps Expert' }],
-        Description: 'Learn the basics of Kubernetes and container orchestration.',
+        Speakers: [
+            { 
+                name: 'Emily Davis', 
+                title: 'Cloud Architect', 
+                note: 'Optimizing cloud storage solutions for performance, security, and cost-effectiveness.' 
+            }
+        ],
+        Description: 'This session covers best practices for optimizing cloud storage, ensuring efficiency and cost control.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'DevOps Engineers, IT Professionals',
-        EventLevel: 'Beginner',
-        EventTags: ['Kubernetes', 'DevOps']
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, IT Professionals',
+        EventLevel: 'Intermediate',
+        EventTags: ['Cloud Storage', 'Optimization', 'Cost Management']
     },
     {
-        Id: 97,
-        Subject: 'Blockchain for Beginners',
-        StartTime: new Date(2025, 2, 1, 9, 30),
-        EndTime: new Date(2025, 2, 1, 10, 30),
+        Id: 147,
+        Title: 'Cloud Infrastructure Optimization',
+        Subject: 'Scaling Cloud Infrastructure with Auto-scaling Groups',
+        StartTime: new Date(2025, 2, 1, 10, 0),
+        EndTime: new Date(2025, 2, 1, 11, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Nina Turner', title: 'Blockchain Developer' }],
-        Description: 'Understand blockchain technology and its real-world applications.',
+        Speakers: [
+            { 
+                name: 'Emily Davis', 
+                title: 'Cloud Architect', 
+                note: 'Leveraging auto-scaling to dynamically scale cloud infrastructure based on demand.' 
+            }
+        ],
+        Description: 'Learn how auto-scaling works in cloud platforms to handle fluctuating demand and optimize resources.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Blockchain Enthusiasts, Developers',
-        EventLevel: 'Beginner',
-        EventTags: ['Blockchain', 'Crypto']
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, Architects',
+        EventLevel: 'Intermediate',
+        EventTags: ['Auto-scaling', 'Cloud Infrastructure', 'Cloud Optimization']
     },
     {
-        Id: 98,
-        Subject: 'Building RESTful APIs with Express.js',
+        Id: 148,
+        Title: 'Cloud Infrastructure Optimization',
+        Subject: 'Cost Optimization in Cloud with Reserved Instances',
         StartTime: new Date(2025, 2, 1, 11, 0),
         EndTime: new Date(2025, 2, 1, 12, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'Oliver Reid', title: 'Backend Developer' }],
-        Description: 'Learn to build robust RESTful APIs using Express.js.',
+        Speakers: [
+            { 
+                name: 'Michael Green', 
+                title: 'Cloud Specialist', 
+                note: 'How to reduce costs by using reserved instances and other cost-saving strategies in the cloud.' 
+            }
+        ],
+        Description: 'This session explores how to optimize costs in the cloud by using reserved instances and other cloud cost-saving mechanisms.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Backend Developers, JavaScript Developers',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, Finance Professionals',
         EventLevel: 'Intermediate',
-        EventTags: ['Express.js', 'API Development']
+        EventTags: ['Cost Optimization', 'Cloud Economics', 'Cloud Management']
     },
     {
-        Id: 99,
-        Subject: 'Cybersecurity for Developers',
-        StartTime: new Date(2025, 2, 1, 12, 30),
-        EndTime: new Date(2025, 2, 1, 13, 30),
+        Id: 149,
+        Title: 'Cloud Infrastructure Optimization',
+        Subject: 'Managing Multi-Cloud Environments',
+        StartTime: new Date(2025, 2, 1, 12, 0),
+        EndTime: new Date(2025, 2, 1, 13, 0),
         RoomId: 2,
         Capacity: 100,
-        Speakers: [{ name: 'James Mitchell', title: 'Cybersecurity Expert' }],
-        Description: 'Understanding the essentials of cybersecurity for software development.',
+        Speakers: [
+            { 
+                name: 'Sarah Brown', 
+                title: 'Cloud Engineer', 
+                note: 'Best practices for managing resources and services in a multi-cloud environment.' 
+            }
+        ],
+        Description: 'This session will discuss best practices for handling multi-cloud environments and ensuring smooth operations.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Developers, IT Professionals',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Engineers, Multi-Cloud Architects',
+        EventLevel: 'Advanced',
+        EventTags: ['Multi-cloud', 'Cloud Management', 'Cloud Optimization']
+    },
+    {
+        Id: 150,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 2, 1, 13, 0),
+        EndTime: new Date(2025, 2, 1, 14, 0),
+        RoomId: 2,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 151,
+        Title: 'Cloud Infrastructure Optimization',
+        Subject: 'Optimizing Cloud Database Performance',
+        StartTime: new Date(2025, 2, 1, 14, 0),
+        EndTime: new Date(2025, 2, 1, 15, 0),
+        RoomId: 2,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sarah Brown', 
+                title: 'Cloud Database Expert', 
+                note: 'Tips and tools for optimizing the performance of cloud-hosted databases.' 
+            }
+        ],
+        Description: 'This session will focus on strategies for improving cloud database performance and ensuring fast, efficient data retrieval.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Database Administrators, Engineers',
         EventLevel: 'Intermediate',
-        EventTags: ['Cybersecurity', 'Development']
+        EventTags: ['Cloud Databases', 'Optimization', 'Performance']
     },
 
     // Room 3 - March 1
     {
-        Id: 100,
-        Subject: 'Introduction to SwiftUI for iOS',
-        StartTime: new Date(2025, 2, 1, 8, 0),
-        EndTime: new Date(2025, 2, 1, 9, 0),
+        Id: 152,
+        Title: 'Cloud Security and Privacy',
+        Subject: 'Cloud Security Essentials: Protecting Your Data in the Cloud',
+        StartTime: new Date(2025, 2, 1, 9, 0),
+        EndTime: new Date(2025, 2, 1, 10, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Sophia Moore', title: 'iOS Developer' }],
-        Description: 'Learn the basics of building apps with SwiftUI.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Jack Turner', 
+                title: 'Cloud Security Specialist', 
+                note: 'Understanding the key principles of cloud security and data protection best practices.' 
+            }
+        ],
+        Description: 'Learn the fundamentals of cloud security, covering encryption, data protection, and risk mitigation strategies.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'iOS Developers, Beginners',
-        EventLevel: 'Beginner',
-        EventTags: ['SwiftUI', 'iOS Development']
-    },
-    {
-        Id: 101,
-        Subject: 'Mobile App Development with Flutter',
-        StartTime: new Date(2025, 2, 1, 9, 30),
-        EndTime: new Date(2025, 2, 1, 10, 30),
-        RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Benjamin King', title: 'Flutter Developer' }],
-        Description: 'Cross-platform mobile app development using Flutter.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Mobile Developers, Beginners',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, Cloud Architects',
         EventLevel: 'Intermediate',
-        EventTags: ['Flutter', 'Mobile Development']
+        EventTags: ['Cloud Security', 'Data Protection', 'Encryption']
     },
     {
-        Id: 102,
-        Subject: 'Data Engineering with Apache Kafka',
+        Id: 153,
+        Title: 'Cloud Security and Privacy',
+        Subject: 'Implementing Identity and Access Management in Cloud',
+        StartTime: new Date(2025, 2, 1, 10, 0),
+        EndTime: new Date(2025, 2, 1, 11, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Jack Turner', 
+                title: 'Cloud Security Specialist', 
+                note: 'Best practices for implementing IAM in cloud-based systems to ensure secure access.' 
+            }
+        ],
+        Description: 'In this session, we discuss how to implement robust Identity and Access Management (IAM) strategies for secure cloud environments.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, Cloud Developers',
+        EventLevel: 'Intermediate',
+        EventTags: ['IAM', 'Cloud Security', 'Access Management']
+    },
+    {
+        Id: 154,
+        Title: 'Cloud Security and Privacy',
+        Subject: 'Securing Cloud-Based APIs and Microservices',
         StartTime: new Date(2025, 2, 1, 11, 0),
         EndTime: new Date(2025, 2, 1, 12, 0),
         RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'David Walker', title: 'Data Engineer' }],
-        Description: 'Learn how to use Apache Kafka for building data pipelines.',
-        Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Data Engineers, Developers',
-        EventLevel: 'Advanced',
-        EventTags: ['Apache Kafka', 'Data Engineering']
-    },
-    {
-        Id: 103,
-        Subject: 'Exploring the Internet of Things (IoT)',
-        StartTime: new Date(2025, 2, 1, 12, 30),
-        EndTime: new Date(2025, 2, 1, 13, 30),
-        RoomId: 3,
-        Capacity: 80,
-        Speakers: [{ name: 'Oliver White', title: 'IoT Expert' }],
-        Description: 'An introduction to IoT and its applications in various industries.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Sarah Collins', 
+                title: 'Cloud Engineer', 
+                note: 'Focusing on securing APIs and microservices in a cloud-based environment using the latest tools.' 
+            }
+        ],
+        Description: 'Learn how to secure APIs and microservices, including OAuth, encryption, and token management for cloud applications.',
         Duration: '1 hour',
         EventType: 'Technical Session',
-        TargetAudience: 'IoT Enthusiasts, Engineers',
+        TargetAudience: 'Cloud Engineers, API Developers',
         EventLevel: 'Intermediate',
-        EventTags: ['IoT', 'Technology']
+        EventTags: ['API Security', 'Microservices', 'Cloud Security']
+    },
+    {
+        Id: 155,
+        Title: 'Cloud Security and Privacy',
+        Subject: 'Understanding Cloud Compliance and Regulatory Requirements',
+        StartTime: new Date(2025, 2, 1, 12, 0),
+        EndTime: new Date(2025, 2, 1, 13, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Michael Davis', 
+                title: 'Cloud Compliance Expert', 
+                note: 'A guide to navigating the regulatory requirements that affect cloud deployments and services.' 
+            }
+        ],
+        Description: 'This session will help you understand various compliance frameworks and their implementation in the cloud environment.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Cloud Architects, Compliance Officers',
+        EventLevel: 'Advanced',
+        EventTags: ['Compliance', 'Cloud Security', 'Regulatory Requirements']
+    },
+    {
+        Id: 156,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 2, 1, 13, 0),
+        EndTime: new Date(2025, 2, 1, 14, 0),
+        RoomId: 3,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 157,
+        Title: 'Cloud Security and Privacy',
+        Subject: 'Incident Response in Cloud Environments',
+        StartTime: new Date(2025, 2, 1, 14, 0),
+        EndTime: new Date(2025, 2, 1, 15, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'David Wright', 
+                title: 'Incident Response Specialist', 
+                note: 'Learn how to effectively respond to and manage security incidents in a cloud environment.' 
+            }
+        ],
+        Description: 'In this session, we’ll cover the incident response process in cloud environments, including tools and strategies for mitigation.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Professionals, Incident Response Teams',
+        EventLevel: 'Advanced',
+        EventTags: ['Incident Response', 'Cloud Security', 'Security Mitigation']
+    },
+    {
+        Id: 158,
+        Title: 'Cloud Security and Privacy',
+        Subject: 'Advanced Cloud Encryption Techniques',
+        StartTime: new Date(2025, 2, 1, 15, 0),
+        EndTime: new Date(2025, 2, 1, 16, 0),
+        RoomId: 3,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'David Wright', 
+                title: 'Encryption Specialist', 
+                note: 'A deep dive into advanced encryption methods used to protect data in cloud environments.' 
+            }
+        ],
+        Description: 'This session will discuss advanced encryption techniques, key management, and how to protect sensitive data in cloud environments.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'Security Engineers, Cloud Architects',
+        EventLevel: 'Advanced',
+        EventTags: ['Encryption', 'Cloud Security', 'Data Protection']
     },
 
     // Room 4 - March 1
     {
-        Id: 104,
-        Subject: 'Continuous Integration with Jenkins',
-        StartTime: new Date(2025, 2, 1, 8, 0),
-        EndTime: new Date(2025, 2, 1, 9, 0),
+        Id: 159,
+        Title: 'Cloud DevOps and Automation',
+        Subject: 'Introduction to DevOps in Cloud Environments',
+        StartTime: new Date(2025, 2, 1, 9, 0),
+        EndTime: new Date(2025, 2, 1, 10, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Eliza Harris', title: 'DevOps Engineer' }],
-        Description: 'Automate your build and deployment process with Jenkins.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Olivia Martinez', 
+                title: 'DevOps Engineer', 
+                note: 'An introduction to the key principles and practices of DevOps in cloud-based systems.' 
+            }
+        ],
+        Description: 'This session covers the basics of DevOps principles, including continuous integration and continuous delivery in the cloud.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'DevOps Engineers',
+        EventType: 'Technical Session',
+        TargetAudience: 'DevOps Engineers, Cloud Engineers',
         EventLevel: 'Intermediate',
-        EventTags: ['Jenkins', 'CI/CD']
+        EventTags: ['DevOps', 'Cloud Automation', 'CI/CD']
     },
     {
-        Id: 105,
-        Subject: 'Getting Started with Go Programming',
-        StartTime: new Date(2025, 2, 1, 9, 30),
-        EndTime: new Date(2025, 2, 1, 10, 30),
+        Id: 160,
+        Title: 'Cloud DevOps and Automation',
+        Subject: 'Automating Cloud Deployments with Infrastructure as Code (IaC)',
+        StartTime: new Date(2025, 2, 1, 10, 0),
+        EndTime: new Date(2025, 2, 1, 11, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Charlotte King', title: 'Go Developer' }],
-        Description: 'Learn Go programming language for building fast and scalable applications.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Olivia Martinez', 
+                title: 'DevOps Engineer', 
+                note: 'Using IaC tools like Terraform and CloudFormation to automate infrastructure deployment in the cloud.' 
+            }
+        ],
+        Description: 'This session will demonstrate how to use Infrastructure as Code (IaC) tools to automate and manage cloud infrastructure.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Go Developers, Beginners',
-        EventLevel: 'Beginner',
-        EventTags: ['Go', 'Programming']
+        EventType: 'Technical Session',
+        TargetAudience: 'DevOps Engineers, Cloud Architects',
+        EventLevel: 'Intermediate',
+        EventTags: ['IaC', 'Cloud Automation', 'Terraform']
     },
     {
-        Id: 106,
-        Subject: 'Introduction to DevSecOps',
+        Id: 161,
+        Title: 'Cloud DevOps and Automation',
+        Subject: 'Continuous Integration and Delivery (CI/CD) for Cloud Applications',
         StartTime: new Date(2025, 2, 1, 11, 0),
         EndTime: new Date(2025, 2, 1, 12, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Ella Turner', title: 'Security Expert' }],
-        Description: 'Learn about the importance of security in DevOps and how to integrate security into the pipeline.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ethan Parker', 
+                title: 'Cloud DevOps Engineer', 
+                note: 'In-depth exploration of CI/CD pipelines in cloud environments using Jenkins, CircleCI, and AWS CodePipeline.' 
+            }
+        ],
+        Description: 'This session focuses on setting up and managing CI/CD pipelines for cloud-based applications to achieve faster development cycles.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'DevOps Engineers, Security Professionals',
-        EventLevel: 'Intermediate',
-        EventTags: ['DevSecOps', 'Security']
+        EventType: 'Technical Session',
+        TargetAudience: 'DevOps Engineers, Cloud Developers',
+        EventLevel: 'Advanced',
+        EventTags: ['CI/CD', 'Cloud Applications', 'DevOps']
     },
     {
-        Id: 107,
-        Subject: 'Exploring Python for Web Development',
-        StartTime: new Date(2025, 2, 1, 12, 30),
-        EndTime: new Date(2025, 2, 1, 13, 30),
+        Id: 162,
+        Title: 'Cloud DevOps and Automation',
+        Subject: 'Serverless Architectures and Automation in the Cloud',
+        StartTime: new Date(2025, 2, 1, 12, 0),
+        EndTime: new Date(2025, 2, 1, 13, 0),
         RoomId: 4,
-        Capacity: 50,
-        Speakers: [{ name: 'Isabelle Moore', title: 'Web Developer' }],
-        Description: 'Building web applications with Python and Django.',
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Ethan Parker', 
+                title: 'Cloud DevOps Engineer', 
+                note: 'Exploring serverless architecture and how to automate deployments with cloud-native tools.' 
+            }
+        ],
+        Description: 'This session will cover the benefits of serverless architecture and how to automate deployments using cloud-native services.',
         Duration: '1 hour',
-        EventType: 'Workshop',
-        TargetAudience: 'Web Developers, Python Enthusiasts',
-        EventLevel: 'Beginner',
-        EventTags: ['Python', 'Web Development']
+        EventType: 'Technical Session',
+        TargetAudience: 'DevOps Engineers, Cloud Architects',
+        EventLevel: 'Advanced',
+        EventTags: ['Serverless', 'Cloud Automation', 'DevOps']
+    },
+    {
+        Id: 163,
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 2, 1, 13, 0),
+        EndTime: new Date(2025, 2, 1, 14, 0),
+        RoomId: 4,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 164,
+        Title: 'Cloud DevOps and Automation',
+        Subject: 'Monitoring and Logging for Cloud Infrastructure',
+        StartTime: new Date(2025, 2, 1, 14, 0),
+        EndTime: new Date(2025, 2, 1, 15, 0),
+        RoomId: 4,
+        Capacity: 100,
+        Speakers: [
+            { 
+                name: 'Hannah Lee', 
+                title: 'DevOps Specialist', 
+                note: 'Best practices for monitoring and logging cloud infrastructure, using tools like CloudWatch and ELK Stack.' 
+            }
+        ],
+        Description: 'In this session, we’ll discuss how to monitor and log cloud infrastructure effectively to ensure operational efficiency.',
+        Duration: '1 hour',
+        EventType: 'Technical Session',
+        TargetAudience: 'DevOps Engineers, Cloud Administrators',
+        EventLevel: 'Intermediate',
+        EventTags: ['Monitoring', 'Cloud Logging', 'DevOps']
     }
 ];
 
@@ -2371,7 +4025,7 @@ const App = () => {
                     <strong><label>Time Slot</label>: </strong>{getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)}
                 </div>
 
-                {props.Subject !== 'Break' && props.Subject !== 'Lunch Break' && (
+                {props.Subject.toLowerCase().indexOf('break') === -1  && props.Subject.toLowerCase().indexOf('lunch') === -1 && (
                 <div className="event-details">
                     <div className="event-type"><strong><label>Event Type</label>: </strong>{props.EventType}</div>
                     <div className="event-capacity"><strong><label>Audience Size</label>: </strong>{props.Capacity}</div>
@@ -2381,13 +4035,16 @@ const App = () => {
                 {props.Speakers && props.Speakers.length > 0 && (
                     <div className="event-speaker">
                         <strong><label>Speakers</label>:</strong>
+                        {props.Speakers.map((speaker, index) => (
                         <div className="speaker-details">
                             <div className="speaker-image"></div>
                             <div className="speaker-info">
-                                <div><strong>{props.Speakers[0].name}</strong></div>
-                                <div>{props.Speakers[0].title}</div>
+                                <div><strong>{props.Speakers[index].name}</strong></div>
+                                <div>{props.Speakers[index].title}</div>
+                                <div>{props.Speakers[index].note}</div>
                             </div>
                         </div>
+                        ))}
                     </div>
                 )}
             </div>
@@ -2622,12 +4279,18 @@ const App = () => {
                             <div className="meeting-subject-wrap">
                                 <label>Type</label>:
                                 <span>{props.EventType}</span>
-                            </div>
-                            <div className="notes-wrap">
-                                <label>Speakers</label>:
-                                <span>{props.Speakers[0].name} ({props.Speakers[0].title})</span>
-                            </div>
                         </div>
+                        {props.Speakers.length > 0 && (
+                        <div className="notes-wrap">
+                            <label>Speakers</label>:
+                            {props.Speakers.map((speaker, index) => (
+                                <div key={index}>
+                                    {speaker.name} ({speaker.title})
+                                </div>
+                            ))}
+                        </div>
+                        )}
+                    </div>
                 }
             </div>
         );
@@ -2660,9 +4323,9 @@ const App = () => {
                         cssClass='schedule-drag-drop'
                         currentView='Day'
                         selectedDate={new Date(2025, 1, 24)}
-                        width='100%' height='650px'
-                        startHour="07:00"
-                        endHour="19:00"
+                        width='100%' height='550px'
+                        startHour="08:00"
+                        endHour="18:00"
                         eventSettings={{ dataSource: eventsData, fields: fieldsData, query: filteredQuery }}
                         group={{ resources: ['Rooms'], headerTooltipTemplate: headerTooltipTemplate.bind(this) }}
                         actionBegin={onActionBegin}
