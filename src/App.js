@@ -3855,7 +3855,7 @@ const App = () => {
     const onActionBegin = (args) => {
         if (args.requestType === "eventCreate") {
             let eventsData = args.requestType === "eventCreate" ? args.data[0] : args.data;
-            const { StartTime, EndTime, RoomId, Capacity, Title } = eventsData;
+            const { StartTime, EndTime, RoomId, capacity, Title } = eventsData;
 
             if (checkRoomAvailability(StartTime, EndTime, null, RoomId)) {
                 dialogInstance.current.content = 'The room is already booked for this time slot. Please select a different room or choose another available time.';
@@ -3864,7 +3864,7 @@ const App = () => {
                 return;
             }
 
-            if (checkRoomCapacity(Capacity, RoomId)) {
+            if (checkRoomCapacity(capacity, RoomId)) {
                 dialogInstance.current.content = 'The room cannot accommodate the number of attendees. Please select a different room that is suitable for the required capacity.';
                 setStatus(true);
                 args.cancel = true;
@@ -3876,10 +3876,6 @@ const App = () => {
             }
         }
         if (args.requestType === 'toolbarItemRendering') {
-            // let exportItem2 = {
-            //     align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icons e-print',
-            //     text: 'Print', cssClass: 'e-schedule-print', click: onPrintIconClick
-            //   };
             let exportItem1 = {
                 align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icons e-export-excel',
                 text: 'Excel Export', cssClass: 'e-excel-export', click: onExportClick
@@ -4102,7 +4098,7 @@ const App = () => {
     };
 
     const onPopupClose = (args) => {
-        if (args.type === 'Editor' && args.event.target.textContent !== 'Cancel') {
+        if (args.type === 'Editor' && args.event.target.textContent === 'Save') {
             let roomId = args.data.RoomId;
             let startTime = args.data.StartTime;
             let endTime = args.data.EndTime;
@@ -4357,11 +4353,12 @@ const App = () => {
         const getSlotData = () => {
             const addObj = {};
             addObj.Id = scheduleObj.current.getEventMaxID();
-            addObj.Subject = isNullOrUndefined(titleObj.current.value) ? 'Add title' : titleObj.current.value;
+            addObj.Subject = isNullOrUndefined(topicObj.current.value) ? '' : topicObj.current.value;
             addObj.StartTime = new Date(scheduleObj.current.activeCellsData.startTime);
             addObj.EndTime = new Date(scheduleObj.current.activeCellsData.endTime);
             addObj.IsAllDay = scheduleObj.current.activeCellsData.isAllDay;
-            addObj.Description = isNullOrUndefined(capacityObj.current.value) ? 'Add notes' : capacityObj.current.value;
+            addObj.Capacity = isNullOrUndefined(capacityObj.current.value) ? 'Add notes' : capacityObj.current.value;
+            addObj.Title = isNullOrUndefined(titleObj.current.value) ? '' : titleObj.current.value;
             addObj.RoomId = 1;
             return addObj;
         };
@@ -4401,6 +4398,7 @@ const App = () => {
     }
 
     let titleObj = useRef(null);
+    let topicObj = useRef(null);
     let capacityObj = useRef(null);
 
     const contentTemplate = (props) => {
@@ -4409,8 +4407,11 @@ const App = () => {
                 {props.elementType === 'cell' ?
                     <div className="e-cell-content">
                         <div className="content-area">
-                            <TextBoxComponent id="title" ref={titleObj} placeholder="Title" />
+                            <TextBoxComponent id="topic" ref={topicObj} placeholder="Topic" />
                         </div>
+                        <div className="content-area">
+                            <TextBoxComponent id="title" ref={titleObj} placeholder="Title" />
+                        </div> 
                         {/* <div className="content-area">
                             <DropDownListComponent id="eventType" ref={eventTypeObj} dataSource={roomData} fields={{ text: "Name", value: "Id" }} placeholder="Choose Type" index={0} popupHeight="200px" />
                         </div> */}
@@ -4428,7 +4429,7 @@ const App = () => {
                                 <label>Type</label>:
                                 <span>{props.EventType}</span>
                         </div>
-                        {props.Speakers.length > 0 && (
+                        {props.Speakers && props.Speakers.length > 0 && (
                         <div className="notes-wrap">
                             <label>Speakers</label>:
                             {props.Speakers.map((speaker, index) => (
