@@ -37,11 +37,6 @@ let events = [
                 name: 'Liam Johnson', 
                 title: 'AI Specialist', 
                 note: 'Exploring how AI is transforming business processes and increasing efficiency.' 
-            },
-            { 
-                name: 'Sophia Collins', 
-                title: 'Machine Learning Expert', 
-                note: 'Discussing how machine learning algorithms are applied to enhance business decision-making processes.' 
             }
         ],
         Description: 'Overview of AI and how it’s transforming business operations, enhancing productivity, and driving innovation.',
@@ -72,7 +67,7 @@ let events = [
         Title: 'AI for Business Automation',
         Subject: 'AI-Driven Business Intelligence: Improving Decision-Making',
         StartTime: new Date(2025, 1, 24, 10, 30),
-        EndTime: new Date(2025, 1, 24, 11, 0),
+        EndTime: new Date(2025, 1, 24, 11, 15),
         RoomId: 1,
         Capacity: 110,
         Speakers: [
@@ -93,7 +88,7 @@ let events = [
         Id: 4,
         Title: 'AI for Business Automation',
         Subject: 'Implementing AI-Powered Automation in Business',
-        StartTime: new Date(2025, 1, 24, 11, 0),
+        StartTime: new Date(2025, 1, 24, 11, 30),
         EndTime: new Date(2025, 1, 24, 12, 0),
         RoomId: 1,
         Capacity: 110,
@@ -140,6 +135,11 @@ let events = [
                 name: 'Liam Johnson', 
                 title: 'AI Specialist', 
                 note: 'Using AI to create personalized customer experiences through targeted recommendations and services.' 
+            },
+            { 
+                name: 'Sophia Collins', 
+                title: 'Customer Experience Strategist', 
+                note: 'Specializing in integrating AI for enhancing customer engagement and building personalized journeys.' 
             }
         ],
         Description: 'Discussing the application of AI in creating personalized customer experiences, such as product recommendations and tailored content.',
@@ -221,7 +221,7 @@ let events = [
         Id: 10,
         Title: 'Database Systems and Data Management',
         Subject: 'Introduction to Relational Databases',
-        StartTime: new Date(2025, 1, 24, 9, 30),
+        StartTime: new Date(2025, 1, 24, 9, 15),
         EndTime: new Date(2025, 1, 24, 10, 30),
         RoomId: 2,
         Capacity: 100,
@@ -376,7 +376,7 @@ let events = [
         Title: 'Networking Strategies for Tech Professionals',
         Subject: 'Building a Professional Network in Tech',
         StartTime: new Date(2025, 1, 24, 9, 0),
-        EndTime: new Date(2025, 1, 24, 11, 0),
+        EndTime: new Date(2025, 1, 24, 10, 30),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -397,7 +397,7 @@ let events = [
         Id: 18,
         Title: 'Networking Strategies for Tech Professionals',
         Subject: 'Leveraging LinkedIn for Professional Networking',
-        StartTime: new Date(2025, 1, 24, 11, 30),
+        StartTime: new Date(2025, 1, 24, 11, 0),
         EndTime: new Date(2025, 1, 24, 12, 15),
         RoomId: 3,
         Capacity: 100,
@@ -620,8 +620,8 @@ let events = [
         Id: 17,
         Title: 'DevOps and Continuous Integration',
         Subject: 'Introduction to DevOps Practices',
-        StartTime: new Date(2025, 1, 25, 9, 9, 30),
-        EndTime: new Date(2025, 1, 25, 10, 10, 45),
+        StartTime: new Date(2025, 1, 25, 9, 30),
+        EndTime: new Date(2025, 1, 25, 10, 45),
         RoomId: 1,
         Capacity: 90,
         Speakers: [
@@ -642,7 +642,7 @@ let events = [
         Id: 18,
         Title: 'DevOps and Continuous Integration',
         Subject: 'Automating CI/CD Pipelines with Jenkins',
-        StartTime: new Date(2025, 1, 25, 11, 30),
+        StartTime: new Date(2025, 1, 25, 11, 15),
         EndTime: new Date(2025, 1, 25, 12, 30),
         RoomId: 1,
         Capacity: 80,
@@ -664,8 +664,8 @@ let events = [
         Id: 19,
         Title: 'DevOps and Continuous Integration',
         Subject: 'Scaling DevOps in Large Organizations',
-        StartTime: new Date(2025, 1, 25, 14, 30),
-        EndTime: new Date(2025, 1, 25, 16, 30),
+        StartTime: new Date(2025, 1, 25, 14, 0),
+        EndTime: new Date(2025, 1, 25, 16, 0),
         RoomId: 1,
         Capacity: 70,
         Speakers: [
@@ -686,7 +686,7 @@ let events = [
         Id: 21,
         Title: 'DevOps and Continuous Integration',
         Subject: 'Advanced Continuous Integration Practices',
-        StartTime: new Date(2025, 1, 25, 17, 0),
+        StartTime: new Date(2025, 1, 25, 16, 30),
         EndTime: new Date(2025, 1, 25, 17, 30),
         RoomId: 1,
         Capacity: 90,
@@ -733,7 +733,7 @@ let events = [
         Title: 'Cybersecurity in Modern IT Infrastructure',
         Subject: 'Network Security and Threats',
         StartTime: new Date(2025, 1, 25, 10, 0),
-        EndTime: new Date(2025, 1, 25, 11, 0),
+        EndTime: new Date(2025, 1, 25, 10, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -751,10 +751,26 @@ let events = [
         EventTags: ['Network Security', 'Threats', 'Infrastructure']
     },
     {
+        Id: 2,
+        Title: 'Cybersecurity in Modern IT Infrastructure',
+        Subject: 'Short Break for Relaxation',
+        StartTime: new Date(2025, 1, 25, 10, 0),
+        EndTime: new Date(2025, 1, 25, 10, 30),
+        RoomId: 2,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Take a short break to refresh and network with fellow attendees.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Networking', 'Relaxation']
+    },
+    {
         Id: 35,
         Title: 'Cybersecurity in Modern IT Infrastructure',
         Subject: 'Firewalls and Intrusion Detection Systems',
-        StartTime: new Date(2025, 1, 25, 11, 0),
+        StartTime: new Date(2025, 1, 25, 10, 30),
         EndTime: new Date(2025, 1, 25, 12, 0),
         RoomId: 2,
         Capacity: 100,
@@ -776,8 +792,8 @@ let events = [
         Id: 36,
         Title: 'Cybersecurity in Modern IT Infrastructure',
         Subject: 'Encryption and Data Protection',
-        StartTime: new Date(2025, 1, 25, 12, 0),
-        EndTime: new Date(2025, 1, 25, 13, 0),
+        StartTime: new Date(2025, 1, 25, 13, 0),
+        EndTime: new Date(2025, 1, 25, 14, 0),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -793,21 +809,6 @@ let events = [
         TargetAudience: 'Security Engineers, IT Professionals, Developers',
         EventLevel: 'Intermediate',
         EventTags: ['Encryption', 'Data Protection', 'Security']
-    },
-    {
-        Id: 37,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 25, 13, 0),
-        EndTime: new Date(2025, 1, 25, 14, 0),
-        RoomId: 2,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for relaxation and networking.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All levels',
-        EventTags: ['Break', 'Networking']
     },
     {
         Id: 38,
@@ -832,10 +833,26 @@ let events = [
         EventTags: ['Cloud Security', 'Cybersecurity', 'Cloud Infrastructure']
     },
     {
+        Id: 61,
+        Title: 'Cybersecurity in Modern IT Infrastructure',
+        Subject: 'Break',
+        StartTime: new Date(2025, 1, 25, 15, 0),
+        EndTime: new Date(2025, 1, 25, 15, 30),
+        RoomId: 2,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Short break to relax and network.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All Participants',
+        EventLevel: 'All Levels',
+        EventTags: ['Networking', 'Relax']
+    },
+    {
         Id: 39,
         Title: 'Cybersecurity in Modern IT Infrastructure',
         Subject: 'Incident Response and Recovery',
-        StartTime: new Date(2025, 1, 25, 15, 0),
+        StartTime: new Date(2025, 1, 25, 15, 30),
         EndTime: new Date(2025, 1, 25, 16, 0),
         RoomId: 2,
         Capacity: 100,
@@ -857,8 +874,8 @@ let events = [
         Id: 40,
         Title: 'Cybersecurity in Modern IT Infrastructure',
         Subject: 'Panel Discussion: The Future of Cybersecurity',
-        StartTime: new Date(2025, 1, 25, 16, 0),
-        EndTime: new Date(2025, 1, 25, 17, 0),
+        StartTime: new Date(2025, 1, 25, 16, 15),
+        EndTime: new Date(2025, 1, 25, 18, 0),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -908,8 +925,8 @@ let events = [
         Id: 42,
         Title: 'Data Science and Machine Learning Fundamentals',
         Subject: 'Exploring Machine Learning Algorithms',
-        StartTime: new Date(2025, 1, 25, 10, 0),
-        EndTime: new Date(2025, 1, 25, 11, 0),
+        StartTime: new Date(2025, 1, 25, 10, 30),
+        EndTime: new Date(2025, 1, 25, 12, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -930,8 +947,8 @@ let events = [
         Id: 43,
         Title: 'Data Science and Machine Learning Fundamentals',
         Subject: 'Supervised vs Unsupervised Learning',
-        StartTime: new Date(2025, 1, 25, 11, 0),
-        EndTime: new Date(2025, 1, 25, 12, 0),
+        StartTime: new Date(2025, 1, 25, 13, 0),
+        EndTime: new Date(2025, 1, 25, 14, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -952,8 +969,8 @@ let events = [
         Id: 44,
         Title: 'Data Science and Machine Learning Fundamentals',
         Subject: 'Deep Learning Introduction',
-        StartTime: new Date(2025, 1, 25, 12, 0),
-        EndTime: new Date(2025, 1, 25, 13, 0),
+        StartTime: new Date(2025, 1, 25, 14, 0),
+        EndTime: new Date(2025, 1, 25, 15, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -972,13 +989,14 @@ let events = [
     },
     {
         Id: 45,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 25, 13, 0),
-        EndTime: new Date(2025, 1, 25, 14, 0),
+        Title: 'Data Science and Machine Learning Fundamentals',
+        Subject: 'Break',
+        StartTime: new Date(2025, 1, 25, 15, 0),
+        EndTime: new Date(2025, 1, 25, 15, 30),
         RoomId: 3,
         Capacity: 0,
         Speakers: [],
-        Description: 'Lunch break for relaxation and networking.',
+        Description: 'Beak for relaxation and networking.',
         Duration: '1 hour',
         EventType: 'Break',
         TargetAudience: 'All Attendees',
@@ -989,8 +1007,8 @@ let events = [
         Id: 46,
         Title: 'Data Science and Machine Learning Fundamentals',
         Subject: 'Evaluating Model Performance',
-        StartTime: new Date(2025, 1, 25, 14, 0),
-        EndTime: new Date(2025, 1, 25, 15, 0),
+        StartTime: new Date(2025, 1, 25, 15, 30),
+        EndTime: new Date(2025, 1, 25, 17, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -1011,8 +1029,8 @@ let events = [
         Id: 47,
         Title: 'Data Science and Machine Learning Fundamentals',
         Subject: 'Ethical Considerations in Data Science',
-        StartTime: new Date(2025, 1, 25, 15, 0),
-        EndTime: new Date(2025, 1, 25, 16, 0),
+        StartTime: new Date(2025, 1, 25, 17, 15),
+        EndTime: new Date(2025, 1, 25, 18, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -1035,7 +1053,7 @@ let events = [
         Id: 48,
         Title: 'Blockchain and Cryptocurrency Fundamentals',
         Subject: 'Introduction to Blockchain Technology',
-        StartTime: new Date(2025, 1, 25, 9, 0),
+        StartTime: new Date(2025, 1, 25, 9, 15),
         EndTime: new Date(2025, 1, 25, 10, 0),
         RoomId: 4,
         Capacity: 100,
@@ -1058,7 +1076,7 @@ let events = [
         Title: 'Blockchain and Cryptocurrency Fundamentals',
         Subject: 'Cryptocurrency Basics and Bitcoin Overview',
         StartTime: new Date(2025, 1, 25, 10, 0),
-        EndTime: new Date(2025, 1, 25, 11, 0),
+        EndTime: new Date(2025, 1, 25, 10, 30),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -1074,6 +1092,22 @@ let events = [
         TargetAudience: 'Blockchain Enthusiasts, Financial Technologists, Developers',
         EventLevel: 'Intermediate',
         EventTags: ['Bitcoin', 'Cryptocurrency', 'Blockchain']
+    },
+    {
+        Id: 93,
+        Title: 'Blockchain and Cryptocurrency Fundamentals',
+        Subject: 'Break',
+        StartTime: new Date(2025, 1, 25, 10, 30),
+        EndTime: new Date(2025, 1, 25, 11, 0),
+        RoomId: 4,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'A short break for attendees to relax and network.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All Participants',
+        EventLevel: 'All Levels',
+        EventTags: ['Networking', 'Relax']
     },
     {
         Id: 50,
@@ -1098,11 +1132,27 @@ let events = [
         EventTags: ['Blockchain', 'Consensus Algorithms', 'Decentralization']
     },
     {
+        Id: 52,
+        Title: 'Blockchain and Cryptocurrency Fundamentals',
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 25, 12, 0),
+        EndTime: new Date(2025, 1, 25, 13, 0),
+        RoomId: 4,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
         Id: 51,
         Title: 'Blockchain and Cryptocurrency Fundamentals',
         Subject: 'Smart Contracts and DApps',
-        StartTime: new Date(2025, 1, 25, 12, 0),
-        EndTime: new Date(2025, 1, 25, 13, 0),
+        StartTime: new Date(2025, 1, 25, 13, 0),
+        EndTime: new Date(2025, 1, 25, 14, 15),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -1119,26 +1169,12 @@ let events = [
         EventLevel: 'Intermediate',
         EventTags: ['Smart Contracts', 'DApps', 'Ethereum']
     },
-    {
-        Id: 52,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 25, 13, 0),
-        EndTime: new Date(2025, 1, 25, 14, 0),
-        RoomId: 4,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for relaxation and networking.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All levels',
-        EventTags: ['Break', 'Networking']
-    },
+    
     {
         Id: 53,
         Title: 'Blockchain and Cryptocurrency Fundamentals',
         Subject: 'Blockchain for Enterprise Applications',
-        StartTime: new Date(2025, 1, 25, 14, 0),
+        StartTime: new Date(2025, 1, 25, 14, 15),
         EndTime: new Date(2025, 1, 25, 15, 0),
         RoomId: 4,
         Capacity: 100,
@@ -1160,8 +1196,8 @@ let events = [
         Id: 54,
         Title: 'Blockchain and Cryptocurrency Fundamentals',
         Subject: 'Future of Blockchain and Cryptocurrency',
-        StartTime: new Date(2025, 1, 25, 15, 0),
-        EndTime: new Date(2025, 1, 25, 16, 0),
+        StartTime: new Date(2025, 1, 25, 15, 30),
+        EndTime: new Date(2025, 1, 25, 16, 30),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -1182,8 +1218,8 @@ let events = [
         Id: 55,
         Title: 'Blockchain and Cryptocurrency Fundamentals',
         Subject: 'Panel Discussion: The Regulatory Landscape of Cryptocurrencies',
-        StartTime: new Date(2025, 1, 25, 16, 0),
-        EndTime: new Date(2025, 1, 25, 17, 0),
+        StartTime: new Date(2025, 1, 25, 17, 0),
+        EndTime: new Date(2025, 1, 25, 18, 0),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -1212,7 +1248,7 @@ let events = [
         Title: 'Internet of Things (IoT) for Smart Solutions',
         Subject: 'Introduction to IoT and Its Applications',
         StartTime: new Date(2025, 1, 26, 9, 0),
-        EndTime: new Date(2025, 1, 26, 10, 0),
+        EndTime: new Date(2025, 1, 26, 9, 45),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -1234,7 +1270,7 @@ let events = [
         Title: 'Internet of Things (IoT) for Smart Solutions',
         Subject: 'IoT Architecture and Devices',
         StartTime: new Date(2025, 1, 26, 10, 0),
-        EndTime: new Date(2025, 1, 26, 11, 0),
+        EndTime: new Date(2025, 1, 26, 11, 30),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -1255,7 +1291,7 @@ let events = [
         Id: 58,
         Title: 'Internet of Things (IoT) for Smart Solutions',
         Subject: 'Security Challenges in IoT',
-        StartTime: new Date(2025, 1, 26, 11, 0),
+        StartTime: new Date(2025, 1, 26, 11, 30),
         EndTime: new Date(2025, 1, 26, 12, 0),
         RoomId: 1,
         Capacity: 100,
@@ -1274,11 +1310,27 @@ let events = [
         EventTags: ['IoT Security', 'Data Protection', 'Internet of Things']
     },
     {
+        Id: 60,
+        Title: 'Lunch break',
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 26, 12, 0),
+        EndTime: new Date(2025, 1, 26, 13, 0),
+        RoomId: 1,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
         Id: 59,
         Title: 'Internet of Things (IoT) for Smart Solutions',
         Subject: 'IoT Data Management and Analytics',
-        StartTime: new Date(2025, 1, 26, 12, 0),
-        EndTime: new Date(2025, 1, 26, 13, 0),
+        StartTime: new Date(2025, 1, 26, 13, 0),
+        EndTime: new Date(2025, 1, 26, 14, 0),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -1294,21 +1346,6 @@ let events = [
         TargetAudience: 'Data Scientists, IoT Developers, Analytics Professionals',
         EventLevel: 'Intermediate',
         EventTags: ['IoT Data', 'Analytics', 'Big Data']
-    },
-    {
-        Id: 60,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 26, 13, 0),
-        EndTime: new Date(2025, 1, 26, 14, 0),
-        RoomId: 1,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for relaxation and networking.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All levels',
-        EventTags: ['Break', 'Networking']
     },
     {
         Id: 61,
@@ -1336,8 +1373,8 @@ let events = [
         Id: 62,
         Title: 'Internet of Things (IoT) for Smart Solutions',
         Subject: 'The Future of IoT',
-        StartTime: new Date(2025, 1, 26, 15, 0),
-        EndTime: new Date(2025, 1, 26, 16, 0),
+        StartTime: new Date(2025, 1, 26, 16, 0),
+        EndTime: new Date(2025, 1, 26, 18, 0),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -1361,7 +1398,7 @@ let events = [
         Title: 'Data Science and Machine Learning',
         Subject: 'Introduction to Data Science',
         StartTime: new Date(2025, 1, 26, 9, 0),
-        EndTime: new Date(2025, 1, 26, 10, 0),
+        EndTime: new Date(2025, 1, 26, 9, 45),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -1383,7 +1420,7 @@ let events = [
         Title: 'Data Science and Machine Learning',
         Subject: 'Supervised Learning Algorithms',
         StartTime: new Date(2025, 1, 26, 10, 0),
-        EndTime: new Date(2025, 1, 26, 11, 0),
+        EndTime: new Date(2025, 1, 26, 11, 15),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -1404,7 +1441,7 @@ let events = [
         Id: 65,
         Title: 'Data Science and Machine Learning',
         Subject: 'Unsupervised Learning and Clustering Techniques',
-        StartTime: new Date(2025, 1, 26, 11, 0),
+        StartTime: new Date(2025, 1, 26, 11, 15),
         EndTime: new Date(2025, 1, 26, 12, 0),
         RoomId: 2,
         Capacity: 100,
@@ -1423,11 +1460,27 @@ let events = [
         EventTags: ['Unsupervised Learning', 'Clustering', 'Machine Learning']
     },
     {
+        Id: 67,
+        Title: 'Data Science and Machine Learning',
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 26, 12, 0),
+        EndTime: new Date(2025, 1, 26, 13, 0),
+        RoomId: 2,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
         Id: 66,
         Title: 'Data Science and Machine Learning',
         Subject: 'Deep Learning and Neural Networks',
-        StartTime: new Date(2025, 1, 26, 12, 0),
-        EndTime: new Date(2025, 1, 26, 13, 0),
+        StartTime: new Date(2025, 1, 26, 13, 0),
+        EndTime: new Date(2025, 1, 26, 14, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -1444,27 +1497,13 @@ let events = [
         EventLevel: 'Intermediate',
         EventTags: ['Deep Learning', 'Neural Networks', 'Machine Learning']
     },
-    {
-        Id: 67,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 26, 13, 0),
-        EndTime: new Date(2025, 1, 26, 14, 0),
-        RoomId: 2,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for relaxation and networking.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All levels',
-        EventTags: ['Break', 'Networking']
-    },
+    
     {
         Id: 68,
         Title: 'Data Science and Machine Learning',
         Subject: 'Model Evaluation and Performance Metrics',
-        StartTime: new Date(2025, 1, 26, 14, 0),
-        EndTime: new Date(2025, 1, 26, 15, 0),
+        StartTime: new Date(2025, 1, 26, 15, 0),
+        EndTime: new Date(2025, 1, 26, 16, 15),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -1485,8 +1524,8 @@ let events = [
         Id: 69,
         Title: 'Data Science and Machine Learning',
         Subject: 'Deploying Machine Learning Models in Production',
-        StartTime: new Date(2025, 1, 26, 15, 0),
-        EndTime: new Date(2025, 1, 26, 16, 0),
+        StartTime: new Date(2025, 1, 26, 17, 0),
+        EndTime: new Date(2025, 1, 26, 18, 0),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -1509,8 +1548,8 @@ let events = [
         Id: 70,
         Title: 'Cloud Computing for Scalability',
         Subject: 'Introduction to Cloud Computing',
-        StartTime: new Date(2025, 1, 26, 9, 0),
-        EndTime: new Date(2025, 1, 26, 10, 0),
+        StartTime: new Date(2025, 1, 26, 9, 30),
+        EndTime: new Date(2025, 1, 26, 10, 30),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -1528,11 +1567,27 @@ let events = [
         EventTags: ['Cloud Computing', 'IaaS', 'PaaS', 'SaaS']
     },
     {
+        Id: 93,
+        Title: 'Cloud Computing for Scalability',
+        Subject: 'Break',
+        StartTime: new Date(2025, 1, 26, 10, 30),
+        EndTime: new Date(2025, 1, 26, 11, 0),
+        RoomId: 3,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'A short break for attendees to relax and network.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All Participants',
+        EventLevel: 'All Levels',
+        EventTags: ['Networking', 'Relax']
+    },
+    {
         Id: 71,
         Title: 'Cloud Computing for Scalability',
         Subject: 'Scaling Applications in the Cloud',
-        StartTime: new Date(2025, 1, 26, 10, 0),
-        EndTime: new Date(2025, 1, 26, 11, 0),
+        StartTime: new Date(2025, 1, 26, 11, 0),
+        EndTime: new Date(2025, 1, 26, 12, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -1550,11 +1605,27 @@ let events = [
         EventTags: ['Cloud Scalability', 'Load Balancing', 'Auto-Scaling']
     },
     {
+        Id: 74,
+        Title: 'Cloud Computing for Scalability',
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 26, 12, 0),
+        EndTime: new Date(2025, 1, 26, 13, 0),
+        RoomId: 3,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
         Id: 72,
         Title: 'Cloud Computing for Scalability',
         Subject: 'Cloud Security Best Practices',
-        StartTime: new Date(2025, 1, 26, 11, 0),
-        EndTime: new Date(2025, 1, 26, 12, 0),
+        StartTime: new Date(2025, 1, 26, 13, 0),
+        EndTime: new Date(2025, 1, 26, 14, 30),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -1575,8 +1646,8 @@ let events = [
         Id: 73,
         Title: 'Cloud Computing for Scalability',
         Subject: 'Cloud Databases and Storage',
-        StartTime: new Date(2025, 1, 26, 12, 0),
-        EndTime: new Date(2025, 1, 26, 13, 0),
+        StartTime: new Date(2025, 1, 26, 14, 30),
+        EndTime: new Date(2025, 1, 26, 15, 30),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -1594,26 +1665,11 @@ let events = [
         EventTags: ['Cloud Databases', 'Storage Solutions', 'AWS', 'Google Cloud']
     },
     {
-        Id: 74,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 26, 13, 0),
-        EndTime: new Date(2025, 1, 26, 14, 0),
-        RoomId: 3,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for relaxation and networking.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 75,
         Title: 'Cloud Computing for Scalability',
         Subject: 'Multi-cloud and Hybrid Cloud Architectures',
-        StartTime: new Date(2025, 1, 26, 14, 0),
-        EndTime: new Date(2025, 1, 26, 15, 0),
+        StartTime: new Date(2025, 1, 26, 16, 0),
+        EndTime: new Date(2025, 1, 26, 17, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -1634,8 +1690,8 @@ let events = [
         Id: 76,
         Title: 'Cloud Computing for Scalability',
         Subject: 'Serverless Architectures and Functions',
-        StartTime: new Date(2025, 1, 26, 15, 0),
-        EndTime: new Date(2025, 1, 26, 16, 0),
+        StartTime: new Date(2025, 1, 26, 17, 0),
+        EndTime: new Date(2025, 1, 26, 18, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -1659,8 +1715,8 @@ let events = [
         Id: 77,
         Title: 'Network Automation and Orchestration',
         Subject: 'Introduction to Network Automation',
-        StartTime: new Date(2025, 1, 26, 9, 0),
-        EndTime: new Date(2025, 1, 26, 10, 0),
+        StartTime: new Date(2025, 1, 26, 9, 30),
+        EndTime: new Date(2025, 1, 26, 10, 30),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -1681,8 +1737,8 @@ let events = [
         Id: 78,
         Title: 'Network Automation and Orchestration',
         Subject: 'Automation Tools: Ansible, Puppet, and Chef',
-        StartTime: new Date(2025, 1, 26, 10, 0),
-        EndTime: new Date(2025, 1, 26, 11, 0),
+        StartTime: new Date(2025, 1, 26, 11, 0),
+        EndTime: new Date(2025, 1, 26, 12, 30),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -1703,8 +1759,8 @@ let events = [
         Id: 79,
         Title: 'Network Automation and Orchestration',
         Subject: 'SDN (Software-Defined Networking) Concepts',
-        StartTime: new Date(2025, 1, 26, 11, 0),
-        EndTime: new Date(2025, 1, 26, 12, 0),
+        StartTime: new Date(2025, 1, 26, 13, 30),
+        EndTime: new Date(2025, 1, 26, 14, 30),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -1725,8 +1781,8 @@ let events = [
         Id: 80,
         Title: 'Network Automation and Orchestration',
         Subject: 'Network Orchestration Using Kubernetes',
-        StartTime: new Date(2025, 1, 26, 12, 0),
-        EndTime: new Date(2025, 1, 26, 13, 0),
+        StartTime: new Date(2025, 1, 26, 15, 0),
+        EndTime: new Date(2025, 1, 26, 16, 30),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -1744,26 +1800,11 @@ let events = [
         EventTags: ['Kubernetes', 'Network Orchestration', 'Automation']
     },
     {
-        Id: 81,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 26, 13, 0),
-        EndTime: new Date(2025, 1, 26, 14, 0),
-        RoomId: 4,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for relaxation and networking.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 82,
         Title: 'Network Automation and Orchestration',
         Subject: 'Automation in Network Security',
-        StartTime: new Date(2025, 1, 26, 14, 0),
-        EndTime: new Date(2025, 1, 26, 15, 0),
+        StartTime: new Date(2025, 1, 26, 17, 0),
+        EndTime: new Date(2025, 1, 26, 17, 45),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -1786,8 +1827,8 @@ let events = [
         Id: 83,
         Title: 'Advanced Cybersecurity Threats and Mitigations',
         Subject: 'Introduction to Advanced Cybersecurity Threats',
-        StartTime: new Date(2025, 1, 27, 9, 0),
-        EndTime: new Date(2025, 1, 27, 10, 0),
+        StartTime: new Date(2025, 1, 27, 9, 15),
+        EndTime: new Date(2025, 1, 27, 10, 15),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -1808,7 +1849,7 @@ let events = [
         Id: 84,
         Title: 'Advanced Cybersecurity Threats and Mitigations',
         Subject: 'Phishing Attacks and Social Engineering',
-        StartTime: new Date(2025, 1, 27, 10, 0),
+        StartTime: new Date(2025, 1, 27, 10, 30),
         EndTime: new Date(2025, 1, 27, 11, 0),
         RoomId: 1,
         Capacity: 100,
@@ -1849,11 +1890,27 @@ let events = [
         EventTags: ['Malware', 'Ransomware', 'Cybersecurity']
     },
     {
-        Id: 86,
+        Id: 87,
         Title: 'Advanced Cybersecurity Threats and Mitigations',
-        Subject: 'Network Security and Intrusion Detection',
+        Subject: 'Lunch Break',
         StartTime: new Date(2025, 1, 27, 12, 0),
         EndTime: new Date(2025, 1, 27, 13, 0),
+        RoomId: 1,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for relaxation and networking.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
+        Id: 89,
+        Title: 'Advanced Cybersecurity Threats and Mitigations',
+        Subject: 'Network Security and Intrusion Detection',
+        StartTime: new Date(2025, 1, 27, 13, 0),
+        EndTime: new Date(2025, 1, 27, 14, 30),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -1871,26 +1928,11 @@ let events = [
         EventTags: ['Network Security', 'Intrusion Detection', 'Firewalls']
     },
     {
-        Id: 87,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 27, 13, 0),
-        EndTime: new Date(2025, 1, 27, 14, 0),
-        RoomId: 1,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for relaxation and networking.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 88,
         Title: 'Advanced Cybersecurity Threats and Mitigations',
         Subject: 'Advanced Persistent Threats (APTs)',
-        StartTime: new Date(2025, 1, 27, 14, 0),
-        EndTime: new Date(2025, 1, 27, 15, 0),
+        StartTime: new Date(2025, 1, 27, 15, 0),
+        EndTime: new Date(2025, 1, 27, 16, 30),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -1911,8 +1953,8 @@ let events = [
         Id: 89,
         Title: 'Advanced Cybersecurity Threats and Mitigations',
         Subject: 'Incident Response and Forensics',
-        StartTime: new Date(2025, 1, 27, 15, 0),
-        EndTime: new Date(2025, 1, 27, 16, 0),
+        StartTime: new Date(2025, 1, 27, 17, 0),
+        EndTime: new Date(2025, 1, 27, 18, 0),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -1935,8 +1977,8 @@ let events = [
         Id: 90,
         Title: 'Blockchain and Cryptocurrency Technologies',
         Subject: 'Introduction to Blockchain Technology',
-        StartTime: new Date(2025, 1, 27, 9, 0),
-        EndTime: new Date(2025, 1, 27, 10, 0),
+        StartTime: new Date(2025, 1, 27, 9, 30),
+        EndTime: new Date(2025, 1, 27, 10, 45),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -1957,8 +1999,8 @@ let events = [
         Id: 91,
         Title: 'Blockchain and Cryptocurrency Technologies',
         Subject: 'Smart Contracts and DApps',
-        StartTime: new Date(2025, 1, 27, 10, 0),
-        EndTime: new Date(2025, 1, 27, 11, 0),
+        StartTime: new Date(2025, 1, 27, 11, 0),
+        EndTime: new Date(2025, 1, 27, 12, 0),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -1979,8 +2021,8 @@ let events = [
         Id: 92,
         Title: 'Blockchain and Cryptocurrency Technologies',
         Subject: 'Cryptocurrency Mining and Consensus Algorithms',
-        StartTime: new Date(2025, 1, 27, 11, 0),
-        EndTime: new Date(2025, 1, 27, 12, 0),
+        StartTime: new Date(2025, 1, 27, 13, 0),
+        EndTime: new Date(2025, 1, 27, 14, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -2001,8 +2043,8 @@ let events = [
         Id: 93,
         Title: 'Blockchain and Cryptocurrency Technologies',
         Subject: 'Blockchain Use Cases Beyond Cryptocurrency',
-        StartTime: new Date(2025, 1, 27, 12, 0),
-        EndTime: new Date(2025, 1, 27, 13, 0),
+        StartTime: new Date(2025, 1, 27, 14, 30),
+        EndTime: new Date(2025, 1, 27, 15, 0),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -2020,26 +2062,11 @@ let events = [
         EventTags: ['Blockchain Use Cases', 'Tech Innovations', 'Industry Applications']
     },
     {
-        Id: 94,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 27, 13, 0),
-        EndTime: new Date(2025, 1, 27, 14, 0),
-        RoomId: 2,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for relaxation and networking.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 95,
         Title: 'Blockchain and Cryptocurrency Technologies',
         Subject: 'Blockchain Security and Privacy Concerns',
-        StartTime: new Date(2025, 1, 27, 14, 0),
-        EndTime: new Date(2025, 1, 27, 15, 0),
+        StartTime: new Date(2025, 1, 27, 15, 30),
+        EndTime: new Date(2025, 1, 27, 16, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -2060,8 +2087,8 @@ let events = [
         Id: 96,
         Title: 'Blockchain and Cryptocurrency Technologies',
         Subject: 'Future Trends in Blockchain and Cryptocurrency',
-        StartTime: new Date(2025, 1, 27, 15, 0),
-        EndTime: new Date(2025, 1, 27, 16, 0),
+        StartTime: new Date(2025, 1, 27, 16, 30),
+        EndTime: new Date(2025, 1, 27, 17, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -2084,7 +2111,7 @@ let events = [
         Id: 97,
         Title: 'Modern Web Development and Frameworks',
         Subject: 'Introduction to Web Development with React',
-        StartTime: new Date(2025, 1, 27, 9, 0),
+        StartTime: new Date(2025, 1, 27, 9, 15),
         EndTime: new Date(2025, 1, 27, 10, 0),
         RoomId: 3,
         Capacity: 100,
@@ -2128,8 +2155,8 @@ let events = [
         Id: 99,
         Title: 'Modern Web Development and Frameworks',
         Subject: 'Building Responsive UIs with CSS Grid and Flexbox',
-        StartTime: new Date(2025, 1, 27, 11, 0),
-        EndTime: new Date(2025, 1, 27, 12, 0),
+        StartTime: new Date(2025, 1, 27, 11, 30),
+        EndTime: new Date(2025, 1, 27, 12, 30),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -2150,8 +2177,8 @@ let events = [
         Id: 100,
         Title: 'Modern Web Development and Frameworks',
         Subject: 'Server-Side Rendering with Next.js',
-        StartTime: new Date(2025, 1, 27, 12, 0),
-        EndTime: new Date(2025, 1, 27, 13, 0),
+        StartTime: new Date(2025, 1, 27, 13, 30),
+        EndTime: new Date(2025, 1, 27, 15, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -2168,27 +2195,13 @@ let events = [
         EventLevel: 'Intermediate',
         EventTags: ['Next.js', 'Server-Side Rendering', 'React']
     },
-    {
-        Id: 101,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 27, 13, 0),
-        EndTime: new Date(2025, 1, 27, 14, 0),
-        RoomId: 3,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for relaxation and networking.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All levels',
-        EventTags: ['Break', 'Networking']
-    },
+    
     {
         Id: 102,
         Title: 'Modern Web Development and Frameworks',
         Subject: 'State Management with Redux',
-        StartTime: new Date(2025, 1, 27, 14, 0),
-        EndTime: new Date(2025, 1, 27, 15, 0),
+        StartTime: new Date(2025, 1, 27, 15, 30),
+        EndTime: new Date(2025, 1, 27, 16, 30),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -2209,8 +2222,8 @@ let events = [
         Id: 103,
         Title: 'Modern Web Development and Frameworks',
         Subject: 'JavaScript Performance Optimization Techniques',
-        StartTime: new Date(2025, 1, 27, 15, 0),
-        EndTime: new Date(2025, 1, 27, 16, 0),
+        StartTime: new Date(2025, 1, 27, 17, 0),
+        EndTime: new Date(2025, 1, 27, 18, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -2256,7 +2269,7 @@ let events = [
         Title: 'Cloud Infrastructure and Kubernetes',
         Subject: 'Introduction to Kubernetes and Containerization',
         StartTime: new Date(2025, 1, 27, 10, 0),
-        EndTime: new Date(2025, 1, 27, 11, 0),
+        EndTime: new Date(2025, 1, 27, 10, 45),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -2299,8 +2312,8 @@ let events = [
         Id: 107,
         Title: 'Cloud Infrastructure and Kubernetes',
         Subject: 'Scaling Applications in Kubernetes',
-        StartTime: new Date(2025, 1, 27, 12, 0),
-        EndTime: new Date(2025, 1, 27, 13, 0),
+        StartTime: new Date(2025, 1, 27, 13, 0),
+        EndTime: new Date(2025, 1, 27, 14, 0),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -2318,26 +2331,11 @@ let events = [
         EventTags: ['Scaling', 'Kubernetes', 'Cloud Infrastructure']
     },
     {
-        Id: 108,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 27, 13, 0),
-        EndTime: new Date(2025, 1, 27, 14, 0),
-        RoomId: 4,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for networking and relaxation.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All Levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 109,
         Title: 'Cloud Infrastructure and Kubernetes',
         Subject: 'Monitoring and Troubleshooting Kubernetes Applications',
-        StartTime: new Date(2025, 1, 27, 14, 0),
-        EndTime: new Date(2025, 1, 27, 15, 0),
+        StartTime: new Date(2025, 1, 27, 14, 30),
+        EndTime: new Date(2025, 1, 27, 15, 30),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -2358,8 +2356,8 @@ let events = [
         Id: 110,
         Title: 'Cloud Infrastructure and Kubernetes',
         Subject: 'Kubernetes Security Best Practices',
-        StartTime: new Date(2025, 1, 27, 15, 0),
-        EndTime: new Date(2025, 1, 27, 16, 0),
+        StartTime: new Date(2025, 1, 27, 16, 0),
+        EndTime: new Date(2025, 1, 27, 17, 15),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -2401,11 +2399,27 @@ let events = [
         EventTags: ['Machine Learning', 'Algorithms', 'Data Science']
     },
     {
+        Id: 93,
+        Title: 'Artificial Intelligence and Data Science',
+        Subject: 'Break',
+        StartTime: new Date(2025, 1, 28, 10,0),
+        EndTime: new Date(2025, 1, 28, 10, 30),
+        RoomId: 1,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'A short break for attendees to relax and network.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All Participants',
+        EventLevel: 'All Levels',
+        EventTags: []
+    },
+    {
         Id: 112,
         Title: 'Artificial Intelligence and Data Science',
         Subject: 'Deep Learning: Fundamentals and Applications',
-        StartTime: new Date(2025, 1, 28, 10, 0),
-        EndTime: new Date(2025, 1, 28, 11, 0),
+        StartTime: new Date(2025, 1, 28, 10, 30),
+        EndTime: new Date(2025, 1, 28, 11, 45),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -2426,8 +2440,8 @@ let events = [
         Id: 113,
         Title: 'Artificial Intelligence and Data Science',
         Subject: 'Natural Language Processing and Text Analytics',
-        StartTime: new Date(2025, 1, 28, 11, 0),
-        EndTime: new Date(2025, 1, 28, 12, 0),
+        StartTime: new Date(2025, 1, 28, 13, 0),
+        EndTime: new Date(2025, 1, 28, 14, 0),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -2448,8 +2462,8 @@ let events = [
         Id: 114,
         Title: 'Artificial Intelligence and Data Science',
         Subject: 'Computer Vision and Image Processing',
-        StartTime: new Date(2025, 1, 28, 12, 0),
-        EndTime: new Date(2025, 1, 28, 13, 0),
+        StartTime: new Date(2025, 1, 28, 14, 30),
+        EndTime: new Date(2025, 1, 28, 16, 0),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -2467,26 +2481,11 @@ let events = [
         EventTags: ['Computer Vision', 'AI', 'Image Processing']
     },
     {
-        Id: 115,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 28, 13, 0),
-        EndTime: new Date(2025, 1, 28, 14, 0),
-        RoomId: 1,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for networking and relaxation.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All Levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 116,
         Title: 'Artificial Intelligence and Data Science',
         Subject: 'AI in Healthcare: Opportunities and Challenges',
-        StartTime: new Date(2025, 1, 28, 14, 0),
-        EndTime: new Date(2025, 1, 28, 15, 0),
+        StartTime: new Date(2025, 1, 28, 16, 15),
+        EndTime: new Date(2025, 1, 28, 17, 0),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -2507,8 +2506,8 @@ let events = [
         Id: 117,
         Title: 'Artificial Intelligence and Data Science',
         Subject: 'AI in Autonomous Vehicles',
-        StartTime: new Date(2025, 1, 28, 15, 0),
-        EndTime: new Date(2025, 1, 28, 16, 0),
+        StartTime: new Date(2025, 1, 28, 17, 0),
+        EndTime: new Date(2025, 1, 28, 17, 45),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -2554,7 +2553,7 @@ let events = [
         Title: 'Cloud Computing and DevOps',
         Subject: 'Introduction to Kubernetes and Containerization',
         StartTime: new Date(2025, 1, 28, 10, 0),
-        EndTime: new Date(2025, 1, 28, 11, 0),
+        EndTime: new Date(2025, 1, 28, 10, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -2572,11 +2571,27 @@ let events = [
         EventTags: ['Kubernetes', 'Containerization', 'DevOps']
     },
     {
+        Id: 93,
+        Title: 'Cloud Computing and DevOps',
+        Subject: 'Break',
+        StartTime: new Date(2025, 1, 28, 10, 30),
+        EndTime: new Date(2025, 1, 28, 11, 0),
+        RoomId: 2,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'A short break for attendees to relax and network.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All Participants',
+        EventLevel: 'All Levels',
+        EventTags: ['Networking', 'Relax']
+    },
+    {
         Id: 120,
         Title: 'Cloud Computing and DevOps',
         Subject: 'CI/CD Pipelines with Jenkins and Kubernetes',
         StartTime: new Date(2025, 1, 28, 11, 0),
-        EndTime: new Date(2025, 1, 28, 12, 0),
+        EndTime: new Date(2025, 1, 28, 12, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -2594,11 +2609,27 @@ let events = [
         EventTags: ['CI/CD', 'Jenkins', 'Kubernetes']
     },
     {
+        Id: 122,
+        Title: 'Cloud Computing and DevOps',
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 1, 28, 12, 30),
+        EndTime: new Date(2025, 1, 28, 13, 30),
+        RoomId: 2,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
         Id: 121,
         Title: 'Cloud Computing and DevOps',
         Subject: 'Cloud Infrastructure Automation with Terraform',
-        StartTime: new Date(2025, 1, 28, 12, 0),
-        EndTime: new Date(2025, 1, 28, 13, 0),
+        StartTime: new Date(2025, 1, 28, 13, 30),
+        EndTime: new Date(2025, 1, 28, 14, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -2616,26 +2647,11 @@ let events = [
         EventTags: ['Terraform', 'Cloud Automation', 'Infrastructure as Code']
     },
     {
-        Id: 122,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 28, 13, 0),
-        EndTime: new Date(2025, 1, 28, 14, 0),
-        RoomId: 2,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for networking and relaxation.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All Levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 123,
         Title: 'Cloud Computing and DevOps',
         Subject: 'Serverless Architectures and Their Benefits',
-        StartTime: new Date(2025, 1, 28, 14, 0),
-        EndTime: new Date(2025, 1, 28, 15, 0),
+        StartTime: new Date(2025, 1, 28, 15, 0),
+        EndTime: new Date(2025, 1, 28, 16, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -2656,8 +2672,8 @@ let events = [
         Id: 124,
         Title: 'Cloud Computing and DevOps',
         Subject: 'Automating Infrastructure with Ansible',
-        StartTime: new Date(2025, 1, 28, 15, 0),
-        EndTime: new Date(2025, 1, 28, 16, 0),
+        StartTime: new Date(2025, 1, 28, 17, 0),
+        EndTime: new Date(2025, 1, 28, 17, 45),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -2702,8 +2718,8 @@ let events = [
         Id: 126,
         Title: 'Cloud Infrastructure and Security',
         Subject: 'Identity and Access Management in the Cloud',
-        StartTime: new Date(2025, 1, 28, 10, 0),
-        EndTime: new Date(2025, 1, 28, 11, 0),
+        StartTime: new Date(2025, 1, 28, 10, 15),
+        EndTime: new Date(2025, 1, 28, 11, 15),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -2724,7 +2740,7 @@ let events = [
         Id: 127,
         Title: 'Cloud Infrastructure and Security',
         Subject: 'Cloud Vulnerability Scanning and Remediation',
-        StartTime: new Date(2025, 1, 28, 11, 0),
+        StartTime: new Date(2025, 1, 28, 11, 15),
         EndTime: new Date(2025, 1, 28, 12, 0),
         RoomId: 3,
         Capacity: 100,
@@ -2746,8 +2762,8 @@ let events = [
         Id: 128,
         Title: 'Cloud Infrastructure and Security',
         Subject: 'Disaster Recovery and Business Continuity in Cloud',
-        StartTime: new Date(2025, 1, 28, 12, 0),
-        EndTime: new Date(2025, 1, 28, 13, 0),
+        StartTime: new Date(2025, 1, 28, 13, 0),
+        EndTime: new Date(2025, 1, 28, 14, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -2765,26 +2781,11 @@ let events = [
         EventTags: ['Disaster Recovery', 'Business Continuity', 'Cloud Security']
     },
     {
-        Id: 129,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 28, 13, 0),
-        EndTime: new Date(2025, 1, 28, 14, 0),
-        RoomId: 3,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for networking and relaxation.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All Levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 130,
         Title: 'Cloud Infrastructure and Security',
         Subject: 'Cloud Network Security',
-        StartTime: new Date(2025, 1, 28, 14, 0),
-        EndTime: new Date(2025, 1, 28, 15, 0),
+        StartTime: new Date(2025, 1, 28, 14, 30),
+        EndTime: new Date(2025, 1, 28, 16, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -2805,8 +2806,8 @@ let events = [
         Id: 131,
         Title: 'Cloud Infrastructure and Security',
         Subject: 'Zero Trust Security Model in Cloud Environments',
-        StartTime: new Date(2025, 1, 28, 15, 0),
-        EndTime: new Date(2025, 1, 28, 16, 0),
+        StartTime: new Date(2025, 1, 28, 16, 30),
+        EndTime: new Date(2025, 1, 28, 17, 30),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -2829,7 +2830,7 @@ let events = [
         Id: 132,
         Title: 'Networking and Cloud Infrastructure',
         Subject: 'Networking Fundamentals for Cloud Environments',
-        StartTime: new Date(2025, 1, 28, 9, 0),
+        StartTime: new Date(2025, 1, 28, 9, 30),
         EndTime: new Date(2025, 1, 28, 10, 0),
         RoomId: 4,
         Capacity: 100,
@@ -2873,8 +2874,8 @@ let events = [
         Id: 134,
         Title: 'Networking and Cloud Infrastructure',
         Subject: 'Virtualization and Network Function Virtualization (NFV)',
-        StartTime: new Date(2025, 1, 28, 11, 0),
-        EndTime: new Date(2025, 1, 28, 12, 0),
+        StartTime: new Date(2025, 1, 28, 11, 30),
+        EndTime: new Date(2025, 1, 28, 12, 30),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -2895,8 +2896,8 @@ let events = [
         Id: 135,
         Title: 'Networking and Cloud Infrastructure',
         Subject: 'Cloud Networking Services: AWS, GCP, Azure',
-        StartTime: new Date(2025, 1, 28, 12, 0),
-        EndTime: new Date(2025, 1, 28, 13, 0),
+        StartTime: new Date(2025, 1, 28, 13, 30),
+        EndTime: new Date(2025, 1, 28, 14, 30),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -2914,26 +2915,11 @@ let events = [
         EventTags: ['Cloud Networking', 'AWS', 'Azure', 'GCP']
     },
     {
-        Id: 136,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 1, 28, 13, 0),
-        EndTime: new Date(2025, 1, 28, 14, 0),
-        RoomId: 4,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for networking and relaxation.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All Levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 137,
         Title: 'Networking and Cloud Infrastructure',
         Subject: '5G Networks and Cloud Integration',
-        StartTime: new Date(2025, 1, 28, 14, 0),
-        EndTime: new Date(2025, 1, 28, 15, 0),
+        StartTime: new Date(2025, 1, 28, 15, 0),
+        EndTime: new Date(2025, 1, 28, 16, 0),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -2954,8 +2940,8 @@ let events = [
         Id: 138,
         Title: 'Networking and Cloud Infrastructure',
         Subject: 'Cloud Load Balancing and Scaling Networks',
-        StartTime: new Date(2025, 1, 28, 15, 0),
-        EndTime: new Date(2025, 1, 28, 16, 0),
+        StartTime: new Date(2025, 1, 28, 16, 30),
+        EndTime: new Date(2025, 1, 28, 17, 45),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -2979,7 +2965,7 @@ let events = [
         Title: 'Advanced Networking Techniques',
         Subject: 'BGP (Border Gateway Protocol) Fundamentals',
         StartTime: new Date(2025, 2, 1, 9, 0),
-        EndTime: new Date(2025, 2, 1, 10, 0),
+        EndTime: new Date(2025, 2, 1, 10, 30),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -3000,8 +2986,8 @@ let events = [
         Id: 140,
         Title: 'Advanced Networking Techniques',
         Subject: 'IPv6 Networking in the Cloud Era',
-        StartTime: new Date(2025, 2, 1, 10, 0),
-        EndTime: new Date(2025, 2, 1, 11, 0),
+        StartTime: new Date(2025, 2, 1, 11, 0),
+        EndTime: new Date(2025, 2, 1, 12, 0),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -3022,8 +3008,8 @@ let events = [
         Id: 141,
         Title: 'Advanced Networking Techniques',
         Subject: 'Software-Defined Networking (SDN) Architecture',
-        StartTime: new Date(2025, 2, 1, 11, 0),
-        EndTime: new Date(2025, 2, 1, 12, 0),
+        StartTime: new Date(2025, 2, 1, 12, 0),
+        EndTime: new Date(2025, 2, 1, 12, 30),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -3044,8 +3030,8 @@ let events = [
         Id: 142,
         Title: 'Advanced Networking Techniques',
         Subject: 'VLANs and Network Segmentation for Cloud Security',
-        StartTime: new Date(2025, 2, 1, 12, 0),
-        EndTime: new Date(2025, 2, 1, 13, 0),
+        StartTime: new Date(2025, 2, 1, 13, 30),
+        EndTime: new Date(2025, 2, 1, 15, 0),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -3062,27 +3048,13 @@ let events = [
         EventLevel: 'Intermediate',
         EventTags: ['VLAN', 'Network Security', 'Cloud']
     },
-    {
-        Id: 143,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 2, 1, 13, 0),
-        EndTime: new Date(2025, 2, 1, 14, 0),
-        RoomId: 1,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for networking and relaxation.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All Levels',
-        EventTags: ['Break', 'Networking']
-    },
+
     {
         Id: 144,
         Title: 'Advanced Networking Techniques',
         Subject: 'Network Automation with Ansible and Python',
-        StartTime: new Date(2025, 2, 1, 14, 0),
-        EndTime: new Date(2025, 2, 1, 15, 0),
+        StartTime: new Date(2025, 2, 1, 16, 0),
+        EndTime: new Date(2025, 2, 1, 16, 45),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -3103,8 +3075,8 @@ let events = [
         Id: 145,
         Title: 'Advanced Networking Techniques',
         Subject: 'Network Performance Monitoring in Cloud Environments',
-        StartTime: new Date(2025, 2, 1, 15, 0),
-        EndTime: new Date(2025, 2, 1, 16, 0),
+        StartTime: new Date(2025, 2, 1, 17, 0),
+        EndTime: new Date(2025, 2, 1, 18, 0),
         RoomId: 1,
         Capacity: 100,
         Speakers: [
@@ -3127,8 +3099,8 @@ let events = [
         Id: 146,
         Title: 'Cloud Infrastructure Optimization',
         Subject: 'Optimizing Cloud Storage Solutions',
-        StartTime: new Date(2025, 2, 1, 9, 0),
-        EndTime: new Date(2025, 2, 1, 10, 0),
+        StartTime: new Date(2025, 2, 1, 9, 30),
+        EndTime: new Date(2025, 2, 1, 10, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -3149,8 +3121,8 @@ let events = [
         Id: 147,
         Title: 'Cloud Infrastructure Optimization',
         Subject: 'Scaling Cloud Infrastructure with Auto-scaling Groups',
-        StartTime: new Date(2025, 2, 1, 10, 0),
-        EndTime: new Date(2025, 2, 1, 11, 0),
+        StartTime: new Date(2025, 2, 1, 10, 45),
+        EndTime: new Date(2025, 2, 1, 11, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -3171,8 +3143,8 @@ let events = [
         Id: 148,
         Title: 'Cloud Infrastructure Optimization',
         Subject: 'Cost Optimization in Cloud with Reserved Instances',
-        StartTime: new Date(2025, 2, 1, 11, 0),
-        EndTime: new Date(2025, 2, 1, 12, 0),
+        StartTime: new Date(2025, 2, 1, 11, 30),
+        EndTime: new Date(2025, 2, 1, 12, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -3193,8 +3165,8 @@ let events = [
         Id: 149,
         Title: 'Cloud Infrastructure Optimization',
         Subject: 'Managing Multi-Cloud Environments',
-        StartTime: new Date(2025, 2, 1, 12, 0),
-        EndTime: new Date(2025, 2, 1, 13, 0),
+        StartTime: new Date(2025, 2, 1, 13, 30),
+        EndTime: new Date(2025, 2, 1, 14, 0),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -3212,26 +3184,11 @@ let events = [
         EventTags: ['Multi-cloud', 'Cloud Management', 'Cloud Optimization']
     },
     {
-        Id: 150,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 2, 1, 13, 0),
-        EndTime: new Date(2025, 2, 1, 14, 0),
-        RoomId: 2,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for networking and relaxation.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All Levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 151,
         Title: 'Cloud Infrastructure Optimization',
         Subject: 'Optimizing Cloud Database Performance',
-        StartTime: new Date(2025, 2, 1, 14, 0),
-        EndTime: new Date(2025, 2, 1, 15, 0),
+        StartTime: new Date(2025, 2, 1, 14, 30),
+        EndTime: new Date(2025, 2, 1, 16, 30),
         RoomId: 2,
         Capacity: 100,
         Speakers: [
@@ -3255,7 +3212,7 @@ let events = [
         Title: 'Cloud Security and Privacy',
         Subject: 'Cloud Security Essentials: Protecting Your Data in the Cloud',
         StartTime: new Date(2025, 2, 1, 9, 0),
-        EndTime: new Date(2025, 2, 1, 10, 0),
+        EndTime: new Date(2025, 2, 1, 10, 15),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -3276,8 +3233,8 @@ let events = [
         Id: 153,
         Title: 'Cloud Security and Privacy',
         Subject: 'Implementing Identity and Access Management in Cloud',
-        StartTime: new Date(2025, 2, 1, 10, 0),
-        EndTime: new Date(2025, 2, 1, 11, 0),
+        StartTime: new Date(2025, 2, 1, 10, 30),
+        EndTime: new Date(2025, 2, 1, 11, 15),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -3298,7 +3255,7 @@ let events = [
         Id: 154,
         Title: 'Cloud Security and Privacy',
         Subject: 'Securing Cloud-Based APIs and Microservices',
-        StartTime: new Date(2025, 2, 1, 11, 0),
+        StartTime: new Date(2025, 2, 1, 11, 15),
         EndTime: new Date(2025, 2, 1, 12, 0),
         RoomId: 3,
         Capacity: 100,
@@ -3317,11 +3274,27 @@ let events = [
         EventTags: ['API Security', 'Microservices', 'Cloud Security']
     },
     {
+        Id: 156,
+        Title: 'Cloud Security and Privacy',
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 2, 1, 12, 0),
+        EndTime: new Date(2025, 2, 1, 13, 0),
+        RoomId: 3,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
         Id: 155,
         Title: 'Cloud Security and Privacy',
         Subject: 'Understanding Cloud Compliance and Regulatory Requirements',
-        StartTime: new Date(2025, 2, 1, 12, 0),
-        EndTime: new Date(2025, 2, 1, 13, 0),
+        StartTime: new Date(2025, 2, 1, 13, 0),
+        EndTime: new Date(2025, 2, 1, 14, 30),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -3339,26 +3312,11 @@ let events = [
         EventTags: ['Compliance', 'Cloud Security', 'Regulatory Requirements']
     },
     {
-        Id: 156,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 2, 1, 13, 0),
-        EndTime: new Date(2025, 2, 1, 14, 0),
-        RoomId: 3,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for networking and relaxation.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All Levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 157,
         Title: 'Cloud Security and Privacy',
         Subject: 'Incident Response in Cloud Environments',
-        StartTime: new Date(2025, 2, 1, 14, 0),
-        EndTime: new Date(2025, 2, 1, 15, 0),
+        StartTime: new Date(2025, 2, 1, 15, 0),
+        EndTime: new Date(2025, 2, 1, 16, 15),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -3379,8 +3337,8 @@ let events = [
         Id: 158,
         Title: 'Cloud Security and Privacy',
         Subject: 'Advanced Cloud Encryption Techniques',
-        StartTime: new Date(2025, 2, 1, 15, 0),
-        EndTime: new Date(2025, 2, 1, 16, 0),
+        StartTime: new Date(2025, 2, 1, 17, 0),
+        EndTime: new Date(2025, 2, 1, 17, 45),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
@@ -3404,7 +3362,7 @@ let events = [
         Title: 'Cloud DevOps and Automation',
         Subject: 'Introduction to DevOps in Cloud Environments',
         StartTime: new Date(2025, 2, 1, 9, 0),
-        EndTime: new Date(2025, 2, 1, 10, 0),
+        EndTime: new Date(2025, 2, 1, 9, 45),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -3425,8 +3383,8 @@ let events = [
         Id: 160,
         Title: 'Cloud DevOps and Automation',
         Subject: 'Automating Cloud Deployments with Infrastructure as Code (IaC)',
-        StartTime: new Date(2025, 2, 1, 10, 0),
-        EndTime: new Date(2025, 2, 1, 11, 0),
+        StartTime: new Date(2025, 2, 1, 9, 45),
+        EndTime: new Date(2025, 2, 1, 10, 15),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -3444,10 +3402,26 @@ let events = [
         EventTags: ['IaC', 'Cloud Automation', 'Terraform']
     },
     {
+        Id: 93,
+        Title: 'Cloud DevOps and Automation',
+        Subject: 'Break',
+        StartTime: new Date(2025, 2, 1, 10, 15),
+        EndTime: new Date(2025, 2, 1, 10, 45),
+        RoomId: 4,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'A short break for attendees to relax and network.',
+        Duration: '30 minutes',
+        EventType: 'Break',
+        TargetAudience: 'All Participants',
+        EventLevel: 'All Levels',
+        EventTags: ['Networking', 'Relax']
+    },
+    {
         Id: 161,
         Title: 'Cloud DevOps and Automation',
         Subject: 'Continuous Integration and Delivery (CI/CD) for Cloud Applications',
-        StartTime: new Date(2025, 2, 1, 11, 0),
+        StartTime: new Date(2025, 2, 1, 10, 45),
         EndTime: new Date(2025, 2, 1, 12, 0),
         RoomId: 4,
         Capacity: 100,
@@ -3466,11 +3440,27 @@ let events = [
         EventTags: ['CI/CD', 'Cloud Applications', 'DevOps']
     },
     {
+        Id: 163,
+        Title: 'Cloud DevOps and Automation',
+        Subject: 'Lunch Break',
+        StartTime: new Date(2025, 2, 1, 12, 0),
+        EndTime: new Date(2025, 2, 1, 13, 0),
+        RoomId: 4,
+        Capacity: 0,
+        Speakers: [],
+        Description: 'Lunch break for networking and relaxation.',
+        Duration: '1 hour',
+        EventType: 'Break',
+        TargetAudience: 'All Attendees',
+        EventLevel: 'All Levels',
+        EventTags: ['Break', 'Networking']
+    },
+    {
         Id: 162,
         Title: 'Cloud DevOps and Automation',
         Subject: 'Serverless Architectures and Automation in the Cloud',
-        StartTime: new Date(2025, 2, 1, 12, 0),
-        EndTime: new Date(2025, 2, 1, 13, 0),
+        StartTime: new Date(2025, 2, 1, 13, 0),
+        EndTime: new Date(2025, 2, 1, 14, 30),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -3488,26 +3478,11 @@ let events = [
         EventTags: ['Serverless', 'Cloud Automation', 'DevOps']
     },
     {
-        Id: 163,
-        Subject: 'Lunch Break',
-        StartTime: new Date(2025, 2, 1, 13, 0),
-        EndTime: new Date(2025, 2, 1, 14, 0),
-        RoomId: 4,
-        Capacity: 0,
-        Speakers: [],
-        Description: 'Lunch break for networking and relaxation.',
-        Duration: '1 hour',
-        EventType: 'Break',
-        TargetAudience: 'All Attendees',
-        EventLevel: 'All Levels',
-        EventTags: ['Break', 'Networking']
-    },
-    {
         Id: 164,
         Title: 'Cloud DevOps and Automation',
         Subject: 'Monitoring and Logging for Cloud Infrastructure',
-        StartTime: new Date(2025, 2, 1, 14, 0),
-        EndTime: new Date(2025, 2, 1, 15, 0),
+        StartTime: new Date(2025, 2, 1, 15, 0),
+        EndTime: new Date(2025, 2, 1, 17, 0),
         RoomId: 4,
         Capacity: 100,
         Speakers: [
@@ -4097,6 +4072,12 @@ const App = () => {
         location: { name: 'Title', title: 'Event Title' }
     };
 
+    let cellTarget;
+
+    const onPopupOpen = (args) => {
+        cellTarget = args.target;
+    }
+
     const onPopupClose = (args) => {
         if (args.type === 'Editor' && args.event.target.textContent === 'Save') {
             let roomId = args.data.RoomId;
@@ -4314,13 +4295,6 @@ const App = () => {
     };
 
 
-    const onPopupOpen = (args) => {
-        // if (args.target && !args.target.classList.contains('e-appointment') && !isNullOrUndefined(titleObj) && !isNullOrUndefined(titleObj.current)) {
-        //     titleObj.current.focusIn();
-        // }
-    }
-
-
     const getResourceData = (data) => {
         const resources = scheduleObj.current.getResourceCollections().slice(-1)[0];
         const resourceData = (resources.dataSource).filter((resource) => resource.RoomId === data.RoomId)[0];
@@ -4349,9 +4323,14 @@ const App = () => {
 
     const buttonClickActions = (e) => {
         const eventDetails = scheduleObj.current.activeEventData.event;
+        const addObj = {};
         const quickPopup = closest(e.target, '.e-quick-popup-wrapper');
-        const getSlotData = () => {
-            const addObj = {};
+        const isCellPopup = quickPopup.firstElementChild.classList.contains('e-cell-popup');
+        if (isCellPopup) {
+            let cellData = scheduleObj.current.getCellDetails(cellTarget);
+            let resourceDetails = scheduleObj.current.getResourcesByIndex(cellData.groupIndex);
+            let roomId = resourceDetails.resourceData.RoomId;
+
             addObj.Id = scheduleObj.current.getEventMaxID();
             addObj.Subject = isNullOrUndefined(topicObj.current.value) ? '' : topicObj.current.value;
             addObj.StartTime = new Date(scheduleObj.current.activeCellsData.startTime);
@@ -4359,11 +4338,9 @@ const App = () => {
             addObj.IsAllDay = scheduleObj.current.activeCellsData.isAllDay;
             addObj.Capacity = isNullOrUndefined(capacityObj.current.value) ? 'Add notes' : capacityObj.current.value;
             addObj.Title = isNullOrUndefined(titleObj.current.value) ? '' : titleObj.current.value;
-            addObj.RoomId = 1;
-            return addObj;
-        };
+            addObj.RoomId = roomId;
+        }
         if (e.target.id === 'add') {
-            const addObj = getSlotData();
             scheduleObj.current.addEvent(addObj);
         } else if (e.target.id === 'delete') {
             let currentAction = 'Delete';
@@ -4373,8 +4350,7 @@ const App = () => {
             scheduleObj.current.deleteEvent(eventDetails, currentAction);
         }
         else {
-            const isCellPopup = quickPopup.firstElementChild.classList.contains('e-cell-popup');
-            const eventDetails = isCellPopup ? getSlotData() : scheduleObj.current.activeEventData.event;
+            const eventDetails = isCellPopup ? addObj : scheduleObj.current.activeEventData.event;
             let currentAction = isCellPopup ? 'Add' : 'Save';
             if (eventDetails.RecurrenceRule) {
                 currentAction = 'EditOccurrence';
@@ -4516,6 +4492,7 @@ const App = () => {
                         eventRendered={onEventRendered}
                         dragStop={onDragStop}
                         popupClose={onPopupClose}
+                        
                         quickInfoTemplates={{ header: headerTemplate.bind(this), content: contentTemplate.bind(this), footer: footerTemplate.bind(this) }} popupOpen={onPopupOpen.bind(this)}
 
                     >
