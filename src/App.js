@@ -33,10 +33,10 @@ let events = [
         RoomId: 1,
         Capacity: 110,
         Speakers: [
-            { 
-                name: 'Liam Johnson', 
-                title: 'AI Specialist', 
-                note: 'Exploring how AI is transforming business processes and increasing efficiency.' 
+            {
+                name: 'Liam Johnson',
+                title: 'AI Specialist',
+                note: 'Exploring how AI is transforming business processes and increasing efficiency.'
             }
         ],
         Description: 'Overview of AI and how it’s transforming business operations, enhancing productivity, and driving innovation.',
@@ -71,10 +71,10 @@ let events = [
         RoomId: 1,
         Capacity: 110,
         Speakers: [
-            { 
-                name: 'Liam Johnson', 
-                title: 'AI Specialist', 
-                note: 'How AI and machine learning enhance business intelligence tools for smarter decision-making.' 
+            {
+                name: 'Liam Johnson',
+                title: 'AI Specialist',
+                note: 'How AI and machine learning enhance business intelligence tools for smarter decision-making.'
             }
         ],
         Description: 'How AI and machine learning enhance business intelligence tools to make better, more data-driven decisions.',
@@ -93,10 +93,10 @@ let events = [
         RoomId: 1,
         Capacity: 110,
         Speakers: [
-            { 
-                name: 'Liam Johnson', 
-                title: 'AI Specialist', 
-                note: 'A deep dive into real-world applications of AI-powered automation in various industries.' 
+            {
+                name: 'Liam Johnson',
+                title: 'AI Specialist',
+                note: 'A deep dive into real-world applications of AI-powered automation in various industries.'
             }
         ],
         Description: 'Exploring real-world applications of AI-powered automation in various sectors, including customer service, logistics, and marketing.',
@@ -131,15 +131,15 @@ let events = [
         RoomId: 1,
         Capacity: 110,
         Speakers: [
-            { 
-                name: 'Liam Johnson', 
-                title: 'AI Specialist', 
-                note: 'Using AI to create personalized customer experiences through targeted recommendations and services.' 
+            {
+                name: 'Liam Johnson',
+                title: 'AI Specialist',
+                note: 'Using AI to create personalized customer experiences through targeted recommendations and services.'
             },
-            { 
-                name: 'Sophia Collins', 
-                title: 'Customer Experience Strategist', 
-                note: 'Specializing in integrating AI for enhancing customer engagement and building personalized journeys.' 
+            {
+                name: 'Sophia Collins',
+                title: 'Customer Experience Strategist',
+                note: 'Specializing in integrating AI for enhancing customer engagement and building personalized journeys.'
             }
         ],
         Description: 'Discussing the application of AI in creating personalized customer experiences, such as product recommendations and tailored content.',
@@ -174,10 +174,10 @@ let events = [
         RoomId: 1,
         Capacity: 110,
         Speakers: [
-            { 
-                name: 'Liam Johnson', 
-                title: 'AI Specialist', 
-                note: 'A deep dive into real-world applications of AI-powered automation in various industries.' 
+            {
+                name: 'Liam Johnson',
+                title: 'AI Specialist',
+                note: 'A deep dive into real-world applications of AI-powered automation in various industries.'
             }
         ],
         Description: 'Exploring real-world applications of AI-powered automation in various sectors, including customer service, logistics, and marketing.',
@@ -196,14 +196,14 @@ let events = [
         RoomId: 1,
         Capacity: 110,
         Speakers: [
-            { 
-                name: 'Liam Johnson', 
-                title: 'AI Specialist', 
-                note: 'Industry experts discuss the next big steps for AI technologies in business automation and upcoming trends.' 
+            {
+                name: 'Liam Johnson',
+                title: 'AI Specialist',
+                note: 'Industry experts discuss the next big steps for AI technologies in business automation and upcoming trends.'
             },
-            { 
-                name: 'Sophia Collins', 
-                title: 'Machine Learning Expert', 
+            {
+                name: 'Sophia Collins',
+                title: 'Machine Learning Expert',
                 note: 'Insights into the future impact of AI on industries such as retail, healthcare, and logistics.'
             }
         ],
@@ -226,10 +226,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'James White', 
-                title: 'Database Expert', 
-                note: 'Understanding the foundations of relational databases and their role in business.' 
+            {
+                name: 'James White',
+                title: 'Database Expert',
+                note: 'Understanding the foundations of relational databases and their role in business.'
             }
         ],
         Description: 'This session will introduce the fundamentals of relational databases and how they’re applied in modern enterprises.',
@@ -248,10 +248,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'James White', 
-                title: 'Database Expert', 
-                note: 'Techniques and strategies for improving the performance of SQL queries in large databases.' 
+            {
+                name: 'James White',
+                title: 'Database Expert',
+                note: 'Techniques and strategies for improving the performance of SQL queries in large databases.'
             }
         ],
         Description: 'In this session, we will dive into SQL query optimization strategies to enhance database performance.',
@@ -270,10 +270,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Green', 
-                title: 'Security Analyst', 
-                note: 'Exploring best practices for securing databases and ensuring the protection of sensitive data.' 
+            {
+                name: 'Sophia Green',
+                title: 'Security Analyst',
+                note: 'Exploring best practices for securing databases and ensuring the protection of sensitive data.'
             }
         ],
         Description: 'Learn the best practices for securing databases, including encryption, access control, and backup strategies.',
@@ -292,10 +292,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'James White', 
-                title: 'Database Expert', 
-                note: 'Exploring next-generation database architectures, including NoSQL and distributed databases.' 
+            {
+                name: 'James White',
+                title: 'Database Expert',
+                note: 'Exploring next-generation database architectures, including NoSQL and distributed databases.'
             }
         ],
         Description: 'A deep dive into the most advanced database architectures and how they are being applied in the modern world.',
@@ -314,10 +314,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Green', 
-                title: 'Database Administrator', 
-                note: 'Techniques and tools for troubleshooting database performance issues in a live environment.' 
+            {
+                name: 'Sophia Green',
+                title: 'Database Administrator',
+                note: 'Techniques and tools for troubleshooting database performance issues in a live environment.'
             }
         ],
         Description: 'Learn to troubleshoot and monitor databases effectively, ensuring seamless database performance.',
@@ -351,15 +351,15 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'James White', 
-                title: 'Database Expert', 
-                note: 'A panel discussion featuring experts in database technology and their visions of the future of databases.' 
+            {
+                name: 'James White',
+                title: 'Database Expert',
+                note: 'A panel discussion featuring experts in database technology and their visions of the future of databases.'
             },
-            { 
-                name: 'Sophia Green', 
-                title: 'Security Analyst', 
-                note: 'Security concerns and the next wave of database technology.' 
+            {
+                name: 'Sophia Green',
+                title: 'Security Analyst',
+                note: 'Security concerns and the next wave of database technology.'
             }
         ],
         Description: 'Panel discussion exploring emerging trends, new database technologies, and the future of data management.',
@@ -380,10 +380,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ella Roberts', 
-                title: 'Tech Networking Specialist', 
-                note: 'Strategies for building meaningful professional relationships within the technology industry.' 
+            {
+                name: 'Ella Roberts',
+                title: 'Tech Networking Specialist',
+                note: 'Strategies for building meaningful professional relationships within the technology industry.'
             }
         ],
         Description: 'This session covers effective strategies for building a professional network in the tech industry.',
@@ -402,10 +402,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ella Roberts', 
-                title: 'Tech Networking Specialist', 
-                note: 'Learn how to use LinkedIn to connect with professionals and enhance career opportunities.' 
+            {
+                name: 'Ella Roberts',
+                title: 'Tech Networking Specialist',
+                note: 'Learn how to use LinkedIn to connect with professionals and enhance career opportunities.'
             }
         ],
         Description: 'A session focused on utilizing LinkedIn to build a strong professional network and increase career opportunities.',
@@ -424,10 +424,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ella Roberts', 
-                title: 'Tech Networking Specialist', 
-                note: 'Practical advice on making meaningful connections at conferences and tech meetups.' 
+            {
+                name: 'Ella Roberts',
+                title: 'Tech Networking Specialist',
+                note: 'Practical advice on making meaningful connections at conferences and tech meetups.'
             }
         ],
         Description: 'Tech professionals will learn how to make lasting connections while attending conferences and meetups.',
@@ -441,15 +441,15 @@ let events = [
         Id: 21,
         Title: 'Networking Strategies for Tech Professionals',
         Subject: 'Building an Online Presence for Career Growth',
-        StartTime: new Date(2025, 1, 24, 16, 0),
-        EndTime: new Date(2025, 1, 24, 17, 15),
+        StartTime: new Date(2025, 1, 24, 15, 0),
+        EndTime: new Date(2025, 1, 24, 17, 0),
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ella Roberts', 
-                title: 'Tech Networking Specialist', 
-                note: 'Learn how to build and leverage an online presence to boost your career in the tech industry.' 
+            {
+                name: 'Ella Roberts',
+                title: 'Tech Networking Specialist',
+                note: 'Learn how to build and leverage an online presence to boost your career in the tech industry.'
             }
         ],
         Description: 'Building an online presence is key to career growth in tech. This session will teach participants how to do it effectively.',
@@ -471,10 +471,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'David Miller', 
-                title: 'Cloud Architect', 
-                note: 'Exploring the fundamentals of cloud computing and its impact on business and technology.' 
+            {
+                name: 'David Miller',
+                title: 'Cloud Architect',
+                note: 'Exploring the fundamentals of cloud computing and its impact on business and technology.'
             }
         ],
         Description: 'This session provides an introduction to cloud computing, its advantages, and the different cloud service models.',
@@ -493,10 +493,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'David Miller', 
-                title: 'Cloud Architect', 
-                note: 'Guidelines for selecting the right cloud provider based on business needs and scalability.' 
+            {
+                name: 'David Miller',
+                title: 'Cloud Architect',
+                note: 'Guidelines for selecting the right cloud provider based on business needs and scalability.'
             }
         ],
         Description: 'This session will help you evaluate cloud providers and choose the best option for your organization.',
@@ -515,10 +515,10 @@ let events = [
         RoomId: 4,
         Capacity: 90,
         Speakers: [
-            { 
-                name: 'Emily Walker', 
-                title: 'Cloud Solutions Architect', 
-                note: 'Learn how to design and deploy scalable cloud infrastructures for modern applications.' 
+            {
+                name: 'Emily Walker',
+                title: 'Cloud Solutions Architect',
+                note: 'Learn how to design and deploy scalable cloud infrastructures for modern applications.'
             }
         ],
         Description: 'In this session, you will learn best practices for building scalable and resilient cloud architectures.',
@@ -552,10 +552,10 @@ let events = [
         RoomId: 4,
         Capacity: 90,
         Speakers: [
-            { 
-                name: 'Michael Davis', 
-                title: 'Cloud Security Specialist', 
-                note: 'Learn the best security practices for ensuring the safety of your data in the cloud.' 
+            {
+                name: 'Michael Davis',
+                title: 'Cloud Security Specialist',
+                note: 'Learn the best security practices for ensuring the safety of your data in the cloud.'
             }
         ],
         Description: 'This session covers cloud security strategies, focusing on protecting your data and maintaining compliance.',
@@ -574,10 +574,10 @@ let events = [
         RoomId: 4,
         Capacity: 90,
         Speakers: [
-            { 
-                name: 'Sarah Lee', 
-                title: 'Cloud-Native Expert', 
-                note: 'Exploring how containerization technologies like Docker and Kubernetes are transforming cloud-native applications.' 
+            {
+                name: 'Sarah Lee',
+                title: 'Cloud-Native Expert',
+                note: 'Exploring how containerization technologies like Docker and Kubernetes are transforming cloud-native applications.'
             }
         ],
         Description: 'This session will dive into the world of containerization and its application in cloud-native environments.',
@@ -596,15 +596,15 @@ let events = [
         RoomId: 4,
         Capacity: 80,
         Speakers: [
-            { 
-                name: 'David Miller', 
-                title: 'Cloud Architect', 
-                note: 'Industry leaders discuss the future of cloud computing, new trends, and emerging technologies.' 
+            {
+                name: 'David Miller',
+                title: 'Cloud Architect',
+                note: 'Industry leaders discuss the future of cloud computing, new trends, and emerging technologies.'
             },
-            { 
-                name: 'Emily Walker', 
-                title: 'Cloud Solutions Architect', 
-                note: 'Insights into the evolving role of cloud computing in the modern tech landscape.' 
+            {
+                name: 'Emily Walker',
+                title: 'Cloud Solutions Architect',
+                note: 'Insights into the evolving role of cloud computing in the modern tech landscape.'
             }
         ],
         Description: 'A panel of cloud computing experts will discuss the future of cloud architecture, emerging trends, and upcoming challenges.',
@@ -625,10 +625,10 @@ let events = [
         RoomId: 1,
         Capacity: 90,
         Speakers: [
-            { 
-                name: 'John Carter', 
-                title: 'DevOps Engineer', 
-                note: 'Understanding the key principles of DevOps and how it helps streamline software development processes.' 
+            {
+                name: 'John Carter',
+                title: 'DevOps Engineer',
+                note: 'Understanding the key principles of DevOps and how it helps streamline software development processes.'
             }
         ],
         Description: 'This session introduces the core principles of DevOps, including continuous integration and continuous delivery.',
@@ -647,10 +647,10 @@ let events = [
         RoomId: 1,
         Capacity: 80,
         Speakers: [
-            { 
-                name: 'John Carter', 
-                title: 'DevOps Engineer', 
-                note: 'Learn how to set up automated CI/CD pipelines using Jenkins for streamlined software deployment.' 
+            {
+                name: 'John Carter',
+                title: 'DevOps Engineer',
+                note: 'Learn how to set up automated CI/CD pipelines using Jenkins for streamlined software deployment.'
             }
         ],
         Description: 'In this session, we’ll walk through the process of setting up and automating CI/CD pipelines using Jenkins.',
@@ -669,10 +669,10 @@ let events = [
         RoomId: 1,
         Capacity: 70,
         Speakers: [
-            { 
-                name: 'Emily Carter', 
-                title: 'Senior DevOps Engineer', 
-                note: 'Explore strategies for scaling DevOps practices across larger teams and enterprises.' 
+            {
+                name: 'Emily Carter',
+                title: 'Senior DevOps Engineer',
+                note: 'Explore strategies for scaling DevOps practices across larger teams and enterprises.'
             }
         ],
         Description: 'This session will cover strategies to scale DevOps practices in large organizations, ensuring smoother workflows and faster deployment.',
@@ -691,10 +691,10 @@ let events = [
         RoomId: 1,
         Capacity: 90,
         Speakers: [
-            { 
-                name: 'John Carter', 
-                title: 'DevOps Engineer', 
-                note: 'Advanced techniques in automating CI/CD processes, including blue/green deployments.' 
+            {
+                name: 'John Carter',
+                title: 'DevOps Engineer',
+                note: 'Advanced techniques in automating CI/CD processes, including blue/green deployments.'
             }
         ],
         Description: 'This session will focus on advanced CI/CD automation strategies, including advanced Jenkins features, blue/green deployment strategies, and more.',
@@ -715,10 +715,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ethan Walker', 
-                title: 'Cybersecurity Specialist', 
-                note: 'Overview of cybersecurity concepts and its significance in modern IT infrastructure.' 
+            {
+                name: 'Ethan Walker',
+                title: 'Cybersecurity Specialist',
+                note: 'Overview of cybersecurity concepts and its significance in modern IT infrastructure.'
             }
         ],
         Description: 'Introduction to cybersecurity threats and their impact on modern IT infrastructure.',
@@ -737,10 +737,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ethan Walker', 
-                title: 'Cybersecurity Specialist', 
-                note: 'Exploring the most common network security threats and how to protect your infrastructure.' 
+            {
+                name: 'Ethan Walker',
+                title: 'Cybersecurity Specialist',
+                note: 'Exploring the most common network security threats and how to protect your infrastructure.'
             }
         ],
         Description: 'An in-depth session on network security, common threats, and methods for protecting your infrastructure.',
@@ -775,10 +775,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Olivia Scott', 
-                title: 'Network Security Expert', 
-                note: 'How to configure and manage firewalls and intrusion detection systems to safeguard your network.' 
+            {
+                name: 'Olivia Scott',
+                title: 'Network Security Expert',
+                note: 'How to configure and manage firewalls and intrusion detection systems to safeguard your network.'
             }
         ],
         Description: 'Techniques for configuring firewalls and intrusion detection systems (IDS) to prevent network attacks.',
@@ -797,10 +797,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Olivia Scott', 
-                title: 'Network Security Expert', 
-                note: 'Exploring encryption techniques and how they are used to protect sensitive data.' 
+            {
+                name: 'Olivia Scott',
+                title: 'Network Security Expert',
+                note: 'Exploring encryption techniques and how they are used to protect sensitive data.'
             }
         ],
         Description: 'An overview of encryption protocols and strategies to protect sensitive information across networks.',
@@ -819,10 +819,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ethan Walker', 
-                title: 'Cybersecurity Specialist', 
-                note: 'Best practices for securing cloud environments against cyber threats.' 
+            {
+                name: 'Ethan Walker',
+                title: 'Cybersecurity Specialist',
+                note: 'Best practices for securing cloud environments against cyber threats.'
             }
         ],
         Description: 'Learn cloud security best practices and how to ensure the security of your data and applications in the cloud.',
@@ -857,10 +857,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Olivia Scott', 
-                title: 'Network Security Expert', 
-                note: 'Discussing incident response strategies and recovery techniques in the event of a cyberattack.' 
+            {
+                name: 'Olivia Scott',
+                title: 'Network Security Expert',
+                note: 'Discussing incident response strategies and recovery techniques in the event of a cyberattack.'
             }
         ],
         Description: 'Techniques and strategies for responding to cybersecurity incidents and recovering from data breaches and attacks.',
@@ -879,15 +879,15 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ethan Walker', 
-                title: 'Cybersecurity Specialist', 
-                note: 'Experts discuss the evolving landscape of cybersecurity and the technologies shaping the future.' 
+            {
+                name: 'Ethan Walker',
+                title: 'Cybersecurity Specialist',
+                note: 'Experts discuss the evolving landscape of cybersecurity and the technologies shaping the future.'
             },
-            { 
-                name: 'Olivia Scott', 
-                title: 'Network Security Expert', 
-                note: 'Insights into the future of cybersecurity with new technologies and upcoming challenges.' 
+            {
+                name: 'Olivia Scott',
+                title: 'Network Security Expert',
+                note: 'Insights into the future of cybersecurity with new technologies and upcoming challenges.'
             }
         ],
         Description: 'Industry experts discuss the next steps for cybersecurity as it continues to evolve in the face of new threats and technologies.',
@@ -908,10 +908,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ava Parker', 
-                title: 'Data Scientist', 
-                note: 'Learn the fundamentals of data science and its role in modern industries.' 
+            {
+                name: 'Ava Parker',
+                title: 'Data Scientist',
+                note: 'Learn the fundamentals of data science and its role in modern industries.'
             }
         ],
         Description: 'Introduction to the principles of data science, including data collection, cleaning, and basic analysis techniques.',
@@ -930,10 +930,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ava Parker', 
-                title: 'Data Scientist', 
-                note: 'A closer look at common machine learning algorithms such as linear regression, classification, and clustering.' 
+            {
+                name: 'Ava Parker',
+                title: 'Data Scientist',
+                note: 'A closer look at common machine learning algorithms such as linear regression, classification, and clustering.'
             }
         ],
         Description: 'A session focused on understanding machine learning algorithms, including their applications and use cases.',
@@ -952,10 +952,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Liam Brown', 
-                title: 'AI Engineer', 
-                note: 'Deep dive into the differences and applications of supervised and unsupervised machine learning models.' 
+            {
+                name: 'Liam Brown',
+                title: 'AI Engineer',
+                note: 'Deep dive into the differences and applications of supervised and unsupervised machine learning models.'
             }
         ],
         Description: 'Understanding the fundamental differences between supervised and unsupervised learning and when to use each.',
@@ -974,10 +974,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Liam Brown', 
-                title: 'AI Engineer', 
-                note: 'Introduction to deep learning, neural networks, and their applications.' 
+            {
+                name: 'Liam Brown',
+                title: 'AI Engineer',
+                note: 'Introduction to deep learning, neural networks, and their applications.'
             }
         ],
         Description: 'A primer on deep learning techniques, including an overview of neural networks, CNNs, and RNNs.',
@@ -1012,10 +1012,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ava Parker', 
-                title: 'Data Scientist', 
-                note: 'How to evaluate machine learning models and improve performance.' 
+            {
+                name: 'Ava Parker',
+                title: 'Data Scientist',
+                note: 'How to evaluate machine learning models and improve performance.'
             }
         ],
         Description: 'Exploring techniques for evaluating and tuning machine learning models to improve their accuracy.',
@@ -1034,10 +1034,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ava Parker', 
-                title: 'Data Scientist', 
-                note: 'Discussing the ethical challenges and responsibilities when working with data.' 
+            {
+                name: 'Ava Parker',
+                title: 'Data Scientist',
+                note: 'Discussing the ethical challenges and responsibilities when working with data.'
             }
         ],
         Description: 'A session dedicated to exploring the ethical implications of data science and machine learning applications.',
@@ -1058,10 +1058,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Henry Clarke', 
-                title: 'Blockchain Expert', 
-                note: 'An introduction to the basics of blockchain technology and how it revolutionizes industries.' 
+            {
+                name: 'Henry Clarke',
+                title: 'Blockchain Expert',
+                note: 'An introduction to the basics of blockchain technology and how it revolutionizes industries.'
             }
         ],
         Description: 'Understanding blockchain fundamentals, its architecture, and how it underpins cryptocurrency systems.',
@@ -1080,10 +1080,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Mitchell', 
-                title: 'Cryptocurrency Expert', 
-                note: 'A deep dive into Bitcoin and its place in the cryptocurrency ecosystem.' 
+            {
+                name: 'Sophia Mitchell',
+                title: 'Cryptocurrency Expert',
+                note: 'A deep dive into Bitcoin and its place in the cryptocurrency ecosystem.'
             }
         ],
         Description: 'Exploring the fundamentals of cryptocurrencies, with a special focus on Bitcoin, and how it’s used in digital transactions.',
@@ -1118,10 +1118,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Henry Clarke', 
-                title: 'Blockchain Expert', 
-                note: 'Exploring decentralization and various consensus algorithms like PoW, PoS, and more.' 
+            {
+                name: 'Henry Clarke',
+                title: 'Blockchain Expert',
+                note: 'Exploring decentralization and various consensus algorithms like PoW, PoS, and more.'
             }
         ],
         Description: 'Understanding the importance of decentralization and learning about consensus algorithms used in blockchain networks.',
@@ -1156,10 +1156,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Mitchell', 
-                title: 'Cryptocurrency Expert', 
-                note: 'Exploring smart contracts, decentralized applications (DApps), and how they operate on blockchain platforms.' 
+            {
+                name: 'Sophia Mitchell',
+                title: 'Cryptocurrency Expert',
+                note: 'Exploring smart contracts, decentralized applications (DApps), and how they operate on blockchain platforms.'
             }
         ],
         Description: 'A session dedicated to smart contracts and decentralized applications (DApps), which are built on blockchain platforms like Ethereum.',
@@ -1169,7 +1169,7 @@ let events = [
         EventLevel: 'Intermediate',
         EventTags: ['Smart Contracts', 'DApps', 'Ethereum']
     },
-    
+
     {
         Id: 53,
         Title: 'Blockchain and Cryptocurrency Fundamentals',
@@ -1179,10 +1179,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Henry Clarke', 
-                title: 'Blockchain Expert', 
-                note: 'How blockchain can be used for enterprise applications, improving transparency and security in business processes.' 
+            {
+                name: 'Henry Clarke',
+                title: 'Blockchain Expert',
+                note: 'How blockchain can be used for enterprise applications, improving transparency and security in business processes.'
             }
         ],
         Description: 'A look into enterprise-level blockchain implementations and how companies are using this technology for improved efficiency and security.',
@@ -1201,10 +1201,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Mitchell', 
-                title: 'Cryptocurrency Expert', 
-                note: 'Discussing the future trends and innovations in blockchain and cryptocurrency technologies.' 
+            {
+                name: 'Sophia Mitchell',
+                title: 'Cryptocurrency Expert',
+                note: 'Discussing the future trends and innovations in blockchain and cryptocurrency technologies.'
             }
         ],
         Description: 'A forward-looking discussion on the potential future of blockchain and cryptocurrency technologies, their societal impacts, and upcoming trends.',
@@ -1223,15 +1223,15 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Henry Clarke', 
-                title: 'Blockchain Expert', 
-                note: 'An expert panel discusses the regulatory challenges and frameworks for cryptocurrencies and blockchain technologies.' 
+            {
+                name: 'Henry Clarke',
+                title: 'Blockchain Expert',
+                note: 'An expert panel discusses the regulatory challenges and frameworks for cryptocurrencies and blockchain technologies.'
             },
-            { 
-                name: 'Sophia Mitchell', 
-                title: 'Cryptocurrency Expert', 
-                note: 'Insights on how governments and financial institutions are handling the regulation of digital currencies.' 
+            {
+                name: 'Sophia Mitchell',
+                title: 'Cryptocurrency Expert',
+                note: 'Insights on how governments and financial institutions are handling the regulation of digital currencies.'
             }
         ],
         Description: 'Industry leaders discuss the evolving regulatory landscape for cryptocurrencies and blockchain-based technologies.',
@@ -1252,10 +1252,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'James Porter', 
-                title: 'IoT Specialist', 
-                note: 'An introduction to the Internet of Things (IoT) and its real-world applications in smart cities, homes, and industries.' 
+            {
+                name: 'James Porter',
+                title: 'IoT Specialist',
+                note: 'An introduction to the Internet of Things (IoT) and its real-world applications in smart cities, homes, and industries.'
             }
         ],
         Description: 'Exploring the concept of IoT, its key technologies, and how it’s being used to develop smart solutions in various industries.',
@@ -1274,10 +1274,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Emily Rose', 
-                title: 'IoT Engineer', 
-                note: 'Understanding IoT architecture and how IoT devices communicate in a connected environment.' 
+            {
+                name: 'Emily Rose',
+                title: 'IoT Engineer',
+                note: 'Understanding IoT architecture and how IoT devices communicate in a connected environment.'
             }
         ],
         Description: 'An in-depth look at IoT architecture, communication protocols, and devices that power the Internet of Things.',
@@ -1296,10 +1296,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'James Porter', 
-                title: 'IoT Security Expert', 
-                note: 'Exploring the security challenges in IoT systems and strategies to secure connected devices.' 
+            {
+                name: 'James Porter',
+                title: 'IoT Security Expert',
+                note: 'Exploring the security challenges in IoT systems and strategies to secure connected devices.'
             }
         ],
         Description: 'Addressing the unique security challenges posed by IoT systems and exploring solutions to protect connected devices and networks.',
@@ -1334,10 +1334,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Emily Rose', 
-                title: 'IoT Engineer', 
-                note: 'Discussing how IoT systems collect, manage, and analyze data for smart decision-making.' 
+            {
+                name: 'Emily Rose',
+                title: 'IoT Engineer',
+                note: 'Discussing how IoT systems collect, manage, and analyze data for smart decision-making.'
             }
         ],
         Description: 'Exploring the ways IoT systems generate massive data and how it’s analyzed for smart solutions and business intelligence.',
@@ -1356,10 +1356,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'James Porter', 
-                title: 'IoT Specialist', 
-                note: 'Exploring how IoT is transforming cities and homes with smart technologies that improve living standards.' 
+            {
+                name: 'James Porter',
+                title: 'IoT Specialist',
+                note: 'Exploring how IoT is transforming cities and homes with smart technologies that improve living standards.'
             }
         ],
         Description: 'A session focused on how IoT technologies are shaping the development of smart cities and homes, improving efficiency and quality of life.',
@@ -1378,10 +1378,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Emily Rose', 
-                title: 'IoT Engineer', 
-                note: 'Looking ahead to the next frontier of IoT innovation and the transformative potential of connected devices.' 
+            {
+                name: 'Emily Rose',
+                title: 'IoT Engineer',
+                note: 'Looking ahead to the next frontier of IoT innovation and the transformative potential of connected devices.'
             }
         ],
         Description: 'A discussion on the future of IoT, emerging trends, and how the Internet of Things will continue to shape industries and everyday life.',
@@ -1402,10 +1402,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Dr. Alice Johnson', 
-                title: 'Data Scientist', 
-                note: 'Introducing the core concepts and tools of data science, including data wrangling, visualization, and analysis.' 
+            {
+                name: 'Dr. Alice Johnson',
+                title: 'Data Scientist',
+                note: 'Introducing the core concepts and tools of data science, including data wrangling, visualization, and analysis.'
             }
         ],
         Description: 'An introductory session to the world of data science, covering fundamental concepts and tools used in the field.',
@@ -1424,10 +1424,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Dr. Alice Johnson', 
-                title: 'Data Scientist', 
-                note: 'A detailed exploration of supervised learning algorithms, including linear regression and decision trees.' 
+            {
+                name: 'Dr. Alice Johnson',
+                title: 'Data Scientist',
+                note: 'A detailed exploration of supervised learning algorithms, including linear regression and decision trees.'
             }
         ],
         Description: 'An in-depth session on supervised learning algorithms and their applications in machine learning and data analysis.',
@@ -1446,10 +1446,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Dr. Alice Johnson', 
-                title: 'Data Scientist', 
-                note: 'Exploring unsupervised learning techniques like clustering and dimensionality reduction.' 
+            {
+                name: 'Dr. Alice Johnson',
+                title: 'Data Scientist',
+                note: 'Exploring unsupervised learning techniques like clustering and dimensionality reduction.'
             }
         ],
         Description: 'A session covering unsupervised learning techniques, including K-means clustering and PCA, used to analyze unlabeled data.',
@@ -1484,10 +1484,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Dr. Alice Johnson', 
-                title: 'Deep Learning Expert', 
-                note: 'Introduction to deep learning techniques and how neural networks are transforming data science.' 
+            {
+                name: 'Dr. Alice Johnson',
+                title: 'Deep Learning Expert',
+                note: 'Introduction to deep learning techniques and how neural networks are transforming data science.'
             }
         ],
         Description: 'An introductory session on deep learning, explaining neural networks, CNNs, and their use in various applications.',
@@ -1497,7 +1497,7 @@ let events = [
         EventLevel: 'Intermediate',
         EventTags: ['Deep Learning', 'Neural Networks', 'Machine Learning']
     },
-    
+
     {
         Id: 68,
         Title: 'Data Science and Machine Learning',
@@ -1507,10 +1507,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Dr. Alice Johnson', 
-                title: 'Data Scientist', 
-                note: 'Understanding the different model evaluation metrics like accuracy, precision, recall, and F1-score.' 
+            {
+                name: 'Dr. Alice Johnson',
+                title: 'Data Scientist',
+                note: 'Understanding the different model evaluation metrics like accuracy, precision, recall, and F1-score.'
             }
         ],
         Description: 'A session on the importance of evaluating machine learning models using various performance metrics.',
@@ -1529,10 +1529,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Dr. Alice Johnson', 
-                title: 'Machine Learning Engineer', 
-                note: 'Discussing best practices and tools for deploying machine learning models to production environments.' 
+            {
+                name: 'Dr. Alice Johnson',
+                title: 'Machine Learning Engineer',
+                note: 'Discussing best practices and tools for deploying machine learning models to production environments.'
             }
         ],
         Description: 'A session focused on the strategies, tools, and challenges of deploying machine learning models into production environments.',
@@ -1553,10 +1553,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Daniel Smith', 
-                title: 'Cloud Architect', 
-                note: 'An introduction to cloud computing and its core concepts including IaaS, PaaS, and SaaS.' 
+            {
+                name: 'Daniel Smith',
+                title: 'Cloud Architect',
+                note: 'An introduction to cloud computing and its core concepts including IaaS, PaaS, and SaaS.'
             }
         ],
         Description: 'A session that introduces cloud computing, its different models, and its benefits for businesses and individuals.',
@@ -1591,10 +1591,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Daniel Smith', 
-                title: 'Cloud Architect', 
-                note: 'How to scale cloud-based applications and utilize cloud features to handle increasing traffic and demand.' 
+            {
+                name: 'Daniel Smith',
+                title: 'Cloud Architect',
+                note: 'How to scale cloud-based applications and utilize cloud features to handle increasing traffic and demand.'
             }
         ],
         Description: 'This session covers techniques for scaling applications in the cloud using services like auto-scaling and load balancing.',
@@ -1629,10 +1629,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Emily Davis', 
-                title: 'Cloud Security Expert', 
-                note: 'Discussing security best practices and tools for ensuring data protection in the cloud.' 
+            {
+                name: 'Emily Davis',
+                title: 'Cloud Security Expert',
+                note: 'Discussing security best practices and tools for ensuring data protection in the cloud.'
             }
         ],
         Description: 'This session focuses on security best practices, tools, and techniques for safeguarding data and applications in the cloud.',
@@ -1651,10 +1651,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Daniel Smith', 
-                title: 'Cloud Architect', 
-                note: 'Overview of cloud databases and storage services like AWS RDS, Google Cloud SQL, and Azure Blob Storage.' 
+            {
+                name: 'Daniel Smith',
+                title: 'Cloud Architect',
+                note: 'Overview of cloud databases and storage services like AWS RDS, Google Cloud SQL, and Azure Blob Storage.'
             }
         ],
         Description: 'A session focusing on cloud databases and storage solutions that scale according to your data needs and application demands.',
@@ -1673,10 +1673,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Emily Davis', 
-                title: 'Cloud Security Expert', 
-                note: 'Understanding multi-cloud and hybrid cloud strategies to optimize performance, flexibility, and costs.' 
+            {
+                name: 'Emily Davis',
+                title: 'Cloud Security Expert',
+                note: 'Understanding multi-cloud and hybrid cloud strategies to optimize performance, flexibility, and costs.'
             }
         ],
         Description: 'Learn about multi-cloud and hybrid cloud architectures and their benefits in achieving operational flexibility and reliability.',
@@ -1695,10 +1695,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Daniel Smith', 
-                title: 'Cloud Architect', 
-                note: 'Exploring serverless computing, serverless functions, and how it can simplify scaling applications.' 
+            {
+                name: 'Daniel Smith',
+                title: 'Cloud Architect',
+                note: 'Exploring serverless computing, serverless functions, and how it can simplify scaling applications.'
             }
         ],
         Description: 'An in-depth look at serverless architectures, including AWS Lambda and Google Cloud Functions, and their scalability benefits.',
@@ -1720,10 +1720,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Robert Lee', 
-                title: 'Network Engineer', 
-                note: 'Introducing the fundamentals of network automation and how it optimizes network management.' 
+            {
+                name: 'Robert Lee',
+                title: 'Network Engineer',
+                note: 'Introducing the fundamentals of network automation and how it optimizes network management.'
             }
         ],
         Description: 'An introductory session to network automation tools and techniques to automate manual processes and increase efficiency.',
@@ -1742,10 +1742,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Robert Lee', 
-                title: 'Network Automation Specialist', 
-                note: 'Exploring popular automation tools like Ansible, Puppet, and Chef for network orchestration.' 
+            {
+                name: 'Robert Lee',
+                title: 'Network Automation Specialist',
+                note: 'Exploring popular automation tools like Ansible, Puppet, and Chef for network orchestration.'
             }
         ],
         Description: 'A technical session exploring the use of automation tools like Ansible, Puppet, and Chef for configuring and managing network devices.',
@@ -1764,10 +1764,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Robert Lee', 
-                title: 'Network Engineer', 
-                note: 'An introduction to SDN, its architecture, and how it changes the way networks are managed and configured.' 
+            {
+                name: 'Robert Lee',
+                title: 'Network Engineer',
+                note: 'An introduction to SDN, its architecture, and how it changes the way networks are managed and configured.'
             }
         ],
         Description: 'This session covers Software-Defined Networking (SDN), a new approach to managing network infrastructure through centralized control.',
@@ -1786,10 +1786,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'David Robinson', 
-                title: 'Kubernetes Expert', 
-                note: 'Explaining how Kubernetes can be used for network orchestration in modern network infrastructures.' 
+            {
+                name: 'David Robinson',
+                title: 'Kubernetes Expert',
+                note: 'Explaining how Kubernetes can be used for network orchestration in modern network infrastructures.'
             }
         ],
         Description: 'A session dedicated to using Kubernetes for network orchestration, simplifying network management and increasing scalability.',
@@ -1808,10 +1808,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'David Robinson', 
-                title: 'Network Security Expert', 
-                note: 'Focusing on how automation can be used to enhance network security and detect vulnerabilities.' 
+            {
+                name: 'David Robinson',
+                title: 'Network Security Expert',
+                note: 'Focusing on how automation can be used to enhance network security and detect vulnerabilities.'
             }
         ],
         Description: 'An in-depth look at how network automation can play a significant role in securing networks and improving threat detection.',
@@ -1832,10 +1832,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Dr. Samuel Harris', 
-                title: 'Cybersecurity Expert', 
-                note: 'Exploring the advanced threats facing modern businesses and organizations in the digital age.' 
+            {
+                name: 'Dr. Samuel Harris',
+                title: 'Cybersecurity Expert',
+                note: 'Exploring the advanced threats facing modern businesses and organizations in the digital age.'
             }
         ],
         Description: 'A session that introduces common and emerging cybersecurity threats, including advanced persistent threats (APTs) and ransomware.',
@@ -1854,10 +1854,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Dr. Samuel Harris', 
-                title: 'Cybersecurity Expert', 
-                note: 'Understanding phishing attacks, social engineering tactics, and how to mitigate them.' 
+            {
+                name: 'Dr. Samuel Harris',
+                title: 'Cybersecurity Expert',
+                note: 'Understanding phishing attacks, social engineering tactics, and how to mitigate them.'
             }
         ],
         Description: 'A session focused on phishing, social engineering, and the techniques attackers use to trick employees into revealing sensitive information.',
@@ -1876,10 +1876,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Dr. Samuel Harris', 
-                title: 'Cybersecurity Expert', 
-                note: 'An analysis of various types of malware, ransomware, and how to protect systems from these threats.' 
+            {
+                name: 'Dr. Samuel Harris',
+                title: 'Cybersecurity Expert',
+                note: 'An analysis of various types of malware, ransomware, and how to protect systems from these threats.'
             }
         ],
         Description: 'This session will explore common types of malware and ransomware, their delivery mechanisms, and best practices for defense.',
@@ -1914,10 +1914,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sarah Williams', 
-                title: 'Network Security Expert', 
-                note: 'Discussing the importance of intrusion detection systems (IDS) and other network defense mechanisms.' 
+            {
+                name: 'Sarah Williams',
+                title: 'Network Security Expert',
+                note: 'Discussing the importance of intrusion detection systems (IDS) and other network defense mechanisms.'
             }
         ],
         Description: 'In this session, we’ll examine intrusion detection systems, firewalls, and other tools to detect and prevent unauthorized access.',
@@ -1936,10 +1936,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Dr. Samuel Harris', 
-                title: 'Cybersecurity Expert', 
-                note: 'An advanced session on APTs, focusing on their persistence, methods of attack, and how to combat them.' 
+            {
+                name: 'Dr. Samuel Harris',
+                title: 'Cybersecurity Expert',
+                note: 'An advanced session on APTs, focusing on their persistence, methods of attack, and how to combat them.'
             }
         ],
         Description: 'This session will dive into APTs, how they are carried out by advanced hackers, and strategies for defending against them.',
@@ -1958,10 +1958,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sarah Williams', 
-                title: 'Cybersecurity Forensics Expert', 
-                note: 'Understanding the importance of incident response and how to conduct proper forensics after a cyberattack.' 
+            {
+                name: 'Sarah Williams',
+                title: 'Cybersecurity Forensics Expert',
+                note: 'Understanding the importance of incident response and how to conduct proper forensics after a cyberattack.'
             }
         ],
         Description: 'A session on handling security incidents effectively, from detection to response and the forensic analysis needed afterward.',
@@ -1982,10 +1982,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'John Cooper', 
-                title: 'Blockchain Expert', 
-                note: 'An overview of blockchain technology and its potential to transform various industries.' 
+            {
+                name: 'John Cooper',
+                title: 'Blockchain Expert',
+                note: 'An overview of blockchain technology and its potential to transform various industries.'
             }
         ],
         Description: 'This session introduces the basics of blockchain technology, its components, and its applications in various sectors.',
@@ -2004,10 +2004,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'John Cooper', 
-                title: 'Blockchain Developer', 
-                note: 'Exploring how smart contracts and decentralized applications (DApps) function on blockchain networks.' 
+            {
+                name: 'John Cooper',
+                title: 'Blockchain Developer',
+                note: 'Exploring how smart contracts and decentralized applications (DApps) function on blockchain networks.'
             }
         ],
         Description: 'An in-depth session on the role of smart contracts and decentralized apps (DApps) in blockchain ecosystems.',
@@ -2026,10 +2026,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'John Cooper', 
-                title: 'Blockchain Developer', 
-                note: 'Understanding how cryptocurrency mining works, and an introduction to consensus algorithms like Proof of Work (PoW) and Proof of Stake (PoS).' 
+            {
+                name: 'John Cooper',
+                title: 'Blockchain Developer',
+                note: 'Understanding how cryptocurrency mining works, and an introduction to consensus algorithms like Proof of Work (PoW) and Proof of Stake (PoS).'
             }
         ],
         Description: 'A technical session on how mining works in the world of cryptocurrency and how consensus algorithms play a crucial role.',
@@ -2048,10 +2048,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Lee', 
-                title: 'Blockchain Researcher', 
-                note: 'Exploring how blockchain is applied in supply chains, healthcare, voting systems, and more.' 
+            {
+                name: 'Sophia Lee',
+                title: 'Blockchain Researcher',
+                note: 'Exploring how blockchain is applied in supply chains, healthcare, voting systems, and more.'
             }
         ],
         Description: 'This session explores real-world use cases of blockchain beyond cryptocurrency, such as logistics, health tech, and digital identity.',
@@ -2070,10 +2070,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Lee', 
-                title: 'Blockchain Security Expert', 
-                note: 'Understanding security challenges in blockchain and strategies for mitigating privacy and security risks.' 
+            {
+                name: 'Sophia Lee',
+                title: 'Blockchain Security Expert',
+                note: 'Understanding security challenges in blockchain and strategies for mitigating privacy and security risks.'
             }
         ],
         Description: 'A session on security risks in blockchain, with a focus on potential vulnerabilities in blockchain applications and privacy concerns.',
@@ -2092,10 +2092,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'John Cooper', 
-                title: 'Blockchain Visionary', 
-                note: 'Discussing the future trends in blockchain technology, from scalability improvements to decentralized finance (DeFi).' 
+            {
+                name: 'John Cooper',
+                title: 'Blockchain Visionary',
+                note: 'Discussing the future trends in blockchain technology, from scalability improvements to decentralized finance (DeFi).'
             }
         ],
         Description: 'A discussion on the future direction of blockchain technology, focusing on scalability, DeFi, and innovations to come.',
@@ -2116,10 +2116,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Alex Johnson', 
-                title: 'Web Developer', 
-                note: 'An introduction to modern web development using the React framework and its components.' 
+            {
+                name: 'Alex Johnson',
+                title: 'Web Developer',
+                note: 'An introduction to modern web development using the React framework and its components.'
             }
         ],
         Description: 'This session will cover the basics of building modern web applications with React, from setting up a project to rendering components.',
@@ -2138,10 +2138,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Alex Johnson', 
-                title: 'Web Developer', 
-                note: 'A deep dive into advanced React features like hooks, context, and state management.' 
+            {
+                name: 'Alex Johnson',
+                title: 'Web Developer',
+                note: 'A deep dive into advanced React features like hooks, context, and state management.'
             }
         ],
         Description: 'An in-depth session on advanced React concepts such as hooks, context API, Redux for state management, and performance optimizations.',
@@ -2160,10 +2160,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sarah Mitchell', 
-                title: 'UI/UX Designer', 
-                note: 'Mastering modern CSS layout techniques, including Grid and Flexbox for building flexible and responsive web designs.' 
+            {
+                name: 'Sarah Mitchell',
+                title: 'UI/UX Designer',
+                note: 'Mastering modern CSS layout techniques, including Grid and Flexbox for building flexible and responsive web designs.'
             }
         ],
         Description: 'This session focuses on building modern, responsive user interfaces using CSS Grid and Flexbox to create flexible layouts.',
@@ -2182,10 +2182,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'David Lee', 
-                title: 'Full Stack Developer', 
-                note: 'Exploring server-side rendering with Next.js and how it improves performance and SEO for React apps.' 
+            {
+                name: 'David Lee',
+                title: 'Full Stack Developer',
+                note: 'Exploring server-side rendering with Next.js and how it improves performance and SEO for React apps.'
             }
         ],
         Description: 'Learn about the advantages of server-side rendering with Next.js, and how it can enhance the performance and SEO of React applications.',
@@ -2195,7 +2195,7 @@ let events = [
         EventLevel: 'Intermediate',
         EventTags: ['Next.js', 'Server-Side Rendering', 'React']
     },
-    
+
     {
         Id: 102,
         Title: 'Modern Web Development and Frameworks',
@@ -2205,10 +2205,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'David Lee', 
-                title: 'Full Stack Developer', 
-                note: 'Understanding how to use Redux for global state management in React applications.' 
+            {
+                name: 'David Lee',
+                title: 'Full Stack Developer',
+                note: 'Understanding how to use Redux for global state management in React applications.'
             }
         ],
         Description: 'This session dives deep into state management with Redux, helping you build more maintainable React applications.',
@@ -2227,10 +2227,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Alex Johnson', 
-                title: 'Web Developer', 
-                note: 'Best practices for optimizing JavaScript performance in large-scale web applications.' 
+            {
+                name: 'Alex Johnson',
+                title: 'Web Developer',
+                note: 'Best practices for optimizing JavaScript performance in large-scale web applications.'
             }
         ],
         Description: 'This session focuses on performance optimization strategies for JavaScript, including lazy loading, memoization, and efficient rendering techniques.',
@@ -2251,10 +2251,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Mark Thompson', 
-                title: 'Cloud Architect', 
-                note: 'Exploring the fundamentals of cloud computing, including IaaS, PaaS, and SaaS models.' 
+            {
+                name: 'Mark Thompson',
+                title: 'Cloud Architect',
+                note: 'Exploring the fundamentals of cloud computing, including IaaS, PaaS, and SaaS models.'
             }
         ],
         Description: 'This session introduces cloud computing services, their architecture, and how businesses can leverage them to scale their operations.',
@@ -2273,10 +2273,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Mark Thompson', 
-                title: 'Cloud Architect', 
-                note: 'Understanding Kubernetes, container orchestration, and how it simplifies cloud infrastructure management.' 
+            {
+                name: 'Mark Thompson',
+                title: 'Cloud Architect',
+                note: 'Understanding Kubernetes, container orchestration, and how it simplifies cloud infrastructure management.'
             }
         ],
         Description: 'Learn about Kubernetes, containerization, and the role they play in modern cloud infrastructure and application deployment.',
@@ -2295,10 +2295,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sarah Nelson', 
-                title: 'DevOps Engineer', 
-                note: 'Exploring how Kubernetes can be used to automate deployment pipelines and scale applications effectively.' 
+            {
+                name: 'Sarah Nelson',
+                title: 'DevOps Engineer',
+                note: 'Exploring how Kubernetes can be used to automate deployment pipelines and scale applications effectively.'
             }
         ],
         Description: 'This session focuses on using Kubernetes for automating continuous integration and deployment (CI/CD) pipelines.',
@@ -2317,10 +2317,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sarah Nelson', 
-                title: 'DevOps Engineer', 
-                note: 'Understanding how Kubernetes helps scale containerized applications efficiently across multiple nodes.' 
+            {
+                name: 'Sarah Nelson',
+                title: 'DevOps Engineer',
+                note: 'Understanding how Kubernetes helps scale containerized applications efficiently across multiple nodes.'
             }
         ],
         Description: 'In this session, we will cover scaling techniques in Kubernetes and how to maintain high availability for cloud-native applications.',
@@ -2339,10 +2339,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Mark Thompson', 
-                title: 'Cloud Architect', 
-                note: 'Learn about the tools and strategies for monitoring and troubleshooting Kubernetes-based applications.' 
+            {
+                name: 'Mark Thompson',
+                title: 'Cloud Architect',
+                note: 'Learn about the tools and strategies for monitoring and troubleshooting Kubernetes-based applications.'
             }
         ],
         Description: 'This session dives deep into monitoring and troubleshooting Kubernetes applications using tools like Prometheus and Grafana.',
@@ -2361,10 +2361,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sarah Nelson', 
-                title: 'DevOps Engineer', 
-                note: 'Best practices for securing your Kubernetes clusters and managing security risks.' 
+            {
+                name: 'Sarah Nelson',
+                title: 'DevOps Engineer',
+                note: 'Best practices for securing your Kubernetes clusters and managing security risks.'
             }
         ],
         Description: 'A session on Kubernetes security practices, from securing clusters to managing network policies and container vulnerabilities.',
@@ -2385,10 +2385,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ethan Williams', 
-                title: 'Data Scientist', 
-                note: 'An overview of essential machine learning algorithms such as linear regression, decision trees, and k-nearest neighbors.' 
+            {
+                name: 'Ethan Williams',
+                title: 'Data Scientist',
+                note: 'An overview of essential machine learning algorithms such as linear regression, decision trees, and k-nearest neighbors.'
             }
         ],
         Description: 'This session introduces core machine learning algorithms, their uses, and how they are applied in real-world problems.',
@@ -2402,7 +2402,7 @@ let events = [
         Id: 93,
         Title: 'Artificial Intelligence and Data Science',
         Subject: 'Break',
-        StartTime: new Date(2025, 1, 28, 10,0),
+        StartTime: new Date(2025, 1, 28, 10, 0),
         EndTime: new Date(2025, 1, 28, 10, 30),
         RoomId: 1,
         Capacity: 0,
@@ -2423,10 +2423,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ethan Williams', 
-                title: 'Data Scientist', 
-                note: 'A look at deep learning, neural networks, and their applications in image recognition and natural language processing.' 
+            {
+                name: 'Ethan Williams',
+                title: 'Data Scientist',
+                note: 'A look at deep learning, neural networks, and their applications in image recognition and natural language processing.'
             }
         ],
         Description: 'An introduction to deep learning, its architectures like CNN and RNN, and how they’re transforming industries.',
@@ -2445,10 +2445,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Clark', 
-                title: 'AI Researcher', 
-                note: 'Exploring how NLP is used to analyze and understand human language, including sentiment analysis and chatbots.' 
+            {
+                name: 'Sophia Clark',
+                title: 'AI Researcher',
+                note: 'Exploring how NLP is used to analyze and understand human language, including sentiment analysis and chatbots.'
             }
         ],
         Description: 'This session covers the basics of NLP, its applications in real-world systems, and how to use NLP for text analytics.',
@@ -2467,10 +2467,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Clark', 
-                title: 'AI Researcher', 
-                note: 'A session on image classification, object detection, and advanced techniques in computer vision.' 
+            {
+                name: 'Sophia Clark',
+                title: 'AI Researcher',
+                note: 'A session on image classification, object detection, and advanced techniques in computer vision.'
             }
         ],
         Description: 'In this session, we’ll dive into computer vision and the methods used to extract useful information from images.',
@@ -2489,10 +2489,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Liam Johnson', 
-                title: 'AI Specialist', 
-                note: 'Exploring how AI technologies are transforming healthcare, from diagnostic tools to personalized treatments.' 
+            {
+                name: 'Liam Johnson',
+                title: 'AI Specialist',
+                note: 'Exploring how AI technologies are transforming healthcare, from diagnostic tools to personalized treatments.'
             }
         ],
         Description: 'AI is making a big impact in healthcare, improving diagnosis, treatment, and patient outcomes. This session explores these applications.',
@@ -2511,10 +2511,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ethan Williams', 
-                title: 'Data Scientist', 
-                note: 'Exploring the role of AI in autonomous driving, from computer vision to decision-making algorithms.' 
+            {
+                name: 'Ethan Williams',
+                title: 'Data Scientist',
+                note: 'Exploring the role of AI in autonomous driving, from computer vision to decision-making algorithms.'
             }
         ],
         Description: 'This session dives into the technologies that power autonomous vehicles, such as computer vision, machine learning, and sensor integration.',
@@ -2535,10 +2535,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Mark Thompson', 
-                title: 'Cloud Architect', 
-                note: 'Exploring the fundamentals of cloud computing, including IaaS, PaaS, and SaaS models.' 
+            {
+                name: 'Mark Thompson',
+                title: 'Cloud Architect',
+                note: 'Exploring the fundamentals of cloud computing, including IaaS, PaaS, and SaaS models.'
             }
         ],
         Description: 'This session introduces cloud computing services, their architecture, and how businesses can leverage them to scale their operations.',
@@ -2557,10 +2557,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'David Lee', 
-                title: 'DevOps Engineer', 
-                note: 'Understanding Kubernetes, container orchestration, and how it simplifies cloud infrastructure management.' 
+            {
+                name: 'David Lee',
+                title: 'DevOps Engineer',
+                note: 'Understanding Kubernetes, container orchestration, and how it simplifies cloud infrastructure management.'
             }
         ],
         Description: 'This session introduces Kubernetes and how containerization helps improve scalability and deployment in cloud environments.',
@@ -2595,10 +2595,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'David Lee', 
-                title: 'DevOps Engineer', 
-                note: 'Leveraging Jenkins to automate CI/CD pipelines in Kubernetes environments.' 
+            {
+                name: 'David Lee',
+                title: 'DevOps Engineer',
+                note: 'Leveraging Jenkins to automate CI/CD pipelines in Kubernetes environments.'
             }
         ],
         Description: 'In this session, you’ll learn how Jenkins is used in combination with Kubernetes to automate the CI/CD process.',
@@ -2633,10 +2633,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Mark Thompson', 
-                title: 'Cloud Architect', 
-                note: 'Using Terraform to automate cloud infrastructure deployment and management.' 
+            {
+                name: 'Mark Thompson',
+                title: 'Cloud Architect',
+                note: 'Using Terraform to automate cloud infrastructure deployment and management.'
             }
         ],
         Description: 'Terraform is a powerful tool for cloud automation. This session covers its features, benefits, and best practices.',
@@ -2655,10 +2655,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sarah Nelson', 
-                title: 'Cloud Specialist', 
-                note: 'Exploring serverless computing and how it simplifies cloud architectures while reducing costs.' 
+            {
+                name: 'Sarah Nelson',
+                title: 'Cloud Specialist',
+                note: 'Exploring serverless computing and how it simplifies cloud architectures while reducing costs.'
             }
         ],
         Description: 'In this session, we explore the benefits of serverless architectures in cloud computing and when to use them.',
@@ -2677,10 +2677,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sarah Nelson', 
-                title: 'Cloud Specialist', 
-                note: 'Ansible for automating cloud infrastructure deployment and configuration management.' 
+            {
+                name: 'Sarah Nelson',
+                title: 'Cloud Specialist',
+                note: 'Ansible for automating cloud infrastructure deployment and configuration management.'
             }
         ],
         Description: 'This session focuses on how to use Ansible for automating infrastructure tasks and configuration management in the cloud.',
@@ -2701,10 +2701,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Oliver Smith', 
-                title: 'Cloud Security Engineer', 
-                note: 'Security best practices for cloud environments to ensure data protection and compliance.' 
+            {
+                name: 'Oliver Smith',
+                title: 'Cloud Security Engineer',
+                note: 'Security best practices for cloud environments to ensure data protection and compliance.'
             }
         ],
         Description: 'This session will cover best practices for securing cloud environments, including encryption, access control, and vulnerability management.',
@@ -2723,10 +2723,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Oliver Smith', 
-                title: 'Cloud Security Engineer', 
-                note: 'Understanding IAM services in cloud platforms and how to implement them for secure access management.' 
+            {
+                name: 'Oliver Smith',
+                title: 'Cloud Security Engineer',
+                note: 'Understanding IAM services in cloud platforms and how to implement them for secure access management.'
             }
         ],
         Description: 'In this session, we will explore Identity and Access Management services (IAM) in the cloud and how to implement best practices for access control.',
@@ -2745,10 +2745,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Mia Roberts', 
-                title: 'Security Specialist', 
-                note: 'Scanning cloud environments for vulnerabilities and effective remediation strategies to minimize risks.' 
+            {
+                name: 'Mia Roberts',
+                title: 'Security Specialist',
+                note: 'Scanning cloud environments for vulnerabilities and effective remediation strategies to minimize risks.'
             }
         ],
         Description: 'This session covers tools and techniques for scanning cloud infrastructure for security vulnerabilities and how to remediate them.',
@@ -2767,10 +2767,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Mia Roberts', 
-                title: 'Security Specialist', 
-                note: 'Designing disaster recovery and business continuity plans to ensure availability of cloud-based services.' 
+            {
+                name: 'Mia Roberts',
+                title: 'Security Specialist',
+                note: 'Designing disaster recovery and business continuity plans to ensure availability of cloud-based services.'
             }
         ],
         Description: 'This session discusses designing disaster recovery strategies and business continuity plans for cloud environments.',
@@ -2789,10 +2789,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Michael Brown', 
-                title: 'Network Security Expert', 
-                note: 'Securing cloud networks with firewalls, load balancers, and virtual private networks (VPNs).' 
+            {
+                name: 'Michael Brown',
+                title: 'Network Security Expert',
+                note: 'Securing cloud networks with firewalls, load balancers, and virtual private networks (VPNs).'
             }
         ],
         Description: 'This session covers the importance of securing cloud networks using various techniques such as VPNs, firewalls, and encryption.',
@@ -2811,10 +2811,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Michael Brown', 
-                title: 'Network Security Expert', 
-                note: 'Understanding the Zero Trust model and how it helps secure cloud environments against modern threats.' 
+            {
+                name: 'Michael Brown',
+                title: 'Network Security Expert',
+                note: 'Understanding the Zero Trust model and how it helps secure cloud environments against modern threats.'
             }
         ],
         Description: 'In this session, we will discuss the Zero Trust security model and its importance in securing cloud-based systems.',
@@ -2835,10 +2835,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'James Wilson', 
-                title: 'Network Engineer', 
-                note: 'Networking concepts and protocols critical to deploying cloud infrastructure.' 
+            {
+                name: 'James Wilson',
+                title: 'Network Engineer',
+                note: 'Networking concepts and protocols critical to deploying cloud infrastructure.'
             }
         ],
         Description: 'This session covers the basic networking concepts and protocols used when designing and deploying cloud environments.',
@@ -2857,10 +2857,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'James Wilson', 
-                title: 'Network Engineer', 
-                note: 'Exploring how SDN is revolutionizing network management and the deployment of cloud services.' 
+            {
+                name: 'James Wilson',
+                title: 'Network Engineer',
+                note: 'Exploring how SDN is revolutionizing network management and the deployment of cloud services.'
             }
         ],
         Description: 'SDN allows more flexibility and control over cloud networks. This session covers its role and impact in cloud computing environments.',
@@ -2879,10 +2879,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Green', 
-                title: 'Cloud Engineer', 
-                note: 'Understanding how virtualization and NFV are used to deploy scalable, flexible, and cost-efficient cloud services.' 
+            {
+                name: 'Sophia Green',
+                title: 'Cloud Engineer',
+                note: 'Understanding how virtualization and NFV are used to deploy scalable, flexible, and cost-efficient cloud services.'
             }
         ],
         Description: 'In this session, we will explore how network function virtualization (NFV) and network virtualization can optimize cloud infrastructure.',
@@ -2901,10 +2901,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Green', 
-                title: 'Cloud Engineer', 
-                note: 'Exploring networking services provided by AWS, GCP, and Azure and their applications in cloud networking.' 
+            {
+                name: 'Sophia Green',
+                title: 'Cloud Engineer',
+                note: 'Exploring networking services provided by AWS, GCP, and Azure and their applications in cloud networking.'
             }
         ],
         Description: 'This session will compare the networking services provided by major cloud platforms like AWS, Google Cloud, and Azure.',
@@ -2923,10 +2923,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Noah Taylor', 
-                title: 'Network Architect', 
-                note: 'Exploring the integration of 5G networks with cloud infrastructures for ultra-fast and reliable connectivity.' 
+            {
+                name: 'Noah Taylor',
+                title: 'Network Architect',
+                note: 'Exploring the integration of 5G networks with cloud infrastructures for ultra-fast and reliable connectivity.'
             }
         ],
         Description: 'This session explores how 5G networks can be integrated with cloud infrastructures to enable faster and more reliable communication.',
@@ -2945,10 +2945,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Noah Taylor', 
-                title: 'Network Architect', 
-                note: 'Exploring techniques for load balancing and scaling networks to ensure high availability in the cloud.' 
+            {
+                name: 'Noah Taylor',
+                title: 'Network Architect',
+                note: 'Exploring techniques for load balancing and scaling networks to ensure high availability in the cloud.'
             }
         ],
         Description: 'This session will teach you how to design and implement cloud load balancing and network scaling strategies.',
@@ -2969,10 +2969,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'John Carter', 
-                title: 'Network Engineer', 
-                note: 'Understanding the fundamentals and practical applications of BGP in large-scale networks.' 
+            {
+                name: 'John Carter',
+                title: 'Network Engineer',
+                note: 'Understanding the fundamentals and practical applications of BGP in large-scale networks.'
             }
         ],
         Description: 'This session introduces the basics of Border Gateway Protocol (BGP) and its usage in inter-domain routing.',
@@ -2991,10 +2991,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'John Carter', 
-                title: 'Network Engineer', 
-                note: 'Exploring the implementation and challenges of IPv6 addressing in cloud environments.' 
+            {
+                name: 'John Carter',
+                title: 'Network Engineer',
+                note: 'Exploring the implementation and challenges of IPv6 addressing in cloud environments.'
             }
         ],
         Description: 'This session explores IPv6 networking fundamentals, benefits, and its role in modern cloud infrastructures.',
@@ -3013,10 +3013,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Green', 
-                title: 'Cloud Engineer', 
-                note: 'In-depth look into SDN architecture and its advantages in cloud networking.' 
+            {
+                name: 'Sophia Green',
+                title: 'Cloud Engineer',
+                note: 'In-depth look into SDN architecture and its advantages in cloud networking.'
             }
         ],
         Description: 'This session covers SDN architecture and how it enhances flexibility and management of cloud-based networks.',
@@ -3035,10 +3035,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Michael Brown', 
-                title: 'Network Architect', 
-                note: 'Utilizing VLANs and network segmentation to improve cloud security and performance.' 
+            {
+                name: 'Michael Brown',
+                title: 'Network Architect',
+                note: 'Utilizing VLANs and network segmentation to improve cloud security and performance.'
             }
         ],
         Description: 'Learn how VLANs can be used to segment networks and enhance security in cloud environments.',
@@ -3058,10 +3058,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'James Wilson', 
-                title: 'Cloud Network Specialist', 
-                note: 'Automating network configurations and operations using Ansible and Python.' 
+            {
+                name: 'James Wilson',
+                title: 'Cloud Network Specialist',
+                note: 'Automating network configurations and operations using Ansible and Python.'
             }
         ],
         Description: 'This session discusses how to automate network configuration, monitoring, and management using Ansible and Python.',
@@ -3080,10 +3080,10 @@ let events = [
         RoomId: 1,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sophia Green', 
-                title: 'Cloud Engineer', 
-                note: 'Understanding how to monitor and optimize network performance in cloud-based infrastructures.' 
+            {
+                name: 'Sophia Green',
+                title: 'Cloud Engineer',
+                note: 'Understanding how to monitor and optimize network performance in cloud-based infrastructures.'
             }
         ],
         Description: 'This session focuses on the best practices and tools for monitoring network performance in the cloud.',
@@ -3104,10 +3104,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Emily Davis', 
-                title: 'Cloud Architect', 
-                note: 'Optimizing cloud storage solutions for performance, security, and cost-effectiveness.' 
+            {
+                name: 'Emily Davis',
+                title: 'Cloud Architect',
+                note: 'Optimizing cloud storage solutions for performance, security, and cost-effectiveness.'
             }
         ],
         Description: 'This session covers best practices for optimizing cloud storage, ensuring efficiency and cost control.',
@@ -3126,10 +3126,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Emily Davis', 
-                title: 'Cloud Architect', 
-                note: 'Leveraging auto-scaling to dynamically scale cloud infrastructure based on demand.' 
+            {
+                name: 'Emily Davis',
+                title: 'Cloud Architect',
+                note: 'Leveraging auto-scaling to dynamically scale cloud infrastructure based on demand.'
             }
         ],
         Description: 'Learn how auto-scaling works in cloud platforms to handle fluctuating demand and optimize resources.',
@@ -3148,10 +3148,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Michael Green', 
-                title: 'Cloud Specialist', 
-                note: 'How to reduce costs by using reserved instances and other cost-saving strategies in the cloud.' 
+            {
+                name: 'Michael Green',
+                title: 'Cloud Specialist',
+                note: 'How to reduce costs by using reserved instances and other cost-saving strategies in the cloud.'
             }
         ],
         Description: 'This session explores how to optimize costs in the cloud by using reserved instances and other cloud cost-saving mechanisms.',
@@ -3170,10 +3170,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sarah Brown', 
-                title: 'Cloud Engineer', 
-                note: 'Best practices for managing resources and services in a multi-cloud environment.' 
+            {
+                name: 'Sarah Brown',
+                title: 'Cloud Engineer',
+                note: 'Best practices for managing resources and services in a multi-cloud environment.'
             }
         ],
         Description: 'This session will discuss best practices for handling multi-cloud environments and ensuring smooth operations.',
@@ -3192,10 +3192,10 @@ let events = [
         RoomId: 2,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sarah Brown', 
-                title: 'Cloud Database Expert', 
-                note: 'Tips and tools for optimizing the performance of cloud-hosted databases.' 
+            {
+                name: 'Sarah Brown',
+                title: 'Cloud Database Expert',
+                note: 'Tips and tools for optimizing the performance of cloud-hosted databases.'
             }
         ],
         Description: 'This session will focus on strategies for improving cloud database performance and ensuring fast, efficient data retrieval.',
@@ -3216,10 +3216,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Jack Turner', 
-                title: 'Cloud Security Specialist', 
-                note: 'Understanding the key principles of cloud security and data protection best practices.' 
+            {
+                name: 'Jack Turner',
+                title: 'Cloud Security Specialist',
+                note: 'Understanding the key principles of cloud security and data protection best practices.'
             }
         ],
         Description: 'Learn the fundamentals of cloud security, covering encryption, data protection, and risk mitigation strategies.',
@@ -3238,10 +3238,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Jack Turner', 
-                title: 'Cloud Security Specialist', 
-                note: 'Best practices for implementing IAM in cloud-based systems to ensure secure access.' 
+            {
+                name: 'Jack Turner',
+                title: 'Cloud Security Specialist',
+                note: 'Best practices for implementing IAM in cloud-based systems to ensure secure access.'
             }
         ],
         Description: 'In this session, we discuss how to implement robust Identity and Access Management (IAM) strategies for secure cloud environments.',
@@ -3260,10 +3260,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Sarah Collins', 
-                title: 'Cloud Engineer', 
-                note: 'Focusing on securing APIs and microservices in a cloud-based environment using the latest tools.' 
+            {
+                name: 'Sarah Collins',
+                title: 'Cloud Engineer',
+                note: 'Focusing on securing APIs and microservices in a cloud-based environment using the latest tools.'
             }
         ],
         Description: 'Learn how to secure APIs and microservices, including OAuth, encryption, and token management for cloud applications.',
@@ -3298,10 +3298,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Michael Davis', 
-                title: 'Cloud Compliance Expert', 
-                note: 'A guide to navigating the regulatory requirements that affect cloud deployments and services.' 
+            {
+                name: 'Michael Davis',
+                title: 'Cloud Compliance Expert',
+                note: 'A guide to navigating the regulatory requirements that affect cloud deployments and services.'
             }
         ],
         Description: 'This session will help you understand various compliance frameworks and their implementation in the cloud environment.',
@@ -3320,10 +3320,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'David Wright', 
-                title: 'Incident Response Specialist', 
-                note: 'Learn how to effectively respond to and manage security incidents in a cloud environment.' 
+            {
+                name: 'David Wright',
+                title: 'Incident Response Specialist',
+                note: 'Learn how to effectively respond to and manage security incidents in a cloud environment.'
             }
         ],
         Description: 'In this session, we’ll cover the incident response process in cloud environments, including tools and strategies for mitigation.',
@@ -3342,10 +3342,10 @@ let events = [
         RoomId: 3,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'David Wright', 
-                title: 'Encryption Specialist', 
-                note: 'A deep dive into advanced encryption methods used to protect data in cloud environments.' 
+            {
+                name: 'David Wright',
+                title: 'Encryption Specialist',
+                note: 'A deep dive into advanced encryption methods used to protect data in cloud environments.'
             }
         ],
         Description: 'This session will discuss advanced encryption techniques, key management, and how to protect sensitive data in cloud environments.',
@@ -3366,10 +3366,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Olivia Martinez', 
-                title: 'DevOps Engineer', 
-                note: 'An introduction to the key principles and practices of DevOps in cloud-based systems.' 
+            {
+                name: 'Olivia Martinez',
+                title: 'DevOps Engineer',
+                note: 'An introduction to the key principles and practices of DevOps in cloud-based systems.'
             }
         ],
         Description: 'This session covers the basics of DevOps principles, including continuous integration and continuous delivery in the cloud.',
@@ -3388,10 +3388,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Olivia Martinez', 
-                title: 'DevOps Engineer', 
-                note: 'Using IaC tools like Terraform and CloudFormation to automate infrastructure deployment in the cloud.' 
+            {
+                name: 'Olivia Martinez',
+                title: 'DevOps Engineer',
+                note: 'Using IaC tools like Terraform and CloudFormation to automate infrastructure deployment in the cloud.'
             }
         ],
         Description: 'This session will demonstrate how to use Infrastructure as Code (IaC) tools to automate and manage cloud infrastructure.',
@@ -3426,10 +3426,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ethan Parker', 
-                title: 'Cloud DevOps Engineer', 
-                note: 'In-depth exploration of CI/CD pipelines in cloud environments using Jenkins, CircleCI, and AWS CodePipeline.' 
+            {
+                name: 'Ethan Parker',
+                title: 'Cloud DevOps Engineer',
+                note: 'In-depth exploration of CI/CD pipelines in cloud environments using Jenkins, CircleCI, and AWS CodePipeline.'
             }
         ],
         Description: 'This session focuses on setting up and managing CI/CD pipelines for cloud-based applications to achieve faster development cycles.',
@@ -3464,10 +3464,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Ethan Parker', 
-                title: 'Cloud DevOps Engineer', 
-                note: 'Exploring serverless architecture and how to automate deployments with cloud-native tools.' 
+            {
+                name: 'Ethan Parker',
+                title: 'Cloud DevOps Engineer',
+                note: 'Exploring serverless architecture and how to automate deployments with cloud-native tools.'
             }
         ],
         Description: 'This session will cover the benefits of serverless architecture and how to automate deployments using cloud-native services.',
@@ -3486,10 +3486,10 @@ let events = [
         RoomId: 4,
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Hannah Lee', 
-                title: 'DevOps Specialist', 
-                note: 'Best practices for monitoring and logging cloud infrastructure, using tools like CloudWatch and ELK Stack.' 
+            {
+                name: 'Hannah Lee',
+                title: 'DevOps Specialist',
+                note: 'Best practices for monitoring and logging cloud infrastructure, using tools like CloudWatch and ELK Stack.'
             }
         ],
         Description: 'In this session, we’ll discuss how to monitor and log cloud infrastructure effectively to ensure operational efficiency.',
@@ -3508,14 +3508,14 @@ let treeView2Data = [
         Subject: 'Securing Cloud Networks and Data',
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Aidan Cole', 
-                title: 'Cloud Security Expert', 
-                note: 'Best practices for securing cloud networks and protecting sensitive data in the cloud.' 
+            {
+                name: 'Aidan Cole',
+                title: 'Cloud Security Expert',
+                note: 'Best practices for securing cloud networks and protecting sensitive data in the cloud.'
             },
-            { 
-                name: 'Riley Smith', 
-                title: 'Security Engineer', 
+            {
+                name: 'Riley Smith',
+                title: 'Security Engineer',
                 note: 'Hands-on strategies for implementing robust cloud security measures.'
             }
         ],
@@ -3532,14 +3532,14 @@ let treeView2Data = [
         Subject: 'Identity and Access Management in Cloud',
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Emily Parker', 
-                title: 'IAM Specialist', 
-                note: 'Implementing identity and access management in cloud environments to enhance security.' 
+            {
+                name: 'Emily Parker',
+                title: 'IAM Specialist',
+                note: 'Implementing identity and access management in cloud environments to enhance security.'
             },
-            { 
-                name: 'Mason Reed', 
-                title: 'Cloud Engineer', 
+            {
+                name: 'Mason Reed',
+                title: 'Cloud Engineer',
                 note: 'Configuring IAM solutions like AWS IAM, Azure Active Directory for optimal security.'
             }
         ],
@@ -3556,14 +3556,14 @@ let treeView2Data = [
         Subject: 'Cloud Data Encryption and Privacy',
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Jordan Lee', 
-                title: 'Security Consultant', 
-                note: 'Data encryption techniques for securing sensitive data in the cloud environment.' 
+            {
+                name: 'Jordan Lee',
+                title: 'Security Consultant',
+                note: 'Data encryption techniques for securing sensitive data in the cloud environment.'
             },
-            { 
-                name: 'Sarah Khan', 
-                title: 'Cloud Architect', 
+            {
+                name: 'Sarah Khan',
+                title: 'Cloud Architect',
                 note: 'Architecting systems that comply with data privacy regulations and ensure data integrity.'
             }
         ],
@@ -3580,14 +3580,14 @@ let treeView2Data = [
         Subject: 'Threat Detection in Cloud Environments',
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Olivia Brooks', 
-                title: 'Security Analyst', 
-                note: 'Exploring tools and methodologies for detecting security threats in cloud platforms.' 
+            {
+                name: 'Olivia Brooks',
+                title: 'Security Analyst',
+                note: 'Exploring tools and methodologies for detecting security threats in cloud platforms.'
             },
-            { 
-                name: 'David Shaw', 
-                title: 'Security Engineer', 
+            {
+                name: 'David Shaw',
+                title: 'Security Engineer',
                 note: 'Using cloud-native threat detection systems like AWS GuardDuty, Azure Security Center.'
             }
         ],
@@ -3604,14 +3604,14 @@ let treeView2Data = [
         Subject: 'Disaster Recovery and Backup in Cloud',
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Maxwell Davis', 
-                title: 'Cloud Recovery Specialist', 
-                note: 'Implementing robust disaster recovery and backup strategies in cloud infrastructure.' 
+            {
+                name: 'Maxwell Davis',
+                title: 'Cloud Recovery Specialist',
+                note: 'Implementing robust disaster recovery and backup strategies in cloud infrastructure.'
             },
-            { 
-                name: 'Grace Evans', 
-                title: 'Cloud Engineer', 
+            {
+                name: 'Grace Evans',
+                title: 'Cloud Engineer',
                 note: 'Best practices for backup and disaster recovery to ensure business continuity in the cloud.'
             }
         ],
@@ -3631,14 +3631,14 @@ let treeView3Data = [
         Subject: 'Automating Tasks with AI and Machine Learning',
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Olivia Grant', 
-                title: 'AI Researcher', 
-                note: 'Exploring the use of AI to automate repetitive tasks and optimize workflows.' 
+            {
+                name: 'Olivia Grant',
+                title: 'AI Researcher',
+                note: 'Exploring the use of AI to automate repetitive tasks and optimize workflows.'
             },
-            { 
-                name: 'Liam Young', 
-                title: 'AI Engineer', 
+            {
+                name: 'Liam Young',
+                title: 'AI Engineer',
                 note: 'Hands-on implementation of machine learning models for automation.'
             }
         ],
@@ -3655,14 +3655,14 @@ let treeView3Data = [
         Subject: 'AI for Process Optimization',
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Nina Brooks', 
-                title: 'Machine Learning Expert', 
-                note: 'Optimizing processes and workflows using AI algorithms for better outcomes.' 
+            {
+                name: 'Nina Brooks',
+                title: 'Machine Learning Expert',
+                note: 'Optimizing processes and workflows using AI algorithms for better outcomes.'
             },
-            { 
-                name: 'Daniel Foster', 
-                title: 'Data Scientist', 
+            {
+                name: 'Daniel Foster',
+                title: 'Data Scientist',
                 note: 'Practical applications of AI in process optimization across industries.'
             }
         ],
@@ -3679,14 +3679,14 @@ let treeView3Data = [
         Subject: 'Implementing AI-Powered Automation Solutions',
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'George Walsh', 
-                title: 'AI Solutions Architect', 
-                note: 'Designing end-to-end AI-powered automation systems for various business needs.' 
+            {
+                name: 'George Walsh',
+                title: 'AI Solutions Architect',
+                note: 'Designing end-to-end AI-powered automation systems for various business needs.'
             },
-            { 
-                name: 'Isabella Johnson', 
-                title: 'Machine Learning Developer', 
+            {
+                name: 'Isabella Johnson',
+                title: 'Machine Learning Developer',
                 note: 'Integrating AI models into business applications for real-world automation.'
             }
         ],
@@ -3703,14 +3703,14 @@ let treeView3Data = [
         Subject: 'AI for Predictive Maintenance',
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'Lena Parker', 
-                title: 'AI Expert', 
-                note: 'Using AI for predictive maintenance in industries like manufacturing and healthcare.' 
+            {
+                name: 'Lena Parker',
+                title: 'AI Expert',
+                note: 'Using AI for predictive maintenance in industries like manufacturing and healthcare.'
             },
-            { 
-                name: 'Oscar Lee', 
-                title: 'Maintenance Engineer', 
+            {
+                name: 'Oscar Lee',
+                title: 'Maintenance Engineer',
                 note: 'Leveraging AI-driven insights to predict equipment failure before it occurs.'
             }
         ],
@@ -3727,14 +3727,14 @@ let treeView3Data = [
         Subject: 'AI-Powered Chatbots for Business',
         Capacity: 100,
         Speakers: [
-            { 
-                name: 'David Morris', 
-                title: 'AI Specialist', 
-                note: 'Building intelligent AI-powered chatbots to automate customer support and services.' 
+            {
+                name: 'David Morris',
+                title: 'AI Specialist',
+                note: 'Building intelligent AI-powered chatbots to automate customer support and services.'
             },
-            { 
-                name: 'Sophie Turner', 
-                title: 'Chatbot Developer', 
+            {
+                name: 'Sophie Turner',
+                title: 'Chatbot Developer',
                 note: 'Creating and integrating AI-powered chatbots into customer service workflows.'
             }
         ],
@@ -3779,7 +3779,7 @@ function removeOverlappingEvents(events) {
         // Always add the current event to the filtered list, unless it's in the remove list
         if (!toRemoveIndexes.has(i) && !checkRoomCapacity(currentEvent.Capacity, currentEvent.RoomId)) {
             filteredEvents.push(currentEvent);
-            if (currentEvent.Title  && !eventsName.some((item) => item.name === currentEvent.Title)) {
+            if (currentEvent.Title && !eventsName.some((item) => item.name === currentEvent.Title)) {
                 eventsName.push({ id: eventsName.length + 1, name: currentEvent.Title });
             }
         }
@@ -4145,25 +4145,25 @@ const App = () => {
                     <strong><label>Time Slot</label>: </strong>{getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)}
                 </div>
 
-                {props.Subject.toLowerCase().indexOf('break') === -1  && props.Subject.toLowerCase().indexOf('lunch') === -1 && (
-                <div className="event-details">
-                    <div className="event-type"><strong><label>Event Type</label>: </strong>{props.EventType}</div>
-                    <div className="event-capacity"><strong><label>Audience Size</label>: </strong>{props.Capacity}</div>
-                </div>
+                {props.Subject.toLowerCase().indexOf('break') === -1 && props.Subject.toLowerCase().indexOf('lunch') === -1 && (
+                    <div className="event-details">
+                        <div className="event-type"><strong><label>Event Type</label>: </strong>{props.EventType}</div>
+                        <div className="event-capacity"><strong><label>Audience Size</label>: </strong>{props.Capacity}</div>
+                    </div>
                 )}
 
                 {props.Speakers && props.Speakers.length > 0 && (
                     <div className="event-speaker">
                         <strong><label>Speakers</label>:</strong>
                         {props.Speakers.map((speaker, index) => (
-                        <div className="speaker-details">
-                            <div className="speaker-image"></div>
-                            <div className="speaker-info">
-                                <div><strong>{props.Speakers[index].name}</strong></div>
-                                <div>{props.Speakers[index].title}</div>
-                                <div>{props.Speakers[index].note}</div>
+                            <div className="speaker-details">
+                                <div className="speaker-image"></div>
+                                <div className="speaker-info">
+                                    <div><strong>{props.Speakers[index].name}</strong></div>
+                                    <div>{props.Speakers[index].title}</div>
+                                    <div>{props.Speakers[index].note}</div>
+                                </div>
                             </div>
-                        </div>
                         ))}
                     </div>
                 )}
@@ -4387,7 +4387,7 @@ const App = () => {
                         </div>
                         <div className="content-area">
                             <TextBoxComponent id="title" ref={titleObj} placeholder="Title" />
-                        </div> 
+                        </div>
                         {/* <div className="content-area">
                             <DropDownListComponent id="eventType" ref={eventTypeObj} dataSource={roomData} fields={{ text: "Name", value: "Id" }} placeholder="Choose Type" index={0} popupHeight="200px" />
                         </div> */}
@@ -4397,23 +4397,23 @@ const App = () => {
                     </div>
                     :
                     <div className="event-content">
-                            <div className="meeting-type-wrap">
-                                <label>Subject</label>:
-                                <span>{props.Description}</span>
-                            </div>
-                            <div className="meeting-subject-wrap">
-                                <label>Type</label>:
-                                <span>{props.EventType}</span>
+                        <div className="meeting-type-wrap">
+                            <label>Subject</label>:
+                            <span>{props.Description}</span>
+                        </div>
+                        <div className="meeting-subject-wrap">
+                            <label>Type</label>:
+                            <span>{props.EventType}</span>
                         </div>
                         {props.Speakers && props.Speakers.length > 0 && (
-                        <div className="notes-wrap">
-                            <label>Speakers</label>:
-                            {props.Speakers.map((speaker, index) => (
-                                <div key={index}>
-                                    {speaker.name} ({speaker.title})
-                                </div>
-                            ))}
-                        </div>
+                            <div className="notes-wrap">
+                                <label>Speakers</label>:
+                                {props.Speakers.map((speaker, index) => (
+                                    <div key={index}>
+                                        {speaker.name} ({speaker.title})
+                                    </div>
+                                ))}
+                            </div>
                         )}
                     </div>
                 }
@@ -4454,9 +4454,9 @@ const App = () => {
         { "text": "AI for Automation" }];
 
     const filterData = (dataSource, value) => {
-       let newData = dataSource.filter((data) => data.Title === value );
-       return newData;
-   }
+        let newData = dataSource.filter((data) => data.Title === value);
+        return newData;
+    }
 
 
     const selectedHanlder = (args) => {
@@ -4492,7 +4492,7 @@ const App = () => {
                         eventRendered={onEventRendered}
                         dragStop={onDragStop}
                         popupClose={onPopupClose}
-                        
+
                         quickInfoTemplates={{ header: headerTemplate.bind(this), content: contentTemplate.bind(this), footer: footerTemplate.bind(this) }} popupOpen={onPopupOpen.bind(this)}
 
                     >
@@ -4521,22 +4521,22 @@ const App = () => {
                         <h1 className="title-text">Event Queue:</h1>
                     </div>
                     <div id="list-container">
-                           <div>
-                               {/* Tab element */}
-                               <TabComponent id="tab" selected={selectedHanlder.bind(this)} >
-                                   <TabItemsDirective>
-                                       <TabItemDirective header={headerText[0]} content={"#treeview1"} />
-                                       <TabItemDirective header={headerText[1]} content={"#treeview2"} />
-                                       <TabItemDirective header={headerText[2]} content={"#treeview3"} />
-                                   </TabItemsDirective>
-                               </TabComponent>
-                           </div>
-                           {/* ListView element */}
-                           <TreeViewComponent ref={treeObj1} id="treeview1" style={styleNone} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields1} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
-                           <TreeViewComponent ref={treeObj2} id='treeview2' style={styleNone} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields2} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
-                           <TreeViewComponent ref={treeObj3} id='treeview3' style={styleNone} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields3} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
-                       </div>
-                    
+                        <div>
+                            {/* Tab element */}
+                            <TabComponent id="tab" selected={selectedHanlder.bind(this)} >
+                                <TabItemsDirective>
+                                    <TabItemDirective header={headerText[0]} content={"#treeview1"} />
+                                    <TabItemDirective header={headerText[1]} content={"#treeview2"} />
+                                    <TabItemDirective header={headerText[2]} content={"#treeview3"} />
+                                </TabItemsDirective>
+                            </TabComponent>
+                        </div>
+                        {/* ListView element */}
+                        <TreeViewComponent ref={treeObj1} id="treeview1" style={styleNone} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields1} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
+                        <TreeViewComponent ref={treeObj2} id='treeview2' style={styleNone} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields2} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
+                        <TreeViewComponent ref={treeObj3} id='treeview3' style={styleNone} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields3} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
+                    </div>
+
                 </div>
                 <div id="target" className="col-lg-8">
                     <DialogComponent id="modalDialog" isModal={true} buttons={buttons} header="Notice" width="335px" content="" ref={dialogInstance} target="#target" visible={status} open={dialogOpen} close={dialogClose} animationSettings={animationSettings}></DialogComponent>
