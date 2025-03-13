@@ -4536,7 +4536,6 @@ const App = () => {
                         <TreeViewComponent ref={treeObj2} id='treeview2' style={styleNone} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields2} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
                         <TreeViewComponent ref={treeObj3} id='treeview3' style={styleNone} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields3} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
                     </div>
-
                 </div>
                 <div id="target" className="col-lg-8">
                     <DialogComponent id="modalDialog" isModal={true} buttons={buttons} header="Notice" width="335px" content="" ref={dialogInstance} target="#target" visible={status} open={dialogOpen} close={dialogClose} animationSettings={animationSettings}></DialogComponent>
