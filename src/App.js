@@ -3,22 +3,31 @@ import './App.css';
 import { useRef, useState } from 'react';
 import {
     ScheduleComponent, ViewsDirective, ViewDirective, ResourcesDirective, ResourceDirective,
-    TimelineViews, Week, Day, Agenda, Inject, DragAndDrop, ExcelExport, Print
+    TimelineViews, Week, Day, Agenda, Inject, DragAndDrop, ExcelExport, Print,
+    ToolbarItemsDirective,
+    ToolbarItemDirective
 } from '@syncfusion/ej2-react-schedule';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
-import { Internationalization, closest, addClass, remove, isNullOrUndefined } from '@syncfusion/ej2-base';
-import { Query } from '@syncfusion/ej2-data';
+import { Internationalization, closest, addClass, remove, isNullOrUndefined, removeClass, createElement } from '@syncfusion/ej2-base';
 import { TreeViewComponent } from '@syncfusion/ej2-react-navigations';
-import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
-import { TabComponent, TabItemsDirective, TabItemDirective } from '@syncfusion/ej2-react-navigations';
+import { DropDownButtonComponent } from '@syncfusion/ej2-react-splitbuttons';
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 
 const rooms = [
-    { RoomId: 1, RoomName: 'Room A', RoomCapacity: 110, RoomColor: '#FF5733' },
-    { RoomId: 2, RoomName: 'Room B', RoomCapacity: 100, RoomColor: '#33FF57' },
-    { RoomId: 3, RoomName: 'Room C', RoomCapacity: 100, RoomColor: '#3380FF' },
-    { RoomId: 4, RoomName: 'Room D', RoomCapacity: 100, RoomColor: '#FFC300' },
+    { RoomId: 1, RoomName: 'Room A', RoomCapacity: 110, RoomColor: '#0F6CBD' },
+    { RoomId: 2, RoomName: 'Room B', RoomCapacity: 100, RoomColor: '#B71C1C' },
+    { RoomId: 3, RoomName: 'Room C', RoomCapacity: 100, RoomColor: '#E65100' },
+    { RoomId: 4, RoomName: 'Room D', RoomCapacity: 100, RoomColor: '#558B2F' },
+];
+
+const roomsData = [
+    { RoomId: 0, RoomName: 'All' },
+    { RoomId: 1, RoomName: 'Room A' },
+    { RoomId: 2, RoomName: 'Room B' },
+    { RoomId: 3, RoomName: 'Room C' },
+    { RoomId: 4, RoomName: 'Room D' },
 ];
 
 let events = [
@@ -2958,7 +2967,7 @@ let events = [
         EventLevel: 'Advanced',
         EventTags: ['Cloud Networking', 'Load Balancing', 'Network Scaling']
     },
-
+     
     // Room 1 - March 1
     {
         Id: 139,
@@ -3751,7 +3760,12 @@ let availableEvents = treeView2Data.concat(treeView3Data);
 
 let eventsName = [];
 
-function isOverlapping(event1, event2) {
+let unPlannedEvents = ['All', ...Array.from(new Set(availableEvents.map(event => event.Title)))].map((name, index) => ({
+    id: index.toString(),
+    name: name,
+}))
+
+function isEventsOverlapping(event1, event2) {
     return event1.RoomId === event2.RoomId &&
         ((event1.StartTime >= event2.StartTime && event1.StartTime < event2.EndTime) ||
             (event1.EndTime > event2.StartTime && event1.EndTime <= event2.EndTime) ||
@@ -3770,7 +3784,7 @@ function removeOverlappingEvents(events) {
         // Compare with all subsequent events (i + 1 onward)
         for (let j = i + 1; j < events.length; j++) {
             const compareEvent = events[j];
-            if (isOverlapping(currentEvent, compareEvent)) {
+            if (isEventsOverlapping(currentEvent, compareEvent)) {
                 // If there's an overlap, mark the event at index j for removal
                 toRemoveIndexes.add(j);
             }
@@ -3813,58 +3827,42 @@ const checkRoomCapacity = (Capacity, RoomId) => {
 
 events = removeOverlappingEvents(events);
 
-
-
-
-
-
-
-
 const App = () => {
     const scheduleObj = useRef(null);
     const instance = new Internationalization();
 
     let eventsData = events;
-    const [selectedRoom, setSelectedRoom] = useState(null);
+
+    const toggleUnplannedEvents = () => {
+        let settingsPanel = document.querySelector('.unplanned-events-container');
+        if (settingsPanel.classList.contains('hide')) {
+            removeClass([settingsPanel], 'hide');
+        }
+        else {
+            addClass([settingsPanel], 'hide');
+        }
+    };
+
+    const dropDownItems = [
+        { text: 'Print', id: 'print' },
+        { text: 'Export', id: 'export' },
+    ];
+
+    const handleItemSelect = (args) => {
+        switch (args.item.id) {
+            case 'print':
+                scheduleObj.current.print();
+                break;
+            case 'export':
+                scheduleObj.current.exportToExcel();
+                break;
+            default:
+                break;
+        }
+    };
 
     const onActionBegin = (args) => {
-        if (args.requestType === "eventCreate") {
-            let eventsData = args.requestType === "eventCreate" ? args.data[0] : args.data;
-            const { StartTime, EndTime, RoomId, capacity, Title } = eventsData;
-
-            if (checkRoomAvailability(StartTime, EndTime, null, RoomId)) {
-                dialogInstance.current.content = 'The room is already booked for this time slot. Please select a different room or choose another available time.';
-                setStatus(true);
-                args.cancel = true;
-                return;
-            }
-
-            if (checkRoomCapacity(capacity, RoomId)) {
-                dialogInstance.current.content = 'The room cannot accommodate the number of attendees. Please select a different room that is suitable for the required capacity.';
-                setStatus(true);
-                args.cancel = true;
-                return;
-            }
-
-            if (!eventsName.some((item) => item.name === Title)) {
-                eventsName.push({ id: eventsName.length + 1, name: Title });
-            }
-        }
-        if (args.requestType === 'toolbarItemRendering') {
-            let exportItem1 = {
-                align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icons e-export-excel',
-                text: 'Excel Export', cssClass: 'e-excel-export', click: onExportClick
-            };
-            let exportItem2 = {
-                align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icons e-print',
-                text: 'Print', cssClass: 'e-schedule-print', click: onPrintIconClick
-            };
-            args.items.push({ align: 'Right', cssClass: 'e-toolbar-item e-schedule-seperator e-separator' });
-            args.items.push(exportItem1);
-            args.items.push(exportItem2);
-        }
-
-        if (args.requestType === 'eventCreate' && isTreeItemDropped) {
+        if (args.requestType === 'eventCreate' && isDraggedItemDropped) {
             let listObjects = [treeObj1, treeObj2, treeObj3];
             let treeObj = listObjects[activeTab].current;
             let treeViewData = treeObj.fields.dataSource;
@@ -3875,39 +3873,31 @@ const App = () => {
                 remove(elements[i]);
             }
         }
-
-    }
-
-    const onExportClick = () => {
-        const exportFields = [
-            { name: 'RoomId', text: 'RoomId' },
-            { name: 'Subject', text: 'Subject' },
-            { name: 'StartTime', text: 'StartTime' },
-            { name: 'EndTime', text: 'EndTime' }
-        ];
-        const exportValues = { fieldsInfo: exportFields };
-        scheduleObj.current.exportToExcel(exportValues);
-    }
-
-    const onPrintIconClick = () => {
-        scheduleObj.current.print();
     }
 
     const onRoomChange = (e) => {
         let value = e.value;
-        setSelectedRoom(value);
-        if (e.previousItem === null) {
-            let resourceData = rooms.filter((calendar) => calendar.RoomId !== value);
-            for (let idx = 0; idx < resourceData.length; idx++) {
-                let resource = resourceData[idx];
-                scheduleObj.current.removeResource(resource.RoomId, 'Rooms');
-            }
-        } else {
-            scheduleObj.current.removeResource(e.previousItemData.RoomId, 'Rooms');
-            let resourceData = rooms.filter((calendar) => calendar.RoomId === value);
-            scheduleObj.current.addResource(resourceData[0], 'Rooms', value - 1);
+        let previousItemData = e.previousItemData;
+        if (!previousItemData) {
+            return;
         }
+        if (value === 0) {
+            scheduleObj.current.removeResource(previousItemData.RoomId, 'Rooms');
+            scheduleObj.current.addResource(rooms, 'Rooms', value);
+        } else {
+            if (previousItemData.RoomId === 0) {
+                let resourceData = rooms.filter((room) => room.RoomId !== value);
+                for (let idx = 0; idx < resourceData.length; idx++) {
+                    let resource = resourceData[idx];
+                    scheduleObj.current.removeResource(resource.RoomId, 'Rooms');
+                }
+            } else {
+                scheduleObj.current.removeResource(previousItemData.RoomId, 'Rooms');
+                let resourceData = rooms.filter((room) => room.RoomId === value);
+                scheduleObj.current.addResource(resourceData[0], 'Rooms', value);
+            }
 
+        }
     };
 
     const getRoomName = (value) => {
@@ -3921,38 +3911,14 @@ const App = () => {
     }
 
     const resourceHeaderTemplate = (props) => {
-        console.log(props);
         return (<div className="template-wrap">
             <div className="resource-detail"><div className="resource-name">{getRoomName(props)}</div>
-                <div>
+                <div className="capacity-wrap">
                     <span className='e-icons e-capacity-icon'></span>
                     <span className='e-capacity'>{getCapacity(props)}</span>
                 </div>
-                {/* <div className="resource-designation">{getCapacity(props)}</div> */}
             </div></div>);
     }
-
-    const onEventRendered = (args) => {
-        console.log(args.data);
-    }
-
-    const onDragStop = (args) => {
-        console.log(args);
-        let eventsData = args.data;
-        const { StartTime, EndTime, RoomId, Capacity } = eventsData;
-
-        if (checkRoomAvailability(StartTime, EndTime, null, RoomId)) {
-            dialogInstance.current.content = 'The room is already booked for this time slot. Please select a different room or choose another available time.';
-            setStatus(true);
-            args.cancel = true;
-            // return;
-        } else if (checkRoomCapacity(Capacity, RoomId)) {
-            dialogInstance.current.content = 'The room cannot accommodate the number of attendees. Please select a different room that is suitable for the required capacity.';
-            setStatus(true);
-            args.cancel = true;
-        }
-    }
-
 
     let dialogInstance = useRef(null);
     const [status, setStatus] = useState(false);
@@ -3978,104 +3944,46 @@ const App = () => {
         setStatus(true);
     };
 
-    const headerTooltipTemplate = (props) => {
-        let roomName = getRoomName(props); // Assuming getRoomName is a function that returns room name
-
-        if (roomName === 'Room A') {
-            return (
-                <div className="template-wrap">
-                    <div className="header">
-                        Room Facilities
-                    </div>
-                    <ul className="facilities-list">
-                        <li>Projector</li>
-                        <li>Whiteboard</li>
-                        <li>Audio System</li>
-                        <li>High-speed Internet</li>
-                        <li>Conference Phone</li>
-                        <li>Adjustable Lighting</li>
-                        <li>Power outlets available</li>
-                        <li>Coffee/Water Station</li>
-                    </ul>
-                </div>
-            );
-        } else if (roomName === 'Room B') {
-            return (
-                <div className="template-wrap">
-                    <div className="header">
-                        Room Facilities
-                    </div>
-                    <ul className="facilities-list">
-                        <li>4K Display</li>
-                        <li>Whiteboard</li>
-                        <li>Audio System</li>
-                        <li>Video Conferencing Setup</li>
-                        <li>High-speed Internet</li>
-                        <li>Adjustable Lighting</li>
-                        <li>Power outlets available</li>
-                        <li>Coffee/Water Station</li>
-                    </ul>
-                </div>
-            );
-        } else if (roomName === 'Room C') {
-            return (
-                <div className="template-wrap">
-                    <div className="header">
-                        Room Facilities
-                    </div>
-                    <ul className="facilities-list">
-                        <li>Projector</li>
-                        <li>Whiteboard</li>
-                        <li>Audio System</li>
-                        <li>High-speed Internet</li>
-                        <li>Air Conditioning</li>
-                        <li>Power outlets available</li>
-                        <li>Coffee/Water Station</li>
-                        <li>Video Recording Setup</li>
-                    </ul>
-                </div>
-            );
-        } else if (roomName === 'Room D') {
-            return (
-                <div className="template-wrap">
-                    <div className="header">
-                        Room Facilities
-                    </div>
-                    <ul className="facilities-list">
-                        <li>Projector</li>
-                        <li>Whiteboard</li>
-                        <li>Audio System</li>
-                        <li>High-speed Internet</li>
-                        <li>Conference Phone</li>
-                        <li>Adjustable Lighting</li>
-                        <li>Power outlets available</li>
-                        <li>Coffee/Water Station</li>
-                    </ul>
-                </div>
-            );
-        }
-
-        // Return null or any fallback if the room name is neither Room A nor Room B
-        return null;
-    };
-
     const fieldsData = {
         subject: { name: 'Subject' },
+        location: { name: 'Title', title: 'Event' },
         startTime: { name: 'StartTime', validation: { required: true } },
         endTime: { name: 'EndTime', validation: { required: true } },
         roomId: { name: 'RoomId' },
         description: {
             name: 'Capacity', title: 'Participants Count',
             validation: { required: true }
-            // validation: { required: true, minLength: [minValidation(fieldsData), 'Need atleast 5 letters to be entered'] }
-        },
-        location: { name: 'Title', title: 'Event Title' }
+        }
     };
 
     let cellTarget;
 
     const onPopupOpen = (args) => {
-        cellTarget = args.target;
+        const isQuickInfo = args.type === 'QuickInfo';
+        const isEditorPopup = args.type === 'Editor';
+        const isWorkCellClick = args.target?.classList.contains('e-work-cells');
+        if ((isQuickInfo && isWorkCellClick) || (isEditorPopup && !isDraggedItemDropped)) {
+            args.cancel = true;
+        }
+        if (isEditorPopup) {
+            if (!args.element.querySelector('.custom-field-row')) {
+                let row = createElement('div', { className: 'custom-field-row' });
+                let formElement = args.element.querySelector('.e-schedule-form');
+                formElement.firstChild.insertBefore(row, (formElement.firstChild).querySelector('.e-description-row'));
+                let container = createElement('div', { className: 'custom-field-container' });
+                let customerNameContainer = createElement('div', { className: 'e-speaker-container' });
+                let customerNameHeader = createElement('label', { className: 'e-speaker-header' });
+                customerNameHeader.innerText = 'Speaker';
+                let customerNameValue = createElement('input', {
+                    className: 'e-speaker e-input e-text'
+                });
+                customerNameValue.value = args.data?.CustomerName;
+                customerNameContainer.appendChild(customerNameValue);
+                customerNameContainer.insertBefore(customerNameHeader, customerNameValue);
+                container.appendChild(customerNameContainer);
+                row.appendChild(container);
+            }
+        }
     }
 
     const onPopupClose = (args) => {
@@ -4086,7 +3994,7 @@ const App = () => {
             let capacity = args.data.Capacity;
             let eventId = null;
             if (args.target) {
-                eventId = scheduleObj.current.getEventDetails(args.target).Id;
+                eventId = scheduleObj.current.getEventDetails(args.target)?.Id;
             }
             let isRoomAvailable = !checkRoomAvailability(startTime, endTime, eventId, roomId);
             let isCapacityAvailable = !checkRoomCapacity(capacity, roomId);
@@ -4096,7 +4004,7 @@ const App = () => {
                 if (!args.element.querySelector('.time-alert')) {
                     const newDiv = document.createElement('div');
                     newDiv.classList.add('time-alert');
-                    newDiv.textContent = 'The room is already booked for this time slot. Please select a different room or choose another available time.';
+                    newDiv.textContent = 'Select time between 8AM-6PM with no overlaps.';
                     timeElement.insertAdjacentElement('afterend', newDiv);
                 }
             } else {
@@ -4110,7 +4018,7 @@ const App = () => {
                 if (!args.element.querySelector('.capacity-alert')) {
                     const newDiv = document.createElement('div');
                     newDiv.classList.add('capacity-alert');
-                    newDiv.textContent = 'The room cannot accommodate the number of attendees. Please select a different room that is suitable for the required capacity.';
+                    newDiv.textContent = "Capacity exceeds the room's limit.";
                     timeElement.insertAdjacentElement('afterend', newDiv);
                 }
             } else {
@@ -4125,6 +4033,9 @@ const App = () => {
         }
     }
 
+    const getDateString = (value) => {
+        return instance.formatDate(value, { type: 'date', skeleton: 'medium' });
+    }
 
     const getTimeString = (value) => {
         return instance.formatDate(value, { type: 'time', skeleton: 'short' });
@@ -4134,34 +4045,33 @@ const App = () => {
         console.log(props);
         return (
             <div className="agenda-event">
-                <div className="event-header">
-                    <div className="event-subject">
-                        <strong>{props.Subject}</strong>
-                    </div>
-                    <div className="event-description">{props.Description}</div>
-                </div>
 
-                <div className="event-time">
-                    <strong><label>Time Slot</label>: </strong>{getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)}
-                </div>
+                <div className="event-subject">{props.Subject}</div>
+                <div className="event-description">{props.Description}</div>
 
                 {props.Subject.toLowerCase().indexOf('break') === -1 && props.Subject.toLowerCase().indexOf('lunch') === -1 && (
-                    <div className="event-details">
-                        <div className="event-type"><strong><label>Event Type</label>: </strong>{props.EventType}</div>
-                        <div className="event-capacity"><strong><label>Audience Size</label>: </strong>{props.Capacity}</div>
+                    <div className="event-duration-audience">
+                        <div className="event-duration">
+                            <span className='e-icons e-duration-icon'></span>
+                            <span className='e-duration'>{getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)}</span>
+                        </div>
+                        <div className="event-audience">
+                            <span className='e-icons e-audience-icon'></span>
+                            <span className='e-audience-count'>Audience : {props.Capacity}</span>
+                        </div>
                     </div>
                 )}
-
                 {props.Speakers && props.Speakers.length > 0 && (
                     <div className="event-speaker">
-                        <strong><label>Speakers</label>:</strong>
+                        <div className="separator-line"></div>
+                        <label>Speakers</label>
                         {props.Speakers.map((speaker, index) => (
                             <div className="speaker-details">
                                 <div className="speaker-image"></div>
                                 <div className="speaker-info">
-                                    <div><strong>{props.Speakers[index].name}</strong></div>
-                                    <div>{props.Speakers[index].title}</div>
-                                    <div>{props.Speakers[index].note}</div>
+                                    <div className='speaker-name'>{props.Speakers[index].name}</div>
+                                    <div className='speaker-title'>{props.Speakers[index].title}</div>
+                                    <div className='speaker-note'>{props.Speakers[index].note}</div>
                                 </div>
                             </div>
                         ))}
@@ -4171,20 +4081,10 @@ const App = () => {
         );
     }
 
-    const [filter, setFilter] = useState('');
-
-    // Handle filtering based on the text input
-    const onFilterChange = (e) => {
-        setFilter(e.itemData.name);
-    };
-
-    // Create the query to filter events
-    const filteredQuery = new Query().where('Title', 'contains', filter, true);
-
     let treeObj1 = useRef(null);
     let treeObj2 = useRef(null);
     let treeObj3 = useRef(null);
-    let isTreeItemDropped = false;
+    let isDraggedItemDropped = false;
     let draggedItemId = '';
     const allowDragAndDrops = true;
     const fields1 = { dataSource: availableEvents, id: 'Id', text: 'Subject', duration: 'Duration' };
@@ -4193,11 +4093,15 @@ const App = () => {
 
     const treeTemplate = (props) => {
         return (
-            <div id="waiting">
-                <div id="waitdetails">
-                    <div id="waitlist">{props.Subject}</div>
-                    <div id="waitduration">Duration: {props.Duration}</div>
-                    <div id="waitcapacity">Audience Size: {props.Capacity}</div>
+            <div className="unplanned-item">
+                <div className="unplanned-item-subject">{props.Subject}</div>
+                <div className="unplanned-item-duration">
+                    <span className='duration-icon e-icons'></span>
+                    <span className='duration-value'>Duration: {props.Duration}</span>
+                </div>
+                <div className="unplanned-item-capacity">
+                    <span className='capacity-icon e-icons'></span>
+                    <span className='capacity-value'>Audience Size: {props.Capacity}</span>
                 </div>
             </div>
         );
@@ -4282,7 +4186,7 @@ const App = () => {
                         IsAllDay: cellData.isAllDay,
                     };
                     scheduleObj.current.openEditor(eventData, 'Add', true);
-                    isTreeItemDropped = true;
+                    isDraggedItemDropped = true;
                     draggedItemId = event.draggedNodeData.id;
                 }
             }
@@ -4378,43 +4282,52 @@ const App = () => {
     let capacityObj = useRef(null);
 
     const contentTemplate = (props) => {
+        let room = '';
+        if (props.elementType !== 'cell') {
+            room = rooms.filter((room) => room.RoomId === props.RoomId)[0].RoomName;
+        } else {
+            let grpIdx = scheduleObj.current.activeCellsData.groupIndex + 1;
+            room = rooms.filter((room) => room.RoomId === grpIdx)[0].RoomName;
+        }
         return (
             <div className="quick-info-content">
                 {props.elementType === 'cell' ?
                     <div className="e-cell-content">
-                        <div className="content-area">
-                            <TextBoxComponent id="topic" ref={topicObj} placeholder="Topic" />
-                        </div>
-                        <div className="content-area">
+                        <div className="e-title">
                             <TextBoxComponent id="title" ref={titleObj} placeholder="Title" />
                         </div>
-                        {/* <div className="content-area">
-                            <DropDownListComponent id="eventType" ref={eventTypeObj} dataSource={roomData} fields={{ text: "Name", value: "Id" }} placeholder="Choose Type" index={0} popupHeight="200px" />
-                        </div> */}
-                        <div className="content-area">
-                            <TextBoxComponent id="capacity" ref={capacityObj} placeholder="Participants Count" />
+                        <div className="e-time">
+                            <label>Time :</label>
+                            <span className='e-content'> {getDateString(props.StartTime)} ({getTimeString(props.StartTime) + ' - ' + getTimeString(props.EndTime)})</span>
+                        </div>
+                        <div className="e-room">
+                            <label>Room :</label>
+                            <span className='e-content'>{room}</span>
                         </div>
                     </div>
                     :
                     <div className="event-content">
-                        <div className="meeting-type-wrap">
-                            <label>Subject</label>:
-                            <span>{props.Description}</span>
+                        <div className="e-room e-content-item">
+                            <label>Room :</label>
+                            <span className='e-content'>{room}</span>
                         </div>
-                        <div className="meeting-subject-wrap">
-                            <label>Type</label>:
-                            <span>{props.EventType}</span>
+                        <div className="e-event e-content-item">
+                            <label>Event :</label>
+                            <span className='e-content'>{props.Title}</span>
                         </div>
                         {props.Speakers && props.Speakers.length > 0 && (
-                            <div className="notes-wrap">
-                                <label>Speakers</label>:
+                            <div className="e-speaker e-content-item">
+                                <label>Speakers :</label>
                                 {props.Speakers.map((speaker, index) => (
-                                    <div key={index}>
-                                        {speaker.name} ({speaker.title})
-                                    </div>
+                                    <span className='e-content' key={index}>{speaker.name} ({speaker.title})
+                                    </span>
                                 ))}
                             </div>
                         )}
+                        <div className="e-count e-content-item">
+                            <label>Participant count :</label>
+                            <span className='e-content'>{props.Capacity}</span>
+                        </div>
                     </div>
                 }
             </div>
@@ -4439,129 +4352,138 @@ const App = () => {
         );
     }
 
-
-
-
-    let listObjects = [];
+    let treeRefs = [];
     let activeTab = 0;
     let styleNone = { display: "none" };
 
     let type = ['', 'Cloud Security Essentials', 'AI for Automation'];
-
-    let headerText = [
-        { "text": "All" },
-        { "text": "Cloud Security Essentials" },
-        { "text": "AI for Automation" }];
 
     const filterData = (dataSource, value) => {
         let newData = dataSource.filter((data) => data.Title === value);
         return newData;
     }
 
+    const valueTemplate = (data) => {
+        return <span>{data.RoomName === 'All' ? 'Room: All' : data.RoomName}</span>;
+    }
 
-    const selectedHanlder = (args) => {
-        if (treeObj1 !== undefined) {
-            activeTab = args.selectedIndex;
-            listObjects = [treeObj1, treeObj2, treeObj3];
-            let newData;
-            if (activeTab === 0) {
-                listObjects[activeTab].current.fields.dataSource = (listObjects[1].current.fields.dataSource).concat(listObjects[2].current.fields.dataSource);
-            } else {
-                newData = filterData(availableEvents, type[activeTab]); // Filter the data while selecting tab
-                listObjects[activeTab].current.fields.dataSource = newData;
-            }
-        }
+    const roomDropDown = () => {
+        return (<DropDownListComponent
+            dataSource={roomsData}
+            fields={{ text: 'RoomName', value: 'RoomId' }}
+            value={0}
+            change={onRoomChange}
+            valueTemplate={valueTemplate.bind(this)}
+        />);
     };
 
-    return (<div className='schedule-control-section'>
-        <div className='col-lg-12 control-section'>
-            <div className='control-wrapper drag-sample-wrapper'>
-                <div className="schedule-container">
-                    <ScheduleComponent
-                        ref={scheduleObj}
-                        cssClass='schedule-drag-drop'
-                        currentView='Day'
-                        selectedDate={new Date(2025, 1, 24)}
-                        width='100%' height='600px'
-                        startHour="08:00"
-                        endHour="18:00"
-                        eventSettings={{ dataSource: eventsData, fields: fieldsData, query: filteredQuery }}
-                        group={{ resources: ['Rooms'], headerTooltipTemplate: headerTooltipTemplate.bind(this) }}
-                        actionBegin={onActionBegin}
-                        resourceHeaderTemplate={resourceHeaderTemplate}
-                        eventRendered={onEventRendered}
-                        dragStop={onDragStop}
-                        popupClose={onPopupClose}
+    const printAndExport = () => {
+        return (<DropDownButtonComponent
+            items={dropDownItems}
+            select={handleItemSelect}
+            iconCss='e-icons e-print-export'
+            cssClass='e-caret-hide'
+        />);
+    };
 
-                        quickInfoTemplates={{ header: headerTemplate.bind(this), content: contentTemplate.bind(this), footer: footerTemplate.bind(this) }} popupOpen={onPopupOpen.bind(this)}
+    const onSelectUnplannedEvents = (args) => {
+        treeRefs = [treeObj1, treeObj2, treeObj3];
+        let prevIdx = parseInt(args.previousItemData.id, 10);
+        activeTab = parseInt(args.value, 10);
+        treeRefs[prevIdx].current.element.style.display = 'none';
+        treeRefs[activeTab].current.element.style.display = '';
+        let newData;
+        if (activeTab === 0) {
+            treeRefs[activeTab].current.fields.dataSource = (treeRefs[1].current.fields.dataSource).concat(treeRefs[2].current.fields.dataSource);
+        } else {
+            newData = filterData(availableEvents, type[activeTab]); // Filter the data while selecting tab
+            treeRefs[activeTab].current.fields.dataSource = newData;
+        }
+    }
 
-                    >
-                        <ViewsDirective>
-                            <ViewDirective option="Day" />
-                            <ViewDirective option="Week" />
-                            <ViewDirective option="Agenda" eventTemplate={agendaTemplate} />
-                        </ViewsDirective>
-                        <ResourcesDirective>
-                            <ResourceDirective
-                                field="RoomId"
-                                title="Rooms"
-                                name="Rooms"
-                                dataSource={rooms}
-                                textField="RoomName"
-                                idField="RoomId"
-                                colorField="RoomColor"
-                                capacityField='Capacity'
-                            />
-                        </ResourcesDirective>
-                        <Inject services={[TimelineViews, Agenda, Week, Day, DragAndDrop, ExcelExport, Print]} />
-                    </ScheduleComponent>
-                </div>
-                <div className="treeview-container">
-                    <div className="title-container">
-                        <h1 className="title-text">Event Queue:</h1>
-                    </div>
-                    <div id="list-container">
-                        <div>
-                            {/* Tab element */}
-                            <TabComponent id="tab" selected={selectedHanlder.bind(this)} >
-                                <TabItemsDirective>
-                                    <TabItemDirective header={headerText[0]} content={"#treeview1"} />
-                                    <TabItemDirective header={headerText[1]} content={"#treeview2"} />
-                                    <TabItemDirective header={headerText[2]} content={"#treeview3"} />
-                                </TabItemsDirective>
-                            </TabComponent>
-                        </div>
-                        {/* ListView element */}
-                        <TreeViewComponent ref={treeObj1} id="treeview1" style={styleNone} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields1} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
-                        <TreeViewComponent ref={treeObj2} id='treeview2' style={styleNone} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields2} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
-                        <TreeViewComponent ref={treeObj3} id='treeview3' style={styleNone} cssClass='treeview-external-drag' dragArea=".drag-sample-wrapper" nodeTemplate={treeTemplate} fields={fields3} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
-                    </div>
-                </div>
-                <div id="target" className="col-lg-8">
-                    <DialogComponent id="modalDialog" isModal={true} buttons={buttons} header="Notice" width="335px" content="" ref={dialogInstance} target="#target" visible={status} open={dialogOpen} close={dialogClose} animationSettings={animationSettings}></DialogComponent>
-                </div>
-                <div className='e-room-selection'>
-                    <div className="title-container">
-                        <h4 className="title-text">Select Room</h4>
-                    </div>
-                    <DropDownListComponent
+    const onRendercell = (args) => {
+        if (args.elementType === "workCells") {
+            // To change the color of weekend columns in week view
+            if (args.date) {
+                if (args.date.getDay() === 0) {
+                    (args.element).style.background = '#F5F5F5';
+                }
+            }
+        }
+    }
+
+    return (<div className='event-management-control-section'>
+        <div className='control-wrapper event-management-wrapper'>
+            <ScheduleComponent
+                ref={scheduleObj}
+                cssClass='schedule-event-management'
+                currentView='Week'
+                selectedDate={new Date(2025, 1, 24)}
+                width='100%'
+                height='550px'
+                startHour="08:00"
+                endHour="18:00"
+                eventSettings={{ dataSource: eventsData, fields: fieldsData }}
+                group={{ resources: ['Rooms'] }}
+                actionBegin={onActionBegin}
+                resourceHeaderTemplate={resourceHeaderTemplate}
+                renderCell={onRendercell}
+                popupClose={onPopupClose}
+                popupOpen={onPopupOpen}
+                quickInfoTemplates={{ header: headerTemplate.bind(this), content: contentTemplate.bind(this), footer: footerTemplate.bind(this) }}
+            >
+                <ViewsDirective>
+                    <ViewDirective option="Day" />
+                    <ViewDirective option="Week" />
+                    <ViewDirective option="Agenda" eventTemplate={agendaTemplate} />
+                </ViewsDirective>
+                <ResourcesDirective>
+                    <ResourceDirective
+                        field="RoomId"
+                        title="Rooms"
+                        name="Rooms"
                         dataSource={rooms}
-                        fields={{ text: 'RoomName', value: 'RoomId' }}
-                        placeholder="Select Room"
-                        value={selectedRoom}
-                        change={onRoomChange}
+                        textField="RoomName"
+                        idField="RoomId"
+                        colorField="RoomColor"
+                        capacityField='Capacity'
                     />
-                    <div className="title-container">
-                        <h4 className="title-text">Select Event</h4>
-                    </div>
-                    <DropDownListComponent
-                        dataSource={eventsName}
-                        fields={{ text: 'name', value: 'id' }}
-                        placeholder="Select Event"
-                        // value={selectedRoom}
-                        change={onFilterChange}
-                    />
+                </ResourcesDirective>
+                <Inject services={[TimelineViews, Agenda, Week, Day, DragAndDrop, ExcelExport, Print]} />
+
+                <ToolbarItemsDirective>
+                    <ToolbarItemDirective name='Previous' align='Left'></ToolbarItemDirective>
+                    <ToolbarItemDirective name='Next' align='Left'></ToolbarItemDirective>
+                    <ToolbarItemDirective name='DateRangeText' align='Left'></ToolbarItemDirective>
+                    <ToolbarItemDirective name='Views' align='Right'></ToolbarItemDirective>
+                    <ToolbarItemDirective type='Separator' align='Right'></ToolbarItemDirective>
+                    <ToolbarItemDirective name='Custom' type='Input' template={roomDropDown} align='Right'></ToolbarItemDirective>
+                    <ToolbarItemDirective type='Separator' align='Right'></ToolbarItemDirective>
+                    <ToolbarItemDirective name='Custom' type='Button' prefixIcon='e-icons e-unplanned-events' align='Right' showTextOn='Overflow' overflow='Show' id="overview_toolbar_settings_unplanned_events" click={toggleUnplannedEvents}></ToolbarItemDirective>
+                    <ToolbarItemDirective name='Custom' type='Button' prefixIcon='e-icons e-print-export' template={printAndExport} align='Right'></ToolbarItemDirective>
+                </ToolbarItemsDirective>
+            </ScheduleComponent>
+            <div className="unplanned-events-container">
+                <div className="title-container">
+                    <div className="title-text">Unplanned Events</div>
                 </div>
+                <div id="list-container">
+                    <div className='events-list'>
+                        <label className="event-label">Event</label>
+                        <DropDownListComponent
+                            fields={{ text: 'name', value: 'id' }}
+                            dataSource={unPlannedEvents}
+                            value='0'
+                            change={onSelectUnplannedEvents}
+                        />
+                    </div>
+                    <TreeViewComponent ref={treeObj1} id="treeview1" style={{ display: "" }} cssClass='treeview-external-drag' dragArea=".event-management-wrapper" nodeTemplate={treeTemplate} fields={fields1} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
+                    <TreeViewComponent ref={treeObj2} id='treeview2' style={styleNone} cssClass='treeview-external-drag' dragArea=".event-management-wrapper" nodeTemplate={treeTemplate} fields={fields2} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
+                    <TreeViewComponent ref={treeObj3} id='treeview3' style={styleNone} cssClass='treeview-external-drag' dragArea=".event-management-wrapper" nodeTemplate={treeTemplate} fields={fields3} nodeDragStop={onTreeDragStop} nodeSelecting={onItemSelecting} nodeDragging={onTreeDrag} nodeDragStart={onTreeDragStart} allowDragAndDrop={allowDragAndDrops} />
+                </div>
+            </div>
+            <div id="target" className="col-lg-8">
+                <DialogComponent id="modalDialog" isModal={true} buttons={buttons} header="Notice" width="335px" content="" ref={dialogInstance} target="#target" visible={status} open={dialogOpen} close={dialogClose} animationSettings={animationSettings}></DialogComponent>
             </div>
         </div>
     </div>);
